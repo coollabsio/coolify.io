@@ -5,9 +5,9 @@
 <div class="text-4xl text-center font-bold">Sponsors 💜</div>
 <div class="text-center text-gray-300">Special thanks to the people who sponsoring our work.</div>
 <div class="text-center text-xs">Would you like to see yourself here? <a class="text-warning underline hover:text-white" href="https://github.com/sponsors/coollabsio">Here is how.</a></div>
-<div class="flex gap-2 justify-center pt-10">
+<div class="flex gap-2 flex-wrap justify-center pt-10">
 <a href="https://cccareers.org/?utm_source=coolify.io"><img src="https://github.com/cccareers.png" width="60px" alt="Creating Coding Careers" /></a>
-<a  href="https://appwrite.io/?utm_source=coolify.io"><img class="rounded-full" src="https://github.com/appwrite.png" width="60px" alt="Appwrite" /></a>
+<a href="https://appwrite.io/?utm_source=coolify.io"><img class="rounded-full" src="https://github.com/appwrite.png" width="60px" alt="Appwrite" /></a>
 <a href="https://bc.direct/?utm_source=coolify.io"><svg  version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-14 h-14"
 	 viewBox="0 0 290 250" xml:space="preserve">
 <style type="text/css">
@@ -38,7 +38,7 @@
 <a href="https://github.com/whitesidest"><img class="rounded-full" src="https://avatars.githubusercontent.com/u/12365916?s=52&v=4" width="60px" alt="Tyler Whitesides" /></a>
 <a href="https://github.com/aniftyco"><img class="rounded-full" src="https://github.com/aniftyco.png" width="60px" alt="NiftyCo" /></a>
 <a href="https://github.com/iujlaki"><img class="rounded-full" src="https://github.com/iujlaki.png" width="60px" alt="Imre Ujlaki" /></a>
-<a href="https://github.com/Illyism"><img class="rounded-full" src="https://github.com/Illyism.png" width="60px" alt="Ilias Ism" /></a>
+<a href="https://il.ly/?utm_source=coolify.io"><img class="rounded-full" src="https://github.com/Illyism.png" width="60px" alt="Ilias Ism" /></a>
 <a href="https://github.com/urtho"><img class="rounded-full" src="https://github.com/urtho.png" width="60px" alt="Paweł Pierścionek" /></a>
 <a href="https://github.com/monocursive"><img class="rounded-full" src="https://github.com/monocursive.png" width="60px" alt="Michael Mazurczak" /></a>
 
