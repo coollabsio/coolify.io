@@ -6,8 +6,9 @@
 <div class="text-center text-gray-300">Special thanks to the people who sponsoring our work.</div>
 <div class="text-center text-xs">Would you like to see yourself here? <a class="text-warning underline hover:text-white" href="https://github.com/sponsors/coollabsio">Here is how.</a></div>
 <div class="flex gap-2 justify-center pt-10">
-<a href="https://github.com/cccareers"><img src="https://github.com/cccareers.png" width="60px" alt="Creating Coding Careers" /></a>
-<a href="https://bc.direct"><svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  class="w-14 h-14"
+<a href="https://cccareers.org/?utm_source=coolify.io"><img src="https://github.com/cccareers.png" width="60px" alt="Creating Coding Careers" /></a>
+<a  href="https://appwrite.io/?utm_source=coolify.io"><img class="rounded-full" src="https://github.com/appwrite.png" width="60px" alt="Appwrite" /></a>
+<a href="https://bc.direct/?utm_source=coolify.io"><svg  version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-14 h-14"
 	 viewBox="0 0 290 250" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#FFFFFF;}
@@ -28,18 +29,18 @@
 			C84.3-5.7,57.4,9.8,52.6,35.8l0,0C48.8,56.5,60.6,76.9,80.5,84z"/>
 	</g>
 </svg></a>
-<a href="https://www.quantcdn.io/"><img src="https://github.com/quantcdn.png" width="60px" alt="QuantCDN" /></a>
-<a href="https://360creators.com"><img src="https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/503e0953-bff7-4296-b4cc-5e36d40eecc0/icon-360creators.png" width="60px" alt="360Creators" /></a>
-<a href="https://github.com/automazeio"><img src="https://github.com/automazeio.png" width="60px" alt="Corentin Clichy" /></a>
+<a href="https://www.quantcdn.io/?utm_source=coolify.io"><img class="rounded-full" src="https://github.com/quantcdn.png" width="60px" alt="QuantCDN" /></a>
+<a href="https://360creators.com/?utm_source=coolify.io"><img src="https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/503e0953-bff7-4296-b4cc-5e36d40eecc0/icon-360creators.png" width="60px" alt="360Creators" /></a>
+<a href="https://automaze.io/?utm_source=coolify.io"><img class="rounded-full" src="https://github.com/automazeio.png" width="60px" alt="Corentin Clichy" /></a>
 <a href="https://github.com/corentinclichy"><img src="https://github.com/corentinclichy.png" width="60px" alt="Corentin Clichy" /></a>
-<a href="https://github.com/Niki2k1"><img src="https://github.com/Niki2k1.png" width="60px" alt="Niklas Lausch" /></a>
-<a href="https://github.com/pixelinfinito"><img src="https://github.com/pixelinfinito.png" width="60px" alt="Pixel Infinito" /></a>
-<a href="https://github.com/whitesidest"><img src="https://avatars.githubusercontent.com/u/12365916?s=52&v=4" width="60px" alt="Tyler Whitesides" /></a>
-<a href="https://github.com/aniftyco"><img src="https://github.com/aniftyco.png" width="60px" alt="NiftyCo" /></a>
-<a href="https://github.com/iujlaki"><img src="https://github.com/iujlaki.png" width="60px" alt="Imre Ujlaki" /></a>
-<a href="https://github.com/Illyism"><img src="https://github.com/Illyism.png" width="60px" alt="Ilias Ism" /></a>
-<a href="https://github.com/urtho"><img src="https://github.com/urtho.png" width="60px" alt="Paweł Pierścionek" /></a>
-<a href="https://github.com/monocursive"><img src="https://github.com/monocursive.png" width="60px" alt="Michael Mazurczak" /></a>
+<a href="https://github.com/Niki2k1"><img class="rounded-full" src="https://github.com/Niki2k1.png" width="60px" alt="Niklas Lausch" /></a>
+<a href="https://pixel.ao/?utm_source=coolify.io"><img class="rounded-full" src="https://github.com/pixelinfinito.png" width="60px" alt="Pixel Infinito" /></a>
+<a href="https://github.com/whitesidest"><img class="rounded-full" src="https://avatars.githubusercontent.com/u/12365916?s=52&v=4" width="60px" alt="Tyler Whitesides" /></a>
+<a href="https://github.com/aniftyco"><img class="rounded-full" src="https://github.com/aniftyco.png" width="60px" alt="NiftyCo" /></a>
+<a href="https://github.com/iujlaki"><img class="rounded-full" src="https://github.com/iujlaki.png" width="60px" alt="Imre Ujlaki" /></a>
+<a href="https://github.com/Illyism"><img class="rounded-full" src="https://github.com/Illyism.png" width="60px" alt="Ilias Ism" /></a>
+<a href="https://github.com/urtho"><img class="rounded-full" src="https://github.com/urtho.png" width="60px" alt="Paweł Pierścionek" /></a>
+<a href="https://github.com/monocursive"><img class="rounded-full" src="https://github.com/monocursive.png" width="60px" alt="Michael Mazurczak" /></a>
 
 </div>
 <div class=" text-center"><a class="text-warning underline text-xs hover:text-white"  href="https://github.com/sponsors/coollabsio"> And many more...</a></div>
