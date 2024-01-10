@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  let url = "https://get.coollabs.io";
+  let url = "https://undead.coolify.io";
   let instances = 0;
   onMount(async () => {
     const { count } = await (
