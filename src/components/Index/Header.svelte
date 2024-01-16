@@ -41,11 +41,27 @@
       >
     </div>
     <div class="text-sm pb-2">
-      We are a <span class="text-warning font-bold">bootstrapped</span> company. We rely
-      on your support to keep the project alive. <br />This helps to focus on
-      the actual users
+      We are a <span class="text-warning font-bold">bootstrapped</span> company.
+      We rely on your support to keep the project alive. <br />This helps to
+      focus on the actual users
       <span class="text-warning font-bold">(like You)</span>
-      and not on investors / revenue. <br><br>If you use our self-hosted version, you can support our work by donating. 💜
+      and not on investors / revenue. <br /><br />If you use our self-hosted
+      version, you can support our work by donating.
+      <svg
+        class="w-8 h-8 inline-block text-coollabs-100"
+        viewBox="0 0 256 256"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g fill="currentColor">
+          <path
+            d="M232 94c0 66-104 122-104 122S24 160 24 94a54 54 0 0 1 54-54c22.59 0 41.94 12.31 50 32c8.06-19.69 27.41-32 50-32a54 54 0 0 1 54 54"
+            opacity=".2"
+          />
+          <path
+            d="M72 136H32a8 8 0 0 1 0-16h35.72l13.62-20.44a8 8 0 0 1 13.32 0l25.34 38l9.34-14A8 8 0 0 1 136 120h24a8 8 0 0 1 0 16h-19.72l-13.62 20.44a8 8 0 0 1-13.32 0L88 118.42l-9.34 14A8 8 0 0 1 72 136M178 32c-20.65 0-38.73 8.88-50 23.89C116.73 40.88 98.65 32 78 32a62.07 62.07 0 0 0-62 62v2.25a8 8 0 1 0 16-.5V94a46.06 46.06 0 0 1 46-46c19.45 0 35.78 10.36 42.6 27a8 8 0 0 0 14.8 0c6.82-16.67 23.15-27 42.6-27a46.06 46.06 0 0 1 46 46c0 53.61-77.76 102.15-96 112.8c-10.83-6.31-42.63-26-66.68-52.21a8 8 0 1 0-11.8 10.82c31.17 34 72.93 56.68 74.69 57.63a8 8 0 0 0 7.58 0C136.21 220.66 240 164 240 94a62.07 62.07 0 0 0-62-62"
+          />
+        </g>
+      </svg>
       <div class="mt-10 flex items-center gap-x-6">
         <a
           href="https://github.com/sponsors/coollabsio"

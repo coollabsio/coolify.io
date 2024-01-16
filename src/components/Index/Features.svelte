@@ -2,48 +2,193 @@
   import Feature from "./Feature.svelte";
 </script>
 
-<div class="text-4xl text-center font-bold">Sponsors 💜</div>
-<div class="text-center text-gray-300">Special thanks to the people who sponsoring our work.</div>
-<div class="text-center text-xs">Would you like to see yourself here? <a class="text-warning underline hover:text-white" href="https://github.com/sponsors/coollabsio">Here is how.</a></div>
-<div class="flex gap-2 flex-wrap justify-center pt-10">
-<a href="https://cccareers.org/?utm_source=coolify.io"><img src="https://github.com/cccareers.png" width="60px" alt="Creating Coding Careers" /></a>
-<a href="https://appwrite.io/?utm_source=coolify.io"><img class="rounded-full" src="https://github.com/appwrite.png" width="60px" alt="Appwrite" /></a>
-<a href="https://bc.direct/?utm_source=coolify.io"><svg  version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-14 h-14"
-	 viewBox="0 0 290 250" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#FFFFFF;}
-	.st1{fill:#116DFF;}
-</style>
-	<g>
-		<path class="st1" d="M158.6,96.4c0.4,2.3,2.9,3.7,5.1,2.9L206.9,84c19.8-7.1,31.6-27.5,27.8-48.2l0,0c-4.8-26-31.7-41.5-56.6-32.7
-			l0,0c-19.8,7.1-31.6,27.5-27.8,48.2L158.6,96.4z"/>
-		<path class="st1" d="M269.1,95.4L269.1,95.4c-16-13.7-39.6-13.7-55.7,0l-34.9,29.7c-1.8,1.5-1.8,4.3,0,5.9l34.9,29.7
-			c16,13.7,39.6,13.7,55.7,0l0,0C289.3,143.7,289.3,112.6,269.1,95.4z"/>
-		<path class="st1" d="M206.9,172.2l-43.2-15.4c-2.2-0.8-4.7,0.6-5.1,2.9l-8.3,45.1c-3.8,20.7,8,41.1,27.8,48.2l0,0
-			c24.9,8.9,51.8-6.7,56.6-32.7l0,0C238.5,199.7,226.7,179.3,206.9,172.2z"/>
-		<path class="st1" d="M128.8,159.8c-0.4-2.3-2.9-3.7-5.1-2.9l-43.2,15.4c-19.8,7.1-31.6,27.5-27.8,48.2l0,0
-			c4.8,26,31.7,41.5,56.6,32.7l0,0c19.8-7.1,31.6-27.5,27.8-48.2L128.8,159.8z"/>
-		<path class="st1" d="M108.8,131.1c1.8-1.5,1.8-4.3,0-5.9L73.9,95.4c-16-13.7-39.6-13.7-55.7,0l0,0c-20.1,17.1-20.1,48.2,0,65.4
-			l0,0c16,13.7,39.6,13.7,55.7,0L108.8,131.1z"/>
-		<path class="st1" d="M80.5,84l43.2,15.4c2.2,0.8,4.7-0.6,5.1-2.9l8.3-45.1c3.8-20.7-8-41.1-27.8-48.2l0,0
-			C84.3-5.7,57.4,9.8,52.6,35.8l0,0C48.8,56.5,60.6,76.9,80.5,84z"/>
-	</g>
-</svg></a>
-<a href="https://www.quantcdn.io/?utm_source=coolify.io"><img class="rounded-full" src="https://github.com/quantcdn.png" width="60px" alt="QuantCDN" /></a>
-<a href="https://360creators.com/?utm_source=coolify.io"><img src="https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/503e0953-bff7-4296-b4cc-5e36d40eecc0/icon-360creators.png" width="60px" alt="360Creators" /></a>
-<a href="https://automaze.io/?utm_source=coolify.io"><img class="rounded-full" src="https://github.com/automazeio.png" width="60px" alt="Corentin Clichy" /></a>
-<a href="https://github.com/corentinclichy"><img src="https://github.com/corentinclichy.png" width="60px" alt="Corentin Clichy" /></a>
-<a href="https://github.com/Niki2k1"><img class="rounded-full" src="https://github.com/Niki2k1.png" width="60px" alt="Niklas Lausch" /></a>
-<a href="https://pixel.ao/?utm_source=coolify.io"><img class="rounded-full" src="https://github.com/pixelinfinito.png" width="60px" alt="Pixel Infinito" /></a>
-<a href="https://github.com/whitesidest"><img class="rounded-full" src="https://avatars.githubusercontent.com/u/12365916?s=52&v=4" width="60px" alt="Tyler Whitesides" /></a>
-<a href="https://github.com/aniftyco"><img class="rounded-full" src="https://github.com/aniftyco.png" width="60px" alt="NiftyCo" /></a>
-<a href="https://github.com/iujlaki"><img class="rounded-full" src="https://github.com/iujlaki.png" width="60px" alt="Imre Ujlaki" /></a>
-<a href="https://il.ly/?utm_source=coolify.io"><img class="rounded-full" src="https://github.com/Illyism.png" width="60px" alt="Ilias Ism" /></a>
-<a href="https://github.com/urtho"><img class="rounded-full" src="https://github.com/urtho.png" width="60px" alt="Paweł Pierścionek" /></a>
-<a href="https://github.com/monocursive"><img class="rounded-full" src="https://github.com/monocursive.png" width="60px" alt="Michael Mazurczak" /></a>
-
+<div class="text-4xl text-center font-bold">
+  Sponsors
+  <svg class="w-8 h-8 inline-block text-coollabs-100" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M240 94c0 70-103.79 126.66-108.21 129a8 8 0 0 1-7.58 0C119.79 220.66 16 164 16 94a62.07 62.07 0 0 1 62-62c20.65 0 38.73 8.88 50 23.89C139.27 40.88 157.35 32 178 32a62.07 62.07 0 0 1 62 62"/>
+</svg>
+  
 </div>
-<div class=" text-center"><a class="text-warning underline text-xs hover:text-white"  href="https://github.com/sponsors/coollabsio"> And many more...</a></div>
+<div class="text-center text-gray-300">
+  Special thanks to the people who sponsoring our work.
+</div>
+<div class="text-center text-xs">
+  Would you like to see yourself here? <a
+    class="text-warning underline hover:text-white"
+    href="https://github.com/sponsors/coollabsio">Here is how.</a
+  >
+</div>
+<div class="flex gap-2 flex-wrap justify-center pt-10">
+  <a href="https://cccareers.org/?utm_source=coolify.io"
+    ><img
+      src="https://github.com/cccareers.png"
+      width="60px"
+      alt="Creating Coding Careers"
+    /></a
+  >
+  <a href="https://appwrite.io/?utm_source=coolify.io"
+    ><img
+      class="rounded-full"
+      src="https://github.com/appwrite.png"
+      width="60px"
+      alt="Appwrite"
+    /></a
+  >
+  <a href="https://bc.direct/?utm_source=coolify.io"
+    ><svg
+      version="1.1"
+      id="Calque_1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      class="w-14 h-14"
+      viewBox="0 0 290 250"
+      xml:space="preserve"
+    >
+      <style type="text/css">
+        .st0 {
+          fill: #ffffff;
+        }
+        .st1 {
+          fill: #116dff;
+        }
+      </style>
+      <g>
+        <path
+          class="st1"
+          d="M158.6,96.4c0.4,2.3,2.9,3.7,5.1,2.9L206.9,84c19.8-7.1,31.6-27.5,27.8-48.2l0,0c-4.8-26-31.7-41.5-56.6-32.7
+			l0,0c-19.8,7.1-31.6,27.5-27.8,48.2L158.6,96.4z"
+        />
+        <path
+          class="st1"
+          d="M269.1,95.4L269.1,95.4c-16-13.7-39.6-13.7-55.7,0l-34.9,29.7c-1.8,1.5-1.8,4.3,0,5.9l34.9,29.7
+			c16,13.7,39.6,13.7,55.7,0l0,0C289.3,143.7,289.3,112.6,269.1,95.4z"
+        />
+        <path
+          class="st1"
+          d="M206.9,172.2l-43.2-15.4c-2.2-0.8-4.7,0.6-5.1,2.9l-8.3,45.1c-3.8,20.7,8,41.1,27.8,48.2l0,0
+			c24.9,8.9,51.8-6.7,56.6-32.7l0,0C238.5,199.7,226.7,179.3,206.9,172.2z"
+        />
+        <path
+          class="st1"
+          d="M128.8,159.8c-0.4-2.3-2.9-3.7-5.1-2.9l-43.2,15.4c-19.8,7.1-31.6,27.5-27.8,48.2l0,0
+			c4.8,26,31.7,41.5,56.6,32.7l0,0c19.8-7.1,31.6-27.5,27.8-48.2L128.8,159.8z"
+        />
+        <path
+          class="st1"
+          d="M108.8,131.1c1.8-1.5,1.8-4.3,0-5.9L73.9,95.4c-16-13.7-39.6-13.7-55.7,0l0,0c-20.1,17.1-20.1,48.2,0,65.4
+			l0,0c16,13.7,39.6,13.7,55.7,0L108.8,131.1z"
+        />
+        <path
+          class="st1"
+          d="M80.5,84l43.2,15.4c2.2,0.8,4.7-0.6,5.1-2.9l8.3-45.1c3.8-20.7-8-41.1-27.8-48.2l0,0
+			C84.3-5.7,57.4,9.8,52.6,35.8l0,0C48.8,56.5,60.6,76.9,80.5,84z"
+        />
+      </g>
+    </svg></a
+  >
+  <a href="https://www.quantcdn.io/?utm_source=coolify.io"
+    ><img
+      class="rounded-full"
+      src="https://github.com/quantcdn.png"
+      width="60px"
+      alt="QuantCDN"
+    /></a
+  >
+  <a href="https://360creators.com/?utm_source=coolify.io"
+    ><img
+      src="https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/503e0953-bff7-4296-b4cc-5e36d40eecc0/icon-360creators.png"
+      width="60px"
+      alt="360Creators"
+    /></a
+  >
+  <a href="https://automaze.io/?utm_source=coolify.io"
+    ><img
+      class="rounded-full"
+      src="https://github.com/automazeio.png"
+      width="60px"
+      alt="Corentin Clichy"
+    /></a
+  >
+  <a href="https://github.com/corentinclichy"
+    ><img
+      src="https://github.com/corentinclichy.png"
+      width="60px"
+      alt="Corentin Clichy"
+    /></a
+  >
+  <a href="https://github.com/Niki2k1"
+    ><img
+      class="rounded-full"
+      src="https://github.com/Niki2k1.png"
+      width="60px"
+      alt="Niklas Lausch"
+    /></a
+  >
+  <a href="https://pixel.ao/?utm_source=coolify.io"
+    ><img
+      class="rounded-full"
+      src="https://github.com/pixelinfinito.png"
+      width="60px"
+      alt="Pixel Infinito"
+    /></a
+  >
+  <a href="https://github.com/whitesidest"
+    ><img
+      class="rounded-full"
+      src="https://avatars.githubusercontent.com/u/12365916?s=52&v=4"
+      width="60px"
+      alt="Tyler Whitesides"
+    /></a
+  >
+  <a href="https://github.com/aniftyco"
+    ><img
+      class="rounded-full"
+      src="https://github.com/aniftyco.png"
+      width="60px"
+      alt="NiftyCo"
+    /></a
+  >
+  <a href="https://github.com/iujlaki"
+    ><img
+      class="rounded-full"
+      src="https://github.com/iujlaki.png"
+      width="60px"
+      alt="Imre Ujlaki"
+    /></a
+  >
+  <a href="https://il.ly/?utm_source=coolify.io"
+    ><img
+      class="rounded-full"
+      src="https://github.com/Illyism.png"
+      width="60px"
+      alt="Ilias Ism"
+    /></a
+  >
+  <a href="https://github.com/urtho"
+    ><img
+      class="rounded-full"
+      src="https://github.com/urtho.png"
+      width="60px"
+      alt="Paweł Pierścionek"
+    /></a
+  >
+  <a href="https://github.com/monocursive"
+    ><img
+      class="rounded-full"
+      src="https://github.com/monocursive.png"
+      width="60px"
+      alt="Michael Mazurczak"
+    /></a
+  >
+</div>
+<div class=" text-center">
+  <a
+    class="text-warning underline text-xs hover:text-white"
+    href="https://github.com/sponsors/coollabsio"
+  >
+    And many more...</a
+  >
+</div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-28 pt-20">
   <Feature
     title="Bring Your Own Servers"
@@ -95,8 +240,8 @@
     </div>
     <div slot="main-text">
       Once you connected your server, Coolify will start managing it and do a
-      lot of administrative tasks for you. You can also write your own scripts to
-      automate your server<span class="text-warning">*</span>.
+      lot of administrative tasks for you. You can also write your own scripts
+      to automate your server<span class="text-warning">*</span>.
     </div>
   </Feature>
   <Feature title="No Vendor Lock-in">
