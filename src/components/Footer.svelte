@@ -1,7 +1,7 @@
 <footer>
   <div class="mx-auto overflow-hidden px-6 pt-20 sm:pt-24 lg:px-8 pb-4">
     <nav
-      class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12"
+      class="columns-2 text-center sm:flex sm:justify-center sm:space-x-12"
       aria-label="Footer"
     >
       <div class="pb-6">
@@ -13,12 +13,13 @@
         >
       </div>
       <div class="pb-6">
-        <a href="https://coolify.io/docs/contact" class="text-sm leading-6">Contact</a>
+        <a href="https://coolify.io/docs/contact" class="text-sm leading-6"
+          >Contact</a
+        >
       </div>
       <div class="pb-6">
         <a href="https://old.coolify.io" class="text-sm leading-6">Version 3</a>
       </div>
-    
     </nav>
     <div class="mt-10 flex justify-center space-x-10">
       <a href="https://twitter.com/heyandras" target="_blank"
