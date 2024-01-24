@@ -36,6 +36,12 @@
     description: name,
   }));
   let carousel;
+  function goToNextPage() {
+    carousel.goToNext({ animated: true });
+  }
+  function goToPrevPage() {
+    carousel.goToPrev({ animated: true });
+  }
 </script>
 
 <div class="text-4xl text-center font-bold">
@@ -231,7 +237,40 @@
     And many more...</a
   >
 </div>
-<Carousel bind:this={carousel} let:loaded autoplay autoplayDuration={3000}>
+<div class="flex gap-2 justify-center pb-2">
+  <button class="button" on:click={goToPrevPage}
+    ><svg
+      class="w-6 h-6"
+      viewBox="0 0 256 256"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill="currentColor"
+        d="M168.49 199.51a12 12 0 0 1-17 17l-80-80a12 12 0 0 1 0-17l80-80a12 12 0 0 1 17 17L97 128Z"
+      />
+    </svg></button
+  >
+  <button class="button" on:click={goToNextPage}
+    ><svg
+      class="w-6 h-6"
+      viewBox="0 0 256 256"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill="currentColor"
+        d="m184.49 136.49l-80 80a12 12 0 0 1-17-17L159 128L87.51 56.49a12 12 0 1 1 17-17l80 80a12 12 0 0 1-.02 17"
+      />
+    </svg></button
+  >
+</div>
+<Carousel
+  bind:this={carousel}
+  arrows={false}
+  dots={false}
+  let:loaded
+  autoplay
+  autoplayDuration={3000}
+>
   {#each images as src, imageIndex (src)}
     <div class="img-container">
       {#if loaded.includes(imageIndex)}
