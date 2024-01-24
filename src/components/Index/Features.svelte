@@ -1,13 +1,55 @@
 <script>
   import Feature from "./Feature.svelte";
+  import Carousel from "svelte-carousel";
+  const imageNames = [
+    "dashboard",
+    "resources",
+    "server",
+    "projects",
+    "environments",
+    "command_center",
+    "api_tokens",
+    "instance_settings",
+    "execute_command",
+    "application_configuration",
+    "application_logs",
+    "application_deployments",
+    "application_envs",
+    "application_git_sources",
+    "application_hcs",
+    "application_advanced_settings",
+    "private_keys",
+    "team_members",
+    "team_storages",
+    "team_shared_variables",
+    "project_shared_variables",
+    "environment_shared_variables",
+    "webhooks",
+    "service_configurations",
+    "database_configurations",
+    "database_backups",
+    "database_backup_executions",
+  ];
+
+  const images = imageNames.map((name, index) => ({
+    url: `https://coolcdn.b-cdn.net/assets/coolify/v4/${name}.jpeg`,
+    description: name,
+  }));
+  let carousel;
 </script>
 
 <div class="text-4xl text-center font-bold">
   Sponsors
-  <svg class="w-8 h-8 inline-block text-coollabs-100" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-    <path fill="currentColor" d="M240 94c0 70-103.79 126.66-108.21 129a8 8 0 0 1-7.58 0C119.79 220.66 16 164 16 94a62.07 62.07 0 0 1 62-62c20.65 0 38.73 8.88 50 23.89C139.27 40.88 157.35 32 178 32a62.07 62.07 0 0 1 62 62"/>
-</svg>
-  
+  <svg
+    class="w-8 h-8 inline-block text-coollabs-100"
+    viewBox="0 0 256 256"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill="currentColor"
+      d="M240 94c0 70-103.79 126.66-108.21 129a8 8 0 0 1-7.58 0C119.79 220.66 16 164 16 94a62.07 62.07 0 0 1 62-62c20.65 0 38.73 8.88 50 23.89C139.27 40.88 157.35 32 178 32a62.07 62.07 0 0 1 62 62"
+    />
+  </svg>
 </div>
 <div class="text-center text-gray-300">
   Special thanks to the people who sponsoring our work.
@@ -181,7 +223,7 @@
     /></a
   >
 </div>
-<div class=" text-center">
+<div class=" text-center pb-10">
   <a
     class="text-warning underline text-xs hover:text-white"
     href="https://github.com/sponsors/coollabsio"
@@ -189,6 +231,19 @@
     And many more...</a
   >
 </div>
+<Carousel bind:this={carousel} let:loaded autoplay autoplayDuration={3000}>
+  {#each images as src, imageIndex (src)}
+    <div class="img-container">
+      {#if loaded.includes(imageIndex)}
+        <img
+          src={src.url}
+          alt={src.description}
+          class="rounded-xl border-2 border-coolgray-400"
+        />
+      {/if}
+    </div>
+  {/each}
+</Carousel>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-28 pt-20">
   <Feature
     title="Bring Your Own Servers"
