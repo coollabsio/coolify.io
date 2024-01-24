@@ -237,7 +237,9 @@
     And many more...</a
   >
 </div>
-<div class="flex gap-2 justify-center pb-2">
+<div class="flex gap-2 justify-center text-3xl font-bold">Screenshots</div>
+<div class="flex gap-2 justify-center text-xs">We are before an UI improvement, so it could change...</div>
+<div class="flex gap-2 justify-center py-2">
   <button class="button" on:click={goToPrevPage}
     ><svg
       class="w-6 h-6"
