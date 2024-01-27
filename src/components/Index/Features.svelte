@@ -57,7 +57,7 @@
     />
   </svg>
 </div>
-<div class="text-center text-gray-300">
+<div class="text-center">
   Special thanks to the people who sponsoring our work.
 </div>
 <div class="text-center text-xs">
@@ -237,55 +237,8 @@
     And many more...</a
   >
 </div>
-<div class="flex gap-2 justify-center text-3xl font-bold">Screenshots</div>
-<div class="flex gap-2 justify-center text-xs">We are before an UI improvement, so it could change...</div>
-<div class="flex gap-2 justify-center py-2">
-  <button class="button" on:click={goToPrevPage}
-    ><svg
-      class="w-6 h-6"
-      viewBox="0 0 256 256"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        fill="currentColor"
-        d="M168.49 199.51a12 12 0 0 1-17 17l-80-80a12 12 0 0 1 0-17l80-80a12 12 0 0 1 17 17L97 128Z"
-      />
-    </svg></button
-  >
-  <button class="button" on:click={goToNextPage}
-    ><svg
-      class="w-6 h-6"
-      viewBox="0 0 256 256"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        fill="currentColor"
-        d="m184.49 136.49l-80 80a12 12 0 0 1-17-17L159 128L87.51 56.49a12 12 0 1 1 17-17l80 80a12 12 0 0 1-.02 17"
-      />
-    </svg></button
-  >
-</div>
-<Carousel
-  bind:this={carousel}
-  arrows={false}
-  dots={false}
-  let:loaded
-  autoplay
-  autoplayDuration={3000}
->
-  {#each images as src, imageIndex (src)}
-    <div class="img-container">
-      {#if loaded.includes(imageIndex)}
-        <img
-          src={src.url}
-          alt={src.description}
-          class="rounded-xl border-2 border-coolgray-400"
-        />
-      {/if}
-    </div>
-  {/each}
-</Carousel>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-28 pt-20">
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-28 pt-20 lg:px-10">
   <Feature
     title="Bring Your Own Servers"
     details="Bring your own server from any cloud providers, or even your own server at home! All you need is SSH access. You will have full control over your server, and you can even use it for other purposes."
@@ -505,3 +458,59 @@
     </div>
   </Feature>
 </div>
+<div class="pt-20 text-xs px-10">
+  <span class="text-warning">*</span> Some features are work in progress and will
+  be available soon.
+</div>
+<div class="flex gap-2 justify-center text-3xl font-bold pt-10">
+  Screenshots
+</div>
+<div class="flex gap-2 justify-center text-xs">
+  We are before an UI improvement, so it could change...
+</div>
+<div class="flex gap-2 justify-center py-2">
+  <button class="button" on:click={goToPrevPage}
+    ><svg
+      class="w-6 h-6"
+      viewBox="0 0 256 256"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill="currentColor"
+        d="M168.49 199.51a12 12 0 0 1-17 17l-80-80a12 12 0 0 1 0-17l80-80a12 12 0 0 1 17 17L97 128Z"
+      />
+    </svg></button
+  >
+  <button class="button" on:click={goToNextPage}
+    ><svg
+      class="w-6 h-6"
+      viewBox="0 0 256 256"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill="currentColor"
+        d="m184.49 136.49l-80 80a12 12 0 0 1-17-17L159 128L87.51 56.49a12 12 0 1 1 17-17l80 80a12 12 0 0 1-.02 17"
+      />
+    </svg></button
+  >
+</div>
+<Carousel
+  bind:this={carousel}
+  arrows={false}
+  dots={false}
+  let:loaded
+  autoplay
+  autoplayDuration={3000}
+>
+  {#each images as src, imageIndex (src)}
+    <div class="img-container">
+      {#if loaded.includes(imageIndex)}
+        <img
+          src={src.url}
+          alt={src.description}
+          class="rounded-xl border-2 border-coolgray-400"
+        />
+      {/if}
+    </div>
+  {/each}
+</Carousel>

@@ -1,5 +1,6 @@
 <div>
-  <div class="text-3xl md:pt-0 pt-10">
+  <div class="text-3xl pb-4 font-bold">Who is behind this?</div>
+  <div class="text-xl">
     Hey, I'm
     <a
       href="https://twitter.com/heyandras"

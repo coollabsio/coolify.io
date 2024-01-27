@@ -164,4 +164,12 @@
       </div>
     </a>
   </div>
+  <div class="pt-4">
+    We are a <span class="text-warning font-bold">bootstrapped</span> company.
+    We rely on your support to keep the project alive. <br />This helps to focus
+    on the actual users
+    <span class="text-warning font-bold">(like You)</span>
+    and not on investors / revenue. <br /><br />If you use our self-hosted
+    version, you can support our work by donating.
+  </div>
 </div>

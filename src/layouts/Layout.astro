@@ -55,7 +55,9 @@ const { title } = Astro.props;
   <body>
     <main>
       <Navbar client:load />
-      <slot />
+      <div class="max-w-7xl mx-auto">
+        <slot />
+      </div>
     </main>
     <Footer />
     <style is:global>
@@ -66,7 +68,7 @@ const { title } = Astro.props;
         @apply min-h-screen bg-coolblack text-white;
       }
       main {
-        @apply mx-auto max-w-7xl xl:px-10 px-4;
+        @apply mx-auto xl:px-10 px-4;
         min-height: calc(100vh - 120px);
       }
       .button {

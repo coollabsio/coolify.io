@@ -10,7 +10,7 @@
   <div class="flex-1" />
   <a class="navbar-link relative gap-2" href="https://coollabs.io/discord"
     >Community <svg
-      class="w-8 h-8 text-indigo-500"
+      class="w-8 h-8 text-indigo-500 hidden lg:block"
       viewBox="0 0 256 256"
       xmlns="http://www.w3.org/2000/svg"
     >
