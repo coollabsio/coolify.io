@@ -1,8 +1,8 @@
 <nav class="navbar">
-  <a href="/" class="pt-2 font-bold">
+  <a href="/" class="font-bold">
     <img
       src="/coolify-transparent.png"
-      class="w-10 h-10 mr-4"
+      class="w-6 h-6 lg:w-10 lg:h-10 lg:mr-4 block "
       alt="Coolify's logo"
     />
     <span class="text-xl hidden md:block">Coolify</span>
