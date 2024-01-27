@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   let url = "https://undead.coolify.io";
-  let instances = 0;
+  let instances = "counting...";
   onMount(async () => {
     const { count } = await (
       await fetch(`${url}/instances`, {

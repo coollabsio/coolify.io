@@ -1,28 +1,22 @@
-<footer>
-  <div class="mx-auto overflow-hidden px-6 pt-20 sm:pt-24 lg:px-8 pb-4">
+<footer class="bg-coolgray-200">
+  <div class="mx-auto overflow-hidden px-6 pt-4 mt-10 lg:px-8 pb-4" >
     <nav
-      class="columns-2 text-center sm:flex sm:justify-center sm:space-x-12"
+      class="columns-2 text-cen ter sm:flex sm:justify-center sm:space-x-12"
       aria-label="Footer"
     >
-      <div class="pb-6">
-        <a href="https://coollabs.io" class="text-sm leading-6">About</a>
-      </div>
-      <div class="pb-6">
-        <a href="https://coollabs.io/products" class="text-sm leading-6"
+      <div> 
+        <a href="https://coollabs.io/products" class="text-sm"
           >Other Products</a
         >
       </div>
-      <div class="pb-6">
+      <div > 
         <a href="https://coolify.io/docs/contact" class="text-sm leading-6"
           >Contact</a
         >
       </div>
-      <div class="pb-6">
-        <a href="https://old.coolify.io" class="text-sm leading-6">Version 3</a>
-      </div>
     </nav>
     <div class="mt-10 flex justify-center space-x-10">
-      <a href="https://twitter.com/heyandras" target="_blank"
+      <a href="https://twitter.com/coolifyio" target="_blank"
         ><span class="sr-only">Twitter</span>
         <svg
           class="inline-block w-6 h-6 text-blue-400 hover:text-blue-500"
@@ -53,25 +47,6 @@
           />
         </svg>
       </a>
-      <a href="https://fosstodon.org/@andrasbacsai"
-        ><span class="sr-only">Mastodon</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="61.076954mm"
-          height="65.47831mm"
-          viewBox="0 0 216.4144 232.00976"
-          class="inline-block w-6 h-6"
-        >
-          <path
-            fill="#2b90d9"
-            d="M211.80734 139.0875c-3.18125 16.36625-28.4925 34.2775-57.5625 37.74875-15.15875 1.80875-30.08375 3.47125-45.99875 2.74125-26.0275-1.1925-46.565-6.2125-46.565-6.2125 0 2.53375.15625 4.94625.46875 7.2025 3.38375 25.68625 25.47 27.225 46.39125 27.9425 21.11625.7225 39.91875-5.20625 39.91875-5.20625l.8675 19.09s-14.77 7.93125-41.08125 9.39c-14.50875.7975-32.52375-.365-53.50625-5.91875C9.23234 213.82 1.40609 165.31125.20859 116.09125c-.365-14.61375-.14-28.39375-.14-39.91875 0-50.33 32.97625-65.0825 32.97625-65.0825C49.67234 3.45375 78.20359.2425 107.86484 0h.72875c29.66125.2425 58.21125 3.45375 74.8375 11.09 0 0 32.975 14.7525 32.975 65.0825 0 0 .41375 37.13375-4.59875 62.915"
-          />
-          <path
-            fill="#fff"
-            d="M177.50984 80.077v60.94125h-24.14375v-59.15c0-12.46875-5.24625-18.7975-15.74-18.7975-11.6025 0-17.4175 7.5075-17.4175 22.3525v32.37625H96.20734V85.42325c0-14.845-5.81625-22.3525-17.41875-22.3525-10.49375 0-15.74 6.32875-15.74 18.7975v59.15H38.90484V80.077c0-12.455 3.17125-22.3525 9.54125-29.675 6.56875-7.3225 15.17125-11.07625 25.85-11.07625 12.355 0 21.71125 4.74875 27.8975 14.2475l6.01375 10.08125 6.015-10.08125c6.185-9.49875 15.54125-14.2475 27.8975-14.2475 10.6775 0 19.28 3.75375 25.85 11.07625 6.36875 7.3225 9.54 17.22 9.54 29.675"
-          />
-        </svg>
-      </a>
       <a href="https://coollabs.io/discord" target="_blank" class=" text-white">
         <svg
           width="512"
@@ -96,46 +71,16 @@
           </g>
         </svg>
       </a>
-      <a href="https://coollabs.io/telegram" target="_blank">
-        <svg
-          width="512"
-          height="512"
-          class="w-6 h-6"
-          viewBox="0 0 256 256"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <linearGradient
-              id="logosTelegram0"
-              x1="50%"
-              x2="50%"
-              y1="0%"
-              y2="100%"
-            >
-              <stop offset="0%" stop-color="#2AABEE" />
-              <stop offset="100%" stop-color="#229ED9" />
-            </linearGradient>
-          </defs>
-          <path
-            fill="url(#logosTelegram0)"
-            d="M128 0C94.06 0 61.48 13.494 37.5 37.49A128.038 128.038 0 0 0 0 128c0 33.934 13.5 66.514 37.5 90.51C61.48 242.506 94.06 256 128 256s66.52-13.494 90.5-37.49c24-23.996 37.5-56.576 37.5-90.51c0-33.934-13.5-66.514-37.5-90.51C194.52 13.494 161.94 0 128 0Z"
-          />
-          <path
-            fill="#FFF"
-            d="M57.94 126.648c37.32-16.256 62.2-26.974 74.64-32.152c35.56-14.786 42.94-17.354 47.76-17.441c1.06-.017 3.42.245 4.96 1.49c1.28 1.05 1.64 2.47 1.82 3.467c.16.996.38 3.266.2 5.038c-1.92 20.24-10.26 69.356-14.5 92.026c-1.78 9.592-5.32 12.808-8.74 13.122c-7.44.684-13.08-4.912-20.28-9.63c-11.26-7.386-17.62-11.982-28.56-19.188c-12.64-8.328-4.44-12.906 2.76-20.386c1.88-1.958 34.64-31.748 35.26-34.45c.08-.338.16-1.598-.6-2.262c-.74-.666-1.84-.438-2.64-.258c-1.14.256-19.12 12.152-54 35.686c-5.1 3.508-9.72 5.218-13.88 5.128c-4.56-.098-13.36-2.584-19.9-4.708c-8-2.606-14.38-3.984-13.82-8.41c.28-2.304 3.46-4.662 9.52-7.072Z"
-          />
-        </svg>
-      </a>
-    </div>
+    </div> 
     <p class="mt-10 text-center text-sm">
-      Made with 💜 by <a
+      Made by <a 
         class="underline text-warning"
         href="https://twitter.com/heyandras"
         target="_blank">Andras Bacsai</a
       >
     </p>
     <p class="text-center text-xs leading-5 text-gray-500">
-      &copy; 2022 coolLabs Technologies Bt. All rights reserved.
+      &copy; 2024 coolLabs Technologies Bt. All rights reserved.
     </p>
   </div>
 </footer>
