@@ -2,7 +2,7 @@
   <a href="/" class="font-bold">
     <img
       src="/coolify-transparent.png"
-      class="w-6 h-6 lg:w-10 lg:h-10 lg:mr-4 block "
+      class="w-6 h-6 lg:w-10 lg:h-10 lg:mr-4 block"
       alt="Coolify's logo"
     />
     <span class="text-xl hidden md:block">Coolify</span>
@@ -10,7 +10,7 @@
   <div class="flex-1" />
   <a class="navbar-link relative gap-2" href="https://coollabs.io/discord"
     >Community <svg
-      class="w-8 h-8 text-indigo-500 hidden lg:block"
+      class="w-8 h-8 text-indigo-500 hidden sm:block"
       viewBox="0 0 256 256"
       xmlns="http://www.w3.org/2000/svg"
     >
