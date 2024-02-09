@@ -1,5 +1,5 @@
 <footer class="bg-coolgray-200">
-  <div class="mx-auto overflow-hidden px-6 pt-4 mt-10 lg:px-8 pb-4" >
+  <div class="mx-auto overflow-hidden px-6 pt-4 mt-10 lg:px-8 pb-4 text-center" >
     <nav
       class="columns-2 text-cen ter sm:flex sm:justify-center sm:space-x-12"
       aria-label="Footer"

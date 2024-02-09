@@ -2,10 +2,10 @@
   import Feature from "./Feature.svelte";
 </script>
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-10 gap-y-28 pt-20 lg:px-10">  
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10 gap-y-28 pt-20 lg:px-10">
   <Feature
     title="Bring Your Own Servers"
-    details="Bring your own server from any cloud providers, or even your own server at home! All you need is SSH access. You will have full control over your server, and you can even use it for other purposes."
+    details="You can use your own server from any cloud provider or even set up your own server at home as long as you have SSH access."
   >
     <div slot="icon">
       <svg
@@ -52,9 +52,11 @@
       </svg>
     </div>
     <div slot="main-text">
-      Once you connected your server, Coolify will start managing it and do a
-      lot of administrative tasks for you. You can also write your own scripts
-      to automate your server<span class="text-warning">*</span>.
+      After connecting your server, Coolify will take over management and handle
+      various administrative tasks for you. You also have the option to create
+      your own scripts to automate server processes.<span class="text-warning"
+        >*</span
+      >.
     </div>
   </Feature>
   <Feature title="No Vendor Lock-in">
@@ -83,9 +85,9 @@
       </svg>
     </div>
     <div slot="main-text">
-      You own your own data. All configurations saved on your own servers, so if
-      you decide to stop using Coolify, you can still continue to manage your
-      deployed resources.
+      You have full ownership of your data. All configurations are stored on
+      your own servers, allowing you to manage your deployed resources even if
+      you choose to stop using Coolify (oh nooo).
     </div>
   </Feature>
   <Feature title="Monitoring">
@@ -109,9 +111,9 @@
       </svg>
     </div>
     <div slot="main-text">
-      Coolify will automatically monitor your configured servers and deployed
-      resources. Notifies you if something goes wrong on your favourite
-      channels, like Discord, Telegram, via Email and more...
+      Coolify will monitor your set servers and deployed resources
+      automatically. It will alert you through your preferred channels such as
+      Discord, Telegram, and email.
     </div>
   </Feature>
   <Feature title="Automatic Backups">
@@ -138,8 +140,9 @@
       </svg>
     </div>
     <div slot="main-text">
-      We automatically backup your databases to any S3 compatible solution. If
-      something goes wrong, you can easily restore your data with a few clicks.
+      Your databases are automatically backed up to any S3 compatible solution.
+      If an issue arises, you can effortlessly restore your data with just a few
+      clicks.
     </div>
   </Feature>
   <Feature title="Powerful API">
@@ -160,8 +163,8 @@
       </svg>
     </div>
     <div slot="main-text">
-      Programatically deploy, query, and manage your servers & resources.
-      Integrate to your CI/CD pipelines, or build your own custom integrations. <span
+      Programmatically deploy, query, and manage your servers and resources.
+      Integrate with your CI/CD pipelines or build your own custom integrations.<span
         class="text-warning">*</span
       >
     </div>
@@ -191,10 +194,9 @@
       </svg>
     </div>
     <div slot="main-text">
-      Git integration is default today. We support hosted (github.com,
-      gitlab.com<span class="text-warning">*</span>) or self-hosted<span
-        class="text-warning">*</span
-      > (Github Enterprise, Gitlab) Git repositories.
+      Today, Git integration is the standard. We offer full integration with
+      hosted platforms such as github.com, gitlab.com, and bitbucket.org,
+      including webhooks, as well as with other Git providers like Gitea.
     </div>
   </Feature>
   <Feature title="Pull Request Deployments">
@@ -226,4 +228,3 @@
   <span class="text-warning">*</span> Some features are work in progress and will
   be available soon.
 </div>
-
