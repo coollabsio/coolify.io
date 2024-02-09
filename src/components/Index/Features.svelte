@@ -51,11 +51,11 @@
         </g>
       </svg>
     </div>
-    <div slot="main-text">
+    <div slot="main-text" class="">
       After connecting your server, Coolify will take over management and handle
-      various administrative tasks for you. You also have the option to create
-      your own scripts to automate server processes.<span class="text-warning"
-        >*</span
+      various administrative tasks for you.<br /><br />You also have the option
+      to create your own scripts to automate server processes<span
+        class="text-warning">*</span
       >.
     </div>
   </Feature>
@@ -85,9 +85,9 @@
       </svg>
     </div>
     <div slot="main-text">
-      You have full ownership of your data. All configurations are stored on
-      your own servers, allowing you to manage your deployed resources even if
-      you choose to stop using Coolify (oh nooo).
+      You have full ownership of your data.<br /><br />All configurations are
+      stored on your own servers, allowing you to manage your deployed resources
+      even if you choose to stop using Coolify (oh nooo).
     </div>
   </Feature>
   <Feature title="Monitoring">
@@ -112,8 +112,8 @@
     </div>
     <div slot="main-text">
       Coolify will monitor your set servers and deployed resources
-      automatically. It will alert you through your preferred channels such as
-      Discord, Telegram, and email.
+      automatically.<br /><br />It will alert you through your preferred
+      channels such as Discord, Telegram, and email.
     </div>
   </Feature>
   <Feature title="Automatic Backups">
@@ -141,8 +141,8 @@
     </div>
     <div slot="main-text">
       Your databases are automatically backed up to any S3 compatible solution.
-      If an issue arises, you can effortlessly restore your data with just a few
-      clicks.
+      <br /><br />If an issue arises, you can effortlessly restore your data
+      with just a few clicks.
     </div>
   </Feature>
   <Feature title="Powerful API">
@@ -164,9 +164,8 @@
     </div>
     <div slot="main-text">
       Programmatically deploy, query, and manage your servers and resources.
-      Integrate with your CI/CD pipelines or build your own custom integrations.<span
-        class="text-warning">*</span
-      >
+      <br /><br />Integrate with your CI/CD pipelines or build your own custom
+      integrations.<span class="text-warning">*</span>
     </div>
   </Feature>
   <Feature title="Push to Deploy">
@@ -194,9 +193,9 @@
       </svg>
     </div>
     <div slot="main-text">
-      Today, Git integration is the standard. We offer full integration with
-      hosted platforms such as github.com, gitlab.com, and bitbucket.org,
-      including webhooks, as well as with other Git providers like Gitea.
+      Today, Git integration is the standard. <br /><br />We offer integration
+      with hosted platforms such as GitHub, GitLab, Bitbucket, Gitea and more (even
+      self-hosted).
     </div>
   </Feature>
   <Feature title="Pull Request Deployments">
