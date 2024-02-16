@@ -146,26 +146,9 @@
   </Feature>
   <Feature title="Multiple Deployment Endpoints">
     <div slot="icon">
-      <svg
-        width="512"
-        height="512"
-        class="icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g
-          fill="none"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-        >
-          <path
-            d="M6 4h10l4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2"
-          />
-          <path d="M10 14a2 2 0 1 0 4 0a2 2 0 1 0-4 0m4-10v4H8V4" />
-        </g>
-      </svg>
+      <svg class="icon" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+        <path fill="currentColor" d="M103.77 185.94C103.38 187.49 93.63 224 40 224a8 8 0 0 1-8-8c0-53.63 36.51-63.38 38.06-63.77a8 8 0 0 1 3.88 15.53c-.9.25-22.42 6.54-25.56 39.86C81.7 204.48 88 183 88.26 182a8 8 0 0 1 15.51 4Zm93-67.4l-4.77 4.77v58.33a15.91 15.91 0 0 1-4.68 11.36L153 227.3a15.91 15.91 0 0 1-11.3 4.7a16.11 16.11 0 0 1-5.1-.83a15.94 15.94 0 0 1-10.78-12.92l-5.37-38.49l-44.21-44.21l-38.47-5.37A16 16 0 0 1 28.7 103L63 68.68A15.91 15.91 0 0 1 74.36 64h58.33l4.77-4.77c26.68-26.67 58.83-27.82 71.41-27.07a16 16 0 0 1 15 15c.73 12.55-.42 44.7-27.09 71.38ZM40 114.34l37.15 5.18L116.69 80H74.36ZM91.32 128L128 164.68l57.45-57.45a76.46 76.46 0 0 0 22.42-59.16a76.65 76.65 0 0 0-59.11 22.47ZM176 139.31l-39.53 39.53l5.2 37.16L176 181.64Z"/>
+    </svg>
     </div>
     <div slot="main-text">
       You can deploy your resources to a single server, multiple servers, or Docker Swarm clusters seamlessly, based on your needs. <br><br>(Kubernetes support is coming soon!)
