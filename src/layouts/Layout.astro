@@ -7,9 +7,10 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -83,12 +84,15 @@ const { title } = Astro.props;
       .icon {
         @apply w-6 h-6;
       }
+      .swiper-button-next {
+        @apply text-red-500 !important;
+      }
     </style>
     <script
       async
       defer
       data-domain="coolify.io"
-      src="https://analytics.coollabs.io/js/plausible.js"
-    ></script>
+      src="https://analytics.coollabs.io/js/plausible.js"></script>
   </body>
-</html> 
+</html>
+
