@@ -13,8 +13,7 @@
     <h2 class="mt-4 text-sm leading-6 text-left text-neutral-400">
       With the OSS version you get everything <span class="text-warning"
         >without limits</span
-      >. It offers the same features as the paid version, but you have to manage
-      it yourself.
+      >. It offers the same features as the paid version, but requires self-management.
     </h2>
   </div>
   <div class="flex justify-center py-10">
@@ -75,7 +74,7 @@
       <div class="p-8">
         <h2 id="tier-hobby" class="text-3xl font-bold tracking-tight">Basic</h2>
         <p class="mt-4 text-sm leading-6 text-neutral-400">
-          Start self-hosting in the cloud with a single server.
+          Begin hosting your own services in the cloud.
         </p>
         <p class="mt-6 flex items-baseline gap-x-1">
           <span class="text-4xl font-bold tracking-tight">
@@ -164,7 +163,7 @@
       <div class="p-8">
         <h2 id="tier-pro" class="text-3xl font-bold tracking-tight">Pro</h2>
         <p class="mt-4 text-sm leading-6 text-neutral-400">
-          Scale your business or self-hosting environment.
+          Expand your business or set up your own hosting environment.
         </p>
         <p class="mt-6 flex items-baseline gap-x-1">
           <span class="text-4xl font-bold tracking-tight">
@@ -255,7 +254,7 @@
           Ultimate
         </h2>
         <p class="mt-4 text-sm leading-6 text-neutral-400">
-          Deploy complex infrastuctures and manage them easily in one place.
+          Easily manage complex infrastructures in a single location.
         </p>
         <p class="mt-6 flex items-baseline gap-x-1">
           <span class="text-4xl font-bold tracking-tight">
@@ -344,7 +343,7 @@
   </div>
   <div class="p-4 mt-10 rounded">
     <div class="flex items-start gap-4 text-xl tracking-tight text-neutral-400">
-      Need official support for your self-hosted instance?
+      Do you require official support for your self-hosted instance?
       <button class="button rounded">
         <a
           class="font-bold text-white hover:no-underline"
