@@ -3,10 +3,10 @@
 </script>
 
 <div class="text-white">
-  <div class="bg-coolgray-200/70 p-4 rounded">
+  <div class="bg-coolgray-200/70 p-4 rounded  lg:mx-0 mx-4">
     <h2
       id="tier-hobby"
-      class="text-4xl font-bold tracking-tight flex items-start gap-4"
+      class="text-xl lg:text-4xl font-bold tracking-tight flex items-start gap-4"
     >
       Unlimited Trial
     </h2>
@@ -342,7 +342,7 @@
     </div>
   </div>
   <div class="p-4 mt-10 rounded">
-    <div class="flex items-start gap-4 text-xl tracking-tight text-neutral-400">
+    <div class="flex lg:flex-row flex-col items-center lg:items-start gap-4 text-xl tracking-tight text-neutral-400">
       Do you require official support for your self-hosted instance?
       <button class="button rounded">
         <a
