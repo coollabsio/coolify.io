@@ -1,4 +1,4 @@
-<div class="mx-auto flex-shrink-0 py-8 pb-32">
+<div class="text-center py-8 pb-32">
   <h1
     class="mt-8 md:mt-20 text-2xl font-bold tracking-tight text-white md:text-6xl"
   >
@@ -73,10 +73,9 @@
       </g>
     </svg>
   </h1>
-  <p class="mt-2 text-sm md:text-lg leading-8 text-gray-300 flex gap-2">
+  <h2 class="mt-2 text-sm md:text-lg leading-8 text-gray-300 flex gap-2 text-center">
     We love doing open-source projects. <svg
-      width="512"
-      height="512"
+     
       class="w-6 h-6"
       viewBox="0 0 36 36"
       xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +85,7 @@
         d="M2.067 11.319C2.067 2.521 14.251-.74 18 9.445C21.749-.741 33.933 2.52 33.933 11.319C33.933 20.879 18 33 18 33S2.067 20.879 2.067 11.319z"
       />
     </svg>
-  </p>
+  </h2>
   <div class="mt-10 flex items-center gap-x-6">
     <a
       href="https://github.com/sponsors/coollabsio"

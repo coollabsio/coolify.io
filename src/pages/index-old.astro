@@ -1,0 +1,254 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Features from "../components/Index/Features.svelte";
+import Instances from "../components/Instances.svelte";
+import Screenshots from "../components/Index/Screenshots.svelte";
+import { Image } from 'astro:assets';
+---
+
+<Layout title="Coolify">
+  <div class="mx-auto text-center">
+    <div class="pt-20 space-y-2 tracking-tighter">
+      <h1 class="text-4xl font-bold tracking-tight text-white md:text-6xl">
+        Self-hosting with superpowers<span class="text-warning">.</span>
+      </h1>
+    </div>
+    <h2 class="text-base pb-10 pt-2 text-neutral-400">
+      An open-source & self-hostable Heroku / Netlify / Vercel alternative.
+    </h2>
+    <div class="space-y-4">
+      <div class="pb-8">
+        <div
+          class="text-base font-semibold rounded p-2 md:w-96 mx-auto text-white bg-coollabs hover:bg-coollabs-100"
+        >
+          <a href="https://app.coolify.io/register">Get Started in the Cloud</a>
+        </div>
+      </div>
+      <div class="space-y-2">
+        <div
+          class="tracking-tight text-white font-mono bg-coolgray-400 px-4 py-2 rounded text-xs md:text-sm text-left w-fit space-y-1 mx-auto"
+        >
+          <div class="select-none text-neutral-400 fontfont-bold pr-2 pb-4">
+            # Or install the self-hosted version on your server in under a
+            minute - <span class="text-warning/90"
+              >always free, with all functionalities</span
+            >.
+          </div>
+          <div>
+            <span class="select-none text-neutral-500 font-extrabold pr-2"
+              >></span
+            >curl -fsSL https://cdn.coollabs.io/coolify/install.sh | bash
+          </div>
+        </div>
+        <div class="text-neutral-400 text-xs">
+          <Instances client:load /> self-hosted instances already running
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pt-10">
+    <div
+      class="flex gap-2 flex-wrap justify-center pt-4 items-center text-xs font-bold"
+    >
+      Special sponsors
+      <a href="https://cccareers.org/?utm_source=coolify.io"
+        ><Image
+          src="https://github.com/cccareers.png"
+          width={45}
+          height={45}
+          loading="eager"
+          alt="Creating Coding Careers"
+        /></a
+      >
+      <!-- <a href="https://appwrite.io/?utm_source=coolify.io" 
+            ><img
+              class="rounded"
+              src="https://github.com/appwrite.png"
+              width="45px"
+              alt="Appwrite"
+            /></a
+          > -->
+      <a href="https://bc.direct/?utm_source=coolify.io"
+        ><svg
+          version="1.1"
+          id="Calque_1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          class="w-11 h-11"
+          viewBox="0 0 290 250"
+          xml:space="preserve"
+        >
+        <title>bc.direct</title>
+          <style type="text/css">
+            .st0 {
+              fill: #ffffff;
+            }
+            .st1 {
+              fill: #116dff;
+            }
+          </style>
+          <g>
+            <path
+              class="st1"
+              d="M158.6,96.4c0.4,2.3,2.9,3.7,5.1,2.9L206.9,84c19.8-7.1,31.6-27.5,27.8-48.2l0,0c-4.8-26-31.7-41.5-56.6-32.7
+                    l0,0c-19.8,7.1-31.6,27.5-27.8,48.2L158.6,96.4z"
+            ></path>
+            <path
+              class="st1"
+              d="M269.1,95.4L269.1,95.4c-16-13.7-39.6-13.7-55.7,0l-34.9,29.7c-1.8,1.5-1.8,4.3,0,5.9l34.9,29.7
+                    c16,13.7,39.6,13.7,55.7,0l0,0C289.3,143.7,289.3,112.6,269.1,95.4z"
+            ></path>
+            <path
+              class="st1"
+              d="M206.9,172.2l-43.2-15.4c-2.2-0.8-4.7,0.6-5.1,2.9l-8.3,45.1c-3.8,20.7,8,41.1,27.8,48.2l0,0
+                    c24.9,8.9,51.8-6.7,56.6-32.7l0,0C238.5,199.7,226.7,179.3,206.9,172.2z"
+            ></path>
+            <path
+              class="st1"
+              d="M128.8,159.8c-0.4-2.3-2.9-3.7-5.1-2.9l-43.2,15.4c-19.8,7.1-31.6,27.5-27.8,48.2l0,0
+                    c4.8,26,31.7,41.5,56.6,32.7l0,0c19.8-7.1,31.6-27.5,27.8-48.2L128.8,159.8z"
+            ></path>
+            <path
+              class="st1"
+              d="M108.8,131.1c1.8-1.5,1.8-4.3,0-5.9L73.9,95.4c-16-13.7-39.6-13.7-55.7,0l0,0c-20.1,17.1-20.1,48.2,0,65.4
+                    l0,0c16,13.7,39.6,13.7,55.7,0L108.8,131.1z"
+            ></path>
+            <path
+              class="st1"
+              d="M80.5,84l43.2,15.4c2.2,0.8,4.7-0.6,5.1-2.9l8.3-45.1c3.8-20.7-8-41.1-27.8-48.2l0,0
+                    C84.3-5.7,57.4,9.8,52.6,35.8l0,0C48.8,56.5,60.6,76.9,80.5,84z"
+            ></path>
+          </g>
+        </svg></a
+      >
+      <a href="https://www.quantcdn.io/?utm_source=coolify.io"
+        ><Image
+          class="rounded"
+          src="https://github.com/quantcdn.png"
+          width={45}
+          height={45}
+          loading="eager"
+          alt="QuantCDN"
+        /></a
+      >
+      <a href="https://360creators.com/?utm_source=coolify.io"
+        ><Image
+          src="https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/503e0953-bff7-4296-b4cc-5e36d40eecc0/icon-360creators.png"
+          width={45}
+          height={45}
+          loading="eager"
+          alt="360Creators"
+        /></a
+      >
+      <a href="https://automaze.io/?utm_source=coolify.io"
+        ><Image
+          class="rounded"
+          src="https://github.com/automazeio.png"
+          width={45}
+          height={45}
+          loading="eager"
+          alt="Corentin Clichy"
+        /></a
+      >
+      <a href="https://github.com/corentinclichy"
+        ><Image
+          src="https://github.com/corentinclichy.png"
+          width={45}
+          height={45}
+          loading="eager"
+          alt="Corentin Clichy"
+        /></a
+      >
+      <a href="https://github.com/Niki2k1"
+        ><Image
+          class="rounded"
+          src="https://github.com/Niki2k1.png"
+          width={45}
+          height={45}
+          loading="eager"
+          alt="Niklas Lausch"
+        /></a
+      >
+      <a href="https://pixel.ao/?utm_source=coolify.io"
+        ><Image
+          class="rounded"
+          src="https://github.com/pixelinfinito.png"
+          width={45}
+          height={45}
+          loading="eager"
+          alt="Pixel Infinito"
+        /></a
+      >
+      <a href="https://github.com/whitesidest"
+        ><Image
+          class="rounded"
+          src="https://avatars.githubusercontent.com/u/12365916?s=52&v=4"
+          width={45}
+          height={45}
+          loading="eager"
+          alt="Tyler Whitesides"
+        /></a
+      >
+      <a href="https://github.com/aniftyco"
+        ><Image
+          class="rounded"
+          src="https://github.com/aniftyco.png"
+          width={45}
+          height={45}
+          loading="eager"
+          alt="NiftyCo"
+        /></a
+      >
+      <a href="https://github.com/iujlaki"
+        ><Image
+          class="rounded"
+          src="https://github.com/iujlaki.png"
+          width={45}
+          height={45}
+          loading="eager"
+          alt="Imre Ujlaki"
+        /></a
+      >
+      <a href="https://il.ly/?utm_source=coolify.io"
+        ><Image
+          class="rounded"
+          src="https://github.com/Illyism.png"
+          width={45}
+          height={45}
+          loading="eager"
+          alt="Ilias Ism"
+        /></a
+      >
+      <a href="https://github.com/urtho"
+        ><Image
+          class="rounded"
+          src="https://github.com/urtho.png"
+          width={45}
+          height={45}
+          loading="eager"
+          alt="Paweł Pierścionek"
+        /></a
+      >
+      <a href="https://github.com/monocursive"
+        ><Image
+          class="rounded"
+          src="https://github.com/monocursive.png"
+          width={45}
+          height={45}
+          loading="eager"
+          alt="Michael Mazurczak"
+        /></a
+      >
+    </div>
+    <div class="text-center pb-10">
+      <a
+        class="text-warning underline text-xs hover:text-white"
+        href="https://github.com/sponsors/coollabsio"
+      >
+        And many more...</a
+      >
+    </div>
+  </div>
+  <Features client:load />
+  <Screenshots client:load />
+</Layout>

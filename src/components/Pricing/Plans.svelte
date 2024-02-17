@@ -2,27 +2,33 @@
   let freq = "monthly";
 </script>
 
-<div>
-  <div class="bg-coolgray-400 p-4 rounded">
+<div class="text-white">
+  <div class="bg-coolgray-200/70 p-4 rounded">
     <h2
       id="tier-hobby"
       class="text-4xl font-bold tracking-tight flex items-start gap-4"
     >
       Unlimited Trial
-      <a href="https://github.com/coollabsio/coolify" class="button"
-        >Open GitHub</a
-      >
     </h2>
-    <p class="mt-4 text-sm leading-6">
-      Start self-hosting <span class="text-warning">without limits</span> with our
-      OSS version. Same features as the paid version, but you have to manage by yourself.
-    </p>
+    <h2 class="mt-4 text-sm leading-6 text-left text-neutral-400">
+      With the OSS version you get everything <span class="text-warning"
+        >without limits</span
+      >. It offers the same features as the paid version, but you have to manage
+      it yourself.
+    </h2>
   </div>
   <div class="flex justify-center py-10">
     <a
       href="https://app.coolify.io/register"
-      class="text-base font-semibold leading-6 rounded p-4 px-10 text-white bg-coollabs hover:bg-coollabs-100"
-      >Get Started in the Cloud</a
+      class="text-base font-bold rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2"
+      ><svg class="icon" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+        <path
+          fill="currentColor"
+          fill-rule="evenodd"
+          d="m6.854 3.854l.8-.8c.644-.645 1.775-1.092 2.898-1.253a5.342 5.342 0 0 1 1.504-.02c.443.066.714.196.84.323c.127.126.257.397.323.84c.064.427.059.95-.02 1.504c-.16 1.123-.608 2.254-1.253 2.898L7.5 11.793l-1.146-1.146a.5.5 0 1 0-.708.707l1.5 1.5a.5.5 0 0 0 .708 0l.547-.548l1.17 1.951a.5.5 0 0 0 .783.097l2-2a.5.5 0 0 0 .141-.425l-.465-3.252l.624-.623c.855-.856 1.358-2.225 1.535-3.465c.09-.627.1-1.25.019-1.794c-.08-.528-.256-1.05-.604-1.399c-.349-.348-.871-.525-1.4-.604a6.333 6.333 0 0 0-1.793.02C9.17.987 7.8 1.49 6.946 2.345l-.623.624l-3.252-.465a.5.5 0 0 0-.425.141l-2 2a.5.5 0 0 0 .097.783l1.95 1.17l-.547.547a.5.5 0 0 0 0 .708l1.5 1.5a.5.5 0 1 0 .708-.708L3.207 7.5l.647-.646zm3.245 9.34l-.97-1.617l2.017-2.016l.324 2.262zM3.423 5.87l2.016-2.016l-2.262-.324l-1.37 1.37zm-1.07 4.484a.5.5 0 1 0-.707-.708l-1 1a.5.5 0 1 0 .708.707zm1.5 1.5a.5.5 0 1 0-.707-.707l-2 2a.5.5 0 0 0 .708.707zm1.5 1.5a.5.5 0 1 0-.707-.708l-1 1a.5.5 0 1 0 .708.707zM9.5 6.749a1.249 1.249 0 1 0 0-2.498a1.249 1.249 0 0 0 0 2.498"
+          clip-rule="evenodd"
+        />
+      </svg>Get Started in the Cloud</a
     >
   </div>
   <div class=" flex gap-4 justify-center">
@@ -64,11 +70,11 @@
     without credit card details.
   </div> -->
 
-  <div class="flex">
+  <div class="flex text-left">
     <div class="grid grid-cols-1 xl:grid-cols-3">
       <div class="p-8">
         <h2 id="tier-hobby" class="text-3xl font-bold tracking-tight">Basic</h2>
-        <p class="mt-4 text-sm leading-6">
+        <p class="mt-4 text-sm leading-6 text-neutral-400">
           Start self-hosting in the cloud with a single server.
         </p>
         <p class="mt-6 flex items-baseline gap-x-1">
@@ -77,7 +83,7 @@
           >
           <span class="text-sm font-semibold leading-6"> / month + VAT</span>
         </p>
-        <div>
+        <div class="text-neutral-400">
           billed
           {freq === "monthly" ? "monthly" : "annually"}
         </div>
@@ -96,7 +102,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            2 servers (Bring Your Own Server)
+            Connect 2 servers
           </li>
           <li class="flex gap-x-3">
             <svg
@@ -126,7 +132,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            Email Support
+            Priority Support
           </li>
           <li class="flex font-bold text-white gap-x-3">
             <svg
@@ -157,7 +163,7 @@
       </div>
       <div class="p-8">
         <h2 id="tier-pro" class="text-3xl font-bold tracking-tight">Pro</h2>
-        <p class="mt-4 text-sm leading-6">
+        <p class="mt-4 text-sm leading-6 text-neutral-400">
           Scale your business or self-hosting environment.
         </p>
         <p class="mt-6 flex items-baseline gap-x-1">
@@ -166,7 +172,7 @@
           >
           <span class="text-sm font-semibold leading-6"> / month + VAT</span>
         </p>
-        <div>
+        <div class="text-neutral-400">
           billed
           {freq === "monthly" ? "monthly" : "annually"}
         </div>
@@ -184,7 +190,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            10 servers (Bring Your Own Server)
+            Connect 10 servers
           </li>
 
           <li class="flex gap-x-3">
@@ -215,7 +221,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            Priority Email Support
+            Priority Support
           </li>
           <li class="flex font-bold text-white gap-x-3">
             <svg
@@ -248,7 +254,7 @@
         <h2 id="tier-hobby" class="text-3xl font-bold tracking-tight">
           Ultimate
         </h2>
-        <p class="mt-4 text-sm leading-6">
+        <p class="mt-4 text-sm leading-6 text-neutral-400">
           Deploy complex infrastuctures and manage them easily in one place.
         </p>
         <p class="mt-6 flex items-baseline gap-x-1">
@@ -275,7 +281,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            ? servers (Bring Your Own Server)
+            Connect ? servers
           </li>
           <li class="flex gap-x-3">
             <svg
@@ -305,7 +311,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            Priority (Email/Chat) Support
+            Priority Support
           </li>
           <li class="flex font-bold text-white gap-x-3">
             <svg
@@ -337,7 +343,7 @@
     </div>
   </div>
   <div class="p-4 mt-10 rounded">
-    <div class="flex items-start gap-4 text-xl tracking-tight">
+    <div class="flex items-start gap-4 text-xl tracking-tight text-neutral-400">
       Need official support for your self-hosted instance?
       <button class="button rounded">
         <a
@@ -347,5 +353,4 @@
       </button>
     </div>
   </div>
-  <div class="pb-8" />
 </div>
