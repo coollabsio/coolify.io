@@ -12,4 +12,8 @@
   });
 </script>
 
-<span class="text-base px-4 text-neutral-400"><span class="text-warning font-bold font-mono">{instances}</span> self-hosted instances. </span>
+<span
+  class="px-4 text-neutral-400 sm:text-base text-xs sm:flex-row flex flex-col gap-1  pt-2 sm:justify-center"
+  ><span class="text-warning font-bold font-mono">{instances}</span> self-hosted
+  instances.
+</span>

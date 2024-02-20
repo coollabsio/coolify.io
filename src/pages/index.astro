@@ -17,9 +17,9 @@ import { Image } from "astro:assets";
         <div>
             <a
                 href="/cloud"
-                class="text-base font-bold rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2  lg:w-64 justify-center"
+                class="text-xs sm:text-base font-bold rounded p-4 px-2 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2 sm:w-64 justify-center"
                 ><svg
-                    class="icon"
+                    class="icon hidden sm:block"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                 >
@@ -33,17 +33,19 @@ import { Image } from "astro:assets";
                     ></path>
                 </svg>Cloud</a
             >
-            <div class="text-neutral-400">
+            <div
+                class="text-neutral-400 sm:text-base text-xs sm:flex-row flex flex-col gap-1 pt-2 sm:justify-center"
+            >
                 <span class="text-warning font-bold font-mono">70+</span> customers
                 in the cloud.
             </div>
         </div>
         <div>
             <a
-                href="/self-hosting"
-                class="text-base font-bold rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2 lg:w-64 justify-center"
+                href="/self-hosted"
+                class="text-xs sm:text-base font-bold rounded p-4 px-2 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2 lg:w-64 justify-center"
                 ><svg
-                    class="icon"
+                    class="icon hidden sm:block"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                 >
@@ -61,7 +63,7 @@ import { Image } from "astro:assets";
                             d="M7 5h1V3h8v2h1a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3v1H7v-1a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3"
                         ></path>
                     </g>
-                </svg>Self-hosting</a
+                </svg>Self-hosted</a
             >
             <Instances client:load />
         </div>
