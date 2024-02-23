@@ -3,28 +3,6 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	daisyui: {
-		themes: [
-			{
-				coollabs: {
-					"base-100": "#323232",
-					"base-200": "#242424",
-					"base-300": "#181818",
-					"primary": "#6B16ED",
-					"primary-content": "#fff",
-					"secondary": "#343232",
-					"accent": "#343232",
-					"neutral": "#272626",
-					"info": "#0284c7",
-					"success": "#16A34A",
-					"warning": "#FFFF00",
-					"error": "#DC2626",
-					"--rounded-btn": "0.3rem",
-					"--btn-text-case": "normal"
-				},
-			}
-		],
-	},
-	daisyui: {
         themes: [
             {
                 coollabs: {
@@ -33,7 +11,7 @@ module.exports = {
                     secondary: "#4338ca",
                     accent: "#4338ca",
                     neutral: "#1B1D1D",
-                    "base-100": "#181818",
+                    "base-100": "#101010",
                     info: "#2563EB",
                     success: "#16A34A",
                     warning: "#FCD34D",
