@@ -3,7 +3,7 @@
 </script>
 
 <div class="text-white">
-  <div class="bg-coolgray-200/70 p-4 rounded  lg:mx-0 mx-4">
+  <div class="bg-coolgray-200/70 p-4 rounded lg:mx-0 mx-4">
     <h2
       id="tier-hobby"
       class="text-xl lg:text-4xl font-bold tracking-tight flex items-start gap-4"
@@ -13,7 +13,8 @@
     <h2 class="mt-4 text-sm leading-6 text-left text-neutral-400">
       With the OSS version you get everything <span class="text-warning"
         >without limits</span
-      >. It offers the same features as the paid version, but requires self-management.
+      >. It offers the same features as the paid version, but requires
+      self-management.
     </h2>
   </div>
   <div class="flex justify-center py-10">
@@ -88,9 +89,9 @@
         </div>
 
         <ul role="list" class="mt-8 space-y-3 text-sm leading-6">
-          <li class="flex gap-x-3">
+          <li class="flex">
             <svg
-              class="flex-none w-5 h-6 text-warning"
+              class="flex-none w-5 h-6 text-warning mr-3"
               viewBox="0 0 20 20"
               fill="currentColor"
               aria-hidden="true"
@@ -101,7 +102,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            Connect 2 servers
+            Connect <span class="px-1 font-bold text-white">2</span> servers
           </li>
           <li class="flex gap-x-3">
             <svg
@@ -116,7 +117,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            Included Email System
+            Free Email Notifications
           </li>
           <li class="flex gap-x-3">
             <svg
@@ -131,13 +132,13 @@
                 clip-rule="evenodd"
               />
             </svg>
-            Priority Support
+            Email Support
           </li>
           <li class="flex font-bold text-white gap-x-3">
             <svg
               width="512"
               height="512"
-              class="flex-none w-5 h-6 text-green-600"
+              class="flex-none w-5 h-6 text-green-500"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -176,9 +177,9 @@
           {freq === "monthly" ? "monthly" : "annually"}
         </div>
         <ul role="list" class="mt-8 space-y-3 text-sm leading-6">
-          <li class="flex gap-x-3">
+          <li class="flex">
             <svg
-              class="flex-none w-5 h-6 text-warning"
+              class="flex-none w-5 h-6 text-warning mr-3"
               viewBox="0 0 20 20"
               fill="currentColor"
               aria-hidden="true"
@@ -189,7 +190,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            Connect 10 servers
+            Connect <span class="px-1 font-bold text-white">10</span> servers
           </li>
 
           <li class="flex gap-x-3">
@@ -205,7 +206,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            Included Email System
+            Free Email Notifications
           </li>
           <li class="flex gap-x-3">
             <svg
@@ -220,13 +221,13 @@
                 clip-rule="evenodd"
               />
             </svg>
-            Priority Support
+            Priority Email Support
           </li>
           <li class="flex font-bold text-white gap-x-3">
             <svg
               width="512"
               height="512"
-              class="flex-none w-5 h-6 text-green-600"
+              class="flex-none w-5 h-6 text-green-500"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -261,15 +262,15 @@
             <button class="button rounded">
               <a
                 class="font-bold text-white hover:no-underline"
-                href="https://coolify.io/docs/contact">Contact Us</a
+                href="https://coolify.io/docs/contact">Contact us</a
               >
             </button></span
           >
         </p>
-        <ul role="list" class="mt-8 space-y-3 text-sm leading-6">
-          <li class="flex gap-x-3">
+        <ul role="list" class="mt-12 space-y-3 text-sm leading-6">
+          <li class="flex">
             <svg
-              class="flex-none w-5 h-6 text-warning"
+              class="flex-none w-5 h-6 text-warning mr-3"
               viewBox="0 0 20 20"
               fill="currentColor"
               aria-hidden="true"
@@ -280,7 +281,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            Connect ? servers
+            Connect <span class="px-1 font-bold text-white">unlimited</span> servers
           </li>
           <li class="flex gap-x-3">
             <svg
@@ -295,9 +296,9 @@
                 clip-rule="evenodd"
               />
             </svg>
-            Included Email System
+            Free Email Notifications
           </li>
-          <li class="flex gap-x-3">
+          <li class="flex gap-x-3 font-bold">
             <svg
               class="flex-none w-5 h-6 text-warning"
               viewBox="0 0 20 20"
@@ -310,13 +311,13 @@
                 clip-rule="evenodd"
               />
             </svg>
-            Priority Support
+            Priority (Email/Chat) Support
           </li>
           <li class="flex font-bold text-white gap-x-3">
             <svg
               width="512"
               height="512"
-              class="flex-none w-5 h-6 text-green-600"
+              class="flex-none w-5 h-6 text-green-500"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -342,7 +343,9 @@
     </div>
   </div>
   <div class="p-4 mt-10 rounded">
-    <div class="flex lg:flex-row flex-col items-center lg:items-start gap-4 text-xl tracking-tight text-neutral-400">
+    <div
+      class="flex lg:flex-row flex-col items-center lg:items-start gap-4 text-xl tracking-tight text-neutral-400"
+    >
       Do you require official support for your self-hosted instance?
       <button class="button rounded">
         <a

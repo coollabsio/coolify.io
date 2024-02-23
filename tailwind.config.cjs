@@ -28,7 +28,7 @@ module.exports = {
         themes: [
             {
                 coollabs: {
-                    primary: "#323232",
+                    primary: "#181818",
                     "primary-focus": "#242424",
                     secondary: "#4338ca",
                     accent: "#4338ca",
