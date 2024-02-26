@@ -280,7 +280,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            Connect <span class="px-1 font-bold text-white">unlimited</span> servers
+            Connect <span class="px-1 font-bold text-white">10+</span> servers
           </li>
           <li class="flex gap-x-3">
             <svg
