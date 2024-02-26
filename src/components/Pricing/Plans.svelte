@@ -31,7 +31,7 @@
       </svg>Get Started in the Cloud</a
     >
   </div>
-  <div class=" flex gap-4 justify-center">
+  <div class="flex gap-4 justify-center">
     <fieldset class="flex gap-4 text-center text-xl font-semibold items-center">
       <legend class="sr-only">Payment frequency</legend>
       <label
@@ -73,7 +73,7 @@
   <div class="flex text-left">
     <div class="grid grid-cols-1 xl:grid-cols-3">
       <div class="p-8">
-        <h2 id="tier-hobby" class="text-3xl font-bold tracking-tight">Basic</h2>
+        <h2 id="tier-basic" class="text-3xl font-bold tracking-tight">Basic</h2>
         <p class="mt-4 text-sm leading-6 text-neutral-400">
           Begin hosting your own services in the cloud.
         </p>
@@ -251,7 +251,7 @@
         </ul>
       </div>
       <div class="p-8">
-        <h2 id="tier-hobby" class="text-3xl font-bold tracking-tight">
+        <h2 id="tier-ultimate" class="text-3xl font-bold tracking-tight">
           Ultimate
         </h2>
         <p class="mt-4 text-sm leading-6 text-neutral-400">
@@ -259,14 +259,13 @@
         </p>
         <p class="mt-6 flex items-baseline gap-x-1">
           <span class="text-4xl font-bold tracking-tight">
-            <button class="button rounded">
-              <a
-                class="font-bold text-white hover:no-underline"
-                href="https://coolify.io/docs/contact">Contact us</a
-              >
-            </button></span
+            Custom</span
           >
+          <!-- <span class="text-sm font-semibold leading-6"> / month + VAT</span> -->
         </p>
+        <div class="text-neutral-400">
+          pay-as-you-go
+        </div>
         <ul role="list" class="mt-12 space-y-3 text-sm leading-6">
           <li class="flex">
             <svg
