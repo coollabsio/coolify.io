@@ -8,7 +8,7 @@
     <span class="text-xl hidden md:block">Coolify</span>
   </a>
   <div class="flex-1" />
-  <a class="navbar-link relative gap-2" href="https://coollabs.io/discord"
+  <a class="navbar-link relative gap-2" href="https://coolify.io/discord"
     >Community <svg
       class="w-8 h-8 text-indigo-500 hidden sm:block"
       viewBox="0 0 256 256"
