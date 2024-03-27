@@ -266,7 +266,7 @@
         <div class="text-neutral-400">
           pay-as-you-go
         </div>
-        <ul role="list" class="mt-12 space-y-3 text-sm leading-6">
+        <ul role="list" class="mt-8 space-y-3 text-sm leading-6">
           <li class="flex">
             <svg
               class="flex-none w-5 h-6 text-warning mr-3"
