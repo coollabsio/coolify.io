@@ -29,7 +29,7 @@ module.exports = {
 			}
 		  },
 		  animation: {
-			wiggle: 'wiggle 0.5s ease-in-out infinite'
+			bounce: 'bounce 2s infinite;'
 		  },
 		  colors: {
 			coollabs: '#6B16ED',
