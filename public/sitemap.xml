@@ -1,5 +1,5 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://coolify.io/</loc></url><url><loc>https://coolify.io/cloud/</loc></url><url><loc>https://coolify.io/discord/</loc></url><url><loc>https://coolify.io/hetzner/</loc></url><url><loc>https://coolify.io/pricing/</loc></url><url><loc>https://coolify.io/self-hosted/</loc></url><url><loc>https://coolify.io/sponsorships/</loc></url>
+<url><loc>https://coolify.io</loc></url><url><loc>https://coolify.io/cloud</loc></url></url><url><loc>https://coolify.io/pricing</loc></url><url><loc>https://coolify.io/self-hosted</loc></url><url><loc>https://coolify.io/sponsorships</loc></url>
 <url>
 <loc>https://coolify.io/docs/api-reference/authorization</loc>
 </url>
