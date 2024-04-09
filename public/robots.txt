@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://coolify.io/sitemap.xml
+Sitemap: https://coolify.io/sitemap-index.xml
+Sitemap: https://coolify.io/docs/sitemap.xml
