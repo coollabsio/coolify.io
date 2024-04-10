@@ -13,12 +13,27 @@ import { Image } from "astro:assets";
     <h2 class="text-base pt-2 text-neutral-400 px-4">
         An open-source & self-hostable Heroku / Netlify / Vercel alternative.
     </h2>
-    <div class="pb-10 pt-1 text-xs"><a class="hover:underline cursor-pointer text-white flex gap-1 items-center justify-center" target="_blank" href="https://coolify.io/docs/screenshots"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-warning" viewBox="0 0 256 256">
-        <g fill="currentColor">
-            <path d="M208 64h-32l-16-24H96L80 64H48a16 16 0 0 0-16 16v112a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16Zm-80 104a36 36 0 1 1 36-36a36 36 0 0 1-36 36Z" opacity=".2"/>
-            <path d="M208 56h-27.72l-13.63-20.44A8 8 0 0 0 160 32H96a8 8 0 0 0-6.65 3.56L75.71 56H48a24 24 0 0 0-24 24v112a24 24 0 0 0 24 24h160a24 24 0 0 0 24-24V80a24 24 0 0 0-24-24Zm8 136a8 8 0 0 1-8 8H48a8 8 0 0 1-8-8V80a8 8 0 0 1 8-8h32a8 8 0 0 0 6.66-3.56L100.28 48h55.43l13.63 20.44A8 8 0 0 0 176 72h32a8 8 0 0 1 8 8ZM128 88a44 44 0 1 0 44 44a44.05 44.05 0 0 0-44-44Zm0 72a28 28 0 1 1 28-28a28 28 0 0 1-28 28Z"/>
-        </g>
-    </svg>Screenshots</a></div>
+    <div class="pb-10 pt-1 text-xs">
+        <a
+            class="hover:underline cursor-pointer text-white flex gap-1 items-center justify-center"
+            target="_blank"
+            href="https://coolify.io/docs/screenshots"
+            ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5 text-warning"
+                viewBox="0 0 256 256"
+            >
+                <g fill="currentColor">
+                    <path
+                        d="M208 64h-32l-16-24H96L80 64H48a16 16 0 0 0-16 16v112a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16Zm-80 104a36 36 0 1 1 36-36a36 36 0 0 1-36 36Z"
+                        opacity=".2"></path>
+                    <path
+                        d="M208 56h-27.72l-13.63-20.44A8 8 0 0 0 160 32H96a8 8 0 0 0-6.65 3.56L75.71 56H48a24 24 0 0 0-24 24v112a24 24 0 0 0 24 24h160a24 24 0 0 0 24-24V80a24 24 0 0 0-24-24Zm8 136a8 8 0 0 1-8 8H48a8 8 0 0 1-8-8V80a8 8 0 0 1 8-8h32a8 8 0 0 0 6.66-3.56L100.28 48h55.43l13.63 20.44A8 8 0 0 0 176 72h32a8 8 0 0 1 8 8ZM128 88a44 44 0 1 0 44 44a44.05 44.05 0 0 0-44-44Zm0 72a28 28 0 1 1 28-28a28 28 0 0 1-28 28Z"
+                    ></path>
+                </g>
+            </svg>Screenshots</a
+        >
+    </div>
     <div class="pb-2 flex justify-center text-center gap-8 px-4">
         <div>
             <a
@@ -76,9 +91,8 @@ import { Image } from "astro:assets";
     </div>
 
     <div class="py-4 pt-10">
-        <div
-            class="flex gap-2 flex-wrap justify-center pt-4 items-center text-xs font-bold"
-        >
+        <div class="flex flex-col items-center gap-2">
+            <div class="flex gap-2 justify-center flex-wrap  items-center text-center">
             <a href="https://cccareers.org/?utm_source=coolify.io"
                 ><Image
                     src="https://github.com/cccareers.png"
@@ -179,7 +193,7 @@ import { Image } from "astro:assets";
                     alt="QuantCDN"
                 /></a
             >
-          
+
             <a href="https://360creators.com/?utm_source=coolify.io"
                 ><Image
                     src="https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/503e0953-bff7-4296-b4cc-5e36d40eecc0/icon-360creators.png"
@@ -197,6 +211,16 @@ import { Image } from "astro:assets";
                     height={45}
                     loading="eager"
                     alt="UXWizz"
+                /></a
+            >
+            <a href="https://barrad.me/?utm_source=coolify.io"
+                ><Image
+                    class="rounded"
+                    src="https://barrad.me/_ipx/f_webp&s_300x300/younes.jpg"
+                    width={45}
+                    height={45}
+                    loading="eager"
+                    alt="Younes Barrad"
                 /></a
             >
             <a href="https://automaze.io/?utm_source=coolify.io"
@@ -219,10 +243,11 @@ import { Image } from "astro:assets";
                 /></a
             >
             <a
-            class="w-14 h-14 border border-warning rounded  hover:bg-warning hover:text-black  flex justify-center text-center items-center text-xs text-white animate-bounce"
-            href="https://github.com/sponsors/coollabsio"
-            >This can be YOU</a
-        >
+                class="w-14 h-14 border border-warning rounded hover:bg-warning hover:text-black flex justify-center text-center items-center text-xs text-white animate-bounce"
+                href="https://github.com/sponsors/coollabsio">This can be YOU</a
+            >
+        </div>
+        <div class="flex gap-2 justifty-center flex-wrap  items-center text-center">
             <a href="https://github.com/Niki2k1"
                 ><Image
                     class="rounded"
@@ -305,6 +330,8 @@ import { Image } from "astro:assets";
                     alt="Michael Mazurczak"
                 /></a
             >
+        </div>
+
         </div>
         <div class="text-center">
             <a
