@@ -32,326 +32,161 @@
     >
   </div>
   <div class="flex gap-4 justify-center">
-    <fieldset class="flex gap-4 text-center text-xl font-semibold items-center">
-      <legend class="sr-only">Payment frequency</legend>
-      <label
-        class="cursor-pointer transition-all p-2 border-b-2"
-        class:border-warning={freq === "monthly"}
-        class:border-transparent={freq !== "monthly"}
+    <div class="flex justify-center">
+      <fieldset
+        class="grid grid-cols-2 p-1 text-xs font-semibold leading-5 text-center rounded text-white gap-x-1 bg-coolgray-100"
       >
-        <input
-          type="radio"
-          name="frequency"
-          value="monthly"
-          class="sr-only"
-          on:click={() => (freq = "monthly")}
-        />
-        <span>Monthly</span>
-      </label>
-      <label
-        class="cursor-pointer transition-all p-2 border-b-2"
-        class:border-warning={freq === "yearly"}
-        class:border-transparent={freq !== "yearly"}
-      >
-        <input
-          type="radio"
-          name="frequency"
-          value="annually"
-          class="sr-only"
-          on:click={() => (freq = "yearly")}
-        />
-        <span>Annually <span class="text-xs">(save 1 month)</span></span>
-      </label>
-    </fieldset>
+        <legend class="sr-only">Payment frequency</legend>
+        <label
+          class="cursor-pointer rounded px-2.5 py-1"
+          class:bg-coollabs-100={freq === "monthly"}
+          class:text-white={freq === "monthly"}
+        >
+          <input
+            type="radio"
+            on:click={() => (freq = "monthly")}
+            name="frequency"
+            value="monthly"
+            class="sr-only"
+          />
+          <span>Monthly</span>
+        </label>
+        <label
+          class="cursor-pointer rounded px-2.5 py-1"
+          class:bg-coollabs-100={freq === "yearly"}
+          class:text-white={freq === "yearly"}
+        >
+          <input
+            type="radio"
+            on:click={() => (freq = "yearly")}
+            name="frequency"
+            value="annually"
+            class="sr-only"
+          />
+          <span
+            >Annually <span class="text-xs text-warning">(save ~20%)</span
+            ></span
+          >
+        </label>
+      </fieldset>
+    </div>
   </div>
-
   <!--<div class=" pt-10 pb-2 text-center">
     <span class="font-bold text-warning">Trial period</span> included on all plans,
     without credit card details.
   </div> -->
 
-  <div class="flex text-left">
-    <div class="grid grid-cols-1 xl:grid-cols-3">
-      <div class="p-8">
-        <h2 id="tier-basic" class="text-3xl font-bold tracking-tight">Basic</h2>
-        <p class="mt-4 text-sm leading-6 text-neutral-400">
-          Begin hosting your own services in the cloud.
-        </p>
-        <p class="mt-6 flex items-baseline gap-x-1">
-          <span class="text-4xl font-bold tracking-tight">
-            {freq === "monthly" ? "$5" : "$4"}</span
-          >
-          <span class="text-sm font-semibold leading-6"> / month + VAT</span>
-        </p>
-        <div class="text-neutral-400">
-          billed
-          {freq === "monthly" ? "monthly" : "annually"}
-        </div>
+  <div class="flex text-left justify-center">
+    <div class="p-8">
+      <h2 id="tier-basic" class="text-3xl font-bold tracking-tight">
+        Pay-as-you-go
+      </h2>
+      <p class="mt-4 text-sm leading-6 text-neutral-400">
+        Dynamic pricing based on the number of servers you connect.
+      </p>
 
-        <ul role="list" class="mt-8 space-y-3 text-sm leading-6">
-          <li class="flex">
-            <svg
-              class="flex-none w-5 h-6 text-warning mr-3"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            Connect <span class="px-1 font-bold text-white">2</span> servers
-          </li>
-          <li class="flex gap-x-3">
-            <svg
-              class="flex-none w-5 h-6 text-warning"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            Free Email Notifications
-          </li>
-          <li class="flex gap-x-3">
-            <svg
-              class="flex-none w-5 h-6 text-warning"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            Email Support
-          </li>
-          <li class="flex font-bold text-white gap-x-3">
-            <svg
-              width="512"
-              height="512"
-              class="flex-none w-5 h-6 text-green-500"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-              >
-                <path
-                  d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3-5a9 9 0 0 0 6-8a3 3 0 0 0-3-3a9 9 0 0 0-8 6a6 6 0 0 0-5 3"
-                />
-                <path
-                  d="M7 14a6 6 0 0 0-3 6a6 6 0 0 0 6-3m4-8a1 1 0 1 0 2 0a1 1 0 1 0-2 0"
-                />
-              </g>
-            </svg>
-            + All upcoming features
-          </li>
-        </ul>
-      </div>
-      <div class="p-8">
-        <h2 id="tier-pro" class="text-3xl font-bold tracking-tight">Pro</h2>
-        <p class="mt-4 text-sm leading-6 text-neutral-400">
-          Expand your business or set up your own hosting environment.
-        </p>
-        <p class="mt-6 flex items-baseline gap-x-1">
-          <span class="text-4xl font-bold tracking-tight">
-            {freq === "monthly" ? "$30" : "$27"}</span
-          >
-          <span class="text-sm font-semibold leading-6"> / month + VAT</span>
-        </p>
-        <div class="text-neutral-400">
-          billed
-          {freq === "monthly" ? "monthly" : "annually"}
-        </div>
-        <ul role="list" class="mt-8 space-y-3 text-sm leading-6">
-          <li class="flex">
-            <svg
-              class="flex-none w-5 h-6 text-warning mr-3"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            Connect <span class="px-1 font-bold text-white">10</span> servers
-          </li>
-
-          <li class="flex gap-x-3">
-            <svg
-              class="flex-none w-5 h-6 text-warning"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            Free Email Notifications
-          </li>
-          <li class="flex gap-x-3">
-            <svg
-              class="flex-none w-5 h-6 text-warning"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            Priority Email Support
-          </li>
-          <li class="flex font-bold text-white gap-x-3">
-            <svg
-              width="512"
-              height="512"
-              class="flex-none w-5 h-6 text-green-500"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-              >
-                <path
-                  d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3-5a9 9 0 0 0 6-8a3 3 0 0 0-3-3a9 9 0 0 0-8 6a6 6 0 0 0-5 3"
-                />
-                <path
-                  d="M7 14a6 6 0 0 0-3 6a6 6 0 0 0 6-3m4-8a1 1 0 1 0 2 0a1 1 0 1 0-2 0"
-                />
-              </g>
-            </svg>
-            + All upcoming features
-          </li>
-        </ul>
-      </div>
-      <div class="p-8">
-        <h2 id="tier-ultimate" class="text-3xl font-bold tracking-tight">
-          Ultimate
-        </h2>
-        <p class="mt-4 text-sm leading-6 text-neutral-400">
-          Easily manage complex infrastructures in a single location.
-        </p>
-        <p class="mt-6 flex items-baseline gap-x-1">
-          <span class="text-4xl font-bold tracking-tight">
-            Custom</span
-          >
-          <!-- <span class="text-sm font-semibold leading-6"> / month + VAT</span> -->
-        </p>
-        <div class="text-neutral-400">
-          pay-as-you-go
-        </div>
-        <ul role="list" class="mt-8 space-y-3 text-sm leading-6">
-          <li class="flex">
-            <svg
-              class="flex-none w-5 h-6 text-warning mr-3"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            Connect <span class="px-1 font-bold text-white">10+</span> servers
-          </li>
-          <li class="flex gap-x-3">
-            <svg
-              class="flex-none w-5 h-6 text-warning"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            Free Email Notifications
-          </li>
-          <li class="flex gap-x-3 font-bold">
-            <svg
-              class="flex-none w-5 h-6 text-warning"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            Priority (Email/Chat) Support
-          </li>
-          <li class="flex font-bold text-white gap-x-3">
-            <svg
-              width="512"
-              height="512"
-              class="flex-none w-5 h-6 text-green-500"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-              >
-                <path
-                  d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3-5a9 9 0 0 0 6-8a3 3 0 0 0-3-3a9 9 0 0 0-8 6a6 6 0 0 0-5 3"
-                />
-                <path
-                  d="M7 14a6 6 0 0 0-3 6a6 6 0 0 0 6-3m4-8a1 1 0 1 0 2 0a1 1 0 1 0-2 0"
-                />
-              </g>
-            </svg>
-            + All upcoming features
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="p-4 mt-10 rounded">
-    <div
-      class="flex lg:flex-row flex-col items-center lg:items-start gap-4 text-xl tracking-tight text-neutral-400"
-    >
-      Do you require official support for your self-hosted instance?
-      <button class="button rounded">
-        <a
-          class="font-bold text-white hover:no-underline"
-          href="https://coolify.io/docs/contact">Contact Us</a
+      <p class="mt-6 flex items-baseline gap-x-1">
+        <span class="text-4xl font-bold tracking-tight">
+          {freq === "monthly" ? "$5" : "$4"}</span
         >
-      </button>
+        <span class="text-sm font-semibold leading-6 text-neutral-400">
+          for 2 servers</span
+        >
+      </p>
+      <p class="flex items-baseline gap-x-1">
+        <span class="font-bold tracking-tight">
+          {freq === "monthly" ? "$3" : "$2.7"}</span
+        >
+        <span class="text-sm font-semibold leading-6 text-neutral-400">
+          per server from 3+ servers</span
+        >
+      </p>
+      <div class="text-white pt-4 text-sm">
+        billed
+        {freq === "monthly" ? "monthly" : "annually"}
+        (+VAT)
+      </div>
+
+      <ul role="list" class="mt-8 space-y-3 text-sm leading-6">
+        <li class="flex">
+          <svg
+            class="flex-none w-5 h-6 text-warning mr-3"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          Connect <span class="px-1 font-bold text-white">unlimited</span> servers
+        </li>
+        <li class="flex gap-x-3">
+          <svg
+            class="flex-none w-5 h-6 text-warning"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          Free Email Notifications
+        </li>
+        <li class="flex gap-x-3">
+          <svg
+            class="flex-none w-5 h-6 text-warning"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          Support by Email
+        </li>
+        <li class="flex font-bold text-white gap-x-3">
+          <svg
+            width="512"
+            height="512"
+            class="flex-none w-5 h-6 text-green-500"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <path
+                d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3-5a9 9 0 0 0 6-8a3 3 0 0 0-3-3a9 9 0 0 0-8 6a6 6 0 0 0-5 3"
+              />
+              <path
+                d="M7 14a6 6 0 0 0-3 6a6 6 0 0 0 6-3m4-8a1 1 0 1 0 2 0a1 1 0 1 0-2 0"
+              />
+            </g>
+          </svg>
+          + All Upcoming Features
+        </li>
+        <li class="flex text-white gap-x-3">
+          <svg xmlns="http://www.w3.org/2000/svg"  class="flex-none w-5 h-6 text-green-500" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><polyline points="32 136 72 136 88 112 120 160 136 136 160 136" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M24,104c0-.67,0-1.33,0-2A54,54,0,0,1,78,48c22.59,0,41.94,12.31,50,32,8.06-19.69,27.41-32,50-32a54,54,0,0,1,54,54c0,66-104,122-104,122s-42-22.6-72.58-56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+       
+          Do you require official support for your self-hosted instance?<a
+            class="underline"
+            href="https://coolify.io/docs/contact">Contact Us</a
+          >
+        </li>
+      </ul>
     </div>
   </div>
 </div>
