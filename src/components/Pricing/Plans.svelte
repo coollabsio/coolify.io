@@ -130,7 +130,7 @@
             the <a
               class="underline"
               href="https://coolify.io/docs/installation#supported-operating-systems"
-              target="_blank">supported OS</a
+              target="_blank">supported operating systems</a
             >.)
           </div>
         </div>
