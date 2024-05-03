@@ -1,7 +1,7 @@
 <nav class="navbar">
   <a href="/" class="font-bold">
     <img
-      src="/coolify-transparent.png"
+      src="/coolify-transparent.svg"
       class="w-6 h-6 lg:w-10 lg:h-10 lg:mr-4 block"
       alt="Coolify's logo"
     />
