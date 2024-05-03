@@ -5,876 +5,878 @@ import { Image } from "astro:assets";
 ---
 
 <Layout title="Coolify">
-    <h1
-        class="text-3xl font-bold tracking-tight text-white md:text-6xl pt-24 px-4"
+  <h1
+    class="text-3xl font-bold tracking-tight text-white md:text-6xl pt-24 px-4"
+  >
+    Self-hosting with superpowers<span class="text-warning">.</span>
+  </h1>
+  <h2 class="text-base pt-2 text-neutral-400 px-4">
+    An open-source & self-hostable Heroku / Netlify / Vercel alternative.
+  </h2>
+  <div class="pb-10 pt-1 text-xs flex gap-6 justify-center">
+    <a
+      class="hover:underline cursor-pointer text-white flex gap-2 items-center justify-center"
+      target="_blank"
+      href="https://coolify.io/docs/screenshots"
+      ><svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-5 h-5 text-warning"
+        viewBox="0 0 256 256"
+      >
+        <g fill="currentColor">
+          <path
+            d="M208 64h-32l-16-24H96L80 64H48a16 16 0 0 0-16 16v112a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16Zm-80 104a36 36 0 1 1 36-36a36 36 0 0 1-36 36Z"
+            opacity=".2"></path>
+          <path
+            d="M208 56h-27.72l-13.63-20.44A8 8 0 0 0 160 32H96a8 8 0 0 0-6.65 3.56L75.71 56H48a24 24 0 0 0-24 24v112a24 24 0 0 0 24 24h160a24 24 0 0 0 24-24V80a24 24 0 0 0-24-24Zm8 136a8 8 0 0 1-8 8H48a8 8 0 0 1-8-8V80a8 8 0 0 1 8-8h32a8 8 0 0 0 6.66-3.56L100.28 48h55.43l13.63 20.44A8 8 0 0 0 176 72h32a8 8 0 0 1 8 8ZM128 88a44 44 0 1 0 44 44a44.05 44.05 0 0 0-44-44Zm0 72a28 28 0 1 1 28-28a28 28 0 0 1-28 28Z"
+          ></path>
+        </g>
+      </svg>Screenshots</a
     >
-        Self-hosting with superpowers<span class="text-warning">.</span>
-    </h1>
-    <h2 class="text-base pt-2 text-neutral-400 px-4">
-        An open-source & self-hostable Heroku / Netlify / Vercel alternative.
-    </h2>
-    <div class="pb-10 pt-1 text-xs">
-        <a
-            class="hover:underline cursor-pointer text-white flex gap-1 items-center justify-center"
-            target="_blank"
-            href="https://coolify.io/docs/screenshots"
-            ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 text-warning"
-                viewBox="0 0 256 256"
-            >
-                <g fill="currentColor">
-                    <path
-                        d="M208 64h-32l-16-24H96L80 64H48a16 16 0 0 0-16 16v112a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16Zm-80 104a36 36 0 1 1 36-36a36 36 0 0 1-36 36Z"
-                        opacity=".2"></path>
-                    <path
-                        d="M208 56h-27.72l-13.63-20.44A8 8 0 0 0 160 32H96a8 8 0 0 0-6.65 3.56L75.71 56H48a24 24 0 0 0-24 24v112a24 24 0 0 0 24 24h160a24 24 0 0 0 24-24V80a24 24 0 0 0-24-24Zm8 136a8 8 0 0 1-8 8H48a8 8 0 0 1-8-8V80a8 8 0 0 1 8-8h32a8 8 0 0 0 6.66-3.56L100.28 48h55.43l13.63 20.44A8 8 0 0 0 176 72h32a8 8 0 0 1 8 8ZM128 88a44 44 0 1 0 44 44a44.05 44.05 0 0 0-44-44Zm0 72a28 28 0 1 1 28-28a28 28 0 0 1-28 28Z"
-                    ></path>
-                </g>
-            </svg>Screenshots</a
+    <a
+      class="hover:underline cursor-pointer text-white flex gap-2 items-center justify-center"
+      target="_blank"
+      href="https://coolify.io/docs/videos"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        class="w-5 h-5 text-warning"
+        viewBox="0 0 256 256"
+        ><path
+          d="M200,72V184a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V72a8,8,0,0,1,8-8H192A8,8,0,0,1,200,72Z"
+          opacity="0.2"></path><path
+          d="M251.77,73a8,8,0,0,0-8.21.39L208,97.05V72a16,16,0,0,0-16-16H32A16,16,0,0,0,16,72V184a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V159l35.56,23.71A8,8,0,0,0,248,184a8,8,0,0,0,8-8V80A8,8,0,0,0,251.77,73ZM192,184H32V72H192V184Zm48-22.95-32-21.33V116.28L240,95Z"
+        ></path></svg
+      >
+      Videos</a
+    >
+  </div>
+  <div class="pb-2 flex justify-center text-center gap-8 px-4">
+    <div>
+      <a
+        href="/cloud"
+        class="text-xs sm:text-base font-bold rounded p-4 px-2 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2 sm:w-64 justify-center"
+        ><svg
+          class="icon hidden sm:block"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
         >
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6.657 18C4.085 18 2 15.993 2 13.517c0-2.475 2.085-4.482 4.657-4.482c.393-1.762 1.794-3.2 3.675-3.773c1.88-.572 3.956-.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927-1.551 3.487-3.465 3.487H6.657"
+          ></path>
+        </svg>Cloud</a
+      >
+      <div
+        class="text-neutral-400 sm:text-base text-xs sm:flex-row flex flex-col gap-1 pt-2 sm:justify-center"
+      >
+        <span class="text-warning font-bold font-mono">230+</span> customers in the
+        cloud.
+      </div>
     </div>
-    <div class="pb-2 flex justify-center text-center gap-8 px-4">
-        <div>
-            <a
-                href="/cloud"
-                class="text-xs sm:text-base font-bold rounded p-4 px-2 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2 sm:w-64 justify-center"
-                ><svg
-                    class="icon hidden sm:block"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M6.657 18C4.085 18 2 15.993 2 13.517c0-2.475 2.085-4.482 4.657-4.482c.393-1.762 1.794-3.2 3.675-3.773c1.88-.572 3.956-.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927-1.551 3.487-3.465 3.487H6.657"
-                    ></path>
-                </svg>Cloud</a
-            >
-            <div
-                class="text-neutral-400 sm:text-base text-xs sm:flex-row flex flex-col gap-1 pt-2 sm:justify-center"
-            >
-                <span class="text-warning font-bold font-mono">230+</span> customers
-                in the cloud.
-            </div>
-        </div>
-        <div>
-            <a
-                href="/self-hosted"
-                class="text-xs sm:text-base font-bold rounded p-4 px-2 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2 lg:w-64 justify-center"
-                ><svg
-                    class="icon hidden sm:block"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <g
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                    >
-                        <path
-                            d="M9.5 11h.01m4.99 0h.01M9.5 15a3.5 3.5 0 0 0 5 0"
-                        ></path>
-                        <path
-                            d="M7 5h1V3h8v2h1a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3v1H7v-1a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3"
-                        ></path>
-                    </g>
-                </svg>Self-hosted</a
-            >
-            <Instances client:load />
-        </div>
+    <div>
+      <a
+        href="/self-hosted"
+        class="text-xs sm:text-base font-bold rounded p-4 px-2 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2 lg:w-64 justify-center"
+        ><svg
+          class="icon hidden sm:block"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          >
+            <path d="M9.5 11h.01m4.99 0h.01M9.5 15a3.5 3.5 0 0 0 5 0"></path>
+            <path
+              d="M7 5h1V3h8v2h1a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3v1H7v-1a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3"
+            ></path>
+          </g>
+        </svg>Self-hosted</a
+      >
+      <Instances client:load />
     </div>
+  </div>
 
-    <div class="py-4 pt-10">
-        <div class="flex flex-col items-center gap-2">
-            <div class="flex gap-2 justify-center flex-wrap  items-center text-center">
-            <a href="https://cccareers.org/?utm_source=coolify.io"
-                ><Image
-                    src="https://github.com/cccareers.png"
-                    width={45}
-                    height={45}
-                    loading="eager"
-                    alt="Creating Coding Careers"
-                /></a
-            >
-            <a href="https://americancloud.com/?utm_source=coolify.io"
-                ><img
-                    class="rounded"
-                    src="https://github.com/American-Cloud.png"
-                    width="45px"
-                    alt="American Cloud"
-                /></a
-            >
-            <a href="https://cryptojobslist.com/?utm_source=coolify.io"
-                ><Image
-                    class="rounded"
-                    src="https://github.com/cryptojobslist.png"
-                    width={45}
-                    height={45}
-                    loading="eager"
-                    alt="cryptojobslist"
-                /></a
-            >
-            <a href="https://typebot.io/?utm_source=coolify.io"
-                ><Image
-                    class="rounded"
-                    src="https://pbs.twimg.com/profile_images/1509194008366657543/9I-C7uWT_400x400.jpg"
-                    width={45}
-                    height={45}
-                    loading="eager"
-                    alt="typebot"
-                /></a
-            >
-            <a href="https://bc.direct/?utm_source=coolify.io"
-                ><svg
-                    version="1.1"
-                    id="Calque_1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    class="w-11 h-11"
-                    viewBox="0 0 290 250"
-                    xml:space="preserve"
-                >
-                    <title>bc.direct</title>
-                    <style type="text/css">
-                        .st0 {
-                            fill: #ffffff;
-                        }
-                        .st1 {
-                            fill: #116dff;
-                        }
-                    </style>
-                    <g>
-                        <path
-                            class="st1"
-                            d="M158.6,96.4c0.4,2.3,2.9,3.7,5.1,2.9L206.9,84c19.8-7.1,31.6-27.5,27.8-48.2l0,0c-4.8-26-31.7-41.5-56.6-32.7
+  <div class="py-4 pt-10">
+    <div class="flex flex-col items-center gap-2">
+      <div class="flex gap-2 justify-center flex-wrap items-center text-center">
+        <a href="https://cccareers.org/?utm_source=coolify.io"
+          ><Image
+            src="https://github.com/cccareers.png"
+            width={45}
+            height={45}
+            loading="eager"
+            alt="Creating Coding Careers"
+          /></a
+        >
+        <a href="https://americancloud.com/?utm_source=coolify.io"
+          ><img
+            class="rounded"
+            src="https://github.com/American-Cloud.png"
+            width="45px"
+            alt="American Cloud"
+          /></a
+        >
+        <a href="https://cryptojobslist.com/?utm_source=coolify.io"
+          ><Image
+            class="rounded"
+            src="https://github.com/cryptojobslist.png"
+            width={45}
+            height={45}
+            loading="eager"
+            alt="cryptojobslist"
+          /></a
+        >
+        <a href="https://typebot.io/?utm_source=coolify.io"
+          ><Image
+            class="rounded"
+            src="https://pbs.twimg.com/profile_images/1509194008366657543/9I-C7uWT_400x400.jpg"
+            width={45}
+            height={45}
+            loading="eager"
+            alt="typebot"
+          /></a
+        >
+        <a href="https://bc.direct/?utm_source=coolify.io"
+          ><svg
+            version="1.1"
+            id="Calque_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            class="w-11 h-11"
+            viewBox="0 0 290 250"
+            xml:space="preserve"
+          >
+            <title>bc.direct</title>
+            <style type="text/css">
+              .st0 {
+                fill: #ffffff;
+              }
+              .st1 {
+                fill: #116dff;
+              }
+            </style>
+            <g>
+              <path
+                class="st1"
+                d="M158.6,96.4c0.4,2.3,2.9,3.7,5.1,2.9L206.9,84c19.8-7.1,31.6-27.5,27.8-48.2l0,0c-4.8-26-31.7-41.5-56.6-32.7
                         l0,0c-19.8,7.1-31.6,27.5-27.8,48.2L158.6,96.4z"
-                        ></path>
-                        <path
-                            class="st1"
-                            d="M269.1,95.4L269.1,95.4c-16-13.7-39.6-13.7-55.7,0l-34.9,29.7c-1.8,1.5-1.8,4.3,0,5.9l34.9,29.7
+              ></path>
+              <path
+                class="st1"
+                d="M269.1,95.4L269.1,95.4c-16-13.7-39.6-13.7-55.7,0l-34.9,29.7c-1.8,1.5-1.8,4.3,0,5.9l34.9,29.7
                         c16,13.7,39.6,13.7,55.7,0l0,0C289.3,143.7,289.3,112.6,269.1,95.4z"
-                        ></path>
-                        <path
-                            class="st1"
-                            d="M206.9,172.2l-43.2-15.4c-2.2-0.8-4.7,0.6-5.1,2.9l-8.3,45.1c-3.8,20.7,8,41.1,27.8,48.2l0,0
+              ></path>
+              <path
+                class="st1"
+                d="M206.9,172.2l-43.2-15.4c-2.2-0.8-4.7,0.6-5.1,2.9l-8.3,45.1c-3.8,20.7,8,41.1,27.8,48.2l0,0
                         c24.9,8.9,51.8-6.7,56.6-32.7l0,0C238.5,199.7,226.7,179.3,206.9,172.2z"
-                        ></path>
-                        <path
-                            class="st1"
-                            d="M128.8,159.8c-0.4-2.3-2.9-3.7-5.1-2.9l-43.2,15.4c-19.8,7.1-31.6,27.5-27.8,48.2l0,0
+              ></path>
+              <path
+                class="st1"
+                d="M128.8,159.8c-0.4-2.3-2.9-3.7-5.1-2.9l-43.2,15.4c-19.8,7.1-31.6,27.5-27.8,48.2l0,0
                         c4.8,26,31.7,41.5,56.6,32.7l0,0c19.8-7.1,31.6-27.5,27.8-48.2L128.8,159.8z"
-                        ></path>
-                        <path
-                            class="st1"
-                            d="M108.8,131.1c1.8-1.5,1.8-4.3,0-5.9L73.9,95.4c-16-13.7-39.6-13.7-55.7,0l0,0c-20.1,17.1-20.1,48.2,0,65.4
+              ></path>
+              <path
+                class="st1"
+                d="M108.8,131.1c1.8-1.5,1.8-4.3,0-5.9L73.9,95.4c-16-13.7-39.6-13.7-55.7,0l0,0c-20.1,17.1-20.1,48.2,0,65.4
                         l0,0c16,13.7,39.6,13.7,55.7,0L108.8,131.1z"
-                        ></path>
-                        <path
-                            class="st1"
-                            d="M80.5,84l43.2,15.4c2.2,0.8,4.7-0.6,5.1-2.9l8.3-45.1c3.8-20.7-8-41.1-27.8-48.2l0,0
+              ></path>
+              <path
+                class="st1"
+                d="M80.5,84l43.2,15.4c2.2,0.8,4.7-0.6,5.1-2.9l8.3-45.1c3.8-20.7-8-41.1-27.8-48.2l0,0
                         C84.3-5.7,57.4,9.8,52.6,35.8l0,0C48.8,56.5,60.6,76.9,80.5,84z"
-                        ></path>
-                    </g>
-                </svg></a
-            >
-            <a href="https://www.quantcdn.io/?utm_source=coolify.io"
-                ><Image
-                    class="rounded"
-                    src="https://github.com/quantcdn.png"
-                    width={45}
-                    height={45}
-                    loading="eager"
-                    alt="QuantCDN"
-                /></a
-            >
+              ></path>
+            </g>
+          </svg></a
+        >
+        <a href="https://www.quantcdn.io/?utm_source=coolify.io"
+          ><Image
+            class="rounded"
+            src="https://github.com/quantcdn.png"
+            width={45}
+            height={45}
+            loading="eager"
+            alt="QuantCDN"
+          /></a
+        >
 
-            <a href="https://360creators.com/?utm_source=coolify.io"
-                ><Image
-                    src="https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/503e0953-bff7-4296-b4cc-5e36d40eecc0/icon-360creators.png"
-                    width={45}
-                    height={45}
-                    loading="eager"
-                    alt="360Creators"
-                /></a
-            >
-            <a href="https://www.uxwizz.com/?utm_source=coolify.io"
-                ><Image
-                    class="rounded"
-                    src="https://github.com/UXWizz.png"
-                    width={45}
-                    height={45}
-                    loading="eager"
-                    alt="UXWizz"
-                /></a
-            >
-            <a href="https://barrad.me/?utm_source=coolify.io"
-                ><Image
-                    class="rounded"
-                    src="https://barrad.me/_ipx/f_webp&s_300x300/younes.jpg"
-                    width={45}
-                    height={45}
-                    loading="eager"
-                    alt="Younes Barrad"
-                /></a
-            >
-            <a href="https://automaze.io/?utm_source=coolify.io"
-                ><Image
-                    class="rounded"
-                    src="https://github.com/automazeio.png"
-                    width={45}
-                    height={45}
-                    loading="eager"
-                    alt="Automaze"
-                /></a
-            >
-            <a href="https://github.com/corentinclichy"
-                ><Image
-                    src="https://github.com/corentinclichy.png"
-                    width={45}
-                    height={45}
-                    loading="eager"
-                    alt="Corentin Clichy"
-                /></a
-            >
-            <a
-                class="w-14 h-14 border border-warning rounded hover:bg-warning hover:text-black flex justify-center text-center items-center text-xs text-white animate-bounce"
-                href="https://github.com/sponsors/coollabsio">This can be YOU</a
-            >
-        </div>
-        <div class="flex gap-2 justifty-center flex-wrap  items-center text-center">
-            <a href="https://github.com/Niki2k1"
-                ><Image
-                    class="rounded"
-                    src="https://github.com/Niki2k1.png"
-                    width={45}
-                    height={45}
-                    loading="eager"
-                    alt="Niklas Lausch"
-                /></a
-            >
+        <a href="https://360creators.com/?utm_source=coolify.io"
+          ><Image
+            src="https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/503e0953-bff7-4296-b4cc-5e36d40eecc0/icon-360creators.png"
+            width={45}
+            height={45}
+            loading="eager"
+            alt="360Creators"
+          /></a
+        >
+        <a href="https://www.uxwizz.com/?utm_source=coolify.io"
+          ><Image
+            class="rounded"
+            src="https://github.com/UXWizz.png"
+            width={45}
+            height={45}
+            loading="eager"
+            alt="UXWizz"
+          /></a
+        >
+        <a href="https://barrad.me/?utm_source=coolify.io"
+          ><Image
+            class="rounded"
+            src="https://barrad.me/_ipx/f_webp&s_300x300/younes.jpg"
+            width={45}
+            height={45}
+            loading="eager"
+            alt="Younes Barrad"
+          /></a
+        >
+        <a href="https://automaze.io/?utm_source=coolify.io"
+          ><Image
+            class="rounded"
+            src="https://github.com/automazeio.png"
+            width={45}
+            height={45}
+            loading="eager"
+            alt="Automaze"
+          /></a
+        >
+        <a href="https://github.com/corentinclichy"
+          ><Image
+            src="https://github.com/corentinclichy.png"
+            width={45}
+            height={45}
+            loading="eager"
+            alt="Corentin Clichy"
+          /></a
+        >
+        <a
+          class="w-14 h-14 border border-warning rounded hover:bg-warning hover:text-black flex justify-center text-center items-center text-xs text-white animate-bounce"
+          href="https://github.com/sponsors/coollabsio">This can be YOU</a
+        >
+      </div>
+      <div
+        class="flex gap-2 justifty-center flex-wrap items-center text-center"
+      >
+        <a href="https://github.com/Niki2k1"
+          ><Image
+            class="rounded"
+            src="https://github.com/Niki2k1.png"
+            width={45}
+            height={45}
+            loading="eager"
+            alt="Niklas Lausch"
+          /></a
+        >
 
-            <a href="https://pixel.ao/?utm_source=coolify.io"
-                ><Image
-                    class="rounded"
-                    src="https://github.com/pixelinfinito.png"
-                    width={45}
-                    height={45}
-                    loading="eager"
-                    alt="Pixel Infinito"
-                /></a
-            >
-            <a href="https://github.com/whitesidest"
-                ><Image
-                    class="rounded"
-                    src="https://avatars.githubusercontent.com/u/12365916?s=52&v=4"
-                    width={45}
-                    height={45}
-                    loading="eager"
-                    alt="Tyler Whitesides"
-                /></a
-            >
-            <a href="https://github.com/aniftyco"
-                ><Image
-                    class="rounded"
-                    src="https://github.com/aniftyco.png"
-                    width={45}
-                    height={45}
-                    loading="eager"
-                    alt="NiftyCo"
-                /></a
-            >
+        <a href="https://pixel.ao/?utm_source=coolify.io"
+          ><Image
+            class="rounded"
+            src="https://github.com/pixelinfinito.png"
+            width={45}
+            height={45}
+            loading="eager"
+            alt="Pixel Infinito"
+          /></a
+        >
+        <a href="https://github.com/whitesidest"
+          ><Image
+            class="rounded"
+            src="https://avatars.githubusercontent.com/u/12365916?s=52&v=4"
+            width={45}
+            height={45}
+            loading="eager"
+            alt="Tyler Whitesides"
+          /></a
+        >
+        <a href="https://github.com/aniftyco"
+          ><Image
+            class="rounded"
+            src="https://github.com/aniftyco.png"
+            width={45}
+            height={45}
+            loading="eager"
+            alt="NiftyCo"
+          /></a
+        >
 
-            <a href="https://github.com/iujlaki"
-                ><Image
-                    class="rounded"
-                    src="https://github.com/iujlaki.png"
-                    width={45}
-                    height={45}
-                    loading="eager"
-                    alt="Imre Ujlaki"
-                /></a
-            >
-            <a href="https://il.ly/?utm_source=coolify.io"
-                ><Image
-                    class="rounded"
-                    src="https://github.com/Illyism.png"
-                    width={45}
-                    height={45}
-                    loading="eager"
-                    alt="Ilias Ism"
-                /></a
-            >
-            <a href="https://github.com/urtho"
-                ><Image
-                    class="rounded"
-                    src="https://github.com/urtho.png"
-                    width={45}
-                    height={45}
-                    loading="eager"
-                    alt="Paweł Pierścionek"
-                /></a
-            >
-            <a href="https://github.com/monocursive"
-                ><Image
-                    class="rounded"
-                    src="https://github.com/monocursive.png"
-                    width={45}
-                    height={45}
-                    loading="eager"
-                    alt="Michael Mazurczak"
-                /></a
-            >
-        </div>
-
-        </div>
-        <div class="text-center">
-            <a
-                class="text-warning underline text-xs hover:text-white"
-                href="https://github.com/sponsors/coollabsio"
-            >
-                Thanks to our special sponsors and many more...</a
-            >
-        </div>
+        <a href="https://github.com/iujlaki"
+          ><Image
+            class="rounded"
+            src="https://github.com/iujlaki.png"
+            width={45}
+            height={45}
+            loading="eager"
+            alt="Imre Ujlaki"
+          /></a
+        >
+        <a href="https://il.ly/?utm_source=coolify.io"
+          ><Image
+            class="rounded"
+            src="https://github.com/Illyism.png"
+            width={45}
+            height={45}
+            loading="eager"
+            alt="Ilias Ism"
+          /></a
+        >
+        <a href="https://github.com/urtho"
+          ><Image
+            class="rounded"
+            src="https://github.com/urtho.png"
+            width={45}
+            height={45}
+            loading="eager"
+            alt="Paweł Pierścionek"
+          /></a
+        >
+        <a href="https://github.com/monocursive"
+          ><Image
+            class="rounded"
+            src="https://github.com/monocursive.png"
+            width={45}
+            height={45}
+            loading="eager"
+            alt="Michael Mazurczak"
+          /></a
+        >
+      </div>
     </div>
+    <div class="text-center">
+      <a
+        class="text-warning underline text-xs hover:text-white"
+        href="https://github.com/sponsors/coollabsio"
+      >
+        Thanks to our special sponsors and many more...</a
+      >
+    </div>
+  </div>
 
-    <div
-        class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none text-left"
+  <div
+    class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none text-left"
+  >
+    <dl
+      class="grid max-w-xl grid-cols-1 gap-x-8 px-4 gap-y-16 lg:max-w-none lg:grid-cols-3"
     >
-        <dl
-            class="grid max-w-xl grid-cols-1 gap-x-8 px-4 gap-y-16 lg:max-w-none lg:grid-cols-3"
+      <div class="flex flex-col">
+        <dt class="flex items-center gap-x-3 text-xl text-white">
+          <svg
+            class="icon text-warning"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m7 8l-4 4l4 4m10-8l4 4l-4 4M14 4l-4 16"></path>
+          </svg>
+          Any Language
+        </dt>
+        <dd
+          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
         >
-            <div class="flex flex-col">
-                <dt class="flex items-center gap-x-3 text-xl text-white">
-                    <svg
-                        class="icon text-warning"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="m7 8l-4 4l4 4m10-8l4 4l-4 4M14 4l-4 16"></path>
-                    </svg>
-                    Any Language
-                </dt>
-                <dd
-                    class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-                >
-                    <p class="flex-auto">
-                        Coolify is compatible with a wide range of programming
-                        languages and frameworks, enabling you to launch static
-                        websites, APIs, backends, databases, services, and other
-                        types of applications.
-                    </p>
-                    <!-- <p class="mt-6">
+          <p class="flex-auto">
+            Coolify is compatible with a wide range of programming languages and
+            frameworks, enabling you to launch static websites, APIs, backends,
+            databases, services, and other types of applications.
+          </p>
+          <!-- <p class="mt-6">
                         <a
                             href="#"
                             class="text-sm font-semibold leading-6 text-warning"
                             >Learn more <span aria-hidden="true">→</span></a
                         >
                     </p> -->
-                </dd>
-            </div>
-            <div class="flex flex-col">
-                <dt class="flex items-center gap-x-3 text-xl text-white">
-                    <svg
-                        class="icon text-warning"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M3 7a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3zm12 13H6a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h12M7 8v.01M7 16v.01M20 15l-2 3h3l-2 3"
-                        ></path>
-                    </svg>
-                    Any Server
-                </dt>
-                <dd
-                    class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-                >
-                    <p class="flex-auto">
-                        You can deploy your resources to any server, including
-                        your own servers, VPS, Raspberry Pi, EC2, DigitalOcean,
-                        Linode, Hetzner, and more. All you need is an SSH
-                        connection.
-                    </p>
-                    <!-- <p class="mt-6">
+        </dd>
+      </div>
+      <div class="flex flex-col">
+        <dt class="flex items-center gap-x-3 text-xl text-white">
+          <svg
+            class="icon text-warning"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 7a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3zm12 13H6a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h12M7 8v.01M7 16v.01M20 15l-2 3h3l-2 3"
+            ></path>
+          </svg>
+          Any Server
+        </dt>
+        <dd
+          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
+        >
+          <p class="flex-auto">
+            You can deploy your resources to any server, including your own
+            servers, VPS, Raspberry Pi, EC2, DigitalOcean, Linode, Hetzner, and
+            more. All you need is an SSH connection.
+          </p>
+          <!-- <p class="mt-6">
                         <a
                             href="#"
                             class="text-sm font-semibold leading-6 text-warning"
                             >Learn more <span aria-hidden="true">→</span></a
                         >
                     </p> -->
-                </dd>
-            </div>
-            <div class="flex flex-col">
-                <dt class="flex items-center gap-x-3 text-xl text-white">
-                    <svg
-                        class="icon text-warning"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M11 6h9m-9 6h9m-9 6h9M4 10V5.5a1.5 1.5 0 0 1 3 0V10M4 8h3M4 20h1.5a1.5 1.5 0 0 0 0-3H4h1.5a1.5 1.5 0 0 0 0-3H4z"
-                        ></path>
-                    </svg>
-                    Any Use-Case
-                </dt>
-                <dd
-                    class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-                >
-                    <p class="flex-auto">
-                        You can deploy your resources to a single server,
-                        multiple servers, or Docker Swarm clusters according to
-                        your requirements. (Support for Kubernetes is on the
-                        way!)
-                    </p>
-                    <!-- <p class="mt-6">
+        </dd>
+      </div>
+      <div class="flex flex-col">
+        <dt class="flex items-center gap-x-3 text-xl text-white">
+          <svg
+            class="icon text-warning"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M11 6h9m-9 6h9m-9 6h9M4 10V5.5a1.5 1.5 0 0 1 3 0V10M4 8h3M4 20h1.5a1.5 1.5 0 0 0 0-3H4h1.5a1.5 1.5 0 0 0 0-3H4z"
+            ></path>
+          </svg>
+          Any Use-Case
+        </dt>
+        <dd
+          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
+        >
+          <p class="flex-auto">
+            You can deploy your resources to a single server, multiple servers,
+            or Docker Swarm clusters according to your requirements. (Support
+            for Kubernetes is on the way!)
+          </p>
+          <!-- <p class="mt-6">
                         <a
                             href="#"
                             class="text-sm font-semibold leading-6 text-warning"
                             >Learn more <span aria-hidden="true">→</span></a
                         >
                     </p> -->
-                </dd>
-            </div>
-            <div class="flex flex-col">
-                <dt class="flex items-center gap-x-3 text-xl text-white">
-                    <svg
-                        class="icon text-warning"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 12a3 3 0 1 0 6 0a3 3 0 1 0-6 0m3-9v6m0 6v6"
-                        ></path>
-                    </svg>
-                    Push to deploy
-                </dt>
-                <dd
-                    class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-                >
-                    <p class="flex-auto">
-                        Nowadays, Git integration is considered the norm. We
-                        provide integration with both hosted and self-hosted
-                        platforms like GitHub, GitLab, Bitbucket, Gitea, and
-                        others.
-                    </p>
-                    <!-- <p class="mt-6">
+        </dd>
+      </div>
+      <div class="flex flex-col">
+        <dt class="flex items-center gap-x-3 text-xl text-white">
+          <svg
+            class="icon text-warning"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12a3 3 0 1 0 6 0a3 3 0 1 0-6 0m3-9v6m0 6v6"></path>
+          </svg>
+          Push to deploy
+        </dt>
+        <dd
+          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
+        >
+          <p class="flex-auto">
+            Nowadays, Git integration is considered the norm. We provide
+            integration with both hosted and self-hosted platforms like GitHub,
+            GitLab, Bitbucket, Gitea, and others.
+          </p>
+          <!-- <p class="mt-6">
                         <a
                             href="#"
                             class="text-sm font-semibold leading-6 text-warning"
                             >Learn more <span aria-hidden="true">→</span></a
                         >
                     </p> -->
-                </dd>
-            </div>
+        </dd>
+      </div>
 
-            <div class="flex flex-col">
-                <dt class="flex items-center gap-x-3 text-xl text-white">
-                    <svg
-                        class="icon text-warning"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <g
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                        >
-                            <path
-                                d="M11.5 21H7a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v.5"
-                            ></path>
-                            <path
-                                d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0-2 0m-3-5V7a4 4 0 1 1 8 0v4m-1 8l2 2l4-4"
-                            ></path>
-                        </g>
-                    </svg>
-                    Free SSL Certificates
-                </dt>
-                <dd
-                    class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-                >
-                    <p class="flex-auto">
-                        Coolify takes care of automatically setting up and
-                        renewing Let's Encrypt SSL certificates for your custom
-                        domains, so you can relax and not have to deal with it.
-                    </p>
-                    <!-- <p class="mt-6">
-                        <a
-                            href="#"
-                            class="text-sm font-semibold leading-6 text-warning"
-                            >Learn more <span aria-hidden="true">→</span></a
-                        >
-                    </p> -->
-                </dd>
-            </div>
-            <div class="flex flex-col">
-                <dt class="flex items-center gap-x-3 text-xl text-white">
-                    <svg
-                        class="icon text-warning"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M11 7h8a1 1 0 0 1 1 1v7c0 .27-.107.516-.282.696M16 16H5a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h2m0 9v4m.5-4l4.244-4.244m2.001-2.001L16.5 7m-3 9l1.249-1.249m1.992-1.992L20 9.5m-16 4l4.752-4.752M17 17v3M5 20h4m6 0h4M17 7V5M3 3l18 18"
-                        ></path>
-                    </svg>
-                    No vendor lock-in
-                </dt>
-                <dd
-                    class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-                >
-                    <p class="flex-auto">
-                        You have complete control over your data. All settings
-                        are saved on your own servers, giving you the ability to
-                        oversee everything even if you decide to stop using
-                        Coolify (oh nooo).
-                    </p>
-                    <!-- <p class="mt-6">
-                        <a
-                            href="#"
-                            class="text-sm font-semibold leading-6 text-warning"
-                            >Learn more <span aria-hidden="true">→</span></a
-                        >
-                    </p> -->
-                </dd>
-            </div>
-            <div class="flex flex-col">
-                <dt class="flex items-center gap-x-3 text-xl text-white">
-                    <svg
-                        class="icon text-warning"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <g
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                        >
-                            <path
-                                d="M6 4h10l4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2"
-                            ></path>
-                            <path
-                                d="M10 14a2 2 0 1 0 4 0a2 2 0 1 0-4 0m4-10v4H8V4"
-                            ></path>
-                        </g>
-                    </svg>
-                    Automatic DB Backups
-                </dt>
-                <dd
-                    class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-                >
-                    <p class="flex-auto">
-                        Your data is automatically backed up to any S3
-                        compatible solution, allowing you to easily restore it
-                        with just a few clicks if any problems occur.
-                    </p>
-                    <!-- <p class="mt-6">
-                        <a
-                            href="#"
-                            class="text-sm font-semibold leading-6 text-warning"
-                            >Learn more <span aria-hidden="true">→</span></a
-                        >
-                    </p> -->
-                </dd>
-            </div>
-            <div class="flex flex-col">
-                <dt class="flex items-center gap-x-3 text-xl text-white">
-                    <svg
-                        class="icon text-warning"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <g
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                        >
-                            <path d="M4.876 13.61A4 4 0 1 0 11 17h6"></path>
-                            <path
-                                d="M15.066 20.502A4 4 0 1 0 17 13c-.706 0-1.424.179-2 .5L12 8"
-                            ></path>
-                            <path
-                                d="M16 8a4 4 0 1 0-8 0c0 1.506.77 2.818 2 3.5L7 17"
-                            ></path>
-                        </g>
-                    </svg>
-                    Webhooks
-                </dt>
-                <dd
-                    class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-                >
-                    <p class="flex-auto">
-                        Integrate into your CI/CD pipelines or create custom
-                        integrations using Github Actions, Gitlab CI, Bitbucket
-                        Pipelines, or any other CI/CD tool of your choice.
-                    </p>
-                    <!-- <p class="mt-6">
-                        <a
-                            href="#"
-                            class="text-sm font-semibold leading-6 text-warning"
-                            >Learn more <span aria-hidden="true">→</span></a
-                        >
-                    </p> -->
-                </dd>
-            </div>
-            <div class="flex flex-col">
-                <dt class="flex items-center gap-x-3 text-xl text-white">
-                    <svg
-                        class="icon text-warning"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="m5 7l5 5l-5 5m7 2h7"></path>
-                    </svg>
-                    Powerful API
-                </dt>
-                <dd
-                    class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-                >
-                    <p class="flex-auto">
-                        Coolify offers a robust API that enables you to automate
-                        deployments, manage resources, and integrate with your
-                        current tools, providing limitless possibilities.
-                    </p>
-                    <!-- <p class="mt-6">
-                        <a
-                            href="#"
-                            class="text-sm font-semibold leading-6 text-warning"
-                            >Learn more <span aria-hidden="true">→</span></a
-                        >
-                    </p> -->
-                </dd>
-            </div>
-            <div class="flex flex-col">
-                <dt class="flex items-center gap-x-3 text-xl text-white">
-                    <svg
-                        class="icon text-warning"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            fill="currentColor"
-                            d="M12 11a5 5 0 0 1 5 5v6h-2v-6a3 3 0 0 0-2.824-2.995L12 13a3 3 0 0 0-2.995 2.824L9 16v6H7v-6a5 5 0 0 1 5-5m-6.5 3c.279 0 .55.033.81.094a5.948 5.948 0 0 0-.301 1.575L6 16v.086a1.493 1.493 0 0 0-.356-.08L5.5 16a1.5 1.5 0 0 0-1.493 1.355L4 17.5V22H2v-4.5A3.5 3.5 0 0 1 5.5 14m13 0a3.5 3.5 0 0 1 3.5 3.5V22h-2v-4.5a1.5 1.5 0 0 0-1.355-1.493L18.5 16c-.175 0-.343.03-.5.085V16c0-.666-.108-1.306-.308-1.904c.258-.063.53-.096.808-.096m-13-6a2.5 2.5 0 1 1 0 5a2.5 2.5 0 0 1 0-5m13 0a2.5 2.5 0 1 1 0 5a2.5 2.5 0 0 1 0-5m-13 2a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1m13 0a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1M12 2a4 4 0 1 1 0 8a4 4 0 0 1 0-8m0 2a2 2 0 1 0 0 4a2 2 0 0 0 0-4"
-                        ></path>
-                    </svg>
-                    Collaborative
-                </dt>
-                <dd
-                    class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-                >
-                    <p class="flex-auto">
-                        Share your projects with your team members and work
-                        together on them. You can also control permissions and
-                        roles for each member.
-                    </p>
-                    <!-- <p class="mt-6">
-                        <a
-                            href="#"
-                            class="text-sm font-semibold leading-6 text-warning"
-                            >Learn more <span aria-hidden="true">→</span></a
-                        >
-                    </p> -->
-                </dd>
-            </div>
-            <div class="flex flex-col">
-                <dt class="flex items-center gap-x-3 text-xl text-white">
-                    <svg
-                        class="icon text-warning"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <g
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                        >
-                            <path
-                                d="M4 18a2 2 0 1 0 4 0a2 2 0 1 0-4 0M4 6a2 2 0 1 0 4 0a2 2 0 1 0-4 0m12 12a2 2 0 1 0 4 0a2 2 0 1 0-4 0M6 8v8"
-                            ></path>
-                            <path d="M11 6h5a2 2 0 0 1 2 2v8"></path>
-                            <path d="m14 9l-3-3l3-3"></path>
-                        </g>
-                    </svg>
-                    Pull Request Deployments
-                </dt>
-                <dd
-                    class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-                >
-                    <p class="flex-auto">
-                        Automagically deploy new commits and pull requests
-                        separately to quickly review contributions and speed up
-                        your teamwork!
-                    </p>
-                    <!-- <p class="mt-6">
-                        <a
-                            href="#"
-                            class="text-sm font-semibold leading-6 text-warning"
-                            >Learn more <span aria-hidden="true">→</span></a
-                        >
-                    </p> -->
-                </dd>
-            </div>
-            <div class="flex flex-col">
-                <dt class="flex items-center gap-x-3 text-xl text-white">
-                    <svg
-                        class="icon text-warning"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M6 6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zm6-4v2m-3 8v9m6-9v9M5 16l4-2m6 0l4 2M9 18h6M10 8v.01M14 8v.01"
-                        ></path>
-                    </svg>
-                    Server Automations
-                </dt>
-                <dd
-                    class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-                >
-                    <p class="flex-auto">
-                        Once your server is connected, Coolify will handle
-                        numerous tasks automatically, allowing you to
-                        concentrate on your code.
-                    </p>
-                    <!-- <p class="mt-6">
-                        <a
-                            href="#"
-                            class="text-sm font-semibold leading-6 text-warning"
-                            >Learn more <span aria-hidden="true">→</span></a
-                        >
-                    </p> -->
-                </dd>
-            </div>
-        </dl>
-        <dl
-            class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 px-4 lg:px-20 pt-10 lg:max-w-none lg:grid-cols-2"
+      <div class="flex flex-col">
+        <dt class="flex items-center gap-x-3 text-xl text-white">
+          <svg
+            class="icon text-warning"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <path
+                d="M11.5 21H7a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v.5"
+              ></path>
+              <path
+                d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0-2 0m-3-5V7a4 4 0 1 1 8 0v4m-1 8l2 2l4-4"
+              ></path>
+            </g>
+          </svg>
+          Free SSL Certificates
+        </dt>
+        <dd
+          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
         >
-            <div class="flex flex-col">
-                <dt class="flex items-center gap-x-3 text-xl text-white">
-                    <svg
-                        class="icon text-warning"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <g
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                        >
-                            <path
-                                d="M3 5a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1zm4 15h10m-8-4v4m6-4v4"
-                            ></path>
-                            <path d="M7 10h2l2 3l2-6l1 3h3"></path>
-                        </g>
-                    </svg>
-                    Monitoring
-                </dt>
-                <dd
-                    class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-                >
-                    <p class="flex-auto">
-                        Coolify will keep an eye on your deployments, servers,
-                        disk usage, and other aspects, and notify you if any
-                        issues arise.
-                    </p>
-                    <!-- <p class="mt-6">
+          <p class="flex-auto">
+            Coolify takes care of automatically setting up and renewing Let's
+            Encrypt SSL certificates for your custom domains, so you can relax
+            and not have to deal with it.
+          </p>
+          <!-- <p class="mt-6">
                         <a
                             href="#"
                             class="text-sm font-semibold leading-6 text-warning"
                             >Learn more <span aria-hidden="true">→</span></a
                         >
                     </p> -->
-                </dd>
-            </div>
-            <div class="flex flex-col">
-                <dt class="flex items-center gap-x-3 text-xl text-white">
-                    <svg
-                        class="icon text-warning"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <g
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                        >
-                            <path
-                                d="M10 21v-6.5a3.5 3.5 0 0 0-7 0V21h18v-6a4 4 0 0 0-4-4H6.5"
-                            ></path>
-                            <path d="M12 11V3h4l2 2l-2 2h-4m-6 8h1"></path>
-                        </g>
-                    </svg>
-                    Notifications
-                </dt>
-                <dd
-                    class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-                >
-                    <p class="flex-auto">
-                        Coolify will notify you through your chosen channels
-                        like Discord, Telegram, and email in case of any events
-                        on your server or with your deployments.
-                    </p>
-                    <!-- <p class="mt-6">
+        </dd>
+      </div>
+      <div class="flex flex-col">
+        <dt class="flex items-center gap-x-3 text-xl text-white">
+          <svg
+            class="icon text-warning"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M11 7h8a1 1 0 0 1 1 1v7c0 .27-.107.516-.282.696M16 16H5a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h2m0 9v4m.5-4l4.244-4.244m2.001-2.001L16.5 7m-3 9l1.249-1.249m1.992-1.992L20 9.5m-16 4l4.752-4.752M17 17v3M5 20h4m6 0h4M17 7V5M3 3l18 18"
+            ></path>
+          </svg>
+          No vendor lock-in
+        </dt>
+        <dd
+          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
+        >
+          <p class="flex-auto">
+            You have complete control over your data. All settings are saved on
+            your own servers, giving you the ability to oversee everything even
+            if you decide to stop using Coolify (oh nooo).
+          </p>
+          <!-- <p class="mt-6">
                         <a
                             href="#"
                             class="text-sm font-semibold leading-6 text-warning"
                             >Learn more <span aria-hidden="true">→</span></a
                         >
                     </p> -->
-                </dd>
-            </div>
-        </dl>
-    </div>
+        </dd>
+      </div>
+      <div class="flex flex-col">
+        <dt class="flex items-center gap-x-3 text-xl text-white">
+          <svg
+            class="icon text-warning"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <path
+                d="M6 4h10l4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2"
+              ></path>
+              <path d="M10 14a2 2 0 1 0 4 0a2 2 0 1 0-4 0m4-10v4H8V4"></path>
+            </g>
+          </svg>
+          Automatic DB Backups
+        </dt>
+        <dd
+          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
+        >
+          <p class="flex-auto">
+            Your data is automatically backed up to any S3 compatible solution,
+            allowing you to easily restore it with just a few clicks if any
+            problems occur.
+          </p>
+          <!-- <p class="mt-6">
+                        <a
+                            href="#"
+                            class="text-sm font-semibold leading-6 text-warning"
+                            >Learn more <span aria-hidden="true">→</span></a
+                        >
+                    </p> -->
+        </dd>
+      </div>
+      <div class="flex flex-col">
+        <dt class="flex items-center gap-x-3 text-xl text-white">
+          <svg
+            class="icon text-warning"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <path d="M4.876 13.61A4 4 0 1 0 11 17h6"></path>
+              <path
+                d="M15.066 20.502A4 4 0 1 0 17 13c-.706 0-1.424.179-2 .5L12 8"
+              ></path>
+              <path d="M16 8a4 4 0 1 0-8 0c0 1.506.77 2.818 2 3.5L7 17"></path>
+            </g>
+          </svg>
+          Webhooks
+        </dt>
+        <dd
+          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
+        >
+          <p class="flex-auto">
+            Integrate into your CI/CD pipelines or create custom integrations
+            using Github Actions, Gitlab CI, Bitbucket Pipelines, or any other
+            CI/CD tool of your choice.
+          </p>
+          <!-- <p class="mt-6">
+                        <a
+                            href="#"
+                            class="text-sm font-semibold leading-6 text-warning"
+                            >Learn more <span aria-hidden="true">→</span></a
+                        >
+                    </p> -->
+        </dd>
+      </div>
+      <div class="flex flex-col">
+        <dt class="flex items-center gap-x-3 text-xl text-white">
+          <svg
+            class="icon text-warning"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m5 7l5 5l-5 5m7 2h7"></path>
+          </svg>
+          Powerful API
+        </dt>
+        <dd
+          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
+        >
+          <p class="flex-auto">
+            Coolify offers a robust API that enables you to automate
+            deployments, manage resources, and integrate with your current
+            tools, providing limitless possibilities.
+          </p>
+          <!-- <p class="mt-6">
+                        <a
+                            href="#"
+                            class="text-sm font-semibold leading-6 text-warning"
+                            >Learn more <span aria-hidden="true">→</span></a
+                        >
+                    </p> -->
+        </dd>
+      </div>
+      <div class="flex flex-col">
+        <dt class="flex items-center gap-x-3 text-xl text-white">
+          <svg
+            class="icon text-warning"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="currentColor"
+              d="M12 11a5 5 0 0 1 5 5v6h-2v-6a3 3 0 0 0-2.824-2.995L12 13a3 3 0 0 0-2.995 2.824L9 16v6H7v-6a5 5 0 0 1 5-5m-6.5 3c.279 0 .55.033.81.094a5.948 5.948 0 0 0-.301 1.575L6 16v.086a1.493 1.493 0 0 0-.356-.08L5.5 16a1.5 1.5 0 0 0-1.493 1.355L4 17.5V22H2v-4.5A3.5 3.5 0 0 1 5.5 14m13 0a3.5 3.5 0 0 1 3.5 3.5V22h-2v-4.5a1.5 1.5 0 0 0-1.355-1.493L18.5 16c-.175 0-.343.03-.5.085V16c0-.666-.108-1.306-.308-1.904c.258-.063.53-.096.808-.096m-13-6a2.5 2.5 0 1 1 0 5a2.5 2.5 0 0 1 0-5m13 0a2.5 2.5 0 1 1 0 5a2.5 2.5 0 0 1 0-5m-13 2a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1m13 0a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1M12 2a4 4 0 1 1 0 8a4 4 0 0 1 0-8m0 2a2 2 0 1 0 0 4a2 2 0 0 0 0-4"
+            ></path>
+          </svg>
+          Collaborative
+        </dt>
+        <dd
+          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
+        >
+          <p class="flex-auto">
+            Share your projects with your team members and work together on
+            them. You can also control permissions and roles for each member.
+          </p>
+          <!-- <p class="mt-6">
+                        <a
+                            href="#"
+                            class="text-sm font-semibold leading-6 text-warning"
+                            >Learn more <span aria-hidden="true">→</span></a
+                        >
+                    </p> -->
+        </dd>
+      </div>
+      <div class="flex flex-col">
+        <dt class="flex items-center gap-x-3 text-xl text-white">
+          <svg
+            class="icon text-warning"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <path
+                d="M4 18a2 2 0 1 0 4 0a2 2 0 1 0-4 0M4 6a2 2 0 1 0 4 0a2 2 0 1 0-4 0m12 12a2 2 0 1 0 4 0a2 2 0 1 0-4 0M6 8v8"
+              ></path>
+              <path d="M11 6h5a2 2 0 0 1 2 2v8"></path>
+              <path d="m14 9l-3-3l3-3"></path>
+            </g>
+          </svg>
+          Pull Request Deployments
+        </dt>
+        <dd
+          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
+        >
+          <p class="flex-auto">
+            Automagically deploy new commits and pull requests separately to
+            quickly review contributions and speed up your teamwork!
+          </p>
+          <!-- <p class="mt-6">
+                        <a
+                            href="#"
+                            class="text-sm font-semibold leading-6 text-warning"
+                            >Learn more <span aria-hidden="true">→</span></a
+                        >
+                    </p> -->
+        </dd>
+      </div>
+      <div class="flex flex-col">
+        <dt class="flex items-center gap-x-3 text-xl text-white">
+          <svg
+            class="icon text-warning"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zm6-4v2m-3 8v9m6-9v9M5 16l4-2m6 0l4 2M9 18h6M10 8v.01M14 8v.01"
+            ></path>
+          </svg>
+          Server Automations
+        </dt>
+        <dd
+          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
+        >
+          <p class="flex-auto">
+            Once your server is connected, Coolify will handle numerous tasks
+            automatically, allowing you to concentrate on your code.
+          </p>
+          <!-- <p class="mt-6">
+                        <a
+                            href="#"
+                            class="text-sm font-semibold leading-6 text-warning"
+                            >Learn more <span aria-hidden="true">→</span></a
+                        >
+                    </p> -->
+        </dd>
+      </div>
+    </dl>
+    <dl
+      class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 px-4 lg:px-20 pt-10 lg:max-w-none lg:grid-cols-2"
+    >
+      <div class="flex flex-col">
+        <dt class="flex items-center gap-x-3 text-xl text-white">
+          <svg
+            class="icon text-warning"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <path
+                d="M3 5a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1zm4 15h10m-8-4v4m6-4v4"
+              ></path>
+              <path d="M7 10h2l2 3l2-6l1 3h3"></path>
+            </g>
+          </svg>
+          Monitoring
+        </dt>
+        <dd
+          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
+        >
+          <p class="flex-auto">
+            Coolify will keep an eye on your deployments, servers, disk usage,
+            and other aspects, and notify you if any issues arise.
+          </p>
+          <!-- <p class="mt-6">
+                        <a
+                            href="#"
+                            class="text-sm font-semibold leading-6 text-warning"
+                            >Learn more <span aria-hidden="true">→</span></a
+                        >
+                    </p> -->
+        </dd>
+      </div>
+      <div class="flex flex-col">
+        <dt class="flex items-center gap-x-3 text-xl text-white">
+          <svg
+            class="icon text-warning"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <path d="M10 21v-6.5a3.5 3.5 0 0 0-7 0V21h18v-6a4 4 0 0 0-4-4H6.5"
+              ></path>
+              <path d="M12 11V3h4l2 2l-2 2h-4m-6 8h1"></path>
+            </g>
+          </svg>
+          Notifications
+        </dt>
+        <dd
+          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
+        >
+          <p class="flex-auto">
+            Coolify will notify you through your chosen channels like Discord,
+            Telegram, and email in case of any events on your server or with
+            your deployments.
+          </p>
+          <!-- <p class="mt-6">
+                        <a
+                            href="#"
+                            class="text-sm font-semibold leading-6 text-warning"
+                            >Learn more <span aria-hidden="true">→</span></a
+                        >
+                    </p> -->
+        </dd>
+      </div>
+    </dl>
+  </div>
 </Layout>
