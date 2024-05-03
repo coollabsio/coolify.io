@@ -90,7 +90,7 @@
           {freq === "monthly" ? "$5" : "$4"}</span
         >
         <span class="text-sm font-semibold leading-6 text-neutral-400">
-          for 2 servers</span
+          base price</span
         >
       </p>
       <p class="flex items-baseline gap-x-1">
@@ -98,16 +98,45 @@
           {freq === "monthly" ? "$3" : "$2.7"}</span
         >
         <span class="text-sm font-semibold leading-6 text-neutral-400">
-          per server from 3+ servers</span
+          per additional servers
+          <span class="text-white font-normal"
+            >(billed
+            {freq === "monthly" ? "monthly" : "annually"}
+            + VAT)</span
+          ></span
         >
       </p>
-      <div class="text-white pt-4 text-sm">
-        billed
-        {freq === "monthly" ? "monthly" : "annually"}
-        (+VAT)
+      <div class="flex items-center pt-6">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="flex-none w-8 h-8 text-warning mr-3"
+          fill="currentColor"
+          viewBox="0 0 256 256"
+          ><path
+            d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"
+          ></path></svg
+        >
+
+        <div class="flex flex-col text-white text-sm">
+          <div>
+            You need to bring your own servers from any cloud provider (such as <a
+              class="underline"
+              href="https://coolify.io/hetzner"
+              target="_blank">Hetzner</a
+            >, DigitalOcean, AWS, etc.)
+          </div>
+          <div>
+            (You can connect your RPi, old laptop, or any other device that runs
+            the <a
+              class="underline"
+              href="https://coolify.io/docs/installation#supported-operating-systems"
+              target="_blank">supported OS</a
+            >.)
+          </div>
+        </div>
       </div>
 
-      <ul role="list" class="mt-8 space-y-3 text-sm leading-6">
+      <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-neutral-400">
         <li class="flex">
           <svg
             class="flex-none w-5 h-6 text-warning mr-3"
@@ -121,7 +150,24 @@
               clip-rule="evenodd"
             />
           </svg>
-          Connect <span class="px-1 font-bold text-white">unlimited</span> servers
+          Connect 
+          <span class="px-1 font-bold text-white">unlimited</span> servers
+        </li>
+        <li class="flex">
+          <svg
+            class="flex-none w-5 h-6 text-warning mr-3"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          Deploy
+          <span class="px-1 font-bold text-white">unlimited</span> applications per server
         </li>
         <li class="flex gap-x-3">
           <svg
@@ -136,7 +182,7 @@
               clip-rule="evenodd"
             />
           </svg>
-          Free Email Notifications
+          Free email notifications
         </li>
         <li class="flex gap-x-3">
           <svg
@@ -151,7 +197,7 @@
               clip-rule="evenodd"
             />
           </svg>
-          Support by Email
+          Support by email
         </li>
         <li class="flex font-bold text-white gap-x-3">
           <svg
@@ -179,8 +225,27 @@
           + All Upcoming Features
         </li>
         <li class="flex text-white gap-x-3">
-          <svg xmlns="http://www.w3.org/2000/svg"  class="flex-none w-5 h-6 text-green-500" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><polyline points="32 136 72 136 88 112 120 160 136 136 160 136" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M24,104c0-.67,0-1.33,0-2A54,54,0,0,1,78,48c22.59,0,41.94,12.31,50,32,8.06-19.69,27.41-32,50-32a54,54,0,0,1,54,54c0,66-104,122-104,122s-42-22.6-72.58-56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
-       
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="flex-none w-5 h-6 text-green-500"
+            viewBox="0 0 256 256"
+            ><rect width="256" height="256" fill="none" /><polyline
+              points="32 136 72 136 88 112 120 160 136 136 160 136"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="16"
+            /><path
+              d="M24,104c0-.67,0-1.33,0-2A54,54,0,0,1,78,48c22.59,0,41.94,12.31,50,32,8.06-19.69,27.41-32,50-32a54,54,0,0,1,54,54c0,66-104,122-104,122s-42-22.6-72.58-56"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="16"
+            /></svg
+          >
+
           Do you require official support for your self-hosted instance?<a
             class="underline"
             href="https://coolify.io/docs/contact">Contact Us</a
