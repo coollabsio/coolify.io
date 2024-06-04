@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import Instances from "../components/Instances.svelte";
 import { Image } from "astro:assets";
+import logto from "../images/logto.webp";
+import hetzner from "../images/hetzner.jpg";
 ---
 
 <Layout title="Coolify">
@@ -105,7 +107,36 @@ import { Image } from "astro:assets";
       <Instances client:load />
     </div>
   </div>
-
+  <div class="text-white pb-4 pt-10 text-xs">
+    Special sponsors<a
+      target="_blank"
+      href="https://github.com/sponsors/coollabsio/sponsorships?sponsor=andrasbacsai&tier_id=334953&preview=false"
+      class="text-warning border rounded-full px-1 ml-2 border-warning cursor-pointer hover:bg-warning hover:text-black font-bold text-xs"
+      >?</a
+    >
+  </div>
+  <div
+    class="flex justify-center items-center gap-10 py-4 mb-10 border-b border-t border-coolgray-200"
+  >
+    <a href="http://htznr.li/CoolifyXHetzner"
+      ><Image
+        src={hetzner}
+        width={250}
+        height={250}
+        loading="eager"
+        alt="Server, cloud, hosting, and data center solutions"
+      /></a
+    >
+    <a href="https://logto.io/?utm_source=coolify.io"
+      ><Image
+        src={logto}
+        width={250}
+        height={250}
+        loading="eager"
+        alt="The better identity infrastructure for developers"
+      /></a
+    >
+  </div>
   <div class="py-4 pt-10">
     <div class="flex flex-col items-center gap-2">
       <div
@@ -297,6 +328,11 @@ import { Image } from "astro:assets";
             alt="Younes Barrad"
           /></a
         >
+        <a
+          class="w-14 h-14 border border-warning font-bold border-dashed rounded-lg hover:bg-warning hover:text-black flex justify-center text-center items-center text-3xl text-white animate-pulse"
+          href="https://github.com/sponsors/coollabsio/sponsorships?sponsor=andrasbacsai&tier_id=61570&preview=false"
+          >?!</a
+        >
         <a href="https://automaze.io/?utm_source=coolify.io"
           ><Image
             class="rounded"
@@ -315,10 +351,6 @@ import { Image } from "astro:assets";
             loading="eager"
             alt="Corentin Clichy"
           /></a
-        >
-        <a
-          class="w-14 h-14 border border-warning rounded hover:bg-warning hover:text-black flex justify-center text-center items-center text-xs text-white animate-bounce"
-          href="https://github.com/sponsors/coollabsio">This can be YOU</a
         >
 
         <a href="https://github.com/Niki2k1"
