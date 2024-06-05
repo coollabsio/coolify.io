@@ -109,7 +109,7 @@ import bc from "../images/bc.png";
       <Instances client:load />
     </div>
   </div>
-  <div class="text-white pb-4 pt-10 text-xs">
+  <div class="text-white pb-4 pt-10 text-base">
     Special sponsors<a
       target="_blank"
       href="https://github.com/sponsors/coollabsio/sponsorships?sponsor=andrasbacsai&tier_id=334953&preview=false"
@@ -118,10 +118,10 @@ import bc from "../images/bc.png";
     >
   </div>
   <div
-    class="flex justify-center items-center gap-6 py-2 mb-10 border-b border-t border-coolgray-200"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 text-center justify-center items-center gap-6 py-2 mb-10 border-b border-t border-coolgray-500"
   >
     <a
-      class="hover:bg-coolgray-200 p-4 rounded"
+      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
       href="http://htznr.li/CoolifyXHetzner"
       ><Image
         src={hetzner}
@@ -132,7 +132,7 @@ import bc from "../images/bc.png";
       /></a
     >
     <a
-      class="hover:bg-coolgray-200 p-4 rounded"
+      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
       href="https://logto.io/?ref=coolify"
       ><Image
         src={logto}
@@ -143,7 +143,7 @@ import bc from "../images/bc.png";
       /></a
     >
     <a
-      class="hover:bg-coolgray-200 p-4 rounded"
+      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
       href="https://bc.direct/?utm_source=coolify.io"
       ><Image
         class="rounded"
@@ -154,7 +154,9 @@ import bc from "../images/bc.png";
         alt="Best Consultant"
       /></a
     >
-    <a href="https://www.quantcdn.io/?utm_source=coolify.io"
+    <a
+      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
+      href="https://www.quantcdn.io/?utm_source=coolify.io"
       ><Image
         class="rounded"
         src={quant}
