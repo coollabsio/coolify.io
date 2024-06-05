@@ -4,6 +4,7 @@ import Instances from "../components/Instances.svelte";
 import { Image } from "astro:assets";
 import logto from "../images/logto.webp";
 import hetzner from "../images/hetzner.jpg";
+import quant from "../images/quant.svg";
 ---
 
 <Layout title="Coolify">
@@ -116,26 +117,36 @@ import hetzner from "../images/hetzner.jpg";
     >
   </div>
   <div
-    class="flex justify-center items-center gap-10 py-4 mb-10 border-b border-t border-coolgray-200"
-  >
-    <a href="http://htznr.li/CoolifyXHetzner"
+    class="flex justify-center items-center gap-6 py-2 mb-10 border-b border-t border-coolgray-200"
+  > 
+    <a class="hover:bg-coolgray-200 p-4 rounded" href="http://htznr.li/CoolifyXHetzner"
       ><Image
         src={hetzner}
-        width={250}
-        height={250}
+        width={180}
+        height={180}
         loading="eager"
         alt="Server, cloud, hosting, and data center solutions"
       /></a
     >
-    <a href="https://logto.io/?utm_source=coolify.io"
+    <a class="hover:bg-coolgray-200 p-4 rounded" href="https://logto.io/?ref=coolify"
       ><Image
         src={logto}
-        width={250}
-        height={250}
+        width={180}
+        height={180}
         loading="eager"
         alt="The better identity infrastructure for developers"
       /></a
     >
+    <a class="hover:bg-coolgray-200 p-4 rounded" href="https://www.quantcdn.io/?utm_source=coolify.io"
+    ><Image
+      class="rounded"
+      src={quant}
+      width={160}
+      height={160}
+      loading="eager"
+      alt="QuantCDN"
+    /></a
+  >
   </div>
   <div class="py-4 pt-10">
     <div class="flex flex-col items-center gap-2">
@@ -242,16 +253,7 @@ import hetzner from "../images/hetzner.jpg";
             </g>
           </svg></a
         >
-        <a href="https://www.quantcdn.io/?utm_source=coolify.io"
-          ><Image
-            class="rounded"
-            src="https://github.com/quantcdn.png"
-            width={45}
-            height={45}
-            loading="eager"
-            alt="QuantCDN"
-          /></a
-        >
+    
 
         <a href="https://360creators.com/?utm_source=coolify.io"
           ><Image
