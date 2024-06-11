@@ -167,7 +167,7 @@
             />
           </svg>
           Connect 
-          <span class="px-1 font-bold text-white">unlimited</span> servers ($3/server/month)
+          <span class="px-1 font-bold text-white">unlimited</span> servers ({freq === "monthly" ? "$3" : "$2.7"}/server/month)
         </li>
         <li class="flex">
           <svg
