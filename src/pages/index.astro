@@ -5,6 +5,7 @@ import { Image } from "astro:assets";
 import logto from "../images/logto.webp";
 import hetzner from "../images/hetzner.jpg";
 import quant from "../images/quant.svg";
+import arcjet from "../images/arcjet.svg";
 import bc from "../images/bc.png";
 ---
 
@@ -79,7 +80,7 @@ import bc from "../images/bc.png";
       <div
         class="text-neutral-400 sm:text-base text-xs sm:flex-row flex flex-col gap-1 pt-2 sm:justify-center"
       >
-        <span class="text-warning font-bold font-mono">330+</span> customers in the
+        <span class="text-warning font-bold font-mono">370+</span> customers in the
         cloud.
       </div>
     </div>
@@ -118,7 +119,7 @@ import bc from "../images/bc.png";
     >
   </div>
   <div
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 text-center justify-center items-center gap-6 py-2 mb-10 border-b border-t border-coolgray-500"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5  text-center justify-center items-center gap-6 py-2 mb-10 border-b border-t border-coolgray-500"
   >
     <a
       class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
@@ -166,11 +167,23 @@ import bc from "../images/bc.png";
         alt="QuantCDN"
       /></a
     >
+    <a
+    class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
+    href="https://arcjet.com/?utm_source=coolify.io"
+    ><Image
+      class="rounded"
+      src={arcjet}
+      width={200}
+      height={200}
+      loading="eager"
+      alt="ArcJet"
+    /></a
+  >
   </div>
   <div class="py-4 pt-10">
     <div class="flex flex-col items-center gap-2">
       <div
-        class="flex gap-2 justify-center flex-wrap items-center text-center max-w-xl px-4"
+        class="flex gap-2 justify-center flex-wrap items-center text-center max-w-3xl px-4"
       >
         <a href="https://cccareers.org/?utm_source=coolify.io"
           ><Image
