@@ -7,6 +7,7 @@ import hetzner from "../images/hetzner.jpg";
 import quant from "../images/quant.svg";
 import arcjet from "../images/arcjet.png";
 import bc from "../images/bc.png";
+import supaguide from "../images/supaguide.png";
 ---
 
 <Layout title="Coolify">
@@ -119,7 +120,7 @@ import bc from "../images/bc.png";
     >
   </div>
   <div
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5  text-center justify-center items-center gap-6 py-2 mb-10 border-b border-t border-coolgray-500"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 text-center justify-center items-center gap-6 py-2 mb-10 border-b border-t border-coolgray-500"
   >
     <a
       class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
@@ -168,15 +169,27 @@ import bc from "../images/bc.png";
       /></a
     >
     <a
+      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
+      href="https://arcjet.com/?ref=coolify.io"
+      ><Image
+        class="rounded"
+        src={arcjet}
+        width={200}
+        height={200}
+        loading="eager"
+        alt="ArcJet"
+      /></a
+    >
+    <a
     class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href="https://arcjet.com/?ref=coolify.io"
+    href="https://supa.guide/?ref=coolify.io"
     ><Image
       class="rounded"
-      src={arcjet}
+      src={supaguide}
       width={200}
       height={200}
       loading="eager"
-      alt="ArcJet"
+      alt="SupaGuide"
     /></a
   >
   </div>
