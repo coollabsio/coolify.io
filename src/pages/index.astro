@@ -10,6 +10,8 @@ import bc from "../images/bc.png";
 import supaguide from "../images/supaguide.png";
 import tigris from "../images/tigris.svg";
 import fractal from "../images/fractal.svg";
+import advin from "../images/advin.png";
+import codext from "../images/codext.jpg";
 ---
 
 <Layout title="Coolify">
@@ -122,7 +124,7 @@ import fractal from "../images/fractal.svg";
     >
   </div>
   <div
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 text-center justify-center items-center gap-6 py-2 mb-10 border-b border-t border-coolgray-500"
+    class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 text-center justify-center items-center gap-6 py-2 mb-10 border-b border-t border-coolgray-500"
   >
     <a
       class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
@@ -217,7 +219,19 @@ import fractal from "../images/fractal.svg";
         loading="eager"
         alt="FractalNetworks"
       /></a
-    >
+    >    
+    <a
+    class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
+    href="https://coolify.ad.vin/?ref=coolify.io"
+    ><Image
+      class="rounded"
+      src={advin}
+      width={260}
+      height={260}
+      loading="eager"
+      alt="AdvinServers"
+    /></a
+  >
   </div>
   <div class="py-4 pt-10">
     <div class="flex flex-col items-center gap-2">
@@ -327,6 +341,16 @@ import fractal from "../images/fractal.svg";
             alt="UXWizz"
           /></a
         >
+        <a href="https://codext.link/coolify-io?utm_source=coolify.io"
+        ><Image
+          class="rounded"
+          src={codext}
+          width={45}
+          height={45}
+          loading="eager"
+          alt="Codext"
+        /></a
+      >
         <a href="https://lightspeed.run/?utm_source=coolify.io"
           ><Image
             class="rounded bg-white"
