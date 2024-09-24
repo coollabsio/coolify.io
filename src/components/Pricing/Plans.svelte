@@ -92,7 +92,7 @@
         <span class="text-sm font-semibold leading-6 text-neutral-400">
           base price</span
         >
-        <span class="text-white font-normal text-sm">(2 servers included)</span>
+        <span class="text-white font-normal text-sm">(connect 2 servers)</span>
       </p>
       <p class="flex items-baseline gap-x-1">
         <span class="font-bold tracking-tight">
