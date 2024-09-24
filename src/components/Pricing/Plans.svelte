@@ -92,6 +92,7 @@
         <span class="text-sm font-semibold leading-6 text-neutral-400">
           base price</span
         >
+        <span class="text-white font-normal text-sm">(2 servers included)</span>
       </p>
       <p class="flex items-baseline gap-x-1">
         <span class="font-bold tracking-tight">
@@ -150,8 +151,9 @@
               clip-rule="evenodd"
             />
           </svg>
-          Connect 
-          <span class="px-1 font-bold text-white">two</span> servers (included in the base price)
+          Connect
+          <span class="px-1 font-bold text-white">two</span> servers (included in
+          the base price)
         </li>
         <li class="flex">
           <svg
@@ -166,8 +168,11 @@
               clip-rule="evenodd"
             />
           </svg>
-          Connect 
-          <span class="px-1 font-bold text-white">unlimited</span> servers ({freq === "monthly" ? "$3" : "$2.7"}/server/month)
+          Connect
+          <span class="px-1 font-bold text-white">unlimited</span> servers ({freq ===
+          "monthly"
+            ? "$3"
+            : "$2.7"}/server/month)
         </li>
         <li class="flex">
           <svg
@@ -183,7 +188,8 @@
             />
           </svg>
           Deploy
-          <span class="px-1 font-bold text-white">unlimited</span> applications/databases/services per server
+          <span class="px-1 font-bold text-white">unlimited</span> applications/databases/services
+          per server
         </li>
         <li class="flex gap-x-3">
           <svg
@@ -213,7 +219,7 @@
               clip-rule="evenodd"
             />
           </svg>
-          Support by email
+          Limited support by email
         </li>
         <li class="flex font-bold text-white gap-x-3">
           <svg
