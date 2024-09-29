@@ -37,7 +37,28 @@ import algora from "../images/algora.svg";
   <h2 class="text-base pt-2 text-neutral-400 px-4">
     An open-source & self-hostable Heroku / Netlify / Vercel alternative.
   </h2>
-  <div class="pb-10 pt-1 text-xs flex gap-6 justify-center">
+  <div class="pb-10 pt-1 text-xs flex gap-2 gap-6 justify-center flex-row  flex-wrap">
+    <a
+      class="hover:underline cursor-pointer text-white flex gap-2 items-center justify-center text-xs"
+      href="#features"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="h-4 w-4 text-warning"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+          d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3 -5a9 9 0 0 0 6 -8a3 3 0 0 0 -3 -3a9 9 0 0 0 -8 6a6 6 0 0 0 -5 3"
+        ></path><path d="M7 14a6 6 0 0 0 -3 6a6 6 0 0 0 6 -3"></path><path
+          d="M15 9m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path></svg
+      >
+      Features</a
+    >
     <a
       class="hover:underline cursor-pointer text-white flex gap-2 items-center justify-center"
       target="_blank"
@@ -148,8 +169,7 @@ import algora from "../images/algora.svg";
       <Instances client:load />
     </div>
   </div>
-
-  <div class="text-white pb-4 pt-10 text-base">
+  <div class="text-white pb-4 pt-6 text-base">
     Special sponsors<a
       target="_blank"
       href="https://github.com/sponsors/coollabsio/sponsorships?sponsor=andrasbacsai&tier_id=334953&preview=false"
@@ -752,7 +772,9 @@ import algora from "../images/algora.svg";
       >
     </div>
   </div>
-  <div class="text-center text-4xl font-bold pt-10 text-white">Features</div>
+  <div id="features" class="text-center text-4xl font-bold pt-10 text-white">
+    Features
+  </div>
   <div
     class="mx-auto mt-16 max-w-2xl sm:mt-14 lg:mt-14 lg:max-w-none text-left"
   >
