@@ -27,14 +27,13 @@
   >
   <a class="navbar-link relative" href="/sponsorships">Sponsorship</a>
   <a class="navbar-link relative" href="/pricing">Pricing</a>
-  <a class="navbar-link flex items-center" href="https://coolify.io/docs/"
-    >Docs <svg
+  <a class="navbar-link flex items-center" href="https://coolify.io/docs/">Docs <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
       viewBox="0 0 24 24"
       stroke-width="3"
       stroke="currentColor"
-      class="w-3 h-3 text-gray-500 ml-2 text-white"
+      class="w-3 h-3 ml-2 text-white"
     >
       <path
         stroke-linecap="round"

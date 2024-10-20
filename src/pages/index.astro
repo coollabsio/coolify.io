@@ -27,9 +27,161 @@ import americancloud from "../images/americancloud.svg";
 import reshot from "../images/reshotai.png";
 import algora from "../images/algora.svg";
 import liquidweb from "../images/liquid.svg";
+
+const logos = [
+  {
+    href: "http://htznr.li/CoolifyXHetzner",
+    src: hetzner,
+    alt: "Server, cloud, hosting, and data center solutions",
+    width: 180,
+    height: 180,
+  },
+  {
+    href: "https://logto.io/?ref=coolify",
+    src: logto,
+    alt: "The better identity infrastructure for developers",
+    width: 180,
+    height: 180,
+  },
+  {
+    href: "https://bc.direct/?ref=coolify.io",
+    src: bc,
+    alt: "Best Consultant",
+    width: 180,
+    height: 180,
+  },
+  {
+    href: "https://www.quantcdn.io/?ref=coolify.io",
+    src: quant,
+    alt: "QuantCDN",
+    width: 160,
+    height: 160,
+  },
+  {
+    href: "https://arcjet.com/?ref=coolify.io",
+    src: arcjet,
+    alt: "ArcJet",
+    width: 200,
+    height: 200,
+  },
+  {
+    href: "https://supa.guide/?ref=coolify.io",
+    src: supaguide,
+    alt: "SupaGuide",
+    width: 200,
+    height: 200,
+  },
+  {
+    href: "https://www.tigrisdata.com/?ref=coolify.io",
+    src: tigris,
+    alt: "Tigris",
+    width: 130,
+    height: 130,
+  },
+  {
+    href: "https://trieve.ai/?ref=coolify.io",
+    src: trieve,
+    alt: "Trieve",
+    width: 180,
+    height: 180,
+  },
+  {
+    href: "https://blacksmith.sh/?ref=coolify.io",
+    src: blacksmith,
+    alt: "Blacksmith",
+    width: 250,
+    height: 250,
+  },
+  {
+    href: "https://latitude.sh/?ref=coolify.io",
+    src: latitude,
+    alt: "Latitude",
+    width: 250,
+    height: 250,
+  },
+  {
+    href: "https://brand.dev/?ref=coolify.io",
+    src: branddev,
+    alt: "Brand.dev",
+    width: 180,
+    height: 180,
+  },
+  {
+    href: "https://jobscollider.com/remote-jobs?ref=coolify.io",
+    src: jobscollider,
+    alt: "30,000 remote jobs hiring now on JobsCollider",
+    width: 180,
+    height: 180,
+  },
+  {
+    href: "https://www.hostinger.com/vps/coolify-hosting?ref=coolify.io",
+    src: hostinger,
+    alt: "Hostinger",
+    width: 180,
+    height: 180,
+  },
+  {
+    href: "https://www.glueops.dev/?ref=coolify.io",
+    src: glueops,
+    alt: "GlueOps",
+    width: 50,
+    height: 50,
+  },
+  {
+    href: "https://www.ubicloud.com/?ref=coolify.io",
+    src: ubicloud,
+    alt: "Ubicloud",
+    width: 200,
+    height: 200,
+  },
+  {
+    href: "https://juxtdigital.com/?ref=coolify.io",
+    src: juxtdigital,
+    alt: "JuxtDigital",
+    width: 160,
+    height: 160,
+  },
+  {
+    href: "https://saasykit.com/?ref=coolify.io",
+    src: saasykit,
+    alt: "SaasyKit",
+    width: 220,
+    height: 220,
+  },
+  {
+    href: "https://massivegrid.com/?ref=coolify.io",
+    src: massivegrid,
+    alt: "MassiveGrid",
+    width: 220,
+    height: 220,
+  },
+  {
+    href: "https://americancloud.com/?utm_source=coolify.io",
+    src: americancloud,
+    alt: "American Cloud",
+    width: 240,
+    height: 240,
+  },
+  {
+    href: "https://algora.io/?utm_source=coolify.io",
+    src: algora,
+    alt: "Algora",
+    width: 240,
+    height: 240,
+  },
+  {
+    href: "https://www.liquidweb.com/?utm_source=coolify.io",
+    src: liquidweb,
+    alt: "Liquid Web",
+    width: 240,
+    height: 240,
+  }
+];
 ---
 
 <Layout title="Coolify">
+  
+  <div class="h-[90vh] w-full flex justify-center flex-col bg-gradient-to-b from-black via-purple-950/80 to-purple-950/10">
   <h1
     class="text-3xl font-bold tracking-tight text-white md:text-6xl pt-24 px-4"
   >
@@ -38,7 +190,7 @@ import liquidweb from "../images/liquid.svg";
   <h2 class="text-base pt-2 text-neutral-400 px-4">
     An open-source & self-hostable Heroku / Netlify / Vercel alternative.
   </h2>
-  <div class="pb-10 pt-1 text-xs flex gap-2 gap-6 justify-center flex-row  flex-wrap">
+  <div class="pb-10 pt-1 text-xs flex gap-6 justify-center flex-row  flex-wrap">
     <a
       class="hover:underline cursor-pointer text-white flex gap-2 items-center justify-center text-xs"
       href="#features"
@@ -121,7 +273,7 @@ import liquidweb from "../images/liquid.svg";
     <div>
       <a
         href="/cloud"
-        class="text-xs sm:text-base font-bold rounded p-4 px-2 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2 sm:w-64 justify-center"
+        class="text-xs sm:text-base font-bold p-4 px-2 text-white bg-gradient-to-b from-purple-900 via-purple-800 to-purple-700 hover:scale-105 transition-all flex gap-2 sm:w-64 justify-center  rounded"
         ><svg
           class="icon hidden sm:block"
           viewBox="0 0 24 24"
@@ -135,7 +287,7 @@ import liquidweb from "../images/liquid.svg";
             stroke-width="2"
             d="M6.657 18C4.085 18 2 15.993 2 13.517c0-2.475 2.085-4.482 4.657-4.482c.393-1.762 1.794-3.2 3.675-3.773c1.88-.572 3.956-.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927-1.551 3.487-3.465 3.487H6.657"
           ></path>
-        </svg>Cloud</a
+        </svg>Get Started</a
       >
       <div
         class="text-neutral-400 sm:text-base text-xs sm:flex-row flex flex-col gap-1 pt-2 sm:justify-center"
@@ -147,7 +299,7 @@ import liquidweb from "../images/liquid.svg";
     <div>
       <a
         href="/self-hosted"
-        class="text-xs sm:text-base font-bold rounded p-4 px-2 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2 lg:w-64 justify-center"
+        class="text-xs sm:text-base font-bold rounded p-4 px-2 text-white bg-transparent hover:scale-105 transition-all border border-purple-400 border-opacity-30 flex gap-2 lg:w-64 justify-center"
         ><svg
           class="icon hidden sm:block"
           viewBox="0 0 24 24"
@@ -170,300 +322,37 @@ import liquidweb from "../images/liquid.svg";
       <Instances client:load />
     </div>
   </div>
-  <div class="text-white pb-4 pt-6 text-base">
+  </div>
+  <div class="text-white py-6 text-3xl md:text-4xl lg:text-5xl font-semibold bg-gradient-to-t from-purple-950/20 to-purple-900/10 border-t border-gray-700 flex items-center justify-center">
     Special sponsors<a
       target="_blank"
       href="https://github.com/sponsors/coollabsio/sponsorships?sponsor=andrasbacsai&tier_id=334953&preview=false"
-      class="text-warning border rounded-full px-1 ml-2 border-warning cursor-pointer hover:bg-warning hover:text-black font-bold text-xs"
-      >?</a
-    >
+      class="text-warning h-6 md:h-8 w-6 md:w-8 flex items-center justify-center border rounded-full px-2 ml-2 mt-2 border-warning cursor-pointer hover:bg-warning hover:text-black font-bold text-sm md:text-base transition-all"
+      >?</a>
   </div>
-  <div
-    class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 text-center justify-center items-center py-2 mb-2 border-b border-t border-coolgray-500 gap-2"
-  >
+  <div class="bg-gradient-to-t from-purple-950/70 via-purple-950/50 to-purple-950/20 border-b border-gray-600">
+  <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 py-8 px-4 md:px-20 text-center">
+  {logos.map((logo) => (
     <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
-      href="http://htznr.li/CoolifyXHetzner"
-      ><Image
-        src={hetzner}
-        width={180}
-        height={180}
-        loading="eager"
-        alt="Server, cloud, hosting, and data center solutions"
-      /></a
+      class="group transform hover:scale-105 transition-all duration-300 p-4 rounded-lg flex justify-center items-center shadow-lg"
+      href={logo.href}
+      target="_blank"
+      rel="noopener noreferrer"
     >
-    <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
-      href="https://logto.io/?ref=coolify"
-      ><Image
-        src={logto}
-        width={180}
-        height={180}
+      <Image
+        src={logo.src}
+        width={logo.width}
+        height={logo.height}
         loading="eager"
-        alt="The better identity infrastructure for developers"
-      /></a
-    >
-    <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
-      href="https://bc.direct/?ref=coolify.io"
-      ><Image
-        class="rounded"
-        src={bc}
-        width={180}
-        height={180}
-        loading="eager"
-        alt="Best Consultant"
-      /></a
-    >
-    <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
-      href="https://www.quantcdn.io/?ref=coolify.io"
-      ><Image
-        class="rounded"
-        src={quant}
-        width={160}
-        height={160}
-        loading="eager"
-        alt="QuantCDN"
-      /></a
-    >
-    <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
-      href="https://arcjet.com/?ref=coolify.io"
-      ><Image
-        class="rounded"
-        src={arcjet}
-        width={200}
-        height={200}
-        loading="eager"
-        alt="ArcJet"
-      /></a
-    >
-    <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
-      href="https://supa.guide/?ref=coolify.io"
-      ><Image
-        class="rounded"
-        src={supaguide}
-        width={200}
-        height={200}
-        loading="eager"
-        alt="SupaGuide"
-      /></a
-    >
-    <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
-      href="https://www.tigrisdata.com/?ref=coolify.io"
-      ><Image
-        class="rounded"
-        src={tigris}
-        width={130}
-        height={130}
-        loading="eager"
-        alt="Tigris"
-      /></a
-    >
-    <!-- <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center pl-14"
-      href="https://fractalnetworks.co/?ref=coolify.io"
-      ><Image
-        class="rounded"
-        src={fractal}
-        width={220}
-        height={180}
-        loading="eager"
-        alt="FractalNetworks"
-      /></a
-    > -->
-    <!-- <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
-      href="https://coolify.ad.vin/?ref=coolify.io"
-      ><Image
-        class="rounded"
-        src={advin}
-        width={260}
-        height={260}
-        loading="eager"
-        alt="AdvinServers"
-      /></a
-    > -->
-    <a
-      class="hover:bg-coolgray-200 p-2 mb-5 rounded flex justify-center"
-      href="https://trieve.ai/?ref=coolify.io"
-      ><Image
-        class="rounded"
-        src={trieve}
-        width={180}
-        height={180}
-        loading="eager"
-        alt="Trieve"
-      /></a
-    >
-    <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
-      href="https://blacksmith.sh/?ref=coolify.io"
-      ><Image
-        class="rounded"
-        src={blacksmith}
-        width={250}
-        height={250}
-        loading="eager"
-        alt="Blacksmith"
-      /></a
-    >
-    <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
-      href="https://latitude.sh/?ref=coolify.io"
-      ><Image
-        class="rounded"
-        src={latitude}
-        width={250}
-        height={250}
-        loading="eager"
-        alt="Latitude"
-      /></a
-    >
-    <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
-      href="https://brand.dev/?ref=coolify.io"
-      ><Image
-        class="rounded"
-        src={branddev}
-        width={180}
-        height={180}
-        loading="eager"
-        alt="Brand.dev"
-      /></a
-    >
-    <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center flex-col items-center"
-      href="https://jobscollider.com/remote-jobs?ref=coolify.io"
-      ><Image
-        class="rounded"
-        src={jobscollider}
-        width={180}
-        height={180}
-        loading="eager"
-        alt="30,000 remote jobs hiring now on JobsCollider"
-      /><div style="font-size: 0.7rem;padding-top:5px;" class="text-left">
-        30,000 remote jobs hiring now!
-      </div></a
-    >
-    <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
-      href="https://www.hostinger.com/vps/coolify-hosting?ref=coolify.io"
-      ><Image
-        class="rounded"
-        src={hostinger}
-        width={180}
-        height={180}
-        loading="eager"
-        alt="Hostinger"
-      /></a
-    >
-    <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center items-center"
-      href="https://www.glueops.dev/?ref=coolify.io"
-      ><Image
-        class="rounded"
-        src={glueops}
-        width={50}
-        height={50}
-        loading="eager"
-        alt="GlueOps"
-      />
-      <div
-        class="text-left text-xl font-bold text-white px-2 uppercase tracking-wider"
-      >
-        GlueOps
-      </div></a
-    >
-    <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
-      href="https://www.ubicloud.com/?ref=coolify.io"
-      ><Image
-        class="rounded"
-        src={ubicloud}
-        width={200}
-        height={200}
-        loading="eager"
-        alt="Ubicloud"
+        alt={logo.alt}
+        class="opacity-90 group-hover:opacity-100 transition-opacity duration-300 object-contain"
       />
     </a>
-    <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
-      href="https://juxtdigital.com/?ref=coolify.io"
-      ><Image
-        class="rounded"
-        src={juxtdigital}
-        width={160}
-        height={160}
-        loading="eager"
-        alt="JuxtDigital"
-      />
-    </a>
-    <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
-      href="https://saasykit.com/?ref=coolify.io"
-      ><Image
-        class="rounded"
-        src={saasykit}
-        width={220}
-        height={220}
-        loading="eager"
-        alt="SaasyKit"
-      />
-    </a>
-    <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
-      href="https://massivegrid.com/?ref=coolify.io"
-      ><Image
-        class="rounded"
-        src={massivegrid}
-        width={220}
-        height={220}
-        loading="eager"
-        alt="MassiveGrid"
-      />
-    </a>
-    <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
-      href="https://americancloud.com/?utm_source=coolify.io"
-      ><Image
-        class="rounded"
-        src={americancloud}
-        width={240}
-        height={240}
-        loading="eager"
-        alt="American Cloud"
-      />
-    </a>
-    <a
-      class="hover:bg-coolgray-200 p-4 rounded flex justify-center items-center"
-      href="https://algora.io/?utm_source=coolify.io"
-      ><Image
-        class="rounded"
-        src={algora}
-        width={240}
-        height={240}
-        loading="eager"
-        alt="Algora"
-      />
-    </a>
-    <a
-    class="hover:bg-coolgray-200 p-4 rounded flex justify-center items-center"
-    href="https://liquidweb.com/?utm_source=coolify.io"
-    ><Image
-      class="rounded"
-      src={liquidweb}
-      width={240}
-      height={240}
-      loading="eager"
-      alt="LiquidWeb"
-    />
-  </a>
+  ))}
   </div>
-  <div class="py-4 pt-10">
+  </div>
+
+  <div class="py-10 bg-gradient-to-br from-purple-950/70 to-purple-950/40">
     <div class="flex flex-col items-center gap-2">
       <div
         class="flex gap-2 justify-center flex-wrap items-center text-center max-w-3xl px-4"
@@ -805,17 +694,13 @@ import liquidweb from "../images/liquid.svg";
       >
     </div>
   </div>
-  <div id="features" class="text-center text-4xl font-bold pt-10 text-white">
-    Features
-  </div>
-  <div
-    class="mx-auto mt-16 max-w-2xl sm:mt-14 lg:mt-14 lg:max-w-none text-left"
-  >
-    <dl
-      class="grid max-w-xl grid-cols-1 gap-x-8 px-4 gap-y-16 lg:max-w-none lg:grid-cols-3"
-    >
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
+  <div class="mx-auto pb-16 max-w-2xl sm:pb-14 lg:pb-14 lg:max-w-none md:px-36 text-left bg-gradient-to-b border-t border-gray-600 from-purple-950/40 via-purple-950/10 to-gray-900/50">
+    <div id="features" class="text-center text-4xl font-bold py-10 text-white">
+      Features
+    </div>
+    <dl class="grid max-w-xl grid-cols-1 gap-x-4 px-4 gap-y-4 lg:max-w-none lg:grid-cols-3">
+      <div class="flex flex-col border border-purple-300 border-opacity-10 hover:border-opacity-100 transition-all p-4 rounded-md">
+        <dt class="flex items-center gap-x-3 text-lg text-white font-semibold">
           <svg
             class="icon text-warning"
             viewBox="0 0 24 24"
@@ -841,8 +726,8 @@ import liquidweb from "../images/liquid.svg";
           </p>
         </dd>
       </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
+      <div class="flex flex-col border border-purple-300 border-opacity-10 hover:border-opacity-100 transition-all p-4 rounded-md">
+        <dt class="flex items-center gap-x-3 text-lg text-white font-semibold">
           <svg
             class="icon text-warning"
             viewBox="0 0 24 24"
@@ -869,8 +754,8 @@ import liquidweb from "../images/liquid.svg";
           </p>
         </dd>
       </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
+      <div class="flex flex-col border border-purple-300 border-opacity-10 hover:border-opacity-100 transition-all p-4 rounded-md">
+        <dt class="flex items-center gap-x-3 text-lg text-white font-semibold">
           <svg
             class="icon text-warning"
             viewBox="0 0 24 24"
@@ -897,8 +782,8 @@ import liquidweb from "../images/liquid.svg";
           </p>
         </dd>
       </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
+      <div class="flex flex-col border border-purple-300 border-opacity-10 hover:border-opacity-100 transition-all p-4 rounded-md">
+        <dt class="flex items-center gap-x-3 text-lg text-white font-semibold">
           <svg
             class="icon text-warning"
             viewBox="0 0 24 24"
@@ -928,8 +813,8 @@ import liquidweb from "../images/liquid.svg";
           </p>
         </dd>
       </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
+      <div class="flex flex-col border border-purple-300 border-opacity-10 hover:border-opacity-100 transition-all p-4 rounded-md">
+        <dt class="flex items-center gap-x-3 text-lg text-white font-semibold">
           <svg
             class="icon text-warning"
             viewBox="0 0 24 24"
@@ -956,8 +841,8 @@ import liquidweb from "../images/liquid.svg";
         </dd>
       </div>
 
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
+      <div class="flex flex-col border border-purple-300 border-opacity-10 hover:border-opacity-100 transition-all p-4 rounded-md">
+        <dt class="flex items-center gap-x-3 text-lg text-white font-semibold">
           <svg
             class="icon text-warning"
             viewBox="0 0 24 24"
@@ -990,8 +875,8 @@ import liquidweb from "../images/liquid.svg";
           </p>
         </dd>
       </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
+      <div class="flex flex-col border border-purple-300 border-opacity-10 hover:border-opacity-100 transition-all p-4 rounded-md">
+        <dt class="flex items-center gap-x-3 text-lg text-white font-semibold">
           <svg
             class="icon text-warning"
             viewBox="0 0 24 24"
@@ -1018,8 +903,8 @@ import liquidweb from "../images/liquid.svg";
           </p>
         </dd>
       </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
+      <div class="flex flex-col border border-purple-300 border-opacity-10 hover:border-opacity-100 transition-all p-4 rounded-md">
+        <dt class="flex items-center gap-x-3 text-lg text-white font-semibold">
           <svg
             class="icon text-warning"
             viewBox="0 0 24 24"
@@ -1050,8 +935,8 @@ import liquidweb from "../images/liquid.svg";
           </p>
         </dd>
       </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
+      <div class="flex flex-col border border-purple-300 border-opacity-10 hover:border-opacity-100 transition-all p-4 rounded-md">
+        <dt class="flex items-center gap-x-3 text-lg text-white font-semibold">
           <svg
             class="icon text-warning"
             viewBox="0 0 24 24"
@@ -1083,8 +968,8 @@ import liquidweb from "../images/liquid.svg";
           </p>
         </dd>
       </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
+      <div class="flex flex-col border border-purple-300 border-opacity-10 hover:border-opacity-100 transition-all p-4 rounded-md">
+        <dt class="flex items-center gap-x-3 text-lg text-white font-semibold">
           <svg
             class="icon text-warning"
             viewBox="0 0 24 24"
@@ -1110,8 +995,8 @@ import liquidweb from "../images/liquid.svg";
           </p>
         </dd>
       </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
+      <div class="flex flex-col border border-purple-300 border-opacity-10 hover:border-opacity-100 transition-all p-4 rounded-md">
+        <dt class="flex items-center gap-x-3 text-lg text-white font-semibold">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="icon text-warning"
@@ -1139,8 +1024,8 @@ import liquidweb from "../images/liquid.svg";
           </p>
         </dd>
       </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
+      <div class="flex flex-col border border-purple-300 border-opacity-10 hover:border-opacity-100 transition-all p-4 rounded-md">
+        <dt class="flex items-center gap-x-3 text-lg text-white font-semibold">
           <svg
             class="icon text-warning"
             viewBox="0 0 24 24"
@@ -1162,8 +1047,8 @@ import liquidweb from "../images/liquid.svg";
           </p>
         </dd>
       </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
+      <div class="flex flex-col border border-purple-300 border-opacity-10 hover:border-opacity-100 transition-all p-4 rounded-md">
+        <dt class="flex items-center gap-x-3 text-lg text-white font-semibold">
           <svg
             class="icon text-warning"
             viewBox="0 0 24 24"
@@ -1194,8 +1079,8 @@ import liquidweb from "../images/liquid.svg";
           </p>
         </dd>
       </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
+      <div class="flex flex-col border border-purple-300 border-opacity-10 hover:border-opacity-100 transition-all p-4 rounded-md">
+        <dt class="flex items-center gap-x-3 text-lg text-white font-semibold">
           <svg
             class="icon text-warning"
             viewBox="0 0 24 24"
@@ -1221,8 +1106,8 @@ import liquidweb from "../images/liquid.svg";
           </p>
         </dd>
       </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
+      <div class="flex flex-col border border-purple-300 border-opacity-10 hover:border-opacity-100 transition-all p-4 rounded-md">
+        <dt class="flex items-center gap-x-3 text-lg text-white font-semibold">
           <svg
             class="icon text-warning"
             viewBox="0 0 24 24"
@@ -1252,8 +1137,8 @@ import liquidweb from "../images/liquid.svg";
           </p>
         </dd>
       </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
+      <div class="flex flex-col border border-purple-300 border-opacity-10 hover:border-opacity-100 transition-all p-4 rounded-md">
+        <dt class="flex items-center gap-x-3 text-lg text-white font-semibold">
           <svg
             class="icon text-warning"
             viewBox="0 0 24 24"
