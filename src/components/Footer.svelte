@@ -1,4 +1,5 @@
-<footer class="bg-coolgray-200/40 mt-20">
+<footer class="bg-gray-900/50">
+  <hr class="opacity-10">
   <div class="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
     <div class="flex justify-center space-x-6 md:order-2">
       <a href="https://coollabs.io/products" class="text-sm">Other Products</a>

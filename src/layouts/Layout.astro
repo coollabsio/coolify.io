@@ -53,8 +53,8 @@ const { title } = Astro.props;
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body>
-    <main class="max-w-5xl mx-auto">
-      <nav class="navbar gap-0 lg:gap-2">
+    <main class="w-full mx-auto">
+      <nav class="navbar bg-black gap-0 lg:gap-2 w-full flex justify-evenly">
         <a href="/">
           <img
             src="/coolify-transparent.svg"
@@ -65,8 +65,9 @@ const { title } = Astro.props;
             >Coolify</span
           >
         </a>
-        <div class="flex-1"></div>
-        <a class="navbar-link relative gap-4" href="https://coolify.io/discord">
+        <div class="flex">
+
+        <a class="navbar-link flex items-center relative gap-1 font-semibold" href="https://coolify.io/discord">
           <svg
             class="w-6 h-6 text-indigo-500 hidden sm:block"
             viewBox="0 0 256 256"
@@ -82,7 +83,7 @@ const { title } = Astro.props;
             </g>
           </svg>Community</a
         >
-        <a class="navbar-link relative gap-4" href="/sponsorships">
+        <a class="navbar-link flex items-center relative gap-1 font-semibold" href="/sponsorships">
           <svg
             class="h-6 w-6 text-warning hidden sm:block"
             viewBox="0 0 20 20"
@@ -142,7 +143,7 @@ const { title } = Astro.props;
             </g>
           </svg>Sponsor Us</a
         >
-        <a class="navbar-link relative gap-4" href="/pricing">
+        <a class="navbar-link flex items-center relative gap-1 font-semibold" href="/pricing">
           <svg
             class="h-5 w-5 hidden sm:block text-warning"
             viewBox="0 0 24 24"
@@ -163,7 +164,7 @@ const { title } = Astro.props;
           </svg>
           Pricing</a
         >
-        <a class="navbar-link relative gap-4" href="https://coolify.io/docs/"
+        <a class="navbar-link flex items-center relative gap-1 font-semibold" href="https://coolify.io/docs/"
           ><svg
             class="h-5 w-5 hidden sm:block text-warning"
             viewBox="0 0 256 256"
@@ -179,7 +180,9 @@ const { title } = Astro.props;
             </g>
           </svg>Docs
         </a>
+        </div>
       </nav>
+      <hr class="opacity-10 drop-shadow-xl"/>
       <div class="text-center">
         <slot />
       </div>
