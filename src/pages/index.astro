@@ -30,6 +30,8 @@ import algora from "../images/algora.svg";
 import liquidweb from "../images/liquid.svg";
 import web3jobs from "../images/web3jobs.png";
 import tolgee from "../images/tolgee.svg";
+import syntax from "../images/syntax.svg";
+import pfglabs from "../images/pfglabs.svg";
 ---
 
 <Layout title="Coolify">
@@ -146,7 +148,7 @@ import tolgee from "../images/tolgee.svg";
         class="text-neutral-400 sm:text-base text-xs sm:flex-row flex flex-col gap-1 pt-2 sm:justify-center"
       >
         <span class="text-warning mt-[0.1rem] font-bold font-mono"
-          >{(1170).toLocaleString()}+</span
+          >{(1200).toLocaleString()}+</span
         > customers in the cloud.
       </div>
     </div>
@@ -367,6 +369,18 @@ import tolgee from "../images/tolgee.svg";
     >
     <a
       class="hover:bg-coolgray-200 p-4 rounded flex justify-center flex-col items-center"
+      href="https://syntax.fm?ref=coolify.io"
+      ><Image
+        class="rounded"
+        src={syntax}
+        width={80}
+        height={80}
+        loading="eager"
+        alt="Syntax.fm"
+      /></a
+    >
+    <a
+      class="hover:bg-coolgray-200 p-4 rounded flex justify-center flex-col items-center"
       href="https://jobscollider.com/remote-jobs?ref=coolify.io"
       ><Image
         class="rounded"
@@ -420,6 +434,23 @@ import tolgee from "../images/tolgee.svg";
         alt="Ubicloud"
       />
     </a>
+    <a
+      class="hover:bg-coolgray-200 p-4 rounded flex justify-center items-center"
+      href="https://pfglabs.com/?ref=coolify.io"
+      ><Image
+        class="rounded"
+        src={pfglabs}
+        width={50}
+        height={50}
+        loading="eager"
+        alt="Pfglabs"
+      />
+      <div
+        class="text-left text-xl font-bold text-white px-2 uppercase tracking-wider"
+      >
+        PFGLabs
+      </div></a
+    >
     <a
       class="hover:bg-coolgray-200 p-4 rounded flex justify-center"
       href="https://juxtdigital.com/?ref=coolify.io"
