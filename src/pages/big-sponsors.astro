@@ -1,0 +1,488 @@
+---
+import { Image } from "astro:assets";
+import logto from "../images/logto.webp";
+import hetzner from "../images/hetzner.jpg";
+import quant from "../images/quant.svg";
+import arcjet from "../images/arcjet.svg";
+import bc from "../images/bc.png";
+import supaguide from "../images/supaguide.png";
+import tigris from "../images/tigris.svg";
+import goldenvm from "../images/goldenvm.png";
+import trieve from "../images/trieve_bg.png";
+import blacksmith from "../images/blacksmith.svg";
+import branddev from "../images/branddev.png";
+import jobscollider from "../images/jobscollider.svg";
+import hostinger from "../images/hostinger.svg";
+import glueops from "../images/glueops.webp";
+import ubicloud from "../images/ubicloud.svg";
+import juxtdigital from "../images/juxtdigital.png";
+import saasykit from "../images/saasykit.webp";
+import massivegrid from "../images/massivegrid.svg";
+import americancloud from "../images/americancloud.svg";
+import algora from "../images/algora.svg";
+import liquidweb from "../images/liquid.svg";
+import tolgee from "../images/tolgee.svg";
+import syntax from "../images/syntax.svg";
+import pfglabs from "../images/pfglabs.svg";
+---
+
+<style>
+  .description-container {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+    background: rgba(23, 23, 23, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 2rem;
+  }
+
+  .description-container.active {
+    height: 120px;
+  }
+
+  .sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .sponsor-item {
+    transition: all 0.2s ease;
+    position: relative;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .sponsor-item img {
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    min-width: 60px;
+    min-height: 50px;
+    max-width: 160px;
+    max-height: 80px;
+    transition: transform 0.2s ease;
+  }
+
+  /* Special handling for specific SVG logos that need size adjustment */
+  .sponsor-item img[src*=".svg"] {
+    max-height: 50px;
+  }
+
+  /* Specific adjustments for logos that need different sizing */
+  .sponsor-item img[src*="arcjet.svg"],
+  .sponsor-item img[src*="tigris.svg"],
+  .sponsor-item img[src*="algora.svg"],
+  .sponsor-item img[src*="liquid.svg"],
+  .sponsor-item img[src*="massivegrid.svg"],
+  .sponsor-item img[src*="syntax.svg"] {
+    max-width: 190px;
+    max-height: 120px;
+  }
+
+  .sponsor-item img[src*="pfglabs.svg"] {
+    min-width: 10px;
+    min-height: 35px;
+    max-width: 100px;
+    max-height: 35px;
+  }
+
+  .sponsors-grid:hover .sponsor-item:not(:hover) {
+    opacity: 0.3;
+    transform: scale(0.95);
+  }
+
+  .sponsor-item:hover {
+    transform: scale(1.1);
+    z-index: 1;
+  }
+
+  @media (max-width: 1024px) {
+    .sponsors-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .sponsors-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
+<div id="description" class="description-container">
+  <p class="text-white text-xl"></p>
+</div>
+
+<hr class="mb-2 border-coolgray-200" />
+<div class="sponsors-grid">
+  <a
+    class="sponsor-item hover:bg-coolgray-200 rounded"
+    href="http://htznr.li/CoolifyXHetzner"
+    data-description="Server, cloud, hosting, and data center solutions"
+    ><Image
+      src={hetzner}
+      width={180}
+      height={180}
+      loading="eager"
+      alt="Server, cloud, hosting, and data center solutions"
+    /></a
+  >
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
+    href="https://logto.io/?ref=coolify"
+    data-description="The better identity infrastructure for developers"
+    ><Image
+      src={logto}
+      width={180}
+      height={180}
+      loading="eager"
+      alt="The better identity infrastructure for developers"
+    /></a
+  >
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center items-center"
+    href="https://tolgee.io/?ref=coolify.io"
+    data-description="Tolgee - The open source localization platform"
+    ><Image
+      class="rounded"
+      src={tolgee}
+      width={50}
+      height={50}
+      loading="eager"
+      alt="Tolgee"
+    /><div class="text-left font-bold text-white text-3xl">Tolgee</div></a
+  >
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
+    href="https://bc.direct/?ref=coolify.io"
+    data-description="Best Consultant - Your trusted technology consulting partner"
+    ><Image
+      class="rounded"
+      src={bc}
+      width={180}
+      height={180}
+      loading="eager"
+      alt="Best Consultant"
+    /></a
+  >
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
+    href="https://www.quantcdn.io/?ref=coolify.io"
+    data-description="QuantCDN - Enterprise-grade content delivery network"
+    ><Image
+      class="rounded"
+      src={quant}
+      width={160}
+      height={160}
+      loading="eager"
+      alt="QuantCDN"
+    /></a
+  >
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
+    href="https://arcjet.com/?ref=coolify.io"
+    data-description="ArcJet - Advanced web security and performance solutions"
+    ><Image
+      class="rounded"
+      src={arcjet}
+      width={200}
+      height={200}
+      loading="eager"
+      alt="ArcJet"
+    /></a
+  >
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
+    href="https://supa.guide/?ref=coolify.io"
+    data-description="SupaGuide - Your comprehensive guide to Supabase"
+    ><Image
+      class="rounded"
+      src={supaguide}
+      width={200}
+      height={200}
+      loading="eager"
+      alt="SupaGuide"
+    /></a
+  >
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
+    href="https://billing.goldenvm.com/?ref=coolify.io"
+    data-description="GoldenVM - Premium virtual machine hosting solutions"
+    ><Image
+      class="rounded"
+      src={goldenvm}
+      width={180}
+      height={180}
+      loading="eager"
+      alt="GoldenVM"
+    /></a
+  >
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
+    href="https://www.tigrisdata.com/?ref=coolify.io"
+    data-description="Tigris - Modern developer data platform"
+    ><Image
+      class="rounded"
+      src={tigris}
+      width={130}
+      height={130}
+      loading="eager"
+      alt="Tigris"
+    /></a
+  >
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
+    href="https://cloudify.ro/?ref=coolify.io"
+    data-description="Cloudify - Cloud hosting solutions"
+    ><Image
+      class="rounded"
+      src="https://github.com/cloudify-ro.png"
+      width={130}
+      height={130}
+      loading="eager"
+      alt="Cloudify"
+    /></a
+  >
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-2 mb-5 rounded flex justify-center"
+    href="https://trieve.ai/?ref=coolify.io"
+    data-description="Trieve - AI-powered search and analytics"
+    ><Image
+      class="rounded"
+      src={trieve}
+      width={180}
+      height={180}
+      loading="eager"
+      alt="Trieve"
+    /></a
+  >
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
+    href="https://blacksmith.sh/?ref=coolify.io"
+    data-description="Blacksmith - Infrastructure automation platform"
+    ><Image
+      class="rounded"
+      src={blacksmith}
+      width={250}
+      height={250}
+      loading="eager"
+      alt="Blacksmith"
+    /></a
+  >
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
+    href="https://brand.dev/?ref=coolify.io"
+    data-description="Brand.dev - Professional developer branding platform"
+    ><Image
+      class="rounded"
+      src={branddev}
+      width={180}
+      height={180}
+      loading="eager"
+      alt="Brand.dev"
+    /></a
+  >
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center flex-col items-center"
+    href="https://syntax.fm?ref=coolify.io"
+    data-description="Syntax.fm - Tasty web development treats"
+    ><Image
+      class="rounded"
+      src={syntax}
+      width={80}
+      height={80}
+      loading="eager"
+      alt="Syntax.fm"
+    /></a
+  >
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center flex-col items-center"
+    href="https://jobscollider.com/remote-jobs?ref=coolify.io"
+    data-description="JobsCollider - 30,000+ remote jobs for developers"
+    ><Image
+      class="rounded"
+      src={jobscollider}
+      width={180}
+      height={180}
+      loading="eager"
+      alt="30,000 remote jobs hiring now on JobsCollider"
+    /><div style="font-size: 0.7rem;padding-top:5px;" class="text-left">
+      30,000 remote jobs hiring now!
+    </div></a
+  >
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
+    href="https://www.hostinger.com/vps/coolify-hosting?ref=coolify.io"
+    data-description="Hostinger - Web hosting and VPS solutions"
+    ><Image
+      class="rounded"
+      src={hostinger}
+      width={180}
+      height={180}
+      loading="eager"
+      alt="Hostinger"
+    /></a
+  >
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center items-center"
+    href="https://www.glueops.dev/?ref=coolify.io"
+    data-description="GlueOps - DevOps automation and infrastructure management"
+    ><Image
+      class="rounded"
+      src={glueops}
+      width={50}
+      height={50}
+      loading="eager"
+      alt="GlueOps"
+    />
+    <div
+      class="text-left text-xl font-bold text-white px-2 uppercase tracking-wider"
+    >
+      GlueOps
+    </div></a
+  >
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
+    href="https://www.ubicloud.com/?ref=coolify.io"
+    data-description="Ubicloud - Open source cloud infrastructure platform"
+    ><Image
+      class="rounded"
+      src={ubicloud}
+      width={200}
+      height={200}
+      loading="eager"
+      alt="Ubicloud"
+    />
+  </a>
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center items-center"
+    href="https://pfglabs.com/?ref=coolify.io"
+    data-description="PFGLabs - Innovative software development solutions"
+    ><Image
+      class="rounded"
+      src={pfglabs}
+      width={50}
+      height={50}
+      loading="eager"
+      alt="Pfglabs"
+    />
+    <div
+      class="text-left text-xl font-bold text-white px-2 uppercase tracking-wider"
+    >
+      PFGLabs
+    </div></a
+  >
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
+    href="https://juxtdigital.com/?ref=coolify.io"
+    data-description="JuxtDigital - Digital transformation and web solutions"
+    ><Image
+      class="rounded"
+      src={juxtdigital}
+      width={160}
+      height={160}
+      loading="eager"
+      alt="JuxtDigital"
+    />
+  </a>
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
+    href="https://saasykit.com/?ref=coolify.io"
+    data-description="SaasyKit - Complete SaaS starter kit for developers"
+    ><Image
+      class="rounded"
+      src={saasykit}
+      width={220}
+      height={220}
+      loading="eager"
+      alt="SaasyKit"
+    />
+  </a>
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
+    href="https://massivegrid.com/?ref=coolify.io"
+    data-description="MassiveGrid - Enterprise cloud hosting solutions"
+    ><Image
+      class="rounded"
+      src={massivegrid}
+      width={220}
+      height={220}
+      loading="eager"
+      alt="MassiveGrid"
+    />
+  </a>
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
+    href="https://americancloud.com/?utm_source=coolify.io"
+    data-description="American Cloud - US-based cloud infrastructure services"
+    ><Image
+      class="rounded"
+      src={americancloud}
+      width={240}
+      height={240}
+      loading="eager"
+      alt="American Cloud"
+    />
+  </a>
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center items-center"
+    href="https://algora.io/?utm_source=coolify.io"
+    data-description="Algora - Open source contribution platform"
+    ><Image
+      class="rounded"
+      src={algora}
+      width={240}
+      height={240}
+      loading="eager"
+      alt="Algora"
+    />
+  </a>
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center items-center"
+    href="https://liquidweb.com/?utm_source=coolify.io"
+    data-description="LiquidWeb - Premium managed hosting solutions"
+    ><Image
+      class="rounded"
+      src={liquidweb}
+      width={240}
+      height={240}
+      loading="eager"
+      alt="LiquidWeb"
+    />
+  </a>
+</div>
+<hr class="mb-2 border-coolgray-200" />
+<script>
+  const sponsors = document.querySelectorAll(".sponsor-item");
+  const descriptionContainer = document.getElementById("description");
+  const descriptionText = descriptionContainer.querySelector("p");
+
+  sponsors.forEach((sponsor) => {
+    sponsor.addEventListener("mouseenter", () => {
+      const description = sponsor.getAttribute("data-description");
+      if (description) {
+        descriptionText.textContent = description;
+        descriptionContainer.classList.add("active");
+      }
+    });
+
+    sponsor.addEventListener("mouseleave", () => {
+      descriptionContainer.classList.remove("active");
+    });
+  });
+</script>
