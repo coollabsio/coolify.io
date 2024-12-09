@@ -24,6 +24,7 @@ import liquidweb from "../images/liquid.svg";
 import tolgee from "../images/tolgee.svg";
 import syntax from "../images/syntax.svg";
 import pfglabs from "../images/pfglabs.svg";
+import cloudify from "../images/cloudify.svg";
 ---
 
 <style>
@@ -62,7 +63,6 @@ import pfglabs from "../images/pfglabs.svg";
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.4rem;
     max-width: 200px;
     margin: 0 auto;
   }
@@ -81,6 +81,9 @@ import pfglabs from "../images/pfglabs.svg";
   /* Special handling for specific SVG logos that need size adjustment */
   .sponsor-item img[src*=".svg"] {
     max-height: 50px;
+  }
+  .sponsor-item img[src*="cloudify.svg"] {
+    max-height: 80px;
   }
 
   /* Specific adjustments for logos that need different sizing */
@@ -133,7 +136,7 @@ import pfglabs from "../images/pfglabs.svg";
   <a
     class="sponsor-item hover:bg-coolgray-200 rounded"
     href="http://htznr.li/CoolifyXHetzner"
-    data-description="Server, cloud, hosting, and data center solutions"
+    data-description="Hetzner - Server, cloud, hosting, and data center solutions"
     ><Image
       src={hetzner}
       width={180}
@@ -145,7 +148,7 @@ import pfglabs from "../images/pfglabs.svg";
   <a
     class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
     href="https://logto.io/?ref=coolify"
-    data-description="The better identity infrastructure for developers"
+    data-description="Logto - The better identity infrastructure for developers"
     ><Image
       src={logto}
       width={180}
@@ -251,9 +254,9 @@ import pfglabs from "../images/pfglabs.svg";
     data-description="Cloudify - Cloud hosting solutions"
     ><Image
       class="rounded"
-      src="https://github.com/cloudify-ro.png"
-      width={130}
-      height={130}
+      src={cloudify}
+      width={180}
+      height={180}
       loading="eager"
       alt="Cloudify"
     /></a
@@ -300,7 +303,7 @@ import pfglabs from "../images/pfglabs.svg";
   <a
     class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center flex-col items-center"
     href="https://syntax.fm?ref=coolify.io"
-    data-description="Syntax.fm - Tasty web development treats"
+    data-description="Syntax.fm - Podcast for web developers"
     ><Image
       class="rounded"
       src={syntax}
@@ -372,7 +375,7 @@ import pfglabs from "../images/pfglabs.svg";
   <a
     class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center items-center"
     href="https://pfglabs.com/?ref=coolify.io"
-    data-description="PFGLabs - Innovative software development solutions"
+    data-description="PFGLabs - Build Real Projects with Golang"
     ><Image
       class="rounded"
       src={pfglabs}
