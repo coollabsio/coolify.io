@@ -67,6 +67,7 @@ import cloudify from "../images/cloudify.svg";
     margin: 0 auto;
   }
 
+  /* Base rules for all sponsor images */
   .sponsor-item img {
     width: auto;
     height: auto;
@@ -78,38 +79,47 @@ import cloudify from "../images/cloudify.svg";
     transition: transform 0.2s ease;
   }
 
-  /* Special handling for specific SVG logos that need size adjustment */
-  .sponsor-item img[src*=".svg"] {
-    max-height: 50px;
-    min-height: 50px;
-  }
-
-  .sponsor-item img[src*="tigris.svg"] {
-    max-height: 50px;
-    min-height: 50px;
-  }
-
+  /* SVG-specific rules */
   .sponsor-item img[src*="cloudify.svg"] {
+    max-width: 160px;
     max-height: 80px;
     min-height: 80px;
   }
 
-  /* Specific adjustments for logos that need different sizing */
-  .sponsor-item img[src*="arcjet.svg"],
-  .sponsor-item img[src*="algora.svg"],
-  .sponsor-item img[src*="liquid.svg"],
-  .sponsor-item img[src*="massivegrid.svg"],
   .sponsor-item img[src*="syntax.svg"] {
     max-width: 190px;
     max-height: 120px;
     min-height: 80px;
   }
 
+  /* Other larger SVG logos */
+  .sponsor-item img[src*="arcjet.svg"],
+  .sponsor-item img[src*="algora.svg"],
+  .sponsor-item img[src*="liquid.svg"],
+  .sponsor-item img[src*="massivegrid.svg"] {
+    max-width: 190px;
+    max-height: 120px;
+    min-height: 80px;
+  }
+
+  /* Smaller SVG logos */
   .sponsor-item img[src*="pfglabs.svg"] {
     min-width: 10px;
     min-height: 35px;
     max-width: 100px;
     max-height: 35px;
+  }
+
+  .sponsor-item img[src*="tigris.svg"],
+  .sponsor-item img[src*="tolgee.svg"],
+  .sponsor-item img[src*="hostinger.svg"],
+  .sponsor-item img[src*="ubicloud.svg"],
+  .sponsor-item img[src*="blacksmith.svg"],
+  .sponsor-item img[src*="jobscollider.svg"],
+  .sponsor-item img[src*="americancloud.svg"] {
+    max-width: 160px;
+    max-height: 50px;
+    min-height: 50px;
   }
 
   .sponsors-grid:hover .sponsor-item:not(:hover) {
