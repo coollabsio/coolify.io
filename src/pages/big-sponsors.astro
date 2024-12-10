@@ -81,9 +81,11 @@ import cloudify from "../images/cloudify.svg";
   /* Special handling for specific SVG logos that need size adjustment */
   .sponsor-item img[src*=".svg"] {
     max-height: 50px;
+    min-height: 50px;
   }
   .sponsor-item img[src*="cloudify.svg"] {
     max-height: 80px;
+    min-height: 80px;
   }
 
   /* Specific adjustments for logos that need different sizing */
@@ -95,6 +97,7 @@ import cloudify from "../images/cloudify.svg";
   .sponsor-item img[src*="syntax.svg"] {
     max-width: 190px;
     max-height: 120px;
+    min-height: 80px;
   }
 
   .sponsor-item img[src*="pfglabs.svg"] {
