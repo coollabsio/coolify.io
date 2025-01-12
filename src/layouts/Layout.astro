@@ -13,13 +13,13 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#ffc40d">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#ffc40d" />
+    <meta name="theme-color" content="#ffffff" />
     <meta
       name="Description"
       content="Coolify: An open-source & self-hostable Heroku / Netlify / Vercel alternative"
@@ -56,16 +56,42 @@ const { title } = Astro.props;
     <main class="max-w-5xl mx-auto">
       <nav class="navbar gap-0 lg:gap-2">
         <a href="/">
-          <img
-            src="/coolify-transparent.svg"
-            class="w-6 h-6 lg:w-10 lg:h-10 lg:mr-4 block"
-            alt="Coolify's logo"
-          />
-          <span class="text-xl hidden md:block text-white font-bold"
+          <span class="text-2xl hidden md:block text-white font-bold"
             >Coolify</span
           >
         </a>
         <div class="flex-1"></div>
+        <a
+          class="navbar-link relative gap-2"
+          href="https://shop.coollabs.io?utm_source=coolify"
+        >
+          <svg
+            class="w-6 h-6 text-warning hidden sm:block"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            width="24"
+            height="24"
+            stroke-width="2"
+            data-darkreader-inline-stroke=""
+          >
+            <path d="M3 21l18 0"></path>
+            <path
+              d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4"
+            ></path>
+            <path d="M5 21l0 -10.15"></path>
+            <path d="M19 21l0 -10.15"></path>
+            <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"></path>
+          </svg>
+          Merch
+          <span
+            class="text-xs bg-warning text-black font-bold px-1 py-0.5 rounded rotate-12 -mt-1 -ml-1"
+            >New</span
+          >
+        </a>
         <a class="navbar-link relative gap-4" href="https://coolify.io/discord">
           <svg
             class="w-6 h-6 text-indigo-500 hidden sm:block"
