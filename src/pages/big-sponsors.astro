@@ -145,6 +145,11 @@ import stream from "../images/stream.svg";
       grid-template-columns: repeat(2, 1fr);
     }
   }
+  @media (max-width: 480px) {
+    .sponsors-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
 </style>
 
 <div id="description" class="description-container">
@@ -336,7 +341,7 @@ import stream from "../images/stream.svg";
   <a
     class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
     href="https://brand.dev/?ref=coolify.io"
-    data-description="Professional developer branding platform"
+    data-description="The #1 Brand API for B2B software startups - instantly pull logos, fonts, descriptions, social links, slogans, and so much more from any domain via a single api call."
     ><Image
       class="rounded"
       src={branddev}
