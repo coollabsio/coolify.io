@@ -1112,24 +1112,72 @@ import web3jobs from "../images/web3jobs.png";
   const skipButton = document.getElementById("skip-to-features");
   const sponsorsSection = document.getElementById("sponsors-section");
   const featuresSection = document.getElementById("features");
+  const mainContent = document.querySelector("main");
 
-  if (skipButton && sponsorsSection && featuresSection) {
-    const observer = new IntersectionObserver(
+  if (skipButton && sponsorsSection && featuresSection && mainContent) {
+    const showSkipButton = () => {
+      skipButton.style.opacity = "1";
+      skipButton.style.pointerEvents = "auto";
+    };
+
+    const hideSkipButton = () => {
+      skipButton.style.opacity = "0";
+      skipButton.style.pointerEvents = "none";
+    };
+
+    // Show button at the top of the page
+    const topObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          skipButton.style.opacity = entry.isIntersecting ? "1" : "0";
-          skipButton.style.pointerEvents = entry.isIntersecting
-            ? "auto"
-            : "none";
+          if (entry.isIntersecting && window.scrollY < 200) {
+            showSkipButton();
+          }
+        });
+      },
+      { threshold: 1.0 },
+    );
+
+    // Show button in sponsors section
+    const sponsorsObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            showSkipButton();
+          }
         });
       },
       { threshold: 0.1 },
     );
 
-    observer.observe(sponsorsSection);
+    // Hide button when features section is visible
+    const featuresObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            hideSkipButton();
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    topObserver.observe(mainContent);
+    sponsorsObserver.observe(sponsorsSection);
+    featuresObserver.observe(featuresSection);
 
     skipButton.addEventListener("click", () => {
       featuresSection.scrollIntoView({ behavior: "smooth" });
+    });
+
+    // Also show button when user is at the very top of the page
+    window.addEventListener("scroll", () => {
+      if (window.scrollY < 200) {
+        showSkipButton();
+      } else if (
+        sponsorsSection.getBoundingClientRect().top >= window.innerHeight
+      ) {
+        hideSkipButton();
+      }
     });
   }
 </script>
