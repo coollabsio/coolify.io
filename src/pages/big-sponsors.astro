@@ -28,6 +28,7 @@ import comit from "../images/comit-color.svg";
 import stream from "../images/stream.svg";
 import convex from "../images/convex.svg";
 import coderabbit from "../images/coderabbit.svg";
+import yaak from "../images/yaak.png";
 
 const ref = "coolify.io";
 ---
@@ -254,14 +255,17 @@ const ref = "coolify.io";
     class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
     href={`https://yaak.app/?ref=${ref}&utm_source=${ref}`}
     data-description="The API client for modern developers"
-    ><Image
-      class="rounded"
-      src="https://github.com/mountain-loop.png"
-      width={150}
-      height={150}
-      loading="eager"
-      alt="yaak"
-    /></a
+    ><div class="scale-[0.75] transform-gpu">
+      <Image
+        class="rounded object-contain"
+        src={yaak}
+        width={200}
+        height={200}
+        loading="eager"
+        alt="yaak"
+      />
+    </div>
+    <div class="text-2xl text-white pl-3 font-bold">Yaak</div></a
   >
   <a
     class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
