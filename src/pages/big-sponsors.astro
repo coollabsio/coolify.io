@@ -29,7 +29,7 @@ import stream from "../images/stream.svg";
 import convex from "../images/convex.svg";
 import coderabbit from "../images/coderabbit.svg";
 import yaak from "../images/yaak.png";
-
+import compai from "../images/compai.svg";
 const ref = "coolify.io";
 ---
 
@@ -321,6 +321,19 @@ const ref = "coolify.io";
   >
   <a
     class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
+    href={`https://www.trycomp.ai/?ref=${ref}&utm_source=${ref}`}
+    data-description="The open source compliance automation platform that does everything you need to get compliant, fast. Open source alternative to Drata & Vanta."
+    ><Image
+      class="rounded"
+      src={compai}
+      width={130}
+      height={130}
+      loading="eager"
+      alt="Compai"
+    /></a
+  >
+  <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
     href={`https://www.tigrisdata.com/?ref=${ref}&utm_source=${ref}`}
     data-description="Modern developer data platform"
     ><Image
@@ -332,6 +345,7 @@ const ref = "coolify.io";
       alt="Tigris"
     /></a
   >
+
   <a
     class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
     href={`https://cloudify.ro/?ref=${ref}&utm_source=${ref}`}
