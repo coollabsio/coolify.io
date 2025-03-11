@@ -1,0 +1,115 @@
+---
+description: how to write commits
+globs: 
+alwaysApply: false
+---
+
+# Your rule content
+
+- You can @ files here
+- You can use markdown but dont have to
+
+# Commit Message Guidelines
+
+## Format
+```
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+```
+
+## Types
+- `feat`: A new feature
+- `fix`: A bug fix
+- `docs`: Documentation only changes
+- `style`: Changes that do not affect the meaning of the code (white-space, formatting, etc)
+- `refactor`: A code change that neither fixes a bug nor adds a feature
+- `perf`: A code change that improves performance
+- `test`: Adding missing tests or correcting existing tests
+- `chore`: Changes to the build process or auxiliary tools and libraries
+- `ci`: Changes to CI configuration files and scripts
+- `revert`: Reverts a previous commit
+
+## Scope
+- Optional, can be anything specifying the place of the commit change
+- Examples: auth, user, dashboard, api, database
+
+## Subject
+- Use imperative, present tense: "change" not "changed" nor "changes"
+- Don't capitalize first letter
+- No dot (.) at the end
+- Maximum 72 characters
+- Should complete the sentence "If applied, this commit will ..."
+
+## Body
+- Optional
+- Use imperative, present tense
+- Include motivation for the change and contrast with previous behavior
+- Wrap at 72 characters
+- Use dashes (-) for bullet points
+
+## Footer
+- Optional
+- Reference issues that this commit closes
+- Breaking changes should start with "BREAKING CHANGE:"
+
+## Examples
+
+Good commits:
+```
+feat(auth): implement JWT authentication
+
+- Add JWT token generation and validation
+- Create middleware for protected routes
+- Implement refresh token mechanism
+
+Closes #123
+```
+
+```
+fix(api): handle null response in user service
+
+Prevent application crash when the external service
+returns null instead of user data.
+
+Fixes #456
+```
+
+```
+refactor(database): optimize user queries
+
+- Replace multiple queries with a single join
+- Add appropriate indexes
+- Remove redundant data fetching
+
+Performance improvement of ~60% in user listing.
+```
+
+Bad commits:
+```
+fixed stuff
+```
+```
+WIP
+```
+```
+Updated some files
+```
+
+## Best Practices
+1. Each commit should represent a single logical change
+2. Never combine multiple unrelated changes in a single commit
+3. Write descriptive messages that help in understanding why a change was made
+4. Reference relevant issue numbers when applicable
+5. If you need to make changes to your commit, use `git commit --amend` or interactive rebase
+6. For larger changes, consider breaking them into smaller, logical commits
+
+## Branch Naming
+- Use lowercase with hyphens
+- Include type and brief description
+- Examples:
+  - feat/user-authentication
+  - fix/api-timeout
+  - refactor/database-queries
