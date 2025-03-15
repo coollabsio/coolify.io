@@ -216,6 +216,7 @@ import web3jobs from "../images/web3jobs.png";
               alt="360Creators"
             /></a
           >
+
           <a href="https://startupfa.me?utm_source=coolify.io">
             <Image
               class="rounded"
@@ -226,6 +227,22 @@ import web3jobs from "../images/web3jobs.png";
               alt="Startup Fame"
             /></a
           >
+          <div class="flex flex-col items-center gap-1 -mt-4">
+            <span class="text-xs text-warning">Latest Sponsor</span>
+            <a
+              href="https://www.youtube.com/@AlfredNutile?utm_source=coolify.io"
+              class="rainbow-border"
+            >
+              <Image
+                class="rounded"
+                src="https://github.com/alnutile.png"
+                width={45}
+                height={45}
+                loading="eager"
+                alt="Alfred Nutile"
+              /></a
+            >
+          </div>
           <a
             class="w-12 h-12 border border-warning font-bold border-dashed hover:bg-warning hover:text-black flex justify-center text-center items-center text-3xl text-white animate-pulse"
             href="https://github.com/sponsors/coollabsio/sponsorships?tier_id=61570&preview=false"
@@ -1181,3 +1198,37 @@ import web3jobs from "../images/web3jobs.png";
     });
   }
 </script>
+
+<style>
+  .rainbow-border {
+    position: relative;
+    border-radius: 6px;
+    padding: 0.2rem;
+    background: linear-gradient(
+      124deg,
+      #ff2400,
+      #e81d1d,
+      #e8b71d,
+      #e3e81d,
+      #1de840,
+      #1ddde8,
+      #2b1de8,
+      #dd00f3,
+      #dd00f3
+    );
+    background-size: 200% 100%;
+    animation: rainbow 1s ease infinite;
+  }
+
+  @keyframes rainbow {
+    0% {
+      background-position: 0% 82%;
+    }
+    50% {
+      background-position: 100% 19%;
+    }
+    100% {
+      background-position: 0% 82%;
+    }
+  }
+</style>
