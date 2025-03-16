@@ -24,7 +24,7 @@ import tolgee from "../images/tolgee.svg";
 import syntax from "../images/syntax.svg";
 import pfglabs from "../images/pfglabs.svg";
 import cloudify from "../images/cloudify.svg";
-import comit from "../images/comit-color.svg";
+// import comit from "../images/comit-color.svg";
 import stream from "../images/stream.svg";
 import convex from "../images/convex.svg";
 import coderabbit from "../images/coderabbit.svg";
@@ -386,17 +386,11 @@ const ref = "coolify.io";
     /></a
   >
   <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center flex-col items-center"
-    href={`https://comit.international/?ref=${ref}&utm_source=${ref}`}
-    data-description="New York Times award–winning contractor!"
-    ><Image
-      class="rounded"
-      src={comit}
-      width={80}
-      height={80}
-      loading="eager"
-      alt="Comit International"
-    /></a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center flex-col items-center rainbow-border text-white font-bold text-xl"
+    href={`https://github.com/sponsors/coollabsio/sponsorships?tier_id=334953&preview=false`}
+    ><span class="bg-base-100 w-full h-full flex justify-center items-center"
+      >This could be you!</span
+    ></a
   >
   <!-- <a
     class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
@@ -599,3 +593,37 @@ const ref = "coolify.io";
     });
   });
 </script>
+
+<style>
+  .rainbow-border {
+    position: relative;
+    border-radius: 6px;
+    padding: 0.2rem;
+    background: linear-gradient(
+      124deg,
+      #ff2400,
+      #e81d1d,
+      #e8b71d,
+      #e3e81d,
+      #1de840,
+      #1ddde8,
+      #2b1de8,
+      #dd00f3,
+      #dd00f3
+    );
+    background-size: 200% 100%;
+    animation: rainbow 1s ease infinite;
+  }
+
+  @keyframes rainbow {
+    0% {
+      background-position: 0% 82%;
+    }
+    50% {
+      background-position: 100% 19%;
+    }
+    100% {
+      background-position: 0% 82%;
+    }
+  }
+</style>
