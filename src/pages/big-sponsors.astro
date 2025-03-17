@@ -24,7 +24,7 @@ import tolgee from "../images/tolgee.svg";
 import syntax from "../images/syntax.svg";
 import pfglabs from "../images/pfglabs.svg";
 import cloudify from "../images/cloudify.svg";
-// import comit from "../images/comit-color.svg";
+import comit from "../images/comit-color.svg";
 import stream from "../images/stream.svg";
 import convex from "../images/convex.svg";
 import coderabbit from "../images/coderabbit.svg";
@@ -320,6 +320,26 @@ const ref = "coolify.io";
     /></a
   >
   <a
+    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center flex-col items-center"
+    href={`https://comit.international/?ref=${ref}&utm_source=${ref}`}
+    data-description="New York Times award–winning contractor!"
+    ><Image
+      class="rounded"
+      src={comit}
+      width={80}
+      height={80}
+      loading="eager"
+      alt="Comit International"
+    /></a
+  >
+  <a
+    class="hover:bg-coolgray-200 p-4 rounded flex justify-center flex-col items-center rainbow-border text-white font-bold text-xl col-span-1"
+    href={`https://github.com/sponsors/coollabsio/sponsorships?tier_id=334953&preview=false`}
+    ><span class="bg-base-100 w-full h-full flex justify-center items-center"
+      >This could be you!</span
+    ></a
+  >
+  <a
     class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
     href={`https://www.trycomp.ai/?ref=${ref}&utm_source=${ref}`}
     data-description="The open source compliance automation platform that does everything you need to get compliant, fast. Open source alternative to Drata & Vanta."
@@ -331,13 +351,6 @@ const ref = "coolify.io";
       loading="eager"
       alt="Compai"
     /></a
-  >
-  <a
-    class="hover:bg-coolgray-200 p-4 rounded flex justify-center flex-col items-center rainbow-border text-white font-bold text-xl col-span-2"
-    href={`https://github.com/sponsors/coollabsio/sponsorships?tier_id=334953&preview=false`}
-    ><span class="bg-base-100 w-full h-full flex justify-center items-center"
-      >This could be you!</span
-    ></a
   >
   <a
     class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
