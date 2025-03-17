@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { sponsors } from "../data/sponsors";
 import logto from "../images/logto.webp";
 import hetzner from "../images/hetzner.jpg";
 import quant from "../images/quant.svg";
@@ -10,7 +11,6 @@ import tigris from "../images/tigris.svg";
 import goldenvm from "../images/goldenvm.png";
 import trieve from "../images/trieve_bg.png";
 import blacksmith from "../images/blacksmith.svg";
-//import branddev from "../images/branddev.png";
 import jobscollider from "../images/jobscollider.svg";
 import hostinger from "../images/hostinger.svg";
 import glueops from "../images/glueops.webp";
@@ -19,7 +19,7 @@ import juxtdigital from "../images/juxtdigital.png";
 import massivegrid from "../images/massivegrid.svg";
 import americancloud from "../images/americancloud.svg";
 import algora from "../images/algora.svg";
-import liquidweb from "../images/liquid.svg";
+import liquid from "../images/liquid.svg";
 import tolgee from "../images/tolgee.svg";
 import syntax from "../images/syntax.svg";
 import pfglabs from "../images/pfglabs.svg";
@@ -28,9 +28,49 @@ import comit from "../images/comit-color.svg";
 import stream from "../images/stream.svg";
 import convex from "../images/convex.svg";
 import coderabbit from "../images/coderabbit.svg";
-// import yaak from "../images/yaak.png";
 import compai from "../images/compai.svg";
+
 const ref = "coolify.io";
+
+// Create a mapping of imageKey to imported image
+const images = {
+  logto,
+  hetzner,
+  quant,
+  arcjet,
+  bc,
+  supaguide,
+  tigris,
+  goldenvm,
+  trieve,
+  blacksmith,
+  jobscollider,
+  hostinger,
+  glueops,
+  ubicloud,
+  juxtdigital,
+  massivegrid,
+  americancloud,
+  algora,
+  liquid,
+  tolgee,
+  syntax,
+  pfglabs,
+  cloudify,
+  comit,
+  stream,
+  convex,
+  coderabbit,
+  compai,
+};
+
+// Update URLs with ref parameter
+const sponsorsWithRef = sponsors.map((sponsor) => ({
+  ...sponsor,
+  url: sponsor.url.includes("?")
+    ? `${sponsor.url}&ref=${ref}&utm_source=${ref}`
+    : `${sponsor.url}?ref=${ref}&utm_source=${ref}`,
+}));
 ---
 
 <style>
@@ -162,432 +202,49 @@ const ref = "coolify.io";
 
 <hr class="mb-2 border-coolgray-200" />
 <div class="sponsors-grid">
-  <a
-    class="sponsor-item hover:bg-coolgray-200 rounded"
-    href="http://htznr.li/CoolifyXHetzner"
-    data-description="Server, cloud, hosting, and data center solutions"
-    ><Image
-      src={hetzner}
-      width={180}
-      height={180}
-      loading="eager"
-      alt="Server, cloud, hosting, and data center solutions"
-    /></a
-  >
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href={`https://logto.io/?ref=${ref}&utm_source=${ref}`}
-    data-description="The better identity infrastructure for developers"
-    ><Image
-      src={logto}
-      width={180}
-      height={180}
-      loading="eager"
-      alt="The better identity infrastructure for developers"
-    /></a
-  >
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center items-center"
-    href={`https://tolgee.io/?ref=${ref}&utm_source=${ref}`}
-    data-description="The open source localization platform"
-    ><Image
-      class="rounded"
-      src={tolgee}
-      width={50}
-      height={50}
-      loading="eager"
-      alt="Tolgee"
-    /><div class="text-left font-bold text-white text-3xl">Tolgee</div></a
-  >
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href={`https://bc.direct/?ref=${ref}&utm_source=${ref}`}
-    data-description="Your trusted technology consulting partner"
-    ><Image
-      class="rounded"
-      src={bc}
-      width={180}
-      height={180}
-      loading="eager"
-      alt="Best Consultant"
-    /></a
-  >
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href={`https://www.quantcdn.io/?ref=${ref}&utm_source=${ref}`}
-    data-description="Enterprise-grade content delivery network"
-    ><Image
-      class="rounded"
-      src={quant}
-      width={160}
-      height={160}
-      loading="eager"
-      alt="QuantCDN"
-    /></a
-  >
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href={`https://arcjet.com/?ref=${ref}&utm_source=${ref}`}
-    data-description="Advanced web security and performance solutions"
-    ><Image
-      class="rounded"
-      src={arcjet}
-      width={200}
-      height={200}
-      loading="eager"
-      alt="ArcJet"
-    /></a
-  >
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href={`https://supa.guide/?ref=${ref}&utm_source=${ref}`}
-    data-description="Your comprehensive guide to Supabase"
-    ><Image
-      class="rounded"
-      src={supaguide}
-      width={200}
-      height={200}
-      loading="eager"
-      alt="SupaGuide"
-    /></a
-  >
-  <!-- <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href={`https://yaak.app/?ref=${ref}&utm_source=${ref}`}
-    data-description="The API client for modern developers"
-    ><div class="scale-[0.75] transform-gpu">
-      <Image
-        class="rounded object-contain"
-        src={yaak}
-        width={200}
-        height={200}
-        loading="eager"
-        alt="yaak"
-      />
-    </div>
-    <div class="text-2xl text-white pl-3 font-bold">Yaak</div></a
-  > -->
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href={`https://coderabbit.ai?ref=${ref}&utm_source=${ref}`}
-    data-description="Cut Code Review Time & Bugs in Half"
-    ><Image
-      class="rounded"
-      src={coderabbit}
-      width={200}
-      height={200}
-      loading="eager"
-      alt="Coderabbit"
-    /></a
-  >
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href={`https://convex.link/coolify.io`}
-    data-description="Convex is the open-source reactive database for web app developers."
-    ><Image
-      class="rounded"
-      src={convex}
-      width={200}
-      height={200}
-      loading="eager"
-      alt="Convex"
-    /></a
-  >
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href="https://getstream.io/?utm_source=opensource&utm_medium=referral&utm_content=&utm_campaign=coolifyq12025"
-    data-description="APIs and SDKs to Build In-App Chat, Video, & Feeds Faster."
-    ><Image
-      class="rounded"
-      src={stream}
-      width={180}
-      height={180}
-      loading="eager"
-      alt="Stream"
-    /></a
-  >
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href={`https://billing.goldenvm.com/?ref=${ref}&utm_source=${ref}`}
-    data-description="Premium virtual machine hosting solutions"
-    ><Image
-      class="rounded"
-      src={goldenvm}
-      width={180}
-      height={180}
-      loading="eager"
-      alt="GoldenVM"
-    /></a
-  >
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center flex-col items-center"
-    href={`https://comit.international/?ref=${ref}&utm_source=${ref}`}
-    data-description="New York Times award–winning contractor!"
-    ><Image
-      class="rounded"
-      src={comit}
-      width={80}
-      height={80}
-      loading="eager"
-      alt="Comit International"
-    /></a
-  >
-  <a
-    class="hover:bg-coolgray-200 p-4 rounded flex justify-center flex-col items-center rainbow-border text-white font-bold text-xl col-span-1"
-    href={`https://github.com/sponsors/coollabsio/sponsorships?tier_id=334953&preview=false`}
-    ><span class="bg-base-100 w-full h-full flex justify-center items-center"
-      >This could be you!</span
-    ></a
-  >
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href={`https://www.trycomp.ai/?ref=${ref}&utm_source=${ref}`}
-    data-description="The open source compliance automation platform that does everything you need to get compliant, fast. Open source alternative to Drata & Vanta."
-    ><Image
-      class="rounded"
-      src={compai}
-      width={130}
-      height={130}
-      loading="eager"
-      alt="Compai"
-    /></a
-  >
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href={`https://www.tigrisdata.com/?ref=${ref}&utm_source=${ref}`}
-    data-description="Modern developer data platform"
-    ><Image
-      class="rounded"
-      src={tigris}
-      width={130}
-      height={130}
-      loading="eager"
-      alt="Tigris"
-    /></a
-  >
-
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href={`https://cloudify.ro/?ref=${ref}&utm_source=${ref}`}
-    data-description="Cloud hosting solutions"
-    ><Image
-      class="rounded"
-      src={cloudify}
-      width={180}
-      height={180}
-      loading="eager"
-      alt="Cloudify"
-    /></a
-  >
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-2 mb-5 rounded flex justify-center"
-    href={`https://trieve.ai/?ref=${ref}&utm_source=${ref}`}
-    data-description="AI-powered search and analytics"
-    ><Image
-      class="rounded"
-      src={trieve}
-      width={180}
-      height={180}
-      loading="eager"
-      alt="Trieve"
-    /></a
-  >
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href={`https://blacksmith.sh/?ref=${ref}&utm_source=${ref}`}
-    data-description="Infrastructure automation platform"
-    ><Image
-      class="rounded"
-      src={blacksmith}
-      width={250}
-      height={250}
-      loading="eager"
-      alt="Blacksmith"
-    /></a
-  >
-
-  <!-- <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href={`https://brand.dev/?ref=${ref}&utm_source=${ref}`}
-    data-description="The #1 Brand API for B2B software startups - instantly pull logos, fonts, descriptions, social links, slogans, and so much more from any domain via a single api call."
-    ><Image
-      class="rounded"
-      src={branddev}
-      width={180}
-      height={180}
-      loading="eager"
-      alt="Brand.dev"
-    /></a
-  > -->
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center flex-col items-center"
-    href={`https://syntax.fm?ref=${ref}&utm_source=${ref}`}
-    data-description="Podcast for web developers"
-    ><Image
-      class="rounded"
-      src={syntax}
-      width={80}
-      height={80}
-      loading="eager"
-      alt="Syntax.fm"
-    /></a
-  >
-
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center flex-col items-center"
-    href={`https://jobscollider.com/remote-jobs?ref=${ref}&utm_source=${ref}`}
-    data-description="30,000+ remote jobs for developers"
-    ><Image
-      class="rounded"
-      src={jobscollider}
-      width={180}
-      height={180}
-      loading="eager"
-      alt="30,000 remote jobs hiring now on JobsCollider"
-    /><div style="font-size: 0.7rem;padding-top:5px;" class="text-left">
-      30,000 remote jobs hiring now!
-    </div></a
-  >
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href={`https://www.hostinger.com/vps/coolify-hosting?ref=${ref}&utm_source=${ref}`}
-    data-description="Web hosting and VPS solutions"
-    ><Image
-      class="rounded"
-      src={hostinger}
-      width={180}
-      height={180}
-      loading="eager"
-      alt="Hostinger"
-    /></a
-  >
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center items-center"
-    href={`https://www.glueops.dev/?ref=${ref}&utm_source=${ref}`}
-    data-description="DevOps automation and infrastructure management"
-    ><Image
-      class="rounded"
-      src={glueops}
-      width={50}
-      height={50}
-      loading="eager"
-      alt="GlueOps"
-    />
-    <div
-      class="text-left text-xl font-bold text-white px-2 uppercase tracking-wider"
-    >
-      GlueOps
-    </div></a
-  >
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href={`https://www.ubicloud.com/?ref=${ref}&utm_source=${ref}`}
-    data-description="Open source cloud infrastructure platform"
-    ><Image
-      class="rounded"
-      src={ubicloud}
-      width={200}
-      height={200}
-      loading="eager"
-      alt="Ubicloud"
-    />
-  </a>
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center items-center"
-    href={`https://pfglabs.com/?ref=${ref}&utm_source=${ref}`}
-    data-description="Build Real Projects with Golang"
-    ><Image
-      class="rounded"
-      src={pfglabs}
-      width={50}
-      height={50}
-      loading="eager"
-      alt="Pfglabs"
-    />
-    <div
-      class="text-left text-xl font-bold text-white px-2 uppercase tracking-wider"
-    >
-      PFGLabs
-    </div></a
-  >
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href={`https://juxtdigital.com/?ref=${ref}&utm_source=${ref}`}
-    data-description="Digital transformation and web solutions"
-    ><Image
-      class="rounded"
-      src={juxtdigital}
-      width={160}
-      height={160}
-      loading="eager"
-      alt="JuxtDigital"
-    />
-  </a>
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href={`https://saasykit.com/?ref=${ref}&utm_source=${ref}`}
-    data-description="Complete SaaS starter kit for developers"
-    ><img
-      class="rounded"
-      src="./saasykit.webp"
-      loading="eager"
-      alt="SaasyKit"
-    />
-  </a>
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href={`https://massivegrid.com/?ref=${ref}&utm_source=${ref}`}
-    data-description="Enterprise cloud hosting solutions"
-    ><Image
-      class="rounded"
-      src={massivegrid}
-      width={220}
-      height={220}
-      loading="eager"
-      alt="MassiveGrid"
-    />
-  </a>
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center"
-    href={`https://americancloud.com/?ref=${ref}&utm_source=${ref}`}
-    data-description="US-based cloud infrastructure services"
-    ><Image
-      class="rounded"
-      src={americancloud}
-      width={240}
-      height={240}
-      loading="eager"
-      alt="American Cloud"
-    />
-  </a>
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center items-center"
-    href={`https://algora.io/?ref=${ref}&utm_source=${ref}`}
-    data-description="Open source contribution platform"
-    ><Image
-      class="rounded"
-      src={algora}
-      width={240}
-      height={240}
-      loading="eager"
-      alt="Algora"
-    />
-  </a>
-  <a
-    class="sponsor-item hover:bg-coolgray-200 p-4 rounded flex justify-center items-center"
-    href={`https://liquidweb.com/?ref=${ref}&utm_source=${ref}`}
-    data-description="Premium managed hosting solutions"
-    ><Image
-      class="rounded"
-      src={liquidweb}
-      width={240}
-      height={240}
-      loading="eager"
-      alt="LiquidWeb"
-    />
-  </a>
+  {
+    sponsorsWithRef.map((sponsor) => (
+      <a
+        class={`${
+          sponsor.isSpecial
+            ? "hover:bg-coolgray-200 p-4 rounded flex justify-center flex-col items-center rainbow-border text-white font-bold text-xl col-span-1"
+            : `sponsor-item hover:bg-coolgray-200 rounded ${sponsor.customStyle || "p-4"}`
+        }`}
+        href={sponsor.url}
+        data-description={sponsor.description}
+      >
+        {sponsor.isSpecial ? (
+          <span class="bg-base-100 w-full h-full flex justify-center items-center">
+            {sponsor.name}
+          </span>
+        ) : sponsor.isPublicImage ? (
+          <img
+            src={sponsor.imageKey}
+            width={sponsor.width || 180}
+            height={sponsor.height || 180}
+            loading="eager"
+            alt={sponsor.description}
+            class="rounded"
+          />
+        ) : (
+          <Image
+            src={images[sponsor.imageKey]}
+            width={sponsor.width || 180}
+            height={sponsor.height || 180}
+            loading="eager"
+            alt={sponsor.description}
+            class="rounded"
+          />
+        )}
+        {sponsor.additionalContent && (
+          <Fragment set:html={sponsor.additionalContent} />
+        )}
+      </a>
+    ))
+  }
 </div>
 <hr class="mb-2 border-coolgray-200" />
+
 <script>
   const sponsors = document.querySelectorAll(".sponsor-item");
   const descriptionContainer = document.getElementById("description");
