@@ -227,11 +227,25 @@ import web3jobs from "../images/web3jobs.png";
               alt="Startup Fame"
             /></a
           >
-          <div class="flex flex-col items-center gap-1 -mt-4">
+          <div class="flex flex-col items-center gap-1 -mt-8">
             <span class="text-xs text-warning">Latest Sponsor</span>
             <a
-              href="https://www.youtube.com/@AlfredNutile?utm_source=coolify.io"
+              href="https://cirun.io/?utm_source=coolify.io"
               class="rainbow-border"
+            >
+              <Image
+                class="rounded"
+                src="https://github.com/cirunlabs.png"
+                width={65}
+                height={65}
+                loading="eager"
+                alt="Cirun"
+              /></a
+            >
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <a
+              href="https://www.youtube.com/@AlfredNutile?utm_source=coolify.io"
             >
               <Image
                 class="rounded"
@@ -1202,10 +1216,18 @@ import web3jobs from "../images/web3jobs.png";
 <style>
   .rainbow-border {
     position: relative;
-    border-radius: 6px;
-    padding: 0.2rem;
-    background: linear-gradient(
-      124deg,
+    border-radius: 200px;
+    padding: 0rem;
+  }
+
+  .rainbow-border::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    background: conic-gradient(
       #ff2400,
       #e81d1d,
       #e8b71d,
@@ -1214,21 +1236,19 @@ import web3jobs from "../images/web3jobs.png";
       #1ddde8,
       #2b1de8,
       #dd00f3,
-      #dd00f3
+      #ff2400
     );
-    background-size: 200% 100%;
-    animation: rainbow 1s ease infinite;
+    border-radius: 200px;
+    z-index: -1;
+    animation: rotate 1s linear infinite;
   }
 
-  @keyframes rainbow {
-    0% {
-      background-position: 0% 82%;
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
     }
-    50% {
-      background-position: 100% 19%;
-    }
-    100% {
-      background-position: 0% 82%;
+    to {
+      transform: rotate(360deg);
     }
   }
 </style>

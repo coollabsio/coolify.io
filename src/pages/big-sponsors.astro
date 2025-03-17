@@ -626,9 +626,16 @@ const ref = "coolify.io";
       #dd00f3
     );
     background-size: 200% 100%;
-    animation: rainbow 1s ease infinite;
+    animation: rainbow 2s ease infinite;
   }
-
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
   @keyframes rainbow {
     0% {
       background-position: 0% 82%;
