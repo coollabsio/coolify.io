@@ -114,7 +114,7 @@ const smallSponsors = shuffleArray(originalSmallSponsors);
       Building in live-streams</a
     >
   </div>
-  <div class="pb-2 pt-2 flex justify-center text-center gap-8 px-4">
+  <div class="pb-2 pt-2 flex justify-center text-centerb gap-8 px-4">
     <div>
       <div
         class="grid grid-cols-3 text-xs sm:text-base font-bold rounded text-white bg-coolgray-300 flex sm:w-64 justify-center"
@@ -188,7 +188,7 @@ const smallSponsors = shuffleArray(originalSmallSponsors);
 
   <div id="sponsors-section">
     <BigSponsors />
-    <div class="py-4 pt-10">
+    <div class="py-4">
       <div class="flex flex-col items-center gap-2">
         <div class="embla-small">
           <div class="embla-small__container">
@@ -277,7 +277,7 @@ const smallSponsors = shuffleArray(originalSmallSponsors);
           </div>
         </div>
       </div>
-      <div class="text-center">
+      <div class="text-center pt-4">
         <a
           class="text-warning underline text-xs hover:text-white"
           href="https://github.com/sponsors/coollabsio"
@@ -877,8 +877,7 @@ const smallSponsors = shuffleArray(originalSmallSponsors);
       containScroll: "trimSnaps",
       slidesToScroll: 1,
       skipSnaps: false,
-      align: "center",
-      watchDrag: false,
+      watchDrag: true,
     };
 
     // Set up auto-scroll options
