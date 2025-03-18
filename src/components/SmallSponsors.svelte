@@ -111,7 +111,7 @@
     {
       name: "Internet Garden",
       url: "https://internetgarden.co/?utm_source=coolify.io",
-      imageUrl: "/internetgarden.ico",
+      imageUrl: "/images/internetgarden.ico",
       width: 45,
       height: 45,
       customStyle: "rounded",
@@ -152,7 +152,7 @@
     {
       name: "Web3 Jobs",
       url: "https://web3.career/?utm_source=coolify.io",
-      imageUrl: "../images/web3jobs.png",
+      imageUrl: "/images/web3jobs.png",
       width: 45,
       height: 45,
       customStyle: "rounded",
@@ -176,7 +176,7 @@
     {
       name: "Reshot",
       url: "https://www.reshot.ai/?utm_source=coolify.io",
-      imageUrl: "../images/reshotai.png",
+      imageUrl: "/images/reshotai.png",
       width: 45,
       height: 45,
       customStyle: "rounded",
@@ -192,7 +192,7 @@
     {
       name: "RunPod",
       url: "https://www.runpod.io/?utm_source=coolify.io",
-      imageUrl: "runpod-svg",
+      imageUrl: "/images/runpod.svg",
       width: 45,
       height: 45,
       isSpecial: true,
@@ -232,7 +232,7 @@
     {
       name: "Codext",
       url: "https://codext.link/coolify-io?utm_source=coolify.io",
-      imageUrl: "../images/codext.jpg",
+      imageUrl: "/images/codext.jpg",
       width: 45,
       height: 45,
       customStyle: "rounded",
@@ -370,9 +370,7 @@
     if (imageUrl.startsWith("http")) {
       return imageUrl;
     }
-    // Remove the '../images/' prefix if it exists
-    const cleanPath = imageUrl.replace("../images/", "");
-    return `/src/images/${cleanPath}`;
+    return imageUrl;
   }
 </script>
 

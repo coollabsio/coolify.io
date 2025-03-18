@@ -5,46 +5,12 @@
 
     const ref = "coolify.io";
 
-    function getImageExtension(imageKey) {
-        const extensionMap = {
-            logto: "webp",
-            hetzner: "jpg",
-            quant: "svg",
-            arcjet: "svg",
-            bc: "png",
-            supaguide: "png",
-            tigris: "svg",
-            goldenvm: "png",
-            trieve: "png",
-            blacksmith: "svg",
-            jobscollider: "svg",
-            hostinger: "svg",
-            glueops: "webp",
-            ubicloud: "svg",
-            juxtdigital: "png",
-            massivegrid: "svg",
-            americancloud: "svg",
-            algora: "svg",
-            liquid: "svg",
-            tolgee: "svg",
-            syntax: "svg",
-            pfglabs: "svg",
-            cloudify: "svg",
-            comit: "svg",
-            stream: "svg",
-            convex: "svg",
-            coderabbit: "svg",
-            compai: "svg",
-        };
-        return extensionMap[imageKey] || "png"; // default to png if not found
-    }
-
     const sponsors = [
         {
             name: "Hetzner",
             url: "http://htznr.li/CoolifyXHetzner",
             description: "Server, cloud, hosting, and data center solutions",
-            imageKey: "hetzner",
+            imageKey: "hetzner.jpg",
             width: 180,
             height: 180,
         },
@@ -52,7 +18,7 @@
             name: "Logto",
             url: "https://logto.io",
             description: "The better identity infrastructure for developers",
-            imageKey: "logto",
+            imageKey: "logto.webp",
             width: 180,
             height: 180,
         },
@@ -60,7 +26,7 @@
             name: "Tolgee",
             url: "https://tolgee.io",
             description: "The open source localization platform",
-            imageKey: "tolgee",
+            imageKey: "tolgee.svg",
             width: 50,
             height: 50,
             customStyle: "flex justify-center items-center",
@@ -71,7 +37,7 @@
             name: "Best Consultant",
             url: "https://bc.direct",
             description: "Your trusted technology consulting partner",
-            imageKey: "bc",
+            imageKey: "bc.png",
             width: 180,
             height: 180,
         },
@@ -79,7 +45,7 @@
             name: "QuantCDN",
             url: "https://www.quantcdn.io",
             description: "Enterprise-grade content delivery network",
-            imageKey: "quant",
+            imageKey: "quant.svg",
             width: 160,
             height: 160,
         },
@@ -87,7 +53,7 @@
             name: "ArcJet",
             url: "https://arcjet.com",
             description: "Advanced web security and performance solutions",
-            imageKey: "arcjet",
+            imageKey: "arcjet.svg",
             width: 200,
             height: 200,
         },
@@ -95,7 +61,7 @@
             name: "SupaGuide",
             url: "https://supa.guide",
             description: "Your comprehensive guide to Supabase",
-            imageKey: "supaguide",
+            imageKey: "supaguide.png",
             width: 200,
             height: 200,
         },
@@ -103,7 +69,7 @@
             name: "CodeRabbit",
             url: "https://coderabbit.ai",
             description: "Cut Code Review Time & Bugs in Half",
-            imageKey: "coderabbit",
+            imageKey: "coderabbit.svg",
             width: 200,
             height: 200,
         },
@@ -112,7 +78,7 @@
             url: "https://convex.link/coolify.io",
             description:
                 "Convex is the open-source reactive database for web app developers.",
-            imageKey: "convex",
+            imageKey: "convex.svg",
             width: 200,
             height: 200,
         },
@@ -121,7 +87,7 @@
             url: "https://getstream.io/?utm_source=opensource&utm_medium=referral&utm_content=&utm_campaign=coolifyq12025",
             description:
                 "APIs and SDKs to Build In-App Chat, Video, & Feeds Faster.",
-            imageKey: "stream",
+            imageKey: "stream.svg",
             width: 180,
             height: 180,
         },
@@ -129,7 +95,7 @@
             name: "GoldenVM",
             url: "https://billing.goldenvm.com",
             description: "Premium virtual machine hosting solutions",
-            imageKey: "goldenvm",
+            imageKey: "goldenvm.png",
             width: 180,
             height: 180,
         },
@@ -137,7 +103,7 @@
             name: "Comit International",
             url: "https://comit.international",
             description: "New York Times award–winning contractor!",
-            imageKey: "comit",
+            imageKey: "comit.svg",
             width: 80,
             height: 80,
             customStyle: "flex justify-center flex-col items-center",
@@ -154,7 +120,7 @@
             url: "https://www.trycomp.ai",
             description:
                 "The open source compliance automation platform that does everything you need to get compliant, fast. Open source alternative to Drata & Vanta.",
-            imageKey: "compai",
+            imageKey: "compai.svg",
             width: 130,
             height: 130,
         },
@@ -162,25 +128,23 @@
             name: "Tigris",
             url: "https://www.tigrisdata.com",
             description: "Modern developer data platform",
-            imageKey: "tigris",
+            imageKey: "tigris.svg",
             width: 130,
             height: 130,
         },
-
         {
             name: "Cloudify",
             url: "https://cloudify.ro",
             description: "Cloud hosting solutions",
-            imageKey: "cloudify",
+            imageKey: "cloudify.svg",
             width: 180,
             height: 180,
         },
-
         {
             name: "Trieve",
             url: "https://trieve.ai",
             description: "AI-powered search and analytics",
-            imageKey: "trieve-logo",
+            imageKey: "trieve-logo.png",
             width: 180,
             height: 180,
             customStyle: "p-2 mb-5",
@@ -191,7 +155,7 @@
             name: "Blacksmith",
             url: "https://blacksmith.sh",
             description: "Infrastructure automation platform",
-            imageKey: "blacksmith",
+            imageKey: "blacksmith.svg",
             width: 250,
             height: 250,
         },
@@ -199,7 +163,7 @@
             name: "Syntax.fm",
             url: "https://syntax.fm",
             description: "Podcast for web developers",
-            imageKey: "syntax",
+            imageKey: "syntax.svg",
             width: 10,
             height: 10,
         },
@@ -207,7 +171,7 @@
             name: "JobsCollider",
             url: "https://jobscollider.com/remote-jobs",
             description: "30,000+ remote jobs for developers",
-            imageKey: "jobscollider",
+            imageKey: "jobscollider.svg",
             width: 180,
             height: 180,
         },
@@ -215,7 +179,7 @@
             name: "Hostinger",
             url: "https://www.hostinger.com/vps/coolify-hosting",
             description: "Web hosting and VPS solutions",
-            imageKey: "hostinger",
+            imageKey: "hostinger.svg",
             width: 180,
             height: 180,
         },
@@ -223,7 +187,7 @@
             name: "GlueOps",
             url: "https://www.glueops.dev",
             description: "DevOps automation and infrastructure management",
-            imageKey: "glueops",
+            imageKey: "glueops.webp",
             width: 50,
             height: 50,
             customStyle: "flex justify-center items-center",
@@ -241,7 +205,7 @@
             name: "Ubicloud",
             url: "https://www.ubicloud.com",
             description: "Open source cloud infrastructure platform",
-            imageKey: "ubicloud",
+            imageKey: "ubicloud.svg",
             width: 200,
             height: 200,
         },
@@ -249,7 +213,7 @@
             name: "PFGLabs",
             url: "https://pfglabs.com",
             description: "Build Real Projects with Golang",
-            imageKey: "pfglabs",
+            imageKey: "pfglabs.svg",
             width: 50,
             height: 50,
             customStyle: "flex justify-center items-center",
@@ -260,7 +224,7 @@
             name: "JuxtDigital",
             url: "https://juxtdigital.com",
             description: "Digital transformation and web solutions",
-            imageKey: "juxtdigital",
+            imageKey: "juxtdigital.png",
             width: 160,
             height: 160,
         },
@@ -268,16 +232,15 @@
             name: "SaasyKit",
             url: "https://saasykit.com",
             description: "Complete SaaS starter kit for developers",
-            imageKey: "/saasykit.webp", // Using absolute path for public directory
+            imageKey: "saasykit.webp",
             width: 180,
             height: 180,
-            isPublicImage: true,
         },
         {
             name: "MassiveGrid",
             url: "https://massivegrid.com",
             description: "Enterprise cloud hosting solutions",
-            imageKey: "massivegrid",
+            imageKey: "massivegrid.svg",
             width: 220,
             height: 220,
         },
@@ -285,7 +248,7 @@
             name: "American Cloud",
             url: "https://americancloud.com",
             description: "US-based cloud infrastructure services",
-            imageKey: "americancloud",
+            imageKey: "americancloud.svg",
             width: 240,
             height: 240,
         },
@@ -293,7 +256,7 @@
             name: "Algora",
             url: "https://algora.io",
             description: "Open source contribution platform",
-            imageKey: "algora",
+            imageKey: "algora.svg",
             width: 240,
             height: 240,
             customStyle: "flex justify-center items-center",
@@ -302,7 +265,7 @@
             name: "LiquidWeb",
             url: "https://liquidweb.com",
             description: "Premium managed hosting solutions",
-            imageKey: "liquid",
+            imageKey: "liquid.svg",
             width: 240,
             height: 240,
             customStyle: "flex justify-center items-center",
@@ -385,7 +348,7 @@
             <div class="embla__slide">
                 <a
                     class={sponsor.isSpecial
-                        ? "hover:bg-coolgray-200 p-4 rounded flex justify-center flex-col items-center rainbow-border text-white font-bold text-xl col-span-1"
+                        ? "hover:bg-coolgray-200 p-4  rounded flex justify-center flex-col items-center rainbow-border text-white font-bold  col-span-1"
                         : `sponsor-item hover:bg-coolgray-200 rounded ${sponsor.customStyle || "p-4"}`}
                     href={sponsor.url}
                     on:mouseenter={() => handleMouseEnter(sponsor.description)}
@@ -393,22 +356,13 @@
                 >
                     {#if sponsor.isSpecial}
                         <span
-                            class="bg-base-100 w-full h-full flex justify-center items-center"
+                            class="bg-base-100 w-full h-full flex justify-center items-center p-2"
                         >
                             {sponsor.name}
                         </span>
-                    {:else if sponsor.isPublicImage}
-                        <img
-                            src={sponsor.imageKey}
-                            width={sponsor.width || 180}
-                            height={sponsor.height || 180}
-                            loading="eager"
-                            alt={sponsor.description}
-                            class="rounded"
-                        />
                     {:else}
                         <img
-                            src={`/src/images/${sponsor.imageKey}.${getImageExtension(sponsor.imageKey)}`}
+                            src={`/images/${sponsor.imageKey}`}
                             width={sponsor.width || 180}
                             height={sponsor.height || 180}
                             loading="eager"
@@ -476,12 +430,6 @@
         -webkit-tap-highlight-color: transparent;
     }
 
-    @media (max-width: 1024px) {
-        .embla__slide {
-            flex: 0 0 33.33%;
-        }
-    }
-
     @media (max-width: 640px) {
         .embla__slide {
             flex: 0 0 50%;
@@ -490,7 +438,7 @@
 
     @media (max-width: 480px) {
         .embla__slide {
-            flex: 0 0 100%;
+            flex: 0 0 50%;
         }
     }
 
