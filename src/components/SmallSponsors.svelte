@@ -55,7 +55,7 @@
     {
       name: "Cirun",
       url: "https://cirun.io/?utm_source=coolify.io",
-      imageUrl: "https://github.com/cirunlabs.png",
+      imageUrl: "/images/cirun-logo.png",
       width: 45,
       height: 45,
       customStyle: "rounded",
