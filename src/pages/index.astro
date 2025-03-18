@@ -1,8 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Instances from "../components/Instances.svelte";
-import BigSponsors from "./big-sponsors.astro";
-import SmallSponsors from "./small-sponsors.astro";
+import BigSponsors from "../components/BigSponsors.svelte";
+import SmallSponsors from "../components/SmallSponsors.svelte";
 ---
 
 <Layout title="Coolify">
@@ -95,33 +95,24 @@ import SmallSponsors from "./small-sponsors.astro";
   </div>
   <div class="pb-2 pt-2 flex justify-center text-centerb gap-8 px-4">
     <div>
-      <div
-        class="grid grid-cols-3 text-xs sm:text-base font-bold rounded text-white bg-coolgray-300 flex sm:w-64 justify-center"
+      <a
+        href="/cloud"
+        class="text-xs sm:text-base font-bold rounded p-4 px-2 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2 lg:w-64 justify-center"
+        ><svg
+          class="icon hidden sm:block"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6.657 18C4.085 18 2 15.993 2 13.517c0-2.475 2.085-4.482 4.657-4.482c.393-1.762 1.794-3.2 3.675-3.773c1.88-.572 3.956-.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927-1.551 3.487-3.465 3.487H6.657"
+          ></path>
+        </svg>Cloud</a
       >
-        <a
-          href="/cloud"
-          class="flex gap-2 col-span-2 text-center items-center justify-center p-4 hover:bg-coolgray-400"
-          ><svg
-            class="icon hidden sm:block"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6.657 18C4.085 18 2 15.993 2 13.517c0-2.475 2.085-4.482 4.657-4.482c.393-1.762 1.794-3.2 3.675-3.773c1.88-.572 3.956-.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927-1.551 3.487-3.465 3.487H6.657"
-            ></path>
-          </svg>Cloud</a
-        >
-        <a
-          href="https://app.coolify.io"
-          class="border-l border-black text-center items-center justify-center hover:text-warning text-xs flex p-4 hover:bg-coolgray-400"
-          >Login</a
-        >
-      </div>
       <div
         class="text-neutral-400 sm:text-base text-xs sm:flex-row flex flex-col gap-1 pt-2 sm:justify-center"
       >
