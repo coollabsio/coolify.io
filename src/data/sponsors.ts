@@ -151,7 +151,8 @@ export const sponsors: Sponsor[] = [
         imageKey: "trieve",
         width: 180,
         height: 180,
-        customStyle: "p-2 mb-5"
+        customStyle: "p-2 mb-5",
+        additionalContent: '<div class="text-left font-bold text-white text-3xl">Trieve</div>'
     },
     {
         name: "Blacksmith",
@@ -166,9 +167,8 @@ export const sponsors: Sponsor[] = [
         url: "https://syntax.fm",
         description: "Podcast for web developers",
         imageKey: "syntax",
-        width: 80,
-        height: 80,
-        customStyle: "flex justify-center flex-col items-center"
+        width: 10,
+        height: 10,
     },
     {
         name: "JobsCollider",
@@ -177,8 +177,6 @@ export const sponsors: Sponsor[] = [
         imageKey: "jobscollider",
         width: 180,
         height: 180,
-        customStyle: "flex justify-center flex-col items-center",
-        additionalContent: '<div style="font-size: 0.7rem;padding-top:5px;" class="text-left">30,000 remote jobs hiring now!</div>'
     },
     {
         name: "Hostinger",
@@ -197,6 +195,13 @@ export const sponsors: Sponsor[] = [
         height: 50,
         customStyle: "flex justify-center items-center",
         additionalContent: '<div class="text-left text-xl font-bold text-white px-2 uppercase tracking-wider">GlueOps</div>'
+    },
+    {
+        name: "How long is this???",
+        url: "https://github.com/sponsors/coollabsio/sponsorships?tier_id=334953&preview=false",
+        description: "Become a sponsor",
+        isSpecial: true,
+        customStyle: "rainbow-border"
     },
     {
         name: "Ubicloud",

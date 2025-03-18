@@ -9,7 +9,7 @@ import bc from "../images/bc.png";
 import supaguide from "../images/supaguide.png";
 import tigris from "../images/tigris.svg";
 import goldenvm from "../images/goldenvm.png";
-import trieve from "../images/trieve_bg.png";
+import trieve from "../images/trieve-logo.png";
 import blacksmith from "../images/blacksmith.svg";
 import jobscollider from "../images/jobscollider.svg";
 import hostinger from "../images/hostinger.svg";
@@ -64,13 +64,29 @@ const images = {
   compai,
 };
 
-// Update URLs with ref parameter
-const sponsorsWithRef = sponsors.map((sponsor) => ({
-  ...sponsor,
-  url: sponsor.url.includes("?")
-    ? `${sponsor.url}&ref=${ref}&utm_source=${ref}`
-    : `${sponsor.url}?ref=${ref}&utm_source=${ref}`,
-}));
+// Shuffle function to randomize sponsor order
+function shuffleArray(array) {
+  // Create a copy of the array to avoid mutating the original
+  const shuffled = [...array];
+
+  // Fisher-Yates shuffle algorithm
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  return shuffled;
+}
+
+// Update URLs with ref parameter and shuffle the array
+const sponsorsWithRef = shuffleArray(
+  sponsors.map((sponsor) => ({
+    ...sponsor,
+    url: sponsor.url.includes("?")
+      ? `${sponsor.url}&ref=${ref}&utm_source=${ref}`
+      : `${sponsor.url}?ref=${ref}&utm_source=${ref}`,
+  })),
+);
 ---
 
 <style>
@@ -95,22 +111,63 @@ const sponsorsWithRef = sponsors.map((sponsor) => ({
     height: 120px;
   }
 
-  .sponsors-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+  .embla {
+    overflow: hidden;
     max-width: 1400px;
     margin: 0 auto;
+    position: relative;
+  }
+
+  .embla__container {
+    display: flex;
+    backface-visibility: hidden;
+    will-change: transform;
+    touch-action: pan-y;
+  }
+
+  .embla__slide {
+    flex: 0 0 20%;
+    min-width: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16/9;
+    padding: 0.5rem;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  @media (max-width: 1024px) {
+    .embla__slide {
+      flex: 0 0 33.33%;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .embla__slide {
+      flex: 0 0 50%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .embla__slide {
+      flex: 0 0 100%;
+    }
   }
 
   .sponsor-item {
-    transition: all 0.2s ease;
     position: relative;
     aspect-ratio: 16/9;
     display: flex;
     align-items: center;
     justify-content: center;
     max-width: 200px;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
+    transition: transform 0.2s ease;
   }
 
   /* Base rules for all sponsor images */
@@ -168,31 +225,9 @@ const sponsorsWithRef = sponsors.map((sponsor) => ({
     min-height: 50px;
   }
 
-  .sponsors-grid:hover .sponsor-item:not(:hover) {
-    opacity: 0.3;
-    transform: scale(0.95);
-  }
-
   .sponsor-item:hover {
     transform: scale(1.1);
     z-index: 1;
-  }
-
-  @media (max-width: 1024px) {
-    .sponsors-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  @media (max-width: 640px) {
-    .sponsors-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media (max-width: 480px) {
-    .sponsors-grid {
-      grid-template-columns: repeat(1, 1fr);
-    }
   }
 </style>
 
@@ -201,55 +236,93 @@ const sponsorsWithRef = sponsors.map((sponsor) => ({
 </div>
 
 <hr class="mb-2 border-coolgray-200" />
-<div class="sponsors-grid">
-  {
-    sponsorsWithRef.map((sponsor) => (
-      <a
-        class={`${
-          sponsor.isSpecial
-            ? "hover:bg-coolgray-200 p-4 rounded flex justify-center flex-col items-center rainbow-border text-white font-bold text-xl col-span-1"
-            : `sponsor-item hover:bg-coolgray-200 rounded ${sponsor.customStyle || "p-4"}`
-        }`}
-        href={sponsor.url}
-        data-description={sponsor.description}
-      >
-        {sponsor.isSpecial ? (
-          <span class="bg-base-100 w-full h-full flex justify-center items-center">
-            {sponsor.name}
-          </span>
-        ) : sponsor.isPublicImage ? (
-          <img
-            src={sponsor.imageKey}
-            width={sponsor.width || 180}
-            height={sponsor.height || 180}
-            loading="eager"
-            alt={sponsor.description}
-            class="rounded"
-          />
-        ) : (
-          <Image
-            src={images[sponsor.imageKey]}
-            width={sponsor.width || 180}
-            height={sponsor.height || 180}
-            loading="eager"
-            alt={sponsor.description}
-            class="rounded"
-          />
-        )}
-        {sponsor.additionalContent && (
-          <Fragment set:html={sponsor.additionalContent} />
-        )}
-      </a>
-    ))
-  }
+<div class="embla">
+  <div class="embla__container">
+    {
+      sponsorsWithRef.map((sponsor) => (
+        <div class="embla__slide">
+          <a
+            class={`${
+              sponsor.isSpecial
+                ? "hover:bg-coolgray-200 p-4 rounded flex justify-center flex-col items-center rainbow-border text-white font-bold text-xl col-span-1"
+                : `sponsor-item hover:bg-coolgray-200 rounded ${sponsor.customStyle || "p-4"}`
+            }`}
+            href={sponsor.url}
+            data-description={sponsor.description}
+          >
+            {sponsor.isSpecial ? (
+              <span class="bg-base-100 w-full h-full flex justify-center items-center">
+                {sponsor.name}
+              </span>
+            ) : sponsor.isPublicImage ? (
+              <img
+                src={sponsor.imageKey}
+                width={sponsor.width || 180}
+                height={sponsor.height || 180}
+                loading="eager"
+                alt={sponsor.description}
+                class="rounded"
+              />
+            ) : (
+              <Image
+                src={images[sponsor.imageKey]}
+                width={sponsor.width || 180}
+                height={sponsor.height || 180}
+                loading="eager"
+                alt={sponsor.description}
+                class="rounded"
+              />
+            )}
+            {sponsor.additionalContent && (
+              <Fragment set:html={sponsor.additionalContent} />
+            )}
+          </a>
+        </div>
+      ))
+    }
+  </div>
 </div>
 <hr class="mb-2 border-coolgray-200" />
 
 <script>
+  import EmblaCarousel from "embla-carousel";
+  import type { EmblaOptionsType } from "embla-carousel";
+  import AutoScroll from "embla-carousel-auto-scroll";
+
+  // Get elements
+  const emblaNode = document.querySelector(".embla") as HTMLElement;
+  const emblaContainer = emblaNode.querySelector(".embla__container");
   const sponsors = document.querySelectorAll(".sponsor-item");
   const descriptionContainer = document.getElementById("description");
   const descriptionText = descriptionContainer.querySelector("p");
 
+  // Set up Embla options
+  const options: EmblaOptionsType = {
+    loop: true,
+    containScroll: "trimSnaps",
+    slidesToScroll: 1,
+    skipSnaps: false,
+    align: "start",
+    watchDrag: false, // Disable drag detection for smoother auto-scrolling
+  };
+
+  // Set up auto-scroll options
+  const autoScrollOptions = {
+    speed: 1, // Reduced speed for smoother transitions
+    stopOnInteraction: false,
+    stopOnMouseEnter: true,
+    playOnInit: false, // Don't start playing immediately
+  };
+
+  // Initialize Embla Carousel with auto-scroll plugin
+  const emblaApi = EmblaCarousel(emblaNode, options, [
+    AutoScroll(autoScrollOptions),
+  ]);
+
+  // Start auto-scroll after a small delay to ensure proper initialization
+  emblaApi.plugins().autoScroll.play();
+
+  // Handle hover events for sponsor descriptions
   sponsors.forEach((sponsor) => {
     sponsor.addEventListener("mouseenter", () => {
       const description = sponsor.getAttribute("data-description");
