@@ -45,6 +45,22 @@
       height: 45,
     },
     {
+      name: "Cap-go",
+      url: "https://capgo.app/?utm_source=coolify.io",
+      imageUrl: "https://github.com/cap-go.png",
+      width: 45,
+      height: 45,
+      customStyle: "rounded",
+    },
+    {
+      name: "Best for Android",
+      url: "https://bestforandroid.com/?utm_source=coolify.io",
+      imageUrl: "https://github.com/bestforandroid.png",
+      width: 45,
+      height: 45,
+      customStyle: "rounded",
+    },
+    {
       name: "Startup Fame",
       url: "https://startupfa.me?utm_source=coolify.io",
       imageUrl: "https://github.com/startupfame.png",
