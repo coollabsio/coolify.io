@@ -433,10 +433,7 @@
                 />
               </a>
             {:else}
-              <a
-                href={sponsor.url}
-                class="plausible-event-name=sponsor-clicks-${sponsor.name}"
-              >
+              <a href={sponsor.url} class="plausible-event-name=sponsor-clicks">
                 <img
                   class={sponsor.customStyle || ""}
                   src={getImagePath(sponsor.imageUrl)}
