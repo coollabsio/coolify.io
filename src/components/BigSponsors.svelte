@@ -348,8 +348,8 @@
             <div class="embla__slide">
                 <a
                     class={sponsor.isSpecial
-                        ? "hover:bg-coolgray-200 p-4  rounded flex justify-center flex-col items-center rainbow-border text-white font-bold  col-span-1"
-                        : `sponsor-item hover:bg-coolgray-200 rounded ${sponsor.customStyle || "p-4"}`}
+                        ? "hover:bg-coolgray-200 p-4 rounded flex justify-center flex-col items-center rainbow-border text-white font-bold col-span-1 plausible-event-name=big-sponsor-clicks"
+                        : `sponsor-item hover:bg-coolgray-200 rounded ${sponsor.customStyle || "p-4"} plausible-event-name=big-sponsor-clicks`}
                     href={sponsor.url}
                     on:mouseenter={() => handleMouseEnter(sponsor.description)}
                     on:mouseleave={handleMouseLeave}
