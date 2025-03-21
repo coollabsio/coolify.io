@@ -400,7 +400,6 @@
     <div bind:this={emblaSmallNode} class="embla-small">
       <div class="embla-small__container">
         {#each smallSponsors as sponsor}
-          {sponsor.event}
           <div class="embla-small__slide">
             {#if sponsor.isSpecial && sponsor.imageUrl === "question"}
               <a
