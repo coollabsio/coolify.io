@@ -398,13 +398,16 @@
           <div class="embla-small__slide">
             {#if sponsor.isSpecial && sponsor.imageUrl === "question"}
               <a
-                class="w-12 h-12 border border-warning font-bold border-dashed hover:bg-warning hover:text-black flex justify-center text-center items-center text-3xl text-white animate-pulse"
+                class="w-12 h-12 border border-warning font-bold border-dashed hover:bg-warning hover:text-black flex justify-center text-center items-center text-3xl text-white animate-pulse plausible-event-name=sponsor-clicks-${sponsor.name}"
                 href={sponsor.url}
               >
                 ?!
               </a>
             {:else if sponsor.isSpecial && sponsor.imageUrl === "runpod-svg"}
-              <a href={sponsor.url}>
+              <a
+                href={sponsor.url}
+                class="plausible-event-name=sponsor-clicks-${sponsor.name}"
+              >
                 <svg
                   class="w-11 h-11 fill-[#824edc] bg-white rounded"
                   xmlns="http://www.w3.org/2000/svg"
@@ -422,7 +425,10 @@
                 </svg>
               </a>
             {:else if sponsor.isPublicImage}
-              <a href={sponsor.url} class="sponsor-clicks">
+              <a
+                href={sponsor.url}
+                class="plausible-event-name=sponsor-clicks-${sponsor.name}"
+              >
                 <img
                   class={sponsor.customStyle || ""}
                   src={sponsor.imageUrl}
@@ -433,7 +439,10 @@
                 />
               </a>
             {:else}
-              <a href={sponsor.url} class="sponsor-clicks">
+              <a
+                href={sponsor.url}
+                class="plausible-event-name=sponsor-clicks-${sponsor.name}"
+              >
                 <img
                   class={sponsor.customStyle || ""}
                   src={getImagePath(sponsor.imageUrl)}
