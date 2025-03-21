@@ -350,7 +350,12 @@
     return shuffled;
   }
 
-  const smallSponsors = shuffleArray(sponsors);
+  const smallSponsors = shuffleArray(sponsors).map((sponsor) => {
+    return {
+      ...sponsor,
+      event: `plausible-event-name=sponsor-click-${sponsor.name}`,
+    };
+  });
   let emblaSmallNode;
 
   onMount(() => {
@@ -395,6 +400,7 @@
     <div bind:this={emblaSmallNode} class="embla-small">
       <div class="embla-small__container">
         {#each smallSponsors as sponsor}
+          {sponsor.event}
           <div class="embla-small__slide">
             {#if sponsor.isSpecial && sponsor.imageUrl === "question"}
               <a
@@ -404,7 +410,7 @@
                 ?!
               </a>
             {:else if sponsor.isSpecial && sponsor.imageUrl === "runpod-svg"}
-              <a href={sponsor.url}>
+              <a href={sponsor.url} class={sponsor.event}>
                 <svg
                   class="w-11 h-11 fill-[#824edc] bg-white rounded"
                   xmlns="http://www.w3.org/2000/svg"
@@ -422,7 +428,7 @@
                 </svg>
               </a>
             {:else if sponsor.isPublicImage}
-              <a href={sponsor.url}>
+              <a href={sponsor.url} class={sponsor.event}>
                 <img
                   class={sponsor.customStyle || ""}
                   src={sponsor.imageUrl}
