@@ -176,6 +176,14 @@
             height: 180,
         },
         {
+            name: "Darweb",
+            url: "https://darweb.nl/?ref=coolify.io&utm_source=coolify.io",
+            description: "Design. Develop. Deliver. Specialized in 3D CPQ Solutions for eCommerce.",
+            imageKey: "darweb.svg",
+            width: 180,
+            height: 180,
+        },
+        {
             name: "Hostinger",
             url: "https://www.hostinger.com/vps/coolify-hosting",
             description: "Web hosting and VPS solutions",
