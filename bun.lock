@@ -4,18 +4,18 @@
     "": {
       "name": "@coollabsio/coolify.io",
       "dependencies": {
-        "@astrojs/sitemap": "^3.2.1",
+        "@astrojs/sitemap": "3.3.0",
         "@astrojs/svelte": "5.0.3",
         "@astrojs/tailwind": "5.1.2",
         "astro": "4.16.13",
         "autoprefixer": "10.4.20",
-        "daisyui": "^4.12.14",
-        "embla-carousel": "^8.5.2",
-        "embla-carousel-auto-scroll": "^8.5.2",
+        "daisyui": "4.12.24",
+        "embla-carousel": "8.5.2",
+        "embla-carousel-auto-scroll": "8.5.2",
         "npm-run-all": "4.1.5",
         "postcss": "8.4.49",
         "svelte": "4.2.11",
-        "swiper": "^11.1.14",
+        "swiper": "11.2.6",
         "tailwindcss": "3.4.15",
         "typescript": "5.6.3",
       },
@@ -37,7 +37,7 @@
 
     "@astrojs/prism": ["@astrojs/prism@3.1.0", "", { "dependencies": { "prismjs": "^1.29.0" } }, "sha512-Z9IYjuXSArkAUx3N6xj6+Bnvx8OdUSHA8YoOgyepp3+zJmtVYJIl/I18GozdJVW1p5u/CNpl3Km7/gwTJK85cw=="],
 
-    "@astrojs/sitemap": ["@astrojs/sitemap@3.2.1", "", { "dependencies": { "sitemap": "^8.0.0", "stream-replace-string": "^2.0.0", "zod": "^3.23.8" } }, "sha512-uxMfO8f7pALq0ADL6Lk68UV6dNYjJ2xGUzyjjVj60JLBs5a6smtlkBYv3tQ0DzoqwS7c9n4FUx5lgv0yPo/fgA=="],
+    "@astrojs/sitemap": ["@astrojs/sitemap@3.3.0", "", { "dependencies": { "sitemap": "^8.0.0", "stream-replace-string": "^2.0.0", "zod": "^3.24.2" } }, "sha512-nYE4lKQtk+Kbrw/w0G0TTgT724co0jUsU4tPlHY9au5HmTBKbwiCLwO/15b1/y13aZ4Kr9ZbMeMHlXuwn0ty4Q=="],
 
     "@astrojs/svelte": ["@astrojs/svelte@5.0.3", "", { "dependencies": { "@sveltejs/vite-plugin-svelte": "^3.0.0", "svelte2tsx": "^0.6.25" }, "peerDependencies": { "astro": "^4.0.0", "svelte": "^4.0.0 || ^5.0.0-next.1" } }, "sha512-6TUBRUxmsEczKPBT6oDUAfvzuFCmITuhZfKPT5ZtOOyj9XOVnEnj/Iobd3ajKUbpWNYX7qZVAd1KMkmJc1Nhsg=="],
 
@@ -1023,7 +1023,7 @@
 
     "svelte2tsx": ["svelte2tsx@0.6.27", "", { "dependencies": { "dedent-js": "^1.0.1", "pascal-case": "^3.1.1" }, "peerDependencies": { "svelte": "^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0", "typescript": "^4.9.4 || ^5.0.0" } }, "sha512-E1uPW1o6VsbRz+nUk3fznZ2lSmCITAJoNu8AYefWSvIwE2pSB01i5sId4RMbWNzfcwCQl1DcgGShCPcldl4rvg=="],
 
-    "swiper": ["swiper@11.2.5", "", {}, "sha512-nG0kbIyBfeE2BPFt9nPUX03qUBF75o6+enzjIT/DfCmbh8ORlwhc4eZz1+4H/yseAgb3H+OoEYzmb64i0tYNnQ=="],
+    "swiper": ["swiper@11.2.6", "", {}, "sha512-8aXpYKtjy3DjcbzZfz+/OX/GhcU5h+looA6PbAzHMZT6ESSycSp9nAjPCenczgJyslV+rUGse64LMGpWE3PX9Q=="],
 
     "tailwindcss": ["tailwindcss@3.4.15", "", { "dependencies": { "@alloc/quick-lru": "^5.2.0", "arg": "^5.0.2", "chokidar": "^3.6.0", "didyoumean": "^1.2.2", "dlv": "^1.1.3", "fast-glob": "^3.3.2", "glob-parent": "^6.0.2", "is-glob": "^4.0.3", "jiti": "^1.21.6", "lilconfig": "^2.1.0", "micromatch": "^4.0.8", "normalize-path": "^3.0.0", "object-hash": "^3.0.0", "picocolors": "^1.1.1", "postcss": "^8.4.47", "postcss-import": "^15.1.0", "postcss-js": "^4.0.1", "postcss-load-config": "^4.0.2", "postcss-nested": "^6.2.0", "postcss-selector-parser": "^6.1.2", "resolve": "^1.22.8", "sucrase": "^3.35.0" }, "bin": { "tailwind": "lib/cli.js", "tailwindcss": "lib/cli.js" } }, "sha512-r4MeXnfBmSOuKUWmXe6h2CcyfzJCEk4F0pptO5jlnYSIViUkVmsawj80N5h2lO3gwcmSb4n3PuN+e+GC1Guylw=="],
 
