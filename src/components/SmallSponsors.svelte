@@ -8,337 +8,235 @@
       name: "Creating Coding Careers",
       url: "https://cccareers.org/?utm_source=coolify.io",
       imageUrl: "https://github.com/cccareers.png",
-      width: 45,
-      height: 45,
     },
     {
       name: "Crypto Jobs List",
       url: "https://cryptojobslist.com/?utm_source=coolify.io",
       imageUrl: "https://github.com/cryptojobslist.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "SerpAPI",
       url: "https://serpapi.com/?utm_source=coolify.io",
       imageUrl: "https://github.com/serpapi.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "typebot",
       url: "https://typebot.io/?utm_source=coolify.io",
       imageUrl:
         "https://cdn.bsky.app/img/avatar/plain/did:plc:gwxcta3pccyim4z5vuultdqx/bafkreig23hci7e2qpdxicsshnuzujbcbcgmydxhbybkewszdezhdodv42m@jpeg",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "360Creators",
       url: "https://360creators.com/?utm_source=coolify.io",
       imageUrl:
         "https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/503e0953-bff7-4296-b4cc-5e36d40eecc0/icon-360creators.png",
-      width: 45,
-      height: 45,
     },
     {
       name: "Cap-go",
       url: "https://capgo.app/?utm_source=coolify.io",
       imageUrl: "https://github.com/cap-go.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Best for Android",
       url: "https://bestforandroid.com/?utm_source=coolify.io",
       imageUrl: "https://github.com/bestforandroid.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Startup Fame",
       url: "https://startupfa.me?utm_source=coolify.io",
       imageUrl: "https://github.com/startupfame.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Cirun",
       url: "https://cirun.io/?utm_source=coolify.io",
       imageUrl: "/images/cirun-logo.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Alfred Nutile",
       url: "https://www.youtube.com/@AlfredNutile?utm_source=coolify.io",
       imageUrl: "https://github.com/alnutile.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Become a sponsor",
       url: "https://github.com/sponsors/coollabsio/sponsorships?tier_id=61570&preview=false",
       imageUrl: "question",
-      width: 45,
-      height: 45,
+
       isSpecial: true,
     },
     {
       name: "DartNode",
       url: "https://dartnode.com/?utm_source=coolify.io",
       imageUrl: "https://github.com/dartnode.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Dry Software",
       url: "https://dry.software/?utm_source=coolify.io",
       imageUrl: "https://github.com/dry-software.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "jyc.dev",
       url: "https://bsky.app/profile/jyc.dev",
       imageUrl: "https://github.com/jycouet.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "BitLaunch",
       url: "https://bitlaunch.io/?utm_source=coolify.io",
       imageUrl: "https://github.com/bitlaunchio.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Internet Garden",
       url: "https://internetgarden.co/?utm_source=coolify.io",
       imageUrl: "/images/internetgarden.ico",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
+
       isPublicImage: true,
     },
     {
       name: "Jonas Jaeger",
       url: "https://jonasjaeger.com?utm_source=coolify.io",
       imageUrl: "https://github.com/toxin20.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "TheRealJP",
       url: "https://github.com/therealjp?utm_source=coolify.io",
       imageUrl: "https://github.com/therealjp.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Evercam",
       url: "https://evercam.io/?utm_source=coolify.io",
       imageUrl: "https://github.com/evercam.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Formbricks",
       url: "https://formbricks.com/?utm_source=coolify.io",
       imageUrl: "https://github.com/formbricks.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Web3 Jobs",
       url: "https://web3.career/?utm_source=coolify.io",
       imageUrl: "/images/web3jobs.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "LinkDr",
       url: "https://linkdr.com?utm_source=coolify.io",
       imageUrl: "https://github.com/LLM-Inc.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Fider",
       url: "https://fider.io/?utm_source=coolify.io",
       imageUrl: "https://github.com/getfider.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Reshot",
       url: "https://www.reshot.ai/?utm_source=coolify.io",
       imageUrl: "/images/reshotai.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Devhuset",
       url: "https://devhuset.no?utm_source=coolify.io",
       imageUrl: "https://github.com/devhuset.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "RunPod",
       url: "https://www.runpod.io/?utm_source=coolify.io",
       imageUrl: "/images/runpod.svg",
-      width: 45,
-      height: 45,
+
       isSpecial: true,
     },
     {
       name: "Gravity Wiz",
       url: "http://gravitywiz.com/?utm_source=coolify.io",
       imageUrl: "https://github.com/gravitywiz.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Flint-company",
       url: "https://www.flint.sh/en/home?utm_source=coolify.io",
       imageUrl: "https://github.com/Flint-company.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Thompson Edolo",
       url: "https://x.com/mrsmith9ja?utm_source=coolify.io",
       imageUrl: "https://github.com/verygreenboi.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "UXWizz",
       url: "https://www.uxwizz.com/?utm_source=coolify.io",
       imageUrl: "https://github.com/UXWizz.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Codext",
       url: "https://codext.link/coolify-io?utm_source=coolify.io",
       imageUrl: "/images/codext.jpg",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Lightspeed.run",
       url: "https://lightspeed.run/?utm_source=coolify.io",
       imageUrl: "https://github.com/lightspeedrun.png",
-      width: 45,
-      height: 45,
+
       customStyle: "rounded bg-white",
     },
     {
       name: "Younes Barrad",
       url: "https://barrad.me/?utm_source=coolify.io",
       imageUrl: "https://github.com/Flowko.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Corentin Clichy",
       url: "https://github.com/corentinclichy",
       imageUrl: "https://github.com/corentinclichy.png",
-      width: 45,
-      height: 45,
     },
     {
       name: "Niklas Lausch",
       url: "https://github.com/Niki2k1",
       imageUrl: "https://github.com/Niki2k1.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Pixel Infinito",
       url: "https://pixel.ao/?utm_source=coolify.io",
       imageUrl: "https://github.com/pixelinfinito.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Tyler Whitesides",
       url: "https://github.com/whitesidest",
       imageUrl: "https://avatars.githubusercontent.com/u/12365916?s=52&v=4",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "NiftyCo",
       url: "https://github.com/aniftyco",
       imageUrl: "https://github.com/aniftyco.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Imre Ujlaki",
       url: "https://github.com/iujlaki",
       imageUrl: "https://github.com/iujlaki.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Ilias Ism",
       url: "https://il.ly/?utm_source=coolify.io",
       imageUrl: "https://github.com/Illyism.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Paweł Pierścionek",
       url: "https://github.com/urtho",
       imageUrl: "https://github.com/urtho.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
     },
     {
       name: "Michael Mazurczak",
       url: "https://github.com/monocursive",
       imageUrl: "https://github.com/monocursive.png",
-      width: 45,
-      height: 45,
-      customStyle: "rounded",
+    },
+    {
+      name: "Server Searcher",
+      url: "https://www.serversearcher.com/",
+      imageUrl: "https://github.com/serversearcher.png",
+
+      newest: true,
+    },
+    {
+      name: "Aquarela",
+      url: "https://aquarela.io",
+      imageUrl: "https://github.com/aquarela-io.png",
+
+      newest: true,
     },
   ];
   function shuffleArray(array) {
@@ -398,7 +296,7 @@
           <div class="embla-small__slide">
             {#if sponsor.isSpecial && sponsor.imageUrl === "question"}
               <a
-                class="w-12 h-12 border border-warning font-bold border-dashed hover:bg-warning hover:text-black flex justify-center text-center items-center text-3xl text-white animate-pulse plausible-event-name=small-sponsor-clicks"
+                class="w-12 h-12 border border-warning font-bold border-dashed hover:bg-warning hover:text-black flex justify-center text-center items-center text-3xl text-white animate-pulse rounded-full plausible-event-name=small-sponsor-clicks"
                 href={sponsor.url}
               >
                 ?!
@@ -441,10 +339,12 @@
             {:else}
               <a
                 href={sponsor.url}
-                class="plausible-event-name=small-sponsor-clicks"
+                class="transition-all duration-100 hover:scale-110 plausible-event-name=small-sponsor-clicks {sponsor.newest
+                  ? 'rainbow-border'
+                  : ''}"
               >
                 <img
-                  class={sponsor.customStyle || ""}
+                  class="rounded-full"
                   src={getImagePath(sponsor.imageUrl)}
                   width={sponsor.width || 45}
                   height={sponsor.height || 45}
@@ -498,17 +398,16 @@
 
   .rainbow-border {
     position: relative;
-    border-radius: 200px;
     padding: 0rem;
   }
 
   .rainbow-border::before {
     content: "";
     position: absolute;
-    top: 6px;
-    left: 6px;
-    right: 6px;
-    bottom: 6px;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
     background: conic-gradient(
       #ff2400,
       #e81d1d,
@@ -520,9 +419,21 @@
       #dd00f3,
       #ff2400
     );
-    border-radius: 200px;
+    border-radius: 50px;
     z-index: -1;
     animation: rotate 1s linear infinite;
+  }
+
+  .rainbow-border::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: #000;
+    border-radius: 200px;
+    z-index: -1;
   }
 
   @keyframes rotate {
