@@ -121,6 +121,12 @@
       imageUrl: "https://github.com/LLM-Inc.png",
     },
     {
+      name: "Arvensis Systems",
+      url: "https://arvensis.systems/?utm_source=coolify.io",
+      imageUrl: "/images/arvensis.png",
+      newest: true,
+    },
+    {
       name: "Fider",
       url: "https://fider.io/?utm_source=coolify.io",
       imageUrl: "https://github.com/getfider.png",
@@ -139,7 +145,6 @@
       name: "RunPod",
       url: "https://www.runpod.io/?utm_source=coolify.io",
       imageUrl: "/images/runpod.svg",
-
       isSpecial: true,
     },
     {
@@ -228,15 +233,11 @@
       name: "Server Searcher",
       url: "https://www.serversearcher.com/",
       imageUrl: "https://github.com/serversearcher.png",
-
-      newest: true,
     },
     {
       name: "Aquarela",
       url: "https://aquarela.io",
       imageUrl: "https://github.com/aquarela-io.png",
-
-      newest: true,
     },
   ];
   function shuffleArray(array) {
