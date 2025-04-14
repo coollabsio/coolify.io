@@ -25,13 +25,12 @@
         {
             name: "WZ-IT",
             url: "https://wz-it.com/",
-            description: "German Cloud Agency",
+            description:
+                "German agency for customised cloud solutions, migration, managed services and open source hosting, specialising in consulting and implementation of tailor-made cloud infrastructures for SMEs.",
             imageKey: "wz-it.png",
             width: 50,
             height: 50,
             customStyle: "flex justify-center items-center",
-            additionalContent:
-                '<div class="text-left font-bold text-white text-3xl">WZ-IT</div>',
         },
         {
             name: "Tolgee",
