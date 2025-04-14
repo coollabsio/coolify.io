@@ -23,6 +23,17 @@
             height: 180,
         },
         {
+            name: "WZ-IT",
+            url: "https://wz-it.com/",
+            description: "German Cloud Agency",
+            imageKey: "wz-it.png",
+            width: 50,
+            height: 50,
+            customStyle: "flex justify-center items-center",
+            additionalContent:
+                '<div class="text-left font-bold text-white text-3xl">WZ-IT</div>',
+        },
+        {
             name: "Tolgee",
             url: "https://tolgee.io",
             description: "The open source localization platform",
@@ -178,7 +189,8 @@
         {
             name: "Darweb",
             url: "https://darweb.nl/?ref=coolify.io&utm_source=coolify.io",
-            description: "Design. Develop. Deliver. Specialized in 3D CPQ Solutions for eCommerce.",
+            description:
+                "Design. Develop. Deliver. Specialized in 3D CPQ Solutions for eCommerce.",
             imageKey: "darweb.svg",
             width: 180,
             height: 180,
