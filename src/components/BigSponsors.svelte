@@ -37,7 +37,7 @@
             url: "https://wz-it.com/",
             description:
                 "German agency for customised cloud solutions, migration, managed services and open source hosting, specialising in consulting and implementation of tailor-made cloud infrastructures for SMEs.",
-            imageKey: "wz-it.png",
+            imageKey: "wzit.png",
             width: 50,
             height: 50,
             customStyle: "flex justify-center items-center",
