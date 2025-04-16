@@ -23,6 +23,16 @@
             height: 180,
         },
         {
+            name: "Supadata",
+            url: "https://supadata.ai/",
+            description:
+                "Scrape YouTube, web, and files. Get AI-ready, clean data for your next project. ",
+            imageKey: "supadata.svg",
+            width: 50,
+            height: 50,
+            customStyle: "flex justify-center items-center",
+        },
+        {
             name: "WZ-IT",
             url: "https://wz-it.com/",
             description:
