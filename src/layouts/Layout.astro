@@ -110,7 +110,7 @@ const { title } = Astro.props;
         </button>
         <div
           id="mobile-menu"
-          class="hidden md:flex flex-col md:flex-row absolute md:relative top-full right-0 bg-coolgray-300 md:bg-transparent w-48 md:w-auto mt-2 md:mt-0 rounded md:rounded-none p-2 md:p-0 z-50 mr-4"
+          class="hidden md:flex flex-col md:flex-row absolute md:relative top-full right-0 bg-coolgray-300 md:bg-transparent w-48 md:w-auto mt-2 md:mt-0 rounded md:rounded-none p-2 md:p-0 z-50 md:gap-1"
         >
           <a class="navbar-link relative gap-4" href="/pricing">
             <svg
@@ -233,7 +233,7 @@ const { title } = Astro.props;
             href="https://coolify.io/discord"
           >
             <svg
-              class="size-6 text-indigo-500"
+              class="size-6 text-indigo-500 text-warning"
               viewBox="0 0 256 256"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -248,7 +248,7 @@ const { title } = Astro.props;
             </svg>Community <span class="text-xs">(12k+)</span></a
           >
           <a
-            class="p-2 px-4 rounded text-white relative border border-coollabs hover:bg-coollabs bg-coollabs/30 font-bold text-xs"
+            class="p-2 px-4 rounded text-white relative border border-coollabs hover:bg-coollabs bg-coollabs/30 font-semibold"
             href="https://app.coolify.io"
           >
             To Cloud</a
@@ -264,7 +264,7 @@ const { title } = Astro.props;
         font-family: "Inter", sans-serif;
       }
       .navbar-link {
-        @apply text-white text-xs md:text-base hover:bg-coolgray-200 p-2 px-4 rounded flex gap-2;
+        @apply text-white text-xs md:text-base hover:bg-coolgray-200 p-2 px-2 rounded flex gap-2;
       }
       .icon {
         @apply w-6 h-6;
