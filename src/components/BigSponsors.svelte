@@ -103,15 +103,6 @@
             height: 200,
         },
         {
-            name: "Stream",
-            url: "https://getstream.io/?utm_source=opensource&utm_medium=referral&utm_content=&utm_campaign=coolifyq12025",
-            description:
-                "APIs and SDKs to Build In-App Chat, Video, & Feeds Faster.",
-            imageKey: "stream.svg",
-            width: 180,
-            height: 180,
-        },
-        {
             name: "GoldenVM",
             url: "https://billing.goldenvm.com",
             description: "Premium virtual machine hosting solutions",
