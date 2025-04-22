@@ -234,11 +234,6 @@
       url: "https://www.serversearcher.com/",
       imageUrl: "https://github.com/serversearcher.png",
     },
-    {
-      name: "Aquarela",
-      url: "https://aquarela.io",
-      imageUrl: "https://github.com/aquarela-io.png",
-    },
   ];
   function shuffleArray(array) {
     const shuffled = [...array];
