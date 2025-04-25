@@ -234,6 +234,11 @@
       url: "https://www.serversearcher.com/",
       imageUrl: "https://github.com/serversearcher.png",
     },
+    {
+      name: "InterviewPal",
+      url: "https://interviewpal.com",
+      imageUrl: "/images/interviewpal.svg",
+    },
   ];
   function shuffleArray(array) {
     const shuffled = [...array];
@@ -284,7 +289,7 @@
   }
 </script>
 
-<div class="py-4">
+<div class="py-4 mt-4">
   <div class="flex flex-col items-center gap-2">
     <div bind:this={emblaSmallNode} class="embla-small">
       <div class="embla-small__container">
