@@ -416,6 +416,7 @@
         justify-content: center;
         text-align: center;
         padding: 0 2rem;
+        pointer-events: none;
     }
 
     .description-container.active {
