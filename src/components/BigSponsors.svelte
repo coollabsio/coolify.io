@@ -7,6 +7,23 @@
 
     const sponsors = [
         {
+            name: "Macarne",
+            url: "https://macarne.com",
+            description:
+                "Best IP Transit & Carrier Ethernet Solutions for Simplified Network Connectivity",
+            imageKey: "macarne.svg",
+            width: 180,
+            height: 180,
+        },
+        {
+            name: "Gozunga",
+            url: "https://gozunga.com",
+            description: "Seriously Simple Cloud Infrastructure",
+            imageKey: "gozunga.png",
+            width: 180,
+            height: 180,
+        },
+        {
             name: "Hetzner",
             url: "http://htznr.li/CoolifyXHetzner",
             description: "Server, cloud, hosting, and data center solutions",
