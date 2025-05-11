@@ -67,8 +67,7 @@
             width: 50,
             height: 50,
             customStyle: "flex justify-center items-center",
-            additionalContent:
-                '<div class="text-left font-bold text-white text-3xl">Tolgee</div>',
+            additionalContent: "Tolgee",
         },
         {
             name: "Best Consultant",
@@ -176,8 +175,7 @@
             width: 180,
             height: 180,
             customStyle: "p-2 mb-5",
-            additionalContent:
-                '<div class="text-left font-bold text-white text-3xl">Trieve</div>',
+            additionalContent: "Trieve",
         },
         {
             name: "Blacksmith",
@@ -228,8 +226,7 @@
             width: 50,
             height: 50,
             customStyle: "flex justify-center items-center",
-            additionalContent:
-                '<div class="text-left text-xl font-bold text-white px-2 uppercase tracking-wider">GlueOps</div>',
+            additionalContent: "GlueOps",
         },
         {
             name: "How long is this???",
@@ -254,8 +251,7 @@
             width: 50,
             height: 50,
             customStyle: "flex justify-center items-center",
-            additionalContent:
-                '<div class="text-left text-xl font-bold text-white px-2 uppercase tracking-wider">PFGLabs</div>',
+            additionalContent: "PFGLabs",
         },
         {
             name: "JuxtDigital",
@@ -317,7 +313,6 @@
         }
         return shuffled;
     }
-
     const sponsorsWithRef = shuffleArray(
         sponsors.map((sponsor) => ({
             ...sponsor,
@@ -326,7 +321,6 @@
                 : `${sponsor.url}?ref=${ref}&utm_source=${ref}`,
         })),
     );
-
     let descriptionContainer;
     let descriptionText;
     let emblaNode;
@@ -408,7 +402,11 @@
                         />
                     {/if}
                     {#if sponsor.additionalContent}
-                        {@html sponsor.additionalContent}
+                        <div
+                            class="text-left text-xl font-bold text-white px-2 uppercase tracking-wider"
+                        >
+                            {sponsor.additionalContent}
+                        </div>
                     {/if}
                 </a>
             </div>
