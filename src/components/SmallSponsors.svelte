@@ -36,11 +36,7 @@
       url: "https://capgo.app/?utm_source=coolify.io",
       imageUrl: "https://github.com/cap-go.png",
     },
-    {
-      name: "Best for Android",
-      url: "https://bestforandroid.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/bestforandroid.png",
-    },
+
     {
       name: "Startup Fame",
       url: "https://startupfa.me?utm_source=coolify.io",
