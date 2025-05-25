@@ -87,7 +87,7 @@ const { title } = Astro.props;
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body>
-    <main class="max-w-5xl mx-auto">
+    <main class="max-w-6xl mx-auto">
       <nav class="navbar gap-0 lg:gap-2 relative px-4">
         <a href="/">
           <span class="text-2xl block text-white font-bold">Coolify</span>
@@ -245,7 +245,7 @@ const { title } = Astro.props;
                   d="M104 140a12 12 0 1 1-12-12a12 12 0 0 1 12 12m60-12a12 12 0 1 0 12 12a12 12 0 0 0-12-12m74.45 64.9l-67 29.71a16.17 16.17 0 0 1-21.71-9.1l-8.11-22q-6.72.45-13.63.46t-13.63-.46l-8.11 22a16.18 16.18 0 0 1-21.71 9.1l-67-29.71a15.94 15.94 0 0 1-9.06-18.51L38 58a16.08 16.08 0 0 1 13-11.87l36.06-5.92a16.21 16.21 0 0 1 18.26 11.88l3.26 12.83Q118.11 64 128 64t19.4.92l3.26-12.83a16.22 16.22 0 0 1 18.26-11.88L205 46.13A16.08 16.08 0 0 1 218 58l29.53 116.38a15.94 15.94 0 0 1-9.08 18.52M232 178.28L202.47 62h-.08l-36.06-6a.17.17 0 0 0-.17 0l-2.83 11.14c5 .94 10 2.06 14.83 3.42A8 8 0 0 1 176 86.31a8.09 8.09 0 0 1-2.16-.3A172.25 172.25 0 0 0 128 80a172.25 172.25 0 0 0-45.84 6a8 8 0 1 1-4.32-15.4c4.82-1.36 9.78-2.48 14.82-3.42L89.83 56a.21.21 0 0 0-.12 0l-36.1 5.92a.24.24 0 0 0-.09 0L24 178.33L91 208a.21.21 0 0 0 .22 0L98 189.72a173.2 173.2 0 0 1-20.14-4.32a8 8 0 0 1 4.3-15.4a171.85 171.85 0 0 0 45.84 6a171.85 171.85 0 0 0 45.84-6a8 8 0 0 1 4.32 15.41a173.2 173.2 0 0 1-20.16 4.31l6.75 18.28a.22.22 0 0 0 .21 0Z"
                 ></path>
               </g>
-            </svg>Community <span class="text-xs">(12k+)</span></a
+            </svg>Community <span class="text-xs">(15k+)</span></a
           >
           <a
             class="p-2 px-4 rounded text-white relative border border-coollabs hover:bg-coollabs bg-coollabs/30 font-bold text-xs"
@@ -365,6 +365,17 @@ const { title } = Astro.props;
       defer
       data-domain="coolify.io"
       src="https://analytics.coollabs.io/js/script.tagged-events.js"></script>
+    <!-- Skip to Features Button -->
+    <a
+      href="#features"
+      id="skip-to-features"
+      class="fixed bottom-4 right-4 bg-coollabs hover:bg-coollabs/80 text-white px-3 py-2 rounded-full shadow-lg transition-all duration-300 text-xs font-medium z-50 flex items-center gap-2"
+      aria-label="Skip to Features section"
+    >
+      <span class="hidden sm:inline">Skip to Features</span>
+      <span class="sm:hidden">Features</span>
+    </a>
+
     <Footer />
 
     <script>
@@ -373,6 +384,19 @@ const { title } = Astro.props;
 
       mobileMenuButton?.addEventListener("click", () => {
         mobileMenu?.classList.toggle("hidden");
+      });
+
+      // Smooth scroll for skip to features button
+      const skipButton = document.getElementById("skip-to-features");
+      skipButton?.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetElement = document.getElementById("features");
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
       });
     </script>
   </body>
