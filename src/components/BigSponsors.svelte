@@ -589,5 +589,8 @@
         .sponsor-image {
             max-height: 60px;
         }
+        .sponsor-label {
+            display: none;
+        }
     }
 </style>
