@@ -44,6 +44,12 @@
             imageKey: "wzit.png",
         },
         {
+            name: "Formbricks",
+            url: "https://formbricks.com",
+            description: "The open source feedback platform",
+            imageKey: "formbricks.svg",
+        },
+        {
             name: "Tolgee",
             url: "https://tolgee.io",
             description: "The open source localization platform",
@@ -395,7 +401,7 @@
 
     .sponsor-card {
         position: relative;
-        border: 1px dotted rgba(24, 24, 24);
+        border: 1px dotted transparent;
         border-radius: 0.3rem;
         padding: 1.5rem;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
