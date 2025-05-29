@@ -81,12 +81,6 @@
             imageKey: "supaguide.png",
         },
         {
-            name: "CodeRabbit",
-            url: "https://coderabbit.ai",
-            description: "Cut Code Review Time & Bugs in Half",
-            imageKey: "coderabbit.svg",
-        },
-        {
             name: "Convex",
             url: "https://convex.link/coolify.io",
             description:
