@@ -235,6 +235,11 @@
       url: "https://interviewpal.com",
       imageUrl: "/images/interviewpal.svg",
     },
+    {
+      name: "Decidable",
+      url: "https://decidable.no?utm_source=coolify.io",
+      imageUrl: "https://github.com/Decidable-AS.png",
+    },
   ];
   function shuffleArray(array) {
     const shuffled = [...array];
