@@ -62,12 +62,12 @@
             description: "Your trusted technology consulting partner",
             imageKey: "bc.png",
         },
-        {
-            name: "QuantCDN",
-            url: "https://www.quantcdn.io",
-            description: "Enterprise-grade content delivery network",
-            imageKey: "quant.svg",
-        },
+        // {
+        //     name: "QuantCDN",
+        //     url: "https://www.quantcdn.io",
+        //     description: "Enterprise-grade content delivery network",
+        //     imageKey: "quant.svg",
+        // },
         {
             name: "ArcJet",
             url: "https://arcjet.com",
@@ -131,14 +131,14 @@
             description: "Cloud hosting solutions",
             imageKey: "cloudify.svg",
         },
-        {
-            name: "Trieve",
-            url: "https://trieve.ai",
-            description: "AI-powered search and analytics",
-            imageKey: "trieve-logo.png",
+        // {
+        //     name: "Trieve",
+        //     url: "https://trieve.ai",
+        //     description: "AI-powered search and analytics",
+        //     imageKey: "trieve-logo.png",
 
-            additionalContent: "Trieve",
-        },
+        //     additionalContent: "Trieve",
+        // },
         {
             name: "Blacksmith",
             url: "https://blacksmith.sh",
