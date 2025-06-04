@@ -209,12 +209,12 @@
             description: "Complete SaaS starter kit for developers",
             imageKey: "saasykit.webp",
         },
-        {
-            name: "MassiveGrid",
-            url: "https://massivegrid.com",
-            description: "Enterprise cloud hosting solutions",
-            imageKey: "massivegrid.svg",
-        },
+        // {
+        //     name: "MassiveGrid",
+        //     url: "https://massivegrid.com",
+        //     description: "Enterprise cloud hosting solutions",
+        //     imageKey: "massivegrid.svg",
+        // },
         {
             name: "American Cloud",
             url: "https://americancloud.com",
