@@ -125,12 +125,12 @@
             description: "Modern developer data platform",
             imageKey: "tigris.svg",
         },
-        {
-            name: "Cloudify",
-            url: "https://cloudify.ro",
-            description: "Cloud hosting solutions",
-            imageKey: "cloudify.svg",
-        },
+        // {
+        //     name: "Cloudify",
+        //     url: "https://cloudify.ro",
+        //     description: "Cloud hosting solutions",
+        //     imageKey: "cloudify.svg",
+        // },
         // {
         //     name: "Trieve",
         //     url: "https://trieve.ai",
