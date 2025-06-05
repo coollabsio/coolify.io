@@ -365,16 +365,6 @@ const { title } = Astro.props;
       defer
       data-domain="coolify.io"
       src="https://analytics.coollabs.io/js/script.tagged-events.js"></script>
-    <!-- Skip to Features Button -->
-    <a
-      href="#features"
-      id="skip-to-features"
-      class="fixed bottom-4 right-4 bg-coollabs hover:bg-coollabs/80 text-white px-3 py-2 rounded-full shadow-lg transition-all duration-300 text-xs font-medium z-50 flex items-center gap-2"
-      aria-label="Skip to Features section"
-    >
-      <span class="hidden sm:inline">Jump to Features</span>
-      <span class="sm:hidden">Jump to Features</span>
-    </a>
 
     <Footer />
 
@@ -384,19 +374,6 @@ const { title } = Astro.props;
 
       mobileMenuButton?.addEventListener("click", () => {
         mobileMenu?.classList.toggle("hidden");
-      });
-
-      // Smooth scroll for skip to features button
-      const skipButton = document.getElementById("skip-to-features");
-      skipButton?.addEventListener("click", (e) => {
-        e.preventDefault();
-        const targetElement = document.getElementById("features");
-        if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }
       });
     </script>
   </body>
