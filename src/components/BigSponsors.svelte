@@ -170,13 +170,13 @@
             description: "Web hosting and VPS solutions",
             imageKey: "hostinger.svg",
         },
-        {
-            name: "GlueOps",
-            url: "https://www.glueops.dev",
-            description: "DevOps automation and infrastructure management",
-            imageKey: "glueops.webp",
-            additionalContent: "GlueOps",
-        },
+        // {
+        //     name: "GlueOps",
+        //     url: "https://www.glueops.dev",
+        //     description: "DevOps automation and infrastructure management",
+        //     imageKey: "glueops.webp",
+        //     additionalContent: "GlueOps",
+        // },
         // {
         //     name: "How long is this???",
         //     url: "https://github.com/sponsors/coollabsio/sponsorships?tier_id=334953&preview=false",
