@@ -190,7 +190,14 @@
           <td class="px-6 py-4 text-neutral-400">Managed</td>
         </tr>
         <tr>
-          <td class="px-6 py-4">Updates</td>
+          <td class="px-6 py-4">
+            <span class="underline decoration-dotted underline-offset-4 cursor-help relative group">
+              Updates *
+              <span class="absolute bottom-full left-0 mb-2 min-w-max max-w-sm rounded bg-black text-white text-xs px-3 py-2 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-10 whitespace-nowrap">
+                Limited to Coolify updates, does not include changes to deployed resources.
+              </span>
+            </span>
+          </td>
           <td class="px-6 py-4 text-neutral-400">Manual</td>
           <td class="px-6 py-4 text-neutral-400">Managed</td>
         </tr>
