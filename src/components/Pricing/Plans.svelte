@@ -1,231 +1,130 @@
 <script>
   let freq = "monthly";
+  let openFAQ = null;
+
+  const faqs = [
+    {
+      question: "Do I get any Cloud‑only features?",
+      answer:
+        "No, Coolify Cloud and self‑hosted share the same features. Cloud adds conveniences like auto‑backups, email alerts, scaling, and update testing.",
+    },
+    {
+      question: "Does Coolify Cloud back up my application data?",
+      answer:
+        "No, only Coolify’s dashboard database is backed up. You’re responsible for backing up your app databases and storage.",
+    },
+    {
+      question: "Can I import self‑hosted configs into Coolify Cloud?",
+      answer: "No, you can’t migrate Coolify settings.",
+    },
+    {
+      question: "How often is Coolify Cloud backed up?",
+      answer: "Every 24 hours.",
+    },
+    {
+      question: "Is Coolify Cloud based on the open‑source version?",
+      answer:
+        "Yes, both use the same open‑source code. Cloud is simply a managed service.",
+    },
+    {
+      question: "What happens if I cancel my subscription?",
+      answer:
+        "You’ll lose access to Cloud at the end of your billing period, but your servers and apps stay running normally. Automations & integrations will be disabled, so new deployments through Coolify Cloud will not be possible.",
+    },
+    {
+      question: "What if I miss a payment?",
+      answer:
+        "Access to Cloud is paused until payment is resolved, but your apps and servers remain unaffected.",
+    },
+    {
+      question: "Are there IPs to whitelist for Coolify Cloud?",
+      answer:
+        "Yes, Cloud requires access to your SSH port via specific IPs (listed in our docs).",
+    },
+    {
+      question: "Do I need to bring my own servers?",
+      answer:
+        "Yes, Coolify Cloud requires your own servers (VPS, Pi, EC2, etc.) to deploy applications.",
+    },
+    {
+      question: "Why pay if I provide my own servers?",
+      answer:
+        "The fee covers the Coolify hosted by us — we manage, monitor, and update it on our infrastructure, which has its own costs.",
+    },
+    {
+      question: "What happens if I exceed my server limit?",
+      answer: "You’ll need to upgrade your plan before adding more servers.",
+    },
+    {
+      question: "Is there a trial for Coolify Cloud?",
+      answer:
+        "No trial currently, but the $5/month Cloud plan supports up to two servers. You can self‑host to test everything for free.",
+    },
+    { question: "Are discounts available?", answer: "No" },
+    {
+      question: "Am I locked into Coolify Cloud?",
+      answer:
+        "Not really, you retain full control. If you stop paying, your apps keep running without any issues. Also we are working on a way to migrate your data to self-hosting and vice versa.",
+    },
+    {
+      question: "Can I use my own domain for the Cloud dashboard?",
+      answer:
+        "No, the Cloud dashboard is only available at https://app.coolify.io. Using your own domain requires self‑hosting.",
+    },
+  ];
+
+  function checkmark() {
+    return `
+      <svg class="flex-none w-5 h-6 mr-3" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M10 18a8 8 0 100-16 8 8 0 000 16z" fill="#7317ff"/>
+        <path d="M13.857 8.191a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" fill="white"/>
+      </svg>
+    `;
+  }
 </script>
 
-<div class="text-white">
-  <div class="bg-coolgray-200/70 p-4 rounded lg:mx-0 mx-4">
-    <h2
-      id="tier-hobby"
-      class="text-xl lg:text-4xl font-bold tracking-tight flex items-start gap-4"
+<div class="text-white max-w-6xl mx-auto py-12 px-4">
+  <!-- Cards -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <!-- Free Plan -->
+    <div
+      class="bg-coolgray-200/70 p-6 rounded-lg flex flex-col justify-between"
     >
-      Unlimited Trial
-    </h2>
-    <h2 class="mt-4 text-sm leading-6 text-left text-neutral-400">
-      With the OSS version you get everything <span class="text-warning"
-        >without limits</span
-      >. It offers the same features as the paid version, but requires
-      self-management.
-    </h2>
-  </div>
-  <div class="flex justify-center py-10">
-    <a
-      href="https://app.coolify.io/register"
-      class="text-base font-bold rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2"
-      ><svg class="icon" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
-        <path
-          fill="currentColor"
-          fill-rule="evenodd"
-          d="m6.854 3.854l.8-.8c.644-.645 1.775-1.092 2.898-1.253a5.342 5.342 0 0 1 1.504-.02c.443.066.714.196.84.323c.127.126.257.397.323.84c.064.427.059.95-.02 1.504c-.16 1.123-.608 2.254-1.253 2.898L7.5 11.793l-1.146-1.146a.5.5 0 1 0-.708.707l1.5 1.5a.5.5 0 0 0 .708 0l.547-.548l1.17 1.951a.5.5 0 0 0 .783.097l2-2a.5.5 0 0 0 .141-.425l-.465-3.252l.624-.623c.855-.856 1.358-2.225 1.535-3.465c.09-.627.1-1.25.019-1.794c-.08-.528-.256-1.05-.604-1.399c-.349-.348-.871-.525-1.4-.604a6.333 6.333 0 0 0-1.793.02C9.17.987 7.8 1.49 6.946 2.345l-.623.624l-3.252-.465a.5.5 0 0 0-.425.141l-2 2a.5.5 0 0 0 .097.783l1.95 1.17l-.547.547a.5.5 0 0 0 0 .708l1.5 1.5a.5.5 0 1 0 .708-.708L3.207 7.5l.647-.646zm3.245 9.34l-.97-1.617l2.017-2.016l.324 2.262zM3.423 5.87l2.016-2.016l-2.262-.324l-1.37 1.37zm-1.07 4.484a.5.5 0 1 0-.707-.708l-1 1a.5.5 0 1 0 .708.707zm1.5 1.5a.5.5 0 1 0-.707-.707l-2 2a.5.5 0 0 0 .708.707zm1.5 1.5a.5.5 0 1 0-.707-.708l-1 1a.5.5 0 1 0 .708.707zM9.5 6.749a1.249 1.249 0 1 0 0-2.498a1.249 1.249 0 0 0 0 2.498"
-          clip-rule="evenodd"
-        />
-      </svg>Get Started in the Cloud</a
-    >
-  </div>
-  <div class="flex gap-4 justify-center">
-    <div class="flex justify-center">
-      <fieldset
-        class="grid grid-cols-2 p-1 text-xs font-semibold leading-5 text-center rounded text-white gap-x-1 bg-coolgray-100"
-      >
-        <legend class="sr-only">Payment frequency</legend>
-        <label
-          class="cursor-pointer rounded px-2.5 py-1"
-          class:bg-coollabs-100={freq === "monthly"}
-          class:text-white={freq === "monthly"}
-        >
-          <input
-            type="radio"
-            on:click={() => (freq = "monthly")}
-            name="frequency"
-            value="monthly"
-            class="sr-only"
-          />
-          <span>Monthly</span>
-        </label>
-        <label
-          class="cursor-pointer rounded px-2.5 py-1"
-          class:bg-coollabs-100={freq === "yearly"}
-          class:text-white={freq === "yearly"}
-        >
-          <input
-            type="radio"
-            on:click={() => (freq = "yearly")}
-            name="frequency"
-            value="annually"
-            class="sr-only"
-          />
-          <span
-            >Annually <span class="text-xs text-warning">(save ~20%)</span
-            ></span
-          >
-        </label>
-      </fieldset>
-    </div>
-  </div>
-  <!--<div class=" pt-10 pb-2 text-center">
-    <span class="font-bold text-warning">Trial period</span> included on all plans,
-    without credit card details.
-  </div> -->
-
-  <div class="flex text-left justify-center">
-    <div class="p-8">
-      <h2 id="tier-basic" class="text-3xl font-bold tracking-tight">
-        Pay-as-you-go
-      </h2>
-      <p class="mt-4 text-sm leading-6 text-neutral-400">
-        Dynamic pricing based on the number of servers you connect.
-      </p>
-
-      <p class="mt-6 flex items-baseline gap-x-1">
-        <span class="text-4xl font-bold tracking-tight">
-          {freq === "monthly" ? "$5" : "$4"}</span
-        >
-        <span class="text-sm font-semibold leading-6 text-neutral-400">
-          base price</span
-        >
-        <span class="text-white font-normal text-sm">(connect 2 servers)</span>
-      </p>
-      <p class="flex items-baseline gap-x-1">
-        <span class="font-bold tracking-tight">
-          {freq === "monthly" ? "$3" : "$2.7"}</span
-        >
-        <span class="text-sm font-semibold leading-6 text-neutral-400">
-          per additional servers
-          <span class="text-white font-normal"
-            >(billed
-            {freq === "monthly" ? "monthly" : "annually"}
-            + VAT)</span
-          ></span
-        >
-      </p>
-      <div class="flex items-center pt-6">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="flex-none w-8 h-8 text-warning mr-3"
-          fill="currentColor"
-          viewBox="0 0 256 256"
-          ><path
-            d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"
-          ></path></svg
-        >
-
-        <div class="flex flex-col text-white text-sm">
-          <div>
-            You need to bring your own servers from any cloud provider (such as <a
-              class="underline"
-              href="https://coolify.io/hetzner"
-              target="_blank">Hetzner</a
-            >, DigitalOcean, AWS, etc.)
-          </div>
-          <div>
-            (You can connect your RPi, old laptop, or any other device that runs
-            the <a
-              class="underline"
-              href="https://coolify.io/docs/installation#supported-operating-systems"
-              target="_blank">supported operating systems</a
-            >.)
-          </div>
-        </div>
+      <div>
+        <h2 class="text-2xl font-medium mb-4 text-left">Self Host</h2>
+        <p class="text-3xl font-medium mb-6 text-left">
+          Free<span class="text-sm font-semibold text-neutral-400"></span>
+        </p>
+        <p class="text-sm leading-6 text-neutral-400 mb-6 text-left">
+          Deploy Coolify on your infrastructure without any restrictions on
+          features.
+        </p>
+        <ul class="space-y-4 text-sm leading-6 text-white text-left">
+          <li class="flex items-start">
+            {@html checkmark()}Full access to all features
+          </li>
+          <li class="flex items-start">
+            {@html checkmark()}Host Coolify on your own infrastructure
+          </li>
+          <li class="flex items-start">
+            {@html checkmark()}No limits on usage or deployments
+          </li>
+          <li class="flex items-start">{@html checkmark()}Community support</li>
+          <li class="flex items-start">
+            {@html checkmark()}Manual (self-managed) updates
+          </li>
+          <li class="flex items-start">
+            {@html checkmark()}Get all future feature updates
+          </li>
+        </ul>
       </div>
-
-      <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-neutral-400">
-        <li class="flex">
+      <div class="mt-6">
+        <a
+          href="https://coolify.io/docs/get-started/installation"
+          class="text-base font-medium rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex justify-center items-center gap-2"
+        >
           <svg
-            class="flex-none w-5 h-6 text-warning mr-3"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-              clip-rule="evenodd"
-            />
-          </svg>
-          Connect
-          <span class="px-1 font-bold text-white">two</span> servers (included in
-          the base price)
-        </li>
-        <li class="flex">
-          <svg
-            class="flex-none w-5 h-6 text-warning mr-3"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-              clip-rule="evenodd"
-            />
-          </svg>
-          Connect
-          <span class="px-1 font-bold text-white">unlimited</span> servers ({freq ===
-          "monthly"
-            ? "$3"
-            : "$2.7"}/server/month)
-        </li>
-        <li class="flex">
-          <svg
-            class="flex-none w-5 h-6 text-warning mr-3"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-              clip-rule="evenodd"
-            />
-          </svg>
-          Deploy
-          <span class="px-1 font-bold text-white">unlimited</span> applications/databases/services
-          per server
-        </li>
-        <li class="flex gap-x-3">
-          <svg
-            class="flex-none w-5 h-6 text-warning"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-              clip-rule="evenodd"
-            />
-          </svg>
-          Free email notifications
-        </li>
-        <li class="flex gap-x-3">
-          <svg
-            class="flex-none w-5 h-6 text-warning"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-              clip-rule="evenodd"
-            />
-          </svg>
-          Limited support by email
-        </li>
-        <li class="flex font-bold text-white gap-x-3">
-          <svg
-            width="512"
-            height="512"
-            class="flex-none w-5 h-6 text-green-500"
+            class="icon hidden sm:block"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -236,44 +135,310 @@
               stroke-linejoin="round"
               stroke-width="2"
             >
+              <path d="M9.5 11h.01m4.99 0h.01M9.5 15a3.5 3.5 0 0 0 5 0"></path>
               <path
-                d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3-5a9 9 0 0 0 6-8a3 3 0 0 0-3-3a9 9 0 0 0-8 6a6 6 0 0 0-5 3"
-              />
-              <path
-                d="M7 14a6 6 0 0 0-3 6a6 6 0 0 0 6-3m4-8a1 1 0 1 0 2 0a1 1 0 1 0-2 0"
-              />
+                d="M7 5h1V3h8v2h1a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3v1H7v-1a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3"
+              ></path>
             </g>
           </svg>
-          + All Upcoming Features
-        </li>
-        <li class="flex text-white gap-x-3">
+          Start Self‑hosting
+        </a>
+      </div>
+    </div>
+
+    <!-- Cloud Plan -->
+    <div
+      class="bg-coolgray-200/70 p-6 rounded-lg flex flex-col justify-between"
+    >
+      <div>
+        <!-- Always inline on mobile+desktop -->
+        <div class="flex items-center justify-between mb-4 gap-4">
+          <h2 class="text-2xl font-medium text-left">Cloud</h2>
+          <fieldset
+            class="inline-flex gap-1 p-1 bg-coolgray-100 rounded whitespace-nowrap"
+          >
+            <label
+              class="cursor-pointer px-3 py-1 text-xs sm:text-sm font-semibold rounded"
+              class:bg-coollabs-100={freq === "monthly"}
+              class:text-white={freq === "monthly"}
+            >
+              <input
+                type="radio"
+                name="freq"
+                bind:group={freq}
+                value="monthly"
+                class="sr-only"
+              />
+              Monthly
+            </label>
+            <label
+              class="cursor-pointer px-3 py-1 text-xs sm:text-sm font-semibold rounded"
+              class:bg-coollabs-100={freq === "yearly"}
+              class:text-white={freq === "yearly"}
+            >
+              <input
+                type="radio"
+                name="freq"
+                bind:group={freq}
+                value="yearly"
+                class="sr-only"
+              />
+              Annually <span class="text-xs text-warning">(save 20%)</span>
+            </label>
+          </fieldset>
+        </div>
+
+        <p class="text-3xl font-medium text-left">
+          {freq === "monthly" ? "$5" : "$4"}
+          <span class="text-sm font-semibold text-neutral-400"
+            >/mo Base price (connect 2 servers)</span
+          >
+        </p>
+        <p class="text-sm text-warning font-semibold mb-4 text-left">
+          + {freq === "monthly" ? "$3" : "$2.70"} /mo per additional server
+        </p>
+
+        <p class="text-sm leading-6 text-neutral-400 mb-6 text-left">
+          Just connect your servers, Coolify runs on our managed infrastructure.
+        </p>
+        <ul class="space-y-4 text-sm leading-6 text-white text-left">
+          <li class="flex items-start">
+            {@html checkmark()}Connect unlimited servers
+          </li>
+          <li class="flex items-start">
+            {@html checkmark()}Unlimited deployments per server
+          </li>
+          <li class="flex items-start">
+            {@html checkmark()}Free email alerts for Coolify events
+          </li>
+          <li class="flex items-start">
+            {@html checkmark()}Community + limited email support
+          </li>
+          <li class="flex items-start">
+            {@html checkmark()}Founder-tested updates
+          </li>
+        </ul>
+        <div class="mt-4 flex items-center text-warning text-sm">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="flex-none w-5 h-6 text-green-500"
-            viewBox="0 0 256 256"
-            ><rect width="256" height="256" fill="none" /><polyline
-              points="32 136 72 136 88 112 120 160 136 136 160 136"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="16"
-            /><path
-              d="M24,104c0-.67,0-1.33,0-2A54,54,0,0,1,78,48c22.59,0,41.94,12.31,50,32,8.06-19.69,27.41-32,50-32a54,54,0,0,1,54,54c0,66-104,122-104,122s-42-22.6-72.58-56"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="16"
-            /></svg
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-asterisk mr-3 ml-1"
+            viewBox="0 0 16 16"
           >
+            <path
+              d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1"
+            />
+          </svg>
+          <div class="relative group">
+            <span
+              class="underline decoration-dotted decoration-1 underline-offset-4 cursor-help"
+            >
+              You need to bring your own servers
+            </span>
+            <div
+              class="absolute top-full left-0 mt-0 w-[336px] p-5 rounded-lg bg-black/90 text-white text-sm text-left opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity z-10 pointer-events-auto"
+            >
+              You need to bring your own servers from any cloud provider (such
+              as
+              <a
+                href="https://coolify.io/hetzner"
+                class="underline text-white hover:text-warning">Hetzner</a
+              >, DigitalOcean, AWS, etc.).
+              <br /><br />
+              Your apps will be deployed on the server you connect to the cloud,
+              while Coolify runs on our managed server.
+              <br /><br />
+              (You can connect your RPi, old laptop, or any other device that runs
+              the
+              <a
+                href="https://coolify.io/docs/get-started/installation#_2-supported-operating-systems"
+                class="underline text-white hover:text-warning"
+                >supported operating systems</a
+              >.)
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-6">
+        <a
+          href="https://app.coolify.io/register"
+          class="text-base font-medium rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex justify-center items-center gap-2"
+        >
+          <!-- Cloud Icon -->
+          <svg
+            class="icon hidden sm:block"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6.657 18C4.085 18 2 15.993 2 13.517c0-2.475 2.085-4.482 4.657-4.482c.393-1.762 1.794-3.2 3.675-3.773c1.88-.572 3.956-.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927-1.551 3.487-3.465 3.487H6.657"
+            ></path>
+          </svg>
+          Get Started in the Cloud
+        </a>
+      </div>
+    </div>
+  </div>
 
-          Do you require official support for your self-hosted instance?<a
-            class="underline"
-            href="https://coolify.io/docs/contact">Contact Us</a
+  <!-- Feature Table -->
+  <div class="mt-16 overflow-x-auto">
+    <table class="w-full table-pin-auto text-left">
+      <thead>
+        <tr class="bg-coolgray-100">
+          <th class="px-6 py-3 font-medium w-1/2">Feature</th>
+          <th class="px-6 py-3 font-medium min-w-[120px] whitespace-nowrap"
+            >Self Host</th
           >
-        </li>
-      </ul>
+          <th class="px-6 py-3 font-medium min-w-[80px] whitespace-nowrap"
+            >Cloud</th
+          >
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-coolgray-300">
+        <tr>
+          <td class="px-6 py-4">App Deployments</td>
+          <td class="px-6 py-4">{@html checkmark()}</td>
+          <td class="px-6 py-4">{@html checkmark()}</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4">Database Deployments</td>
+          <td class="px-6 py-4">{@html checkmark()}</td>
+          <td class="px-6 py-4">{@html checkmark()}</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4">Service Deployments</td>
+          <td class="px-6 py-4">{@html checkmark()}</td>
+          <td class="px-6 py-4">{@html checkmark()}</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4">One‑click servicess</td>
+          <td class="px-6 py-4">{@html checkmark()}</td>
+          <td class="px-6 py-4">{@html checkmark()}</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4">API Access</td>
+          <td class="px-6 py-4">{@html checkmark()}</td>
+          <td class="px-6 py-4">{@html checkmark()}</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4">Codebase</td>
+          <td class="px-6 py-4 text-neutral-400">Open source</td>
+          <td class="px-6 py-4 text-neutral-400">Open source</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4">Coolify Hosting</td>
+          <td class="px-6 py-4 text-neutral-400">Self Managed</td>
+          <td class="px-6 py-4 text-neutral-400">Managed</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4">Coolify Setup</td>
+          <td class="px-6 py-4 text-neutral-400">Manual</td>
+          <td class="px-6 py-4 text-neutral-400">Managed</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4">
+            <span
+              class="underline decoration-dotted underline-offset-4 cursor-help relative group"
+            >
+              Updates *
+              <span
+                class="absolute bottom-full left-0 mb-2 min-w-max max-w-sm rounded bg-black text-white text-xs px-3 py-2 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-10 whitespace-nowrap"
+              >
+                Limited to Coolify updates, does not include changes to deployed
+                resources.
+              </span>
+            </span>
+          </td>
+          <td class="px-6 py-4 text-neutral-400">Manual</td>
+          <td class="px-6 py-4 text-neutral-400">Managed</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4">Coolify Backups</td>
+          <td class="px-6 py-4 text-neutral-400">Self Managed</td>
+          <td class="px-6 py-4 text-neutral-400">Managed</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4">Email Alerts</td>
+          <td class="px-6 py-4 text-neutral-400">Manual Setup</td>
+          <td class="px-6 py-4 text-neutral-400">Preconfigured</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4">Scaling Coolify</td>
+          <td class="px-6 py-4 text-neutral-400">Manual</td>
+          <td class="px-6 py-4 text-neutral-400"> Auto Scaling</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4">Coolify Dashboard Domain</td>
+          <td class="px-6 py-4 text-neutral-400">Cutom Domain</td>
+          <td class="px-6 py-4 text-neutral-400">app.coolify.io</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4">Teams</td>
+          <td class="px-6 py-4 text-neutral-400">Unlimited</td>
+          <td class="px-6 py-4 text-neutral-400">
+            <span
+              class="underline decoration-dotted underline-offset-4 cursor-help relative group"
+            >
+              Unlimited *
+              <span
+                class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-max max-w-xs rounded bg-black text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity"
+              >
+                Requires an additional subscription per team
+              </span>
+            </span>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="px-6 py-4">Team Members</td>
+          <td class="px-6 py-4 text-neutral-400">Unlimited</td>
+          <td class="px-6 py-4 text-neutral-400">Unlimited</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4">Connected Servers</td>
+          <td class="px-6 py-4 text-neutral-400">Unlimited</td>
+          <td class="px-6 py-4 text-neutral-400">Unlimited</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FAQ -->
+  <div class="mt-16 max-w-3xl mx-auto">
+    <h2 class="text-2xl font-medium mb-6">Frequently Asked Questions</h2>
+    <div class="divide-y divide-coolgray-300 border-y border-coolgray-300">
+      {#each faqs as { question, answer }, i}
+        <div class="py-4">
+          <button
+            on:click={() => (openFAQ = openFAQ === i ? null : i)}
+            class="w-full text-left text-sm font-medium flex justify-between items-center"
+          >
+            <span>{question}</span>
+            <svg
+              class="w-6 h-6 transition-transform duration-200"
+              class:rotate-180={openFAQ === i}
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 12l-4-4h8l-4 4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+          {#if openFAQ === i}
+            <p class="mt-2 text-sm text-neutral-300 text-left">{answer}</p>
+          {/if}
+        </div>
+      {/each}
     </div>
   </div>
 </div>
