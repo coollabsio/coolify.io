@@ -91,30 +91,33 @@
       class="bg-coolgray-200/70 p-6 rounded-lg flex flex-col justify-between"
     >
       <div>
-        <h2 class="text-2xl font-medium mb-4 text-left">Self Host</h2>
+        <h2 class="text-2xl font-medium mb-4 text-left">Self-hosted</h2>
         <p class="text-3xl font-medium mb-6 text-left">
-          Free<span class="text-sm font-semibold text-neutral-400"></span>
+          Free Forever <span class="text-sm font-semibold text-neutral-400"
+          ></span>
         </p>
-        <p class="text-sm leading-6 text-neutral-400 mb-6 text-left">
+        <p class="text-sm leading-6 text-neutral-400 mb-4 pt-4 text-left">
           Deploy Coolify on your infrastructure without any restrictions on
           features.
         </p>
-        <ul class="space-y-4 text-sm leading-6 text-white text-left">
+        <ul class="space-y-4 text-sm leading-6 pt-2 text-white text-left">
           <li class="flex items-start">
             {@html checkmark()}Full access to all features
           </li>
           <li class="flex items-start">
-            {@html checkmark()}Host Coolify on your own infrastructure
+            {@html checkmark()}Need your own infrastructure for Coolify
           </li>
           <li class="flex items-start">
-            {@html checkmark()}No limits on usage or deployments
-          </li>
-          <li class="flex items-start">{@html checkmark()}Community support</li>
-          <li class="flex items-start">
-            {@html checkmark()}Manual (self-managed) updates
+            {@html checkmark()}No limitation or restrictions
           </li>
           <li class="flex items-start">
-            {@html checkmark()}Get all future feature updates
+            {@html checkmark()}Community support (16k+ members)
+          </li>
+          <li class="flex items-start">
+            {@html checkmark()}Automated or Self-managed updates
+          </li>
+          <li class="flex items-start">
+            {@html checkmark()}Includes all upcoming features
           </li>
         </ul>
       </div>
@@ -191,11 +194,11 @@
         <p class="text-3xl font-medium text-left">
           {freq === "monthly" ? "$5" : "$4"}
           <span class="text-sm font-semibold text-neutral-400"
-            >/mo Base price (connect 2 servers)</span
+            >/month Base price (connect 2 servers)</span
           >
         </p>
         <p class="text-sm text-warning font-semibold mb-4 text-left">
-          + {freq === "monthly" ? "$3" : "$2.70"} /mo per additional server
+          + {freq === "monthly" ? "$3" : "$2.70"} /month per additional server
         </p>
 
         <p class="text-sm leading-6 text-neutral-400 mb-6 text-left">
@@ -294,7 +297,7 @@
         <tr class="bg-coolgray-100">
           <th class="px-6 py-3 font-medium w-1/2">Feature</th>
           <th class="px-6 py-3 font-medium min-w-[120px] whitespace-nowrap"
-            >Self Host</th
+            >Self-hosted</th
           >
           <th class="px-6 py-3 font-medium min-w-[80px] whitespace-nowrap"
             >Cloud</th
@@ -303,7 +306,7 @@
       </thead>
       <tbody class="divide-y divide-coolgray-300">
         <tr>
-          <td class="px-6 py-4">App Deployments</td>
+          <td class="px-6 py-4">Application Deployments</td>
           <td class="px-6 py-4">{@html checkmark()}</td>
           <td class="px-6 py-4">{@html checkmark()}</td>
         </tr>
@@ -313,12 +316,7 @@
           <td class="px-6 py-4">{@html checkmark()}</td>
         </tr>
         <tr>
-          <td class="px-6 py-4">Service Deployments</td>
-          <td class="px-6 py-4">{@html checkmark()}</td>
-          <td class="px-6 py-4">{@html checkmark()}</td>
-        </tr>
-        <tr>
-          <td class="px-6 py-4">One‑click servicess</td>
+          <td class="px-6 py-4">Service/One-click Deployments</td>
           <td class="px-6 py-4">{@html checkmark()}</td>
           <td class="px-6 py-4">{@html checkmark()}</td>
         </tr>
@@ -338,8 +336,18 @@
           <td class="px-6 py-4 text-neutral-400">Managed</td>
         </tr>
         <tr>
+          <td class="px-6 py-4">Coolify Dashboard Domain</td>
+          <td class="px-6 py-4 text-neutral-400">Custom Domain</td>
+          <td class="px-6 py-4 text-neutral-400">app.coolify.io</td>
+        </tr>
+        <tr>
           <td class="px-6 py-4">Coolify Setup</td>
           <td class="px-6 py-4 text-neutral-400">Manual</td>
+          <td class="px-6 py-4 text-neutral-400">Managed</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4">Coolify Backups</td>
+          <td class="px-6 py-4 text-neutral-400">Self Managed</td>
           <td class="px-6 py-4 text-neutral-400">Managed</td>
         </tr>
         <tr>
@@ -359,25 +367,11 @@
           <td class="px-6 py-4 text-neutral-400">Manual</td>
           <td class="px-6 py-4 text-neutral-400">Managed</td>
         </tr>
-        <tr>
-          <td class="px-6 py-4">Coolify Backups</td>
-          <td class="px-6 py-4 text-neutral-400">Self Managed</td>
-          <td class="px-6 py-4 text-neutral-400">Managed</td>
-        </tr>
+
         <tr>
           <td class="px-6 py-4">Email Alerts</td>
           <td class="px-6 py-4 text-neutral-400">Manual Setup</td>
           <td class="px-6 py-4 text-neutral-400">Preconfigured</td>
-        </tr>
-        <tr>
-          <td class="px-6 py-4">Scaling Coolify</td>
-          <td class="px-6 py-4 text-neutral-400">Manual</td>
-          <td class="px-6 py-4 text-neutral-400"> Auto Scaling</td>
-        </tr>
-        <tr>
-          <td class="px-6 py-4">Coolify Dashboard Domain</td>
-          <td class="px-6 py-4 text-neutral-400">Cutom Domain</td>
-          <td class="px-6 py-4 text-neutral-400">app.coolify.io</td>
         </tr>
         <tr>
           <td class="px-6 py-4">Teams</td>
@@ -390,7 +384,7 @@
               <span
                 class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-max max-w-xs rounded bg-black text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity"
               >
-                Requires an additional subscription per team
+                Requires an additional subscription per team.
               </span>
             </span>
           </td>
@@ -405,6 +399,11 @@
           <td class="px-6 py-4">Connected Servers</td>
           <td class="px-6 py-4 text-neutral-400">Unlimited</td>
           <td class="px-6 py-4 text-neutral-400">Unlimited</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4">Any Other Upcoming Features</td>
+          <td class="px-6 py-4 text-neutral-400">Unlimited & Free Forever</td>
+          <td class="px-6 py-4 text-neutral-400">Included In The Price</td>
         </tr>
       </tbody>
     </table>
