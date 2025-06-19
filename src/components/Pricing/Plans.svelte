@@ -332,7 +332,7 @@
         </tr>
         <tr>
           <td class="px-6 py-4">Coolify Hosting</td>
-          <td class="px-6 py-4 text-neutral-400">Self Managed</td>
+          <td class="px-6 py-4 text-neutral-400">Self-managed</td>
           <td class="px-6 py-4 text-neutral-400">Managed</td>
         </tr>
         <tr>
@@ -347,7 +347,9 @@
         </tr>
         <tr>
           <td class="px-6 py-4">Coolify Backups</td>
-          <td class="px-6 py-4 text-neutral-400">Self Managed</td>
+          <td class="px-6 py-4 text-neutral-400"
+            >Self-managed (but automated)</td
+          >
           <td class="px-6 py-4 text-neutral-400">Managed</td>
         </tr>
         <tr>
@@ -364,14 +366,29 @@
               </span>
             </span>
           </td>
-          <td class="px-6 py-4 text-neutral-400">Manual</td>
+          <td class="px-6 py-4 text-neutral-400">Manual (but automated)</td>
           <td class="px-6 py-4 text-neutral-400">Managed</td>
         </tr>
 
         <tr>
-          <td class="px-6 py-4">Email Alerts</td>
-          <td class="px-6 py-4 text-neutral-400">Manual Setup</td>
-          <td class="px-6 py-4 text-neutral-400">Preconfigured</td>
+          <td class="px-6 py-4">
+            <span
+              class="underline decoration-dotted underline-offset-4 cursor-help relative group"
+            >
+              Email Alerts *
+              <span
+                class="absolute bottom-full left-0 mb-2 min-w-max max-w-sm rounded bg-black text-white text-xs px-3 py-2 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-10 whitespace-nowrap"
+              >
+                Other alerts (Discord, Telegram, etc.) are also supported, but
+                those needs to be configured manually on each type, self-hosted
+                or cloud.
+              </span>
+            </span>
+          </td>
+          <td class="px-6 py-4 text-neutral-400"
+            >Manual (requires SMTP/Resend)</td
+          >
+          <td class="px-6 py-4 text-neutral-400">Managed</td>
         </tr>
         <tr>
           <td class="px-6 py-4">Teams</td>
