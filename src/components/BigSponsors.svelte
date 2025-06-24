@@ -170,6 +170,13 @@
             description: "Web hosting and VPS solutions",
             imageKey: "hostinger.svg",
         },
+        {
+            name: "Mobb",
+            url: "https://vibe.mobb.ai/",
+            description:
+                "Secure Your AI-Generated Code to Unlock Dev Productivity",
+            imageKey: "mobb.svg",
+        },
         // {
         //     name: "GlueOps",
         //     url: "https://www.glueops.dev",

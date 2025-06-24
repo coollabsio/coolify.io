@@ -5,6 +5,11 @@
 
   const sponsors = [
     {
+      name: "Darren Beale",
+      url: "https://siftware.com?utm_source=coolify.io",
+      imageUrl: "https://github.com/bealers.png",
+    },
+    {
       name: "Creating Coding Careers",
       url: "https://cccareers.org/?utm_source=coolify.io",
       imageUrl: "https://github.com/cccareers.png",
