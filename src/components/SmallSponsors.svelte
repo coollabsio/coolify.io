@@ -5,6 +5,11 @@
 
   const sponsors = [
     {
+      name: "FiveManage",
+      url: "https://fivemanage.com?utm_source=coolify.io",
+      imageUrl: "/images/fivemanage.jpg",
+    },
+    {
       name: "Darren Beale",
       url: "https://siftware.com?utm_source=coolify.io",
       imageUrl: "https://github.com/bealers.png",
