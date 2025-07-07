@@ -36,13 +36,13 @@
                 "Scrape YouTube, web, and files. Get AI-ready, clean data for your next project. ",
             imageKey: "supadata.svg",
         },
-        {
-            name: "WZ-IT",
-            url: "https://wz-it.com/",
-            description:
-                "German agency for customised cloud solutions, migration, managed services and open source hosting, specialising in consulting and implementation of tailor-made cloud infrastructures for SMEs.",
-            imageKey: "wzit.png",
-        },
+        // {
+        //     name: "WZ-IT",
+        //     url: "https://wz-it.com/",
+        //     description:
+        //         "German agency for customised cloud solutions, migration, managed services and open source hosting, specialising in consulting and implementation of tailor-made cloud infrastructures for SMEs.",
+        //     imageKey: "wzit.png",
+        // },
         {
             name: "Formbricks",
             url: "https://formbricks.com",
