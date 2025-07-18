@@ -122,7 +122,7 @@
         {
             name: "Tigris",
             url: "https://www.tigrisdata.com",
-            description: "Modern developer data platform",
+            description: "Modern S3 Alternative",
             imageKey: "tigris.svg",
         },
         // {
