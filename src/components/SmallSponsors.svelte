@@ -5,6 +5,11 @@
 
   const sponsors = [
     {
+      name: "Monadical",
+      url: "https://monadical.com/?utm_source=coolify.io",
+      imageUrl: "https://github.com/Monadical-SAS.png",
+    },
+    {
       name: "Magic as a Service",
       url: "https://maas.engineering/?utm_source=coolify.io",
       imageUrl: "https://github.com/magicasaservice.png",
