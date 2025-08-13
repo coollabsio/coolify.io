@@ -5,6 +5,12 @@
 
     const sponsors = [
         {
+            name: "CubePath",
+            url: "https://cubepath.com",
+            description: "Dedicated Servers & Instant Deploy",
+            imageKey: "cubepath.png",
+        },
+        {
             name: "Macarne",
             url: "https://macarne.com",
             description:
