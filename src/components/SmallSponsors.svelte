@@ -5,6 +5,11 @@
 
   const sponsors = [
     {
+      name: "OpenElements",
+      url: "https://open-elements.com/?utm_source=coolify.io",
+      imageUrl: "https://github.com/OpenElements.png",
+    },
+    {
       name: "Xaman",
       url: "https://xaman.app/?utm_source=coolify.io",
       imageUrl: "https://github.com/XamanApp.png",
