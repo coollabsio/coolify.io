@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Contributors from '../components/Contributors.svelte';
+---
+
+<Layout title="Contributors | Coolify">
+  <h1 class="text-3xl font-bold tracking-tight text-white md:text-6xl px-4 text-center">
+    Contributors<span class="text-warning">.</span>
+  </h1>
+  <h2 class="text-base pb-6 pt-2 text-neutral-400 px-4 text-center">
+    Meet the incredible developers who are building Coolify
+  </h2>
+  <Contributors client:load />
+</Layout>
