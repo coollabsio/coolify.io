@@ -7,7 +7,6 @@
   let docsTopContributors = [];
   let coolifyTotalContributions = 0;
   let docsTotalContributions = 0;
-  let isLoading = true;
 
   async function fetchContributorsData() {
     try {
@@ -38,18 +37,11 @@
     }
   }
 
-  onMount(async () => {
-    isLoading = true;
-    await fetchContributorsData();
-    isLoading = false;
-  });
+  onMount(fetchContributorsData);
 </script>
 
 <div class="text-white max-w-6xl mx-auto py-4 px-4">
-  {#if isLoading}
-    <p class="text-neutral-400 text-center">Loading contributors…</p>
-  {:else}
-    <!-- Coolify Repository Section -->
+  <!-- Coolify Repository Section -->
     <div class="mb-20">
       <!-- Chips Section -->
       <div class="flex flex-wrap justify-center gap-4 mb-10">
@@ -234,5 +226,4 @@
         </a>
       </div>
     </div>
-  {/if}
 </div>
