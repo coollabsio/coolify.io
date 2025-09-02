@@ -5,9 +5,9 @@
 
   const sponsors = [
     {
-      name: "Jarle Mathiesen",
-      url: "https://mathiesen.dev/?utm_source=coolify.io",
-      imageUrl: "https://github.com/jarle.png",
+      name: "SummYT - YouTube Summarizer",
+      url: "https://summyt.app?utm_source=coolify.io",
+      imageUrl: "https://summyt.app/logo.svg",
     },
     {
       name: "OpenElements",
