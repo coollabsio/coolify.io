@@ -5,6 +5,16 @@
 
   const sponsors = [
     {
+      name: "Alexey Panteleev",
+      url: "https://yoxel.com/?utm_source=coolify.io",
+      imageUrl: "https://github.com/aspantel.png",
+    },
+    {
+      name: "Cloo Solutions",
+      url: "https://cloo-solutions.de/?utm_source=coolify.io",
+      imageUrl: "https://github.com/Cloo-Solutions.png",
+    },
+    {
       name: "Jarle Mathiesen",
       url: "https://mathiesen.dev/?utm_source=coolify.io",
       imageUrl: "https://github.com/jarle.png",
