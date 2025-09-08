@@ -5,6 +5,13 @@
 
   const sponsors = [
     {
+      name: "Piloterr",
+      url: "https://www.piloterr.com/?utm_source=coolify.io",
+      imageUrl: "/images/piloterr.svg",
+      isPublicImage: true,
+      newest: true,
+    },
+    {
       name: "Alexey Panteleev",
       url: "https://yoxel.com/?utm_source=coolify.io",
       imageUrl: "https://github.com/aspantel.png",
@@ -141,11 +148,11 @@
       url: "https://jonasjaeger.com?utm_source=coolify.io",
       imageUrl: "https://github.com/toxin20.png",
     },
-    {
-      name: "TheRealJP",
-      url: "https://github.com/therealjp?utm_source=coolify.io",
-      imageUrl: "https://github.com/therealjp.png",
-    },
+    // {
+    //   name: "TheRealJP",
+    //   url: "https://github.com/therealjp?utm_source=coolify.io",
+    //   imageUrl: "https://github.com/therealjp.png",
+    // },
     {
       name: "Evercam",
       url: "https://evercam.io/?utm_source=coolify.io",
@@ -164,13 +171,13 @@
     {
       name: "LinkDr",
       url: "https://linkdr.com?utm_source=coolify.io",
-      imageUrl: "https://github.com/LLM-Inc.png",
+      imageUrl: "/images/linkdr.svg",
+      isPublicImage: true,
     },
     {
       name: "Arvensis Systems",
       url: "https://arvensis.systems/?utm_source=coolify.io",
       imageUrl: "/images/arvensis.png",
-      newest: true,
     },
     {
       name: "Fider",
