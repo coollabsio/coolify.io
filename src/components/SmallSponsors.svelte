@@ -5,11 +5,16 @@
 
   const sponsors = [
     {
+      name: "Catalin Pit",
+      url: "https://catalins.tech/?utm_source=coolify.io",
+      imageUrl: "https://github.com/catalinpit.png",
+      newest: true,
+    },
+    {
       name: "Piloterr",
       url: "https://www.piloterr.com/?utm_source=coolify.io",
       imageUrl: "/images/piloterr.svg",
       isPublicImage: true,
-      newest: true,
     },
     {
       name: "Alexey Panteleev",
