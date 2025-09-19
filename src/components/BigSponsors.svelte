@@ -220,7 +220,7 @@
         {
             name: "JuxtDigital",
             url: "https://juxtdigital.com",
-            description: "Digital transformation and web solutions",
+            description: "Digital PR & AI Authority Building Agency",
             imageKey: "juxtdigital.png",
         },
         {
