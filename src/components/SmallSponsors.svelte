@@ -109,11 +109,11 @@
       url: "https://cirun.io/?utm_source=coolify.io",
       imageUrl: "/images/cirun-logo.png",
     },
-    {
-      name: "Alfred Nutile",
-      url: "https://www.youtube.com/@AlfredNutile?utm_source=coolify.io",
-      imageUrl: "https://github.com/alnutile.png",
-    },
+    // {
+    //   name: "Alfred Nutile",
+    //   url: "https://www.youtube.com/@AlfredNutile?utm_source=coolify.io",
+    //   imageUrl: "https://github.com/alnutile.png",
+    // },
     {
       name: "Become a sponsor",
       url: "https://github.com/sponsors/coollabsio/sponsorships?tier_id=61570&preview=false",
