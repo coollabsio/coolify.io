@@ -194,11 +194,11 @@
       url: "https://www.reshot.ai/?utm_source=coolify.io",
       imageUrl: "/images/reshotai.png",
     },
-    {
-      name: "Devhuset",
-      url: "https://devhuset.no?utm_source=coolify.io",
-      imageUrl: "https://github.com/devhuset.png",
-    },
+    // {
+    //   name: "Devhuset",
+    //   url: "https://devhuset.no?utm_source=coolify.io",
+    //   imageUrl: "https://github.com/devhuset.png",
+    // },
     {
       name: "RunPod",
       url: "https://www.runpod.io/?utm_source=coolify.io",
