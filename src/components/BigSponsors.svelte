@@ -5,6 +5,13 @@
 
     const sponsors = [
         {
+            name: "23M",
+            url: "https://23m.com",
+            description:
+                "Your experts for high-availability hosting solutions!",
+            imageKey: "23mlogo.svg",
+        },
+        {
             name: "CubePath",
             url: "https://cubepath.com",
             description: "Dedicated Servers & Instant Deploy",
@@ -213,7 +220,7 @@
         {
             name: "JuxtDigital",
             url: "https://juxtdigital.com",
-            description: "Digital transformation and web solutions",
+            description: "Digital PR & AI Authority Building Agency",
             imageKey: "juxtdigital.png",
         },
         {
@@ -319,7 +326,8 @@
     <div bind:this={sponsorsGridElement} class="sponsors-grid pb-10">
         {#each sponsorsWithRef as sponsor, index}
             <a
-                class="sponsor-card {sponsor.tier} plausible-event-name=big-sponsor-clicks"
+                class="sponsor-card {sponsor.tier ||
+                    ''} plausible-event-name=big-sponsor-clicks"
                 href={sponsor.url}
                 on:mouseenter={() => handleMouseEnter(sponsor.description)}
                 on:mouseleave={handleMouseLeave}
@@ -336,7 +344,10 @@
                                 src={`/images/${sponsor.imageKey}`}
                                 loading="eager"
                                 alt={sponsor.description}
-                                class="sponsor-image"
+                                class="sponsor-image {sponsor.imageKey ===
+                                '23mlogo.svg'
+                                    ? 'logo-23m'
+                                    : ''}"
                             />
                             {#if sponsor.additionalContent}
                                 <div class="sponsor-label">
@@ -538,6 +549,10 @@
         object-fit: contain;
         transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         filter: brightness(0.9) contrast(1.1);
+    }
+
+    .logo-23m {
+        max-height: 38px;
     }
 
     .sponsor-card:hover .sponsor-image {

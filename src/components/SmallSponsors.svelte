@@ -5,6 +5,33 @@
 
   const sponsors = [
     {
+      name: "Catalin Pit",
+      url: "https://catalins.tech/?utm_source=coolify.io",
+      imageUrl: "https://github.com/catalinpit.png",
+      newest: true,
+    },
+    {
+      name: "Piloterr",
+      url: "https://www.piloterr.com/?utm_source=coolify.io",
+      imageUrl: "/images/piloterr.svg",
+      isPublicImage: true,
+    },
+    {
+      name: "Alexey Panteleev",
+      url: "https://yoxel.com/?utm_source=coolify.io",
+      imageUrl: "https://github.com/aspantel.png",
+    },
+    {
+      name: "Cloo Solutions",
+      url: "https://cloo-solutions.de/?utm_source=coolify.io",
+      imageUrl: "https://github.com/Cloo-Solutions.png",
+    },
+    {
+      name: "SummYT - YouTube Summarizer",
+      url: "https://summyt.app?utm_source=coolify.io",
+      imageUrl: "https://summyt.app/logo.svg",
+    },
+    {
       name: "OpenElements",
       url: "https://open-elements.com/?utm_source=coolify.io",
       imageUrl: "https://github.com/OpenElements.png",
@@ -82,11 +109,11 @@
       url: "https://cirun.io/?utm_source=coolify.io",
       imageUrl: "/images/cirun-logo.png",
     },
-    {
-      name: "Alfred Nutile",
-      url: "https://www.youtube.com/@AlfredNutile?utm_source=coolify.io",
-      imageUrl: "https://github.com/alnutile.png",
-    },
+    // {
+    //   name: "Alfred Nutile",
+    //   url: "https://www.youtube.com/@AlfredNutile?utm_source=coolify.io",
+    //   imageUrl: "https://github.com/alnutile.png",
+    // },
     {
       name: "Become a sponsor",
       url: "https://github.com/sponsors/coollabsio/sponsorships?tier_id=61570&preview=false",
@@ -126,11 +153,11 @@
       url: "https://jonasjaeger.com?utm_source=coolify.io",
       imageUrl: "https://github.com/toxin20.png",
     },
-    {
-      name: "TheRealJP",
-      url: "https://github.com/therealjp?utm_source=coolify.io",
-      imageUrl: "https://github.com/therealjp.png",
-    },
+    // {
+    //   name: "TheRealJP",
+    //   url: "https://github.com/therealjp?utm_source=coolify.io",
+    //   imageUrl: "https://github.com/therealjp.png",
+    // },
     {
       name: "Evercam",
       url: "https://evercam.io/?utm_source=coolify.io",
@@ -149,13 +176,13 @@
     {
       name: "LinkDr",
       url: "https://linkdr.com?utm_source=coolify.io",
-      imageUrl: "https://github.com/LLM-Inc.png",
+      imageUrl: "/images/linkdr.svg",
+      isPublicImage: true,
     },
     {
       name: "Arvensis Systems",
       url: "https://arvensis.systems/?utm_source=coolify.io",
       imageUrl: "/images/arvensis.png",
-      newest: true,
     },
     {
       name: "Fider",
@@ -167,11 +194,11 @@
       url: "https://www.reshot.ai/?utm_source=coolify.io",
       imageUrl: "/images/reshotai.png",
     },
-    {
-      name: "Devhuset",
-      url: "https://devhuset.no?utm_source=coolify.io",
-      imageUrl: "https://github.com/devhuset.png",
-    },
+    // {
+    //   name: "Devhuset",
+    //   url: "https://devhuset.no?utm_source=coolify.io",
+    //   imageUrl: "https://github.com/devhuset.png",
+    // },
     {
       name: "RunPod",
       url: "https://www.runpod.io/?utm_source=coolify.io",
