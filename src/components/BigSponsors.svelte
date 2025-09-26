@@ -383,7 +383,9 @@
         justify-content: center;
         text-align: center;
         padding: 0 2rem;
+        pointer-events: none;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
     }
 
     .description-container.active {
