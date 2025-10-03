@@ -5,6 +5,12 @@
 
   const sponsors = [
     {
+      name: "VibeTone",
+      url: "https://vibetone.com/?utm_source=coolify.io",
+      imageUrl: "https://github.com/vibetonefm.png",
+      newest: true,
+    },
+    {
       name: "Catalin Pit",
       url: "https://catalins.tech/?utm_source=coolify.io",
       imageUrl: "https://github.com/catalinpit.png",
