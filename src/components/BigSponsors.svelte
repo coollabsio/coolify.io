@@ -5,6 +5,19 @@
 
     const sponsors = [
         {
+            name: "Ramnode",
+            url: "https://ramnode.com/",
+            description: "High Performance Cloud VPS Hosting",
+            imageKey: "ramnode.png",
+        },
+        {
+            name: "Brand.dev",
+            url: "https://brand.dev",
+            description:
+                "API to personalize your product with logos, colors, and company info from any domain.",
+            imageKey: "branddev.png",
+        },
+        {
             name: "23M",
             url: "https://23m.com",
             description:
@@ -385,7 +398,6 @@
         padding: 0 2rem;
         pointer-events: none;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
     }
 
     .description-container.active {
