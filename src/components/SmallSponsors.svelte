@@ -27,11 +27,11 @@
       url: "https://yoxel.com/?utm_source=coolify.io",
       imageUrl: "https://github.com/aspantel.png",
     },
-    {
-      name: "Cloo Solutions",
-      url: "https://cloo-solutions.de/?utm_source=coolify.io",
-      imageUrl: "https://github.com/Cloo-Solutions.png",
-    },
+    // {
+    //   name: "Cloo Solutions",
+    //   url: "https://cloo-solutions.de/?utm_source=coolify.io",
+    //   imageUrl: "https://github.com/Cloo-Solutions.png",
+    // },
     {
       name: "SummYT - YouTube Summarizer",
       url: "https://summyt.app?utm_source=coolify.io",
