@@ -8,7 +8,7 @@
             name: "ByteBase",
             url: "https://www.bytebase.com",
             description: "Database CI/CD and Security at Scale",
-            imageKey: "bytebase.png",
+            imageKey: "bytebase-white.svg",
         },
         {
             name: "Ramnode",
