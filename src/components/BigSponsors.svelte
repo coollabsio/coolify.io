@@ -5,6 +5,12 @@
 
     const sponsors = [
         {
+            name: "ByteBase",
+            url: "https://www.bytebase.com",
+            description: "Database CI/CD and Security at Scale",
+            imageKey: "bytebase.png",
+        },
+        {
             name: "Ramnode",
             url: "https://ramnode.com/",
             description: "High Performance Cloud VPS Hosting",
