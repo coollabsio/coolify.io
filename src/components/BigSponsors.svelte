@@ -246,7 +246,7 @@
             name: "SaasyKit",
             url: "https://saasykit.com",
             description: "Complete SaaS starter kit for developers",
-            imageKey: "saasykit.webp",
+            imageKey: "sassykit.jpeg",
         },
         // {
         //     name: "MassiveGrid",
