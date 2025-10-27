@@ -272,6 +272,12 @@
             description: "Premium managed hosting solutions",
             imageKey: "liquid.svg",
         },
+        {
+            name: "Dade2Cloud",
+            url: "https://dade2.net/",
+            description: "IT Consulting, Cloud Solutions & System Integration",
+            imageKey: "dade2cloud.png",
+        },
     ];
 
     function shuffleArray(array) {
