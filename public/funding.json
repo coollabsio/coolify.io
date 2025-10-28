@@ -3,8 +3,8 @@
   "entity": {
     "type": "organisation",
     "role": "owner",
-    "name": "Coollabs",
-    "email": "hi@coolify.io",
+    "name": "coolLabs Solutions",
+    "email": "hi@coollabs.io",
     "description": "Coolify is an open-source & self-hostable alternative to Heroku / Netlify / Vercel. It helps you manage your servers, applications, and databases on your own hardware with just an SSH connection. We are a self-funded company that depends on community support to sustain the project and keep it completely free and open-source with no features behind a paywall.",
     "webpageUrl": {
       "url": "https://coolify.io"
