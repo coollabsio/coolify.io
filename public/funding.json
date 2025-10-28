@@ -1,22 +1,28 @@
 {
-  "version": "1.0.0",
+  "version": "v1.0.0",
   "entity": {
     "type": "organisation",
     "role": "owner",
     "name": "Coollabs",
     "email": "hi@coolify.io",
     "description": "Coolify is an open-source & self-hostable alternative to Heroku / Netlify / Vercel. It helps you manage your servers, applications, and databases on your own hardware with just an SSH connection. We are a self-funded company that depends on community support to sustain the project and keep it completely free and open-source with no features behind a paywall.",
-    "webpageUrl": "https://coolify.io"
+    "webpageUrl": {
+      "url": "https://coolify.io"
+    }
   },
   "projects": [
     {
       "guid": "coolify",
       "name": "Coolify",
       "description": "An open-source & self-hostable alternative to Heroku / Netlify / Vercel. Manage your servers, applications, and databases on your own hardware.",
-      "webpageUrl": "https://coolify.io",
-      "repositoryUrl": "https://github.com/coollabsio/coolify",
+      "webpageUrl": {
+        "url": "https://coolify.io"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/coollabsio/coolify"
+      },
       "licenses": [
-        "Apache-2.0"
+        "spdx:Apache-2.0"
       ],
       "tags": [
         "deployment",
@@ -32,42 +38,105 @@
   "funding": {
     "channels": [
       {
-        "type": "github",
-        "address": "https://github.com/sponsors/coollabsio"
+        "guid": "github-sponsors",
+        "type": "payment-provider",
+        "address": "https://github.com/sponsors/coollabsio",
+        "description": "Support us through GitHub Sponsors with credit/debit card or PayPal."
       },
       {
-        "type": "open_collective",
-        "address": "https://opencollective.com/coollabsio"
-      },
-      {
-        "type": "custom",
-        "address": "https://coolify.io/sponsorships"
+        "guid": "open-collective",
+        "type": "payment-provider",
+        "address": "https://opencollective.com/coollabsio",
+        "description": "Support us through Open Collective with various payment methods."
       }
     ],
     "plans": [
       {
+        "guid": "supporter-1",
         "status": "active",
-        "name": "Small Sponsor",
-        "description": "Support Coolify's development with a small monthly contribution. Get your small logo and link featured on our README and on our website.",
+        "name": "Supporter",
+        "description": "Thank you very much! Every penny means the world to us. Includes Public Sponsor achievement on profile.",
+        "amount": 1,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": [
+          "github-sponsors"
+        ]
+      },
+      {
+        "guid": "supporter-5",
+        "status": "active",
+        "name": "Supporter Plus",
+        "description": "Wow! That's 5 times the previous tier. Includes Public Sponsor achievement on profile.",
+        "amount": 5,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": [
+          "github-sponsors"
+        ]
+      },
+      {
+        "guid": "supporter-15",
+        "status": "active",
+        "name": "Bronze Sponsor",
+        "description": "You almost covered all the current hosting expenses alone! Includes Public Sponsor achievement on profile.",
+        "amount": 15,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": [
+          "github-sponsors"
+        ]
+      },
+      {
+        "guid": "supporter-40",
+        "status": "active",
+        "name": "Silver Sponsor",
+        "description": "You covered all the hosting expenses! Includes Public Sponsor achievement on profile.",
         "amount": 40,
         "currency": "USD",
-        "frequency": "monthly"
+        "frequency": "monthly",
+        "channels": [
+          "github-sponsors"
+        ]
       },
       {
+        "guid": "small-sponsor",
+        "status": "active",
+        "name": "Small Sponsor",
+        "description": "Things are getting serious! Small logo displayed on GitHub README (~30k monthly visitors) and landing page (~50-70k monthly visitors).",
+        "amount": 100,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": [
+          "github-sponsors",
+          "open-collective"
+        ]
+      },
+      {
+        "guid": "large-sponsor",
         "status": "active",
         "name": "Large Sponsor",
-        "description": "Support Coolify's development with a larger monthly contribution. Get your large logo and link featured prominently on our README and website.",
+        "description": "Huge logo in dedicated sponsor section on GitHub README (~30k monthly visitors), landing page (~50-70k monthly visitors), documentation (~50-70k monthly visitors), and exclusive Discord channel (13k+ members).",
         "amount": 200,
         "currency": "USD",
-        "frequency": "monthly"
+        "frequency": "monthly",
+        "channels": [
+          "github-sponsors",
+          "open-collective"
+        ]
       },
       {
+        "guid": "one-time-donation",
         "status": "active",
         "name": "One-time Donation",
         "description": "Make a one-time contribution to support Coolify's development.",
         "amount": 0,
         "currency": "USD",
-        "frequency": "once"
+        "frequency": "one-time",
+        "channels": [
+          "github-sponsors",
+          "open-collective"
+        ]
       }
     ]
   }
