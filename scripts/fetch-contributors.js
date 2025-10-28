@@ -19,20 +19,45 @@ async function fetchAllContributors(repo) {
 
   console.log(`Fetching contributors for ${repo}...`);
 
+  // Check for GitHub token
+  const githubToken = process.env.GITHUB_TOKEN;
+  const headers = {};
+  if (githubToken) {
+    headers['Authorization'] = `Bearer ${githubToken}`;
+    console.log('✓ Using GitHub token for authentication');
+  } else {
+    console.log('⚠ No GITHUB_TOKEN found - using unauthenticated requests (rate limit: 60/hour)');
+  }
+
   while (true) {
     try {
       const url = `https://api.github.com/repos/${repo}/contributors?per_page=${perPage}&page=${page}&anon=true`;
-      const response = await fetch(url);
+      const response = await fetch(url, { headers });
 
       if (!response.ok) {
         if (response.status === 403) {
+          const rateLimitRemaining = response.headers.get('x-ratelimit-remaining');
+          const rateLimitReset = response.headers.get('x-ratelimit-reset');
+          const resetTime = rateLimitReset ? new Date(rateLimitReset * 1000).toLocaleTimeString() : 'unknown';
           console.error(`Rate limited while fetching ${repo} (page ${page})`);
+          console.error(`Rate limit remaining: ${rateLimitRemaining}`);
+          console.error(`Rate limit resets at: ${resetTime}`);
+          console.error('💡 Set GITHUB_TOKEN environment variable to increase rate limit to 5,000/hour');
           throw new Error('GitHub API rate limit exceeded');
         }
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
 
       const data = await response.json();
+
+      // Log rate limit info on first page
+      if (page === 1) {
+        const rateLimitRemaining = response.headers.get('x-ratelimit-remaining');
+        const rateLimitLimit = response.headers.get('x-ratelimit-limit');
+        if (rateLimitRemaining && rateLimitLimit) {
+          console.log(`Rate limit: ${rateLimitRemaining}/${rateLimitLimit} requests remaining`);
+        }
+      }
 
       // If no contributors returned, we've reached the end
       if (!data || data.length === 0) {
