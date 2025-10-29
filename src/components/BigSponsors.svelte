@@ -272,6 +272,12 @@
             description: "Premium managed hosting solutions",
             imageKey: "liquid.svg",
         },
+        {
+            name: "Greptile",
+            url: "https://www.greptile.com",
+            description: "The AI Code Reviewer",
+            imageKey: "greptile.svg",
+        },
     ];
 
     function shuffleArray(array) {
