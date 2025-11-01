@@ -5,11 +5,6 @@
 
   const sponsors = [
     {
-      name: "curet-dev",
-      url: "https://haunt.gg/",
-      imageUrl: "https://github.com/curet-dev.png",
-    },
-    {
       name: "pkpio",
       url: "https://pkp.io?utm_source=coolify.io",
       imageUrl: "https://github.com/pkpio.png",
