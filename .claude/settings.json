@@ -1,0 +1,6 @@
+{
+  "additionalDirectories": [
+    ".workspaces"
+  ],
+  "defaultMode": "acceptEdits"
+}
