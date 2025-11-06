@@ -44,12 +44,6 @@
             imageKey: "macarne.svg",
         },
         {
-            name: "Gozunga",
-            url: "https://gozunga.com",
-            description: "Seriously Simple Cloud Infrastructure",
-            imageKey: "gozunga.png",
-        },
-        {
             name: "Hetzner",
             url: "http://htznr.li/CoolifyXHetzner",
             description: "Server, cloud, hosting, and data center solutions",
