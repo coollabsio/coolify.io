@@ -132,11 +132,6 @@
       isSpecial: true,
     },
     {
-      name: "DartNode",
-      url: "https://dartnode.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/dartnode.png",
-    },
-    {
       name: "Dry Software",
       url: "https://dry.software/?utm_source=coolify.io",
       imageUrl: "https://github.com/dry-software.png",
