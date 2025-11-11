@@ -111,7 +111,7 @@
             {@html checkmark()}No limitation or restrictions
           </li>
           <li class="flex items-start">
-            {@html checkmark()}Community support (17k+ members)
+            {@html checkmark()}Community support (18k+ members)
           </li>
           <li class="flex items-start">
             {@html checkmark()}Automated or Self-managed updates

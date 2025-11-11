@@ -459,8 +459,8 @@ import SmallSponsors from "../components/SmallSponsors.svelte";
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="2"
-              d="m5 7l5 5l-5 5m7 2h7"></path>
+              stroke-width="3"
+              d="M9 6l-3 6l3 6m6-12l3 6l-3 6"></path>
           </svg>
           Powerful API
         </dt>
@@ -471,6 +471,40 @@ import SmallSponsors from "../components/SmallSponsors.svelte";
             Coolify offers a robust API that enables you to automate
             deployments, manage resources, and integrate with your current
             tools, providing limitless possibilities.
+          </p>
+        </dd>
+      </div>
+      <div class="flex flex-col">
+        <dt class="flex items-center gap-x-3 text-xl text-white">
+          <svg
+            class="icon text-warning"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m5 7l5 5l-5 5m7 2h7"></path>
+          </svg>
+          <a
+            href="https://github.com/coollabsio/coolify-cli"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline decoration-warning decoration-2 underline-offset-4 hover:text-warning transition-colors"
+          >
+            Command Line Tool
+          </a>
+        </dt>
+        <dd
+          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
+        >
+          <p class="flex-auto">
+            Control Coolify from your terminal or integrate with AI assistants
+            like Claude to debug deployments and manage infrastructure with
+            natural language.
           </p>
         </dd>
       </div>
