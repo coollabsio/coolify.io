@@ -5,10 +5,15 @@
 
   const sponsors = [
     {
+      name: "ULTRASERVERS",
+      url: "https://github.com/ULTRASERVERS",
+      imageUrl: "https://github.com/ULTRASERVERS.png",
+      newest: true,
+    },
+    {
       name: "pkpio",
       url: "https://pkp.io?utm_source=coolify.io",
       imageUrl: "https://github.com/pkpio.png",
-      newest: true,
     },
     {
       name: "VibeTone",
