@@ -6,7 +6,7 @@
   const sponsors = [
     {
       name: "ULTRASERVERS",
-      url: "https://github.com/ULTRASERVERS",
+      url: "https://ultraservers.com/?utm_source=coolify.io",
       imageUrl: "https://github.com/ULTRASERVERS.png",
       newest: true,
     },
