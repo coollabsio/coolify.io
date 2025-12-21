@@ -5,10 +5,21 @@
 
   const sponsors = [
     {
+      name: "Autom",
+      url: "https://www.autom.dev/?utm_source=coolify.io",
+      imageUrl: "/images/autom.png",
+      newest: true,
+    },
+    {
+      name: "HuntAPI",
+      url: "https://www.huntapi.com/?utm_source=coolify.io",
+      imageUrl: "/images/huntapi.png",
+      newest: true,
+    },
+    {
       name: "ULTRASERVERS",
       url: "https://ultraservers.com/?utm_source=coolify.io",
       imageUrl: "https://github.com/ULTRASERVERS.png",
-      newest: true,
     },
     {
       name: "pkpio",
