@@ -294,11 +294,6 @@
       imageUrl: "https://github.com/iujlaki.png",
     },
     {
-      name: "Ilias Ism",
-      url: "https://il.ly/?utm_source=coolify.io",
-      imageUrl: "https://github.com/Illyism.png",
-    },
-    {
       name: "Paweł Pierścionek",
       url: "https://github.com/urtho",
       imageUrl: "https://github.com/urtho.png",
