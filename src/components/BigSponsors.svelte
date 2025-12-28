@@ -312,17 +312,6 @@
             item.classList.add("animate-in");
         });
     });
-
-    function handleMouseEnter(description) {
-        if (description) {
-            descriptionText.textContent = description;
-            descriptionContainer.classList.add("active");
-        }
-    }
-
-    function handleMouseLeave() {
-        descriptionContainer.classList.remove("active");
-    }
 </script>
 
 <div
@@ -351,72 +340,44 @@
 
     <div bind:this={sponsorsGridElement} class="sponsors-grid pb-10">
         {#each sponsorsWithRef as sponsor, index}
-            <a
-                class="sponsor-card {sponsor.tier ||
-                    ''} plausible-event-name=big-sponsor-clicks"
-                href={sponsor.url}
-                on:mouseenter={() => handleMouseEnter(sponsor.description)}
-                on:mouseleave={handleMouseLeave}
-            >
-                <div>
-                    {#if sponsor.isSpecial}
-                        <div class="bg-red-500">
-                            <div class="special-icon">✨</div>
-                            <span class="sponsor-label">{sponsor.name}</span>
-                        </div>
-                    {:else}
-                        <div class="sponsor-image-container">
-                            <img
-                                src={`/images/${sponsor.imageKey}`}
-                                loading="eager"
-                                alt={sponsor.description}
-                                class="sponsor-image {sponsor.imageKey ===
-                                '23mlogo.svg'
-                                    ? 'logo-23m'
-                                    : ''}"
-                            />
-                            {#if sponsor.additionalContent}
-                                <div class="sponsor-label">
-                                    {sponsor.additionalContent}
-                                </div>
-                            {/if}
-                        </div>
-                    {/if}
-                </div>
-            </a>
+            <div class="tooltip tooltip-top" data-tip={sponsor.description}>
+                <a
+                    class="sponsor-card {sponsor.tier ||
+                        ''} plausible-event-name=big-sponsor-clicks"
+                    href={sponsor.url}
+                >
+                    <div>
+                        {#if sponsor.isSpecial}
+                            <div class="bg-red-500">
+                                <div class="special-icon">✨</div>
+                                <span class="sponsor-label">{sponsor.name}</span>
+                            </div>
+                        {:else}
+                            <div class="sponsor-image-container">
+                                <img
+                                    src={`/images/${sponsor.imageKey}`}
+                                    loading="eager"
+                                    alt={sponsor.description}
+                                    class="sponsor-image {sponsor.imageKey ===
+                                    '23mlogo.svg'
+                                        ? 'logo-23m'
+                                        : ''}"
+                                />
+                                {#if sponsor.additionalContent}
+                                    <div class="sponsor-label">
+                                        {sponsor.additionalContent}
+                                    </div>
+                                {/if}
+                            </div>
+                        {/if}
+                    </div>
+                </a>
+            </div>
         {/each}
     </div>
 </div>
 
 <style>
-    .description-container {
-        height: 0;
-        overflow: hidden;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        background: linear-gradient(
-            135deg,
-            rgba(23, 23, 23, 0.95),
-            rgba(45, 45, 45, 0.95)
-        );
-        backdrop-filter: blur(10px);
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 50;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 0 2rem;
-        pointer-events: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .description-container.active {
-        height: 120px;
-    }
-
     .sponsors-header {
         text-align: center;
         margin-bottom: 3rem;
@@ -450,6 +411,12 @@
         }
     }
 
+    .tooltip:before,
+    .tooltip:after {
+        max-width: 100%;
+        white-space: normal;
+    }
+
     .sponsor-card {
         position: relative;
         border: 1px dotted transparent;
@@ -464,6 +431,7 @@
         justify-content: center;
         align-items: center;
         display: flex;
+        width: 100%;
     }
 
     .sponsor-card::before {
