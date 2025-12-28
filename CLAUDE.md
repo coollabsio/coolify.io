@@ -9,7 +9,7 @@ This is the landing page for coolify.io, an open-source self-hostable Heroku/Net
 ## Tech Stack Architecture
 
 - **Framework**: Astro 4.x with Svelte integration for interactive components
-- **Styling**: Tailwind CSS with DaisyUI components and custom Coollabs theme
+- **Styling**: Tailwind CSS with DaisyUI components and custom coolLabs theme
 - **Layout**: Single main layout (`Layout.astro`) with navigation and footer
 - **Components**: Svelte components for interactive elements (sponsors, pricing, etc.)
 - **Build Tool**: Astro's built-in Vite-based build system
@@ -57,7 +57,7 @@ public/
 ## Key Patterns
 
 ### Styling
-- Uses custom Coollabs color palette defined in `tailwind.config.cjs`
+- Uses custom coolLabs color palette defined in `tailwind.config.cjs`
 - DaisyUI theme called "coollabs" with dark color scheme
 - Custom CSS variables: `coolblack`, `coolgray-*`, `coollabs` purple variants
 - Self-hosted Inter font with multiple weights
@@ -105,7 +105,7 @@ public/
 ## Configuration Files
 
 - `astro.config.mjs`: Astro configuration with Tailwind, Svelte, and sitemap
-- `tailwind.config.cjs`: Tailwind with DaisyUI and custom Coollabs theme
+- `tailwind.config.cjs`: Tailwind with DaisyUI and custom coolLabs theme
 - `tsconfig.json`: Basic TypeScript config extending Astro base
 - `.cursor/rules/commit.mdc`: Detailed commit message guidelines
 
