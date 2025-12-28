@@ -205,7 +205,7 @@ import Layout from "../layouts/Layout.astro";
   </h4>
 
   <div class="pt-4 max-w-4xl mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <a
         href="https://coolify.io/cloud"
         target="_blank"
@@ -215,6 +215,16 @@ import Layout from "../layouts/Layout.astro";
           ~$<span id="hosted-mrr">...</span>K
         </div>
         <div class="text-neutral-400 mt-2">Hosted Services MRR</div>
+      </a>
+      <a
+        href="https://coolify.io/cloud"
+        target="_blank"
+        class="bg-coolgray-200 rounded-xl p-6 border border-coolgray-400 hover:border-coolgray-300 transition-colors"
+      >
+        <div class="text-3xl md:text-4xl font-bold text-white">
+          <span id="cloud-users">...</span>
+        </div>
+        <div class="text-neutral-400 mt-2">Cloud Users</div>
       </a>
       <a
         href="https://github.com/sponsors/coollabsio"
@@ -261,14 +271,22 @@ import Layout from "../layouts/Layout.astro";
       .then((res) => res.json())
       .then((data) => {
         const hostedEl = document.getElementById("hosted-mrr");
-        if (hostedEl && data.hosted) {
-          hostedEl.textContent = data.hosted;
+        if (hostedEl && data.mrr) {
+          hostedEl.textContent = data.mrr;
+        }
+        const cloudUsersEl = document.getElementById("cloud-users");
+        if (cloudUsersEl && data["cloud-users"]) {
+          cloudUsersEl.textContent = data["cloud-users"].toLocaleString();
         }
       })
       .catch(() => {
         const hostedEl = document.getElementById("hosted-mrr");
         if (hostedEl) {
           hostedEl.textContent = "15";
+        }
+        const cloudUsersEl = document.getElementById("cloud-users");
+        if (cloudUsersEl) {
+          cloudUsersEl.textContent = "2,500+";
         }
       });
   </script>

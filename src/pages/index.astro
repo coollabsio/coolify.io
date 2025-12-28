@@ -121,7 +121,7 @@ import SmallSponsors from "../components/SmallSponsors.svelte";
         class="text-neutral-400 sm:text-base text-xs sm:flex-row flex flex-col gap-1 pt-2 sm:justify-center"
       >
         <span class="text-warning mt-[0.1rem] font-bold font-mono"
-          >{(2714).toLocaleString()}+</span
+          ><span id="cloud-users">2,714</span>+</span
         > customers in the cloud.
       </div>
     </div>
@@ -705,5 +705,18 @@ import SmallSponsors from "../components/SmallSponsors.svelte";
         });
       }
     });
+
+    // Fetch cloud users from business.json
+    fetch("https://cdn.coolify.io/business.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const cloudUsersEl = document.getElementById("cloud-users");
+        if (cloudUsersEl && data["cloud-users"]) {
+          cloudUsersEl.textContent = data["cloud-users"].toLocaleString();
+        }
+      })
+      .catch(() => {
+        // Keep the default value on error
+      });
   </script>
 </Layout>
