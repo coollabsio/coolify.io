@@ -8,8 +8,6 @@
       name: "Transcript LOL",
       url: "https://transcript.lol/?utm_source=coolify.io",
       imageUrl: "https://transcript.lol/logo.png",
-      width: 60,
-      height: 60,
       newest: true,
     },
     {
