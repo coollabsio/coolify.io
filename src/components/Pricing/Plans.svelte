@@ -1,6 +1,9 @@
 <script>
+  import { onMount } from "svelte";
+
   let freq = "monthly";
   let openFAQ = null;
+  let communityMembers = "19+";
 
   const faqs = [
     {
@@ -73,6 +76,17 @@
     },
   ];
 
+  onMount(() => {
+    fetch("https://cdn-new.coollabs.io/business.json")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.discord) {
+          communityMembers = `(${(data.discord / 1000).toFixed(0)}k+)`;
+        }
+      })
+      .catch(() => {});
+  });
+
   function checkmark() {
     return `
       <svg class="flex-none w-5 h-6 mr-3" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -111,7 +125,7 @@
             {@html checkmark()}No limitation or restrictions
           </li>
           <li class="flex items-start">
-            {@html checkmark()}Community support (18k+ members)
+            {@html checkmark()}Community support ({communityMembers} members)
           </li>
           <li class="flex items-start">
             {@html checkmark()}Automated or Self-managed updates

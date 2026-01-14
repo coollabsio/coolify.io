@@ -5,16 +5,20 @@
 
   const sponsors = [
     {
+      name: "Transcript LOL",
+      url: "https://transcript.lol/?utm_source=coolify.io",
+      imageUrl: "https://transcript.lol/logo.png",
+      newest: true,
+    },
+    {
       name: "Autom",
       url: "https://www.autom.dev/?utm_source=coolify.io",
       imageUrl: "/images/autom.png",
-      newest: true,
     },
     {
       name: "HuntAPI",
       url: "https://www.huntapi.com/?utm_source=coolify.io",
       imageUrl: "/images/huntapi.png",
-      newest: true,
     },
     {
       name: "ULTRASERVERS",
