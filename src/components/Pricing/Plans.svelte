@@ -3,7 +3,7 @@
 
   let freq = "monthly";
   let openFAQ = null;
-  let communityMembers = "19k+";
+  let communityMembers = "19+";
 
   const faqs = [
     {
@@ -81,7 +81,7 @@
       .then((res) => res.json())
       .then((data) => {
         if (data.discord) {
-          communityMembers = `${Math.floor(data.discord / 1000)}k+`;
+          communityMembers = `(${(data.discord / 1000).toFixed(0)}k+)`;
         }
       })
       .catch(() => {});

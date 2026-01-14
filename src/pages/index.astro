@@ -707,12 +707,12 @@ import SmallSponsors from "../components/SmallSponsors.svelte";
     });
 
     // Fetch cloud users from business.json
-    fetch("https://cdn.coolify.io/business.json")
+    fetch("https://cdn-new.coollabs.io/business.json")
       .then((res) => res.json())
       .then((data) => {
         const cloudUsersEl = document.getElementById("cloud-users");
-        if (cloudUsersEl && data["cloud-users"]) {
-          cloudUsersEl.textContent = data["cloud-users"].toLocaleString();
+        if (cloudUsersEl && data["coolify-cloud-users"]) {
+          cloudUsersEl.textContent = data["coolify-cloud-users"].toLocaleString();
         }
       })
       .catch(() => {
