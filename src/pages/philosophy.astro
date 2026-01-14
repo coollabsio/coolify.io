@@ -272,19 +272,19 @@ import Layout from "../layouts/Layout.astro";
       .then((data) => {
         const hostedEl = document.getElementById("hosted-mrr");
         if (hostedEl && data.mrr) {
-          hostedEl.textContent = data.mrr;
+          hostedEl.textContent = Math.round(data.mrr / 1000);
         }
         const cloudUsersEl = document.getElementById("cloud-users");
-        if (cloudUsersEl && data["cloud-users"]) {
-          cloudUsersEl.textContent = data["cloud-users"].toLocaleString();
+        if (cloudUsersEl && data["coolify-cloud-users"]) {
+          cloudUsersEl.textContent = data["coolify-cloud-users"].toLocaleString();
         }
         const githubSponsorsEl = document.getElementById("github-sponsors");
         if (githubSponsorsEl && data["github-sponsors"]) {
           githubSponsorsEl.textContent = data["github-sponsors"].toLocaleString();
         }
         const openCollectiveEl = document.getElementById("open-collective");
-        if (openCollectiveEl && data["open-collective"]) {
-          openCollectiveEl.textContent = data["open-collective"].toLocaleString();
+        if (openCollectiveEl && data["open-collective-sponsors"]) {
+          openCollectiveEl.textContent = data["open-collective-sponsors"].toLocaleString();
         }
       })
       .catch(() => {
