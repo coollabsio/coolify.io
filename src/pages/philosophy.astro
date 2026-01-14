@@ -231,7 +231,7 @@ import Layout from "../layouts/Layout.astro";
         target="_blank"
         class="bg-coolgray-200 rounded-xl p-6 border border-coolgray-400 hover:border-coolgray-300 transition-colors"
       >
-        <div class="text-3xl md:text-4xl font-bold text-white">~$4,500</div>
+        <div class="text-3xl md:text-4xl font-bold text-white">~$<span id="github-sponsors">...</span></div>
         <div class="text-neutral-400 mt-2">GitHub Sponsors / month</div>
       </a>
       <a
@@ -239,7 +239,7 @@ import Layout from "../layouts/Layout.astro";
         target="_blank"
         class="bg-coolgray-200 rounded-xl p-6 border border-coolgray-400 hover:border-coolgray-300 transition-colors"
       >
-        <div class="text-3xl md:text-4xl font-bold text-white">~$1,200</div>
+        <div class="text-3xl md:text-4xl font-bold text-white">~$<span id="open-collective">...</span></div>
         <div class="text-neutral-400 mt-2">Open Collective / month</div>
       </a>
     </div>
@@ -267,7 +267,7 @@ import Layout from "../layouts/Layout.astro";
   </div>
 
   <script>
-    fetch("https://cdn.coolify.io/business.json")
+    fetch("https://cdn-new.coollabs.io/business.json")
       .then((res) => res.json())
       .then((data) => {
         const hostedEl = document.getElementById("hosted-mrr");
@@ -278,6 +278,14 @@ import Layout from "../layouts/Layout.astro";
         if (cloudUsersEl && data["cloud-users"]) {
           cloudUsersEl.textContent = data["cloud-users"].toLocaleString();
         }
+        const githubSponsorsEl = document.getElementById("github-sponsors");
+        if (githubSponsorsEl && data["github-sponsors"]) {
+          githubSponsorsEl.textContent = data["github-sponsors"].toLocaleString();
+        }
+        const openCollectiveEl = document.getElementById("open-collective");
+        if (openCollectiveEl && data["open-collective"]) {
+          openCollectiveEl.textContent = data["open-collective"].toLocaleString();
+        }
       })
       .catch(() => {
         const hostedEl = document.getElementById("hosted-mrr");
@@ -287,6 +295,14 @@ import Layout from "../layouts/Layout.astro";
         const cloudUsersEl = document.getElementById("cloud-users");
         if (cloudUsersEl) {
           cloudUsersEl.textContent = "2,500+";
+        }
+        const githubSponsorsEl = document.getElementById("github-sponsors");
+        if (githubSponsorsEl) {
+          githubSponsorsEl.textContent = "4,500";
+        }
+        const openCollectiveEl = document.getElementById("open-collective");
+        if (openCollectiveEl) {
+          openCollectiveEl.textContent = "1,200";
         }
       });
   </script>
