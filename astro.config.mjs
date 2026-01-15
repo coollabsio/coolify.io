@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import { loadEnv } from 'vite';
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import svelte from "@astrojs/svelte";
 import sitemap from "@astrojs/sitemap";
 
@@ -10,6 +10,7 @@ const { SITE_URL } = loadEnv(process.env.NODE_ENV || 'development', process.cwd(
 export default defineConfig({
   site: SITE_URL || "https://coolify.io",
   vite: {
+    plugins: [tailwindcss()],
     optimizeDeps: {
       include: ['lodash.get', 'lodash.isequal', 'lodash.clonedeep']
     }
@@ -17,5 +18,5 @@ export default defineConfig({
   server: {
     host: '0.0.0.0'
   },
-  integrations: [tailwind(), svelte(), sitemap()]
+  integrations: [svelte(), sitemap()]
 });

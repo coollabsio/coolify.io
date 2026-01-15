@@ -66,7 +66,7 @@
           <a
             href={c.html_url}
             target="_blank"
-            class="bg-coolgray-200/70 rounded p-6 flex flex-col items-center justify-center hover:bg-coolgray-300 transition h-56 text-center"
+            class="bg-coolgray-200/70 rounded-sm p-6 flex flex-col items-center justify-center hover:bg-coolgray-300 transition h-56 text-center"
           >
             <img
               src={c.avatar_url}
@@ -93,7 +93,7 @@
           <a
             href={c.html_url}
             target="_blank"
-            class="bg-coolgray-200/70 rounded p-4 flex flex-col items-center hover:bg-coolgray-300 transition text-center"
+            class="bg-coolgray-200/70 rounded-sm p-4 flex flex-col items-center hover:bg-coolgray-300 transition text-center"
           >
             <img
               src={c.avatar_url}
@@ -134,7 +134,7 @@
           <a
             href={c.html_url}
             target="_blank"
-            class="bg-coolgray-200/70 rounded p-6 flex flex-col items-center justify-center hover:bg-coolgray-300 transition h-56 text-center"
+            class="bg-coolgray-200/70 rounded-sm p-6 flex flex-col items-center justify-center hover:bg-coolgray-300 transition h-56 text-center"
           >
             <img
               src={c.avatar_url}
@@ -161,7 +161,7 @@
           <a
             href={c.html_url}
             target="_blank"
-            class="bg-coolgray-200/70 rounded p-4 flex flex-col items-center hover:bg-coolgray-300 transition text-center"
+            class="bg-coolgray-200/70 rounded-sm p-4 flex flex-col items-center hover:bg-coolgray-300 transition text-center"
           >
             <img
               src={c.avatar_url}
@@ -183,7 +183,7 @@
         <a
           href="https://github.com/coollabsio/coolify"
           target="_blank"
-          class="text-base font-medium rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex items-center justify-center gap-2"
+          class="text-base font-medium rounded-sm p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex items-center justify-center gap-2"
         >
           <svg
             class="icon hidden sm:block"
@@ -205,7 +205,7 @@
         <a
           href="https://github.com/coollabsio/coolify-docs"
           target="_blank"
-          class="text-base font-medium rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex items-center justify-center gap-2"
+          class="text-base font-medium rounded-sm p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex items-center justify-center gap-2"
         >
           <svg
             class="icon hidden sm:block"

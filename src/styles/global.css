@@ -1,0 +1,184 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+html {
+font-family: "Inter", sans-serif;
+}
+.navbar-link {
+@apply text-white text-xs md:text-base hover:bg-coolgray-200 p-2 px-2 rounded-sm flex gap-2 items-center;
+}
+.icon {
+@apply w-6 h-6;
+}
+.button {
+@apply bg-coolgray-300 hover:bg-coolgray-400 text-white px-4 py-2 text-base font-semibold leading-6 rounded;
+}
+
+@font-face {
+font-display: swap;
+font-family: "Inter";
+font-style: normal;
+font-weight: 100;
+src: url("../fonts/inter-v13-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-100.woff2")
+    format("woff2");
+}
+
+@font-face {
+font-display: swap;
+font-family: "Inter";
+font-style: normal;
+font-weight: 200;
+src: url("../fonts/inter-v13-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-200.woff2")
+    format("woff2");
+}
+
+@font-face {
+font-display: swap;
+font-family: "Inter";
+font-style: normal;
+font-weight: 300;
+src: url("../fonts/inter-v13-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-300.woff2")
+    format("woff2");
+}
+
+@font-face {
+font-display: swap;
+font-family: "Inter";
+font-style: normal;
+font-weight: 500;
+src: url("../fonts/inter-v13-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-500.woff2")
+    format("woff2");
+}
+
+@font-face {
+font-display: swap;
+font-family: "Inter";
+font-style: normal;
+font-weight: 600;
+src: url("../fonts/inter-v13-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-600.woff2")
+    format("woff2");
+}
+
+@font-face {
+font-display: swap;
+font-family: "Inter";
+font-style: normal;
+font-weight: 700;
+src: url("../fonts/inter-v13-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-700.woff2")
+    format("woff2");
+}
+
+@font-face {
+font-display: swap;
+font-family: "Inter";
+font-style: normal;
+font-weight: 800;
+src: url("../fonts/inter-v13-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-800.woff2")
+    format("woff2");
+}
+
+@font-face {
+font-display: swap;
+font-family: "Inter";
+font-style: normal;
+font-weight: 900;
+src: url("../fonts/inter-v13-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-900.woff2")
+    format("woff2");
+}
+
+@font-face {
+font-display: swap;
+font-family: "Inter";
+font-style: normal;
+font-weight: 400;
+src: url("../fonts/inter-v13-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-regular.woff2")
+    format("woff2");
+}
+
+@media (max-width: 768px) {
+.navbar-link {
+    @apply flex gap-2 items-center w-full text-left mb-1;
+}
+}
+
+@plugin "daisyui/theme" {
+  name: "coollabs";
+  default: true;
+  color-scheme: "dark";
+  --color-base-100: #101010;
+  --color-base-200: #181818;
+  --color-base-300: #202020;
+  --color-base-content: #FFFFFF;
+  --color-primary: #181818;
+  --color-primary-focus: #242424;
+  --color-primary-content: #FFFFFF;
+  --color-secondary: #4338ca;
+  --color-secondary-content: #FFFFFF;
+  --color-accent: #4338ca;
+  --color-accent-content: #FFFFFF;
+  --color-neutral: #1B1D1D;
+  --color-neutral-content: #FFFFFF;
+  --color-info: #2563EB;
+  --color-info-content: #FFFFFF;
+  --color-success: #16A34A;
+  --color-success-content: #FFFFFF;
+  --color-warning: #FCD34D;
+  --color-warning-content: #000000;
+  --color-error: #DC2626;
+  --color-error-content: #FFFFFF;
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@theme {
+  /* DaisyUI Base Colors */
+  --color-base-100: #101010;
+  --color-base-200: #181818;
+  --color-base-300: #202020;
+  --color-base-content: #FFFFFF;
+  
+  /* DaisyUI Semantic Colors */
+  --color-primary: #181818;
+  --color-primary-focus: #242424;
+  --color-primary-content: #FFFFFF;
+  --color-secondary: #4338ca;
+  --color-secondary-content: #FFFFFF;
+  --color-accent: #4338ca;
+  --color-accent-content: #FFFFFF;
+  --color-neutral: #1B1D1D;
+  --color-neutral-content: #FFFFFF;
+  --color-info: #2563EB;
+  --color-info-content: #FFFFFF;
+  --color-success: #16A34A;
+  --color-success-content: #FFFFFF;
+  --color-warning: #FCD34D;
+  --color-warning-content: #000000;
+  --color-error: #DC2626;
+  --color-error-content: #FFFFFF;
+  
+  /* Custom Colors */
+  --color-coollabs: #6B16ED;
+  --color-coollabs-100: #7317FF;
+  --color-coolblack: #181818;
+  --color-coolgray-100: #181818;
+  --color-coolgray-200: #202020;
+  --color-coolgray-300: #242424;
+  --color-coolgray-400: #282828;
+  --color-coolgray-500: #323232;
+  
+  /* Animation */
+  --animate-bounce: bounce 2s infinite;
+}
+
+/* Custom Keyframes */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
