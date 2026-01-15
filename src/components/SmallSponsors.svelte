@@ -260,7 +260,7 @@
       url: "https://lightspeed.run/?utm_source=coolify.io",
       imageUrl: "https://github.com/lightspeedrun.png",
 
-      customStyle: "rounded bg-white",
+      customStyle: "rounded-sm bg-white",
     },
     {
       name: "Younes Barrad",

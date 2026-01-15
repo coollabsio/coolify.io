@@ -101,7 +101,7 @@ import SmallSponsors from "../components/SmallSponsors.svelte";
     <div>
       <a
         href="/cloud"
-        class="text-xs sm:text-base font-bold rounded p-4 px-2 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2 lg:w-64 justify-center"
+        class="text-xs sm:text-base font-bold rounded-sm p-4 px-2 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2 lg:w-64 justify-center"
         ><svg
           class="icon hidden sm:block"
           viewBox="0 0 24 24"
@@ -128,7 +128,7 @@ import SmallSponsors from "../components/SmallSponsors.svelte";
     <div>
       <a
         href="/self-hosted"
-        class="text-xs sm:text-base font-bold rounded p-4 px-2 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2 lg:w-64 justify-center"
+        class="text-xs sm:text-base font-bold rounded-sm p-4 px-2 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2 lg:w-64 justify-center"
         ><svg
           class="icon hidden sm:block"
           viewBox="0 0 24 24"
@@ -255,8 +255,8 @@ import SmallSponsors from "../components/SmallSponsors.svelte";
           class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
         >
           <p class="flex-auto">
-            You can deploy your resources (apps, databases, services) to a single server 
-            or multiple servers according to your requirements.
+            You can deploy your resources (apps, databases, services) to a
+            single server or multiple servers according to your requirements.
           </p>
         </dd>
       </div>
@@ -712,7 +712,8 @@ import SmallSponsors from "../components/SmallSponsors.svelte";
       .then((data) => {
         const cloudUsersEl = document.getElementById("cloud-users");
         if (cloudUsersEl && data["coolify-cloud-users"]) {
-          cloudUsersEl.textContent = data["coolify-cloud-users"].toLocaleString();
+          cloudUsersEl.textContent =
+            data["coolify-cloud-users"].toLocaleString();
         }
       })
       .catch(() => {

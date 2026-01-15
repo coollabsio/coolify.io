@@ -138,7 +138,7 @@
       <div class="mt-6">
         <a
           href="https://coolify.io/docs/get-started/installation"
-          class="text-base font-medium rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex justify-center items-center gap-2"
+          class="text-base font-medium rounded-sm p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex justify-center items-center gap-2"
         >
           <svg
             class="icon hidden sm:block"
@@ -172,7 +172,7 @@
         <div class="flex items-center justify-between mb-4 gap-4">
           <h2 class="text-2xl font-medium text-left">Cloud</h2>
           <fieldset
-            class="inline-flex gap-1 p-1 bg-coolgray-100 rounded whitespace-nowrap"
+            class="inline-flex gap-1 p-1 bg-coolgray-100 rounded-sm whitespace-nowrap"
           >
             <label
               class="cursor-pointer px-3 py-1 text-xs sm:text-sm font-semibold rounded"
@@ -281,7 +281,7 @@
       <div class="mt-6">
         <a
           href="https://app.coolify.io/register"
-          class="text-base font-medium rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex justify-center items-center gap-2"
+          class="text-base font-medium rounded-sm p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex justify-center items-center gap-2"
         >
           <!-- Cloud Icon -->
           <svg
@@ -373,7 +373,7 @@
             >
               Updates *
               <span
-                class="absolute bottom-full left-0 mb-2 min-w-max max-w-sm rounded bg-black text-white text-xs px-3 py-2 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-10 whitespace-nowrap"
+                class="absolute bottom-full left-0 mb-2 min-w-max max-w-sm rounded-sm bg-black text-white text-xs px-3 py-2 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-10 whitespace-nowrap"
               >
                 Limited to Coolify updates, does not include changes to deployed
                 resources.
@@ -391,7 +391,7 @@
             >
               Email Alerts *
               <span
-                class="absolute bottom-full left-0 mb-2 min-w-max max-w-sm rounded bg-black text-white text-xs px-3 py-2 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-10 whitespace-nowrap"
+                class="absolute bottom-full left-0 mb-2 min-w-max max-w-sm rounded-sm bg-black text-white text-xs px-3 py-2 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-10 whitespace-nowrap"
               >
                 Other alerts (Discord, Telegram, etc.) are also supported, but
                 those needs to be configured manually on each type, self-hosted
@@ -413,7 +413,7 @@
             >
               Unlimited *
               <span
-                class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-max max-w-xs rounded bg-black text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity"
+                class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-max max-w-xs rounded-sm bg-black text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity"
               >
                 Requires an additional subscription per team.
               </span>
