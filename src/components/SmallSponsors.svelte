@@ -152,11 +152,6 @@
       isSpecial: true,
     },
     {
-      name: "Dry Software",
-      url: "https://dry.software/?utm_source=coolify.io",
-      imageUrl: "https://github.com/dry-software.png",
-    },
-    {
       name: "jyc.dev",
       url: "https://bsky.app/profile/jyc.dev",
       imageUrl: "https://github.com/jycouet.png",
