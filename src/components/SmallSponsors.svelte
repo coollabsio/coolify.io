@@ -5,10 +5,15 @@
 
   const sponsors = [
     {
+      name: "SneakersAPI",
+      url: "https://kicks.dev/?utm_source=coolify.io",
+      imageUrl: "https://github.com/SneakersAPI.png",
+      newest: true,
+    },
+    {
       name: "Transcript LOL",
       url: "https://transcript.lol/?utm_source=coolify.io",
       imageUrl: "https://transcript.lol/logo.png",
-      newest: true,
     },
     {
       name: "Autom",
