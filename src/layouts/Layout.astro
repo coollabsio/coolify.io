@@ -98,7 +98,12 @@ const {
         font-family: "Inter", sans-serif;
       }
       .navbar-link {
-        @apply text-white text-xs md:text-base hover:bg-coolgray-200 p-2 px-2 rounded flex gap-2;
+        @apply text-white text-base hover:bg-coolgray-200 py-2 px-3 rounded flex items-center gap-2 transition-colors;
+      }
+      @media (max-width: 767px) {
+        .navbar-link {
+          @apply text-sm w-full text-left;
+        }
       }
       .icon {
         @apply w-6 h-6;
@@ -188,11 +193,6 @@ const {
           format("woff2");
       }
 
-      @media (max-width: 768px) {
-        .navbar-link {
-          @apply flex gap-2 items-center w-full text-left mb-1;
-        }
-      }
     </style>
 
     <script
@@ -204,8 +204,18 @@ const {
       const mobileMenuButton = document.getElementById("mobile-menu-button");
       const mobileMenu = document.getElementById("mobile-menu");
 
-      mobileMenuButton?.addEventListener("click", () => {
+      function toggleMobileMenu() {
         mobileMenu?.classList.toggle("hidden");
+        mobileMenu?.classList.toggle("flex");
+      }
+
+      mobileMenuButton?.addEventListener("click", toggleMobileMenu);
+
+      mobileMenu?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu?.classList.add("hidden");
+          mobileMenu?.classList.remove("flex");
+        });
       });
     </script>
   </body>

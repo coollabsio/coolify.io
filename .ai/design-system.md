@@ -464,49 +464,195 @@ Purple-bordered button for the "To Cloud" action.
 }
 ```
 
-### 8.4 Navigation Link
+### 8.4 Navbar / Header
+
+Sticky, semi-transparent navbar with frosted-glass backdrop blur. Yellow accent icons next to white link text.
+
+#### Container (`<nav>`)
 
 **Tailwind:**
 ```html
-<a class="text-white text-xs md:text-base hover:bg-coolgray-200 p-2 px-2 rounded flex gap-2">
-  <svg class="size-5 text-warning">...</svg>
-  Link Text
-</a>
+<nav class="sticky top-0 z-50 bg-[rgba(16,16,16,0.8)] backdrop-blur-[12px] border-b border-[rgba(36,36,36,0.5)]">
+  <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
+    <!-- logo left, links right -->
+  </div>
+</nav>
 ```
 
 **Plain CSS:**
 ```css
-.nav-link {
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(16, 16, 16, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(36, 36, 36, 0.5);
+}
+.navbar-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+}
+```
+
+#### Logo (left side)
+
+Text-based, no image.
+
+**Tailwind:**
+```html
+<a class="text-xl font-bold tracking-tight text-white">coolify</a>
+```
+
+**Plain CSS:**
+```css
+.navbar-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
   color: #fff;
-  font-size: 0.75rem;            /* text-xs, scales to 1rem at md */
+}
+```
+
+#### Desktop nav links + To Cloud (right side, hidden below sm)
+
+Desktop inline links are shown on `sm+` (640px+) with "To Cloud" CTA as the last item. Each link has a yellow icon to the left of white text.
+
+**Tailwind:**
+```html
+<div class="hidden sm:flex items-center gap-1">
+  <a class="navbar-link">
+    <svg class="size-5 text-warning">...</svg>
+    Link Text
+  </a>
+  <!-- "To Cloud" as last item -->
+  <a class="p-2 px-4 rounded text-white border border-coollabs hover:bg-coollabs bg-coollabs/30 font-semibold">
+    To Cloud
+  </a>
+</div>
+```
+
+#### Mobile hamburger button (visible only below sm)
+
+**Tailwind:**
+```html
+<button class="md:hidden p-2 rounded border-0 hover:bg-coolgray-200 transition-colors">
+  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+  </svg>
+</button>
+```
+
+**Plain CSS:**
+```css
+/* Desktop nav links container */
+.nav-links {
+  display: none;
+}
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+}
+
+/* Hamburger (mobile only) */
+.hamburger {
+  display: block;
   padding: 0.5rem;
+  border-radius: 0.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+.hamburger:hover {
+  background: #202020;
+}
+.hamburger svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #fff;
+}
+@media (min-width: 768px) {
+  .hamburger { display: none; }
+}
+```
+
+#### Mobile dropdown menu
+
+Hidden by default, toggled via JS swapping `hidden` ↔ `flex` classes. Sits inside the `<header>` below the `<nav>`, inheriting the sticky semi-transparent backdrop. Anchor links auto-close the menu on click. Only used below `md` (768px).
+
+**Tailwind:**
+```html
+<div id="mobile-menu" class="hidden flex-col gap-1 px-4 pb-3">
+  <a class="navbar-link">
+    <svg class="size-5 text-warning">...</svg>
+    Link Text
+  </a>
+  <!-- "To Cloud" CTA at end -->
+  <a class="p-2 px-4 rounded text-white w-full text-center border border-coollabs hover:bg-coollabs bg-coollabs/30 font-semibold mt-1">
+    To Cloud
+  </a>
+</div>
+```
+
+**`.navbar-link` style:**
+```css
+.navbar-link {
+  color: #fff;
+  font-size: 1rem;             /* text-base on desktop */
+  padding: 0.5rem 0.75rem;
   border-radius: 0.25rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
-  transition: background 0.15s ease;
+  transition: background-color 0.15s ease;
 }
-.nav-link:hover {
+.navbar-link:hover {
   background: #202020;
 }
-.nav-link svg {
+.navbar-link svg {
   width: 1.25rem;
   height: 1.25rem;
   color: #FCD34D;
 }
-@media (min-width: 768px) {
-  .nav-link { font-size: 1rem; }
-}
-/* Mobile: full width, left aligned */
 @media (max-width: 767px) {
-  .nav-link {
+  .navbar-link {
+    font-size: 0.875rem;      /* text-sm in mobile dropdown */
     width: 100%;
     text-align: left;
-    margin-bottom: 0.25rem;
   }
 }
 ```
+
+**Plain CSS (menu container):**
+```css
+.dropdown-menu {
+  display: none;              /* JS toggles to display: flex */
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0 1rem 0.75rem;
+  /* No own background — inherits sticky header's
+     rgba(16,16,16,0.8) + backdrop-blur */
+}
+.dropdown-menu.flex {         /* toggled by JS */
+  display: flex;
+}
+```
+
+#### Behavior
+
+- Stays fixed at top on scroll (sticky); page content scrolls underneath with blur visible
+- Mobile menu toggled by hamburger button click
+- Anchor links in mobile menu auto-close the menu after click
 
 ### 8.5 Card — Base
 
@@ -1153,51 +1299,6 @@ Elevated card with dotted border, gradient overlay on hover.
 }
 @media (max-width: 640px) {
   .gradient-text { font-size: 2rem; }
-}
-```
-
-### 8.21 Mobile Menu
-
-**Tailwind:**
-```html
-<div class="hidden md:flex flex-col md:flex-row absolute md:relative top-full right-0
-            bg-coolgray-300 md:bg-transparent w-48 md:w-auto mt-2 md:mt-0
-            rounded md:rounded-none p-2 md:p-0 z-50 md:gap-1 text-sm">
-  <!-- nav links -->
-</div>
-```
-
-**Plain CSS:**
-```css
-.mobile-menu {
-  display: none;                  /* hidden by default on mobile */
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background: #242424;
-  width: 12rem;
-  margin-top: 0.5rem;
-  border-radius: 0.25rem;
-  padding: 0.5rem;
-  z-index: 50;
-  flex-direction: column;
-  font-size: 0.875rem;
-}
-.mobile-menu.open {
-  display: flex;
-}
-@media (min-width: 768px) {
-  .mobile-menu {
-    display: flex;
-    position: relative;
-    background: transparent;
-    width: auto;
-    margin-top: 0;
-    border-radius: 0;
-    padding: 0;
-    flex-direction: row;
-    gap: 0.25rem;
-  }
 }
 ```
 
