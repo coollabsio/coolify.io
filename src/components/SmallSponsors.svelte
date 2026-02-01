@@ -157,11 +157,6 @@
       isSpecial: true,
     },
     {
-      name: "jyc.dev",
-      url: "https://bsky.app/profile/jyc.dev",
-      imageUrl: "https://github.com/jycouet.png",
-    },
-    {
       name: "BitLaunch",
       url: "https://bitlaunch.io/?utm_source=coolify.io",
       imageUrl: "https://github.com/bitlaunchio.png",
