@@ -329,9 +329,7 @@
             Supporting the future of open source infrastructure
         </p>
         <div class="text-warning">
-            <a
-                class="hover:underline"
-                href="https://github.com/sponsors/coollabsio"
+            <a class="hover:underline" href="/sponsorships"
                 >Become a sponsor
                 <p class="text-xs opacity-70">~170k visitors/m</p></a
             >
@@ -350,7 +348,8 @@
                         {#if sponsor.isSpecial}
                             <div class="bg-red-500">
                                 <div class="special-icon">✨</div>
-                                <span class="sponsor-label">{sponsor.name}</span>
+                                <span class="sponsor-label">{sponsor.name}</span
+                                >
                             </div>
                         {:else}
                             <div class="sponsor-image-container">

@@ -121,7 +121,7 @@ import SmallSponsors from "../components/SmallSponsors.svelte";
         class="text-neutral-400 sm:text-base text-xs sm:flex-row flex flex-col gap-1 pt-2 sm:justify-center"
       >
         <span class="text-warning mt-[0.1rem] font-bold font-mono"
-          ><span id="cloud-users">2,714</span>+</span
+          ><span id="cloud-users">2,928</span>+</span
         > customers in the cloud.
       </div>
     </div>
@@ -151,19 +151,6 @@ import SmallSponsors from "../components/SmallSponsors.svelte";
       <Instances client:load />
     </div>
   </div>
-  <!-- <div class="text-white pb-4 pt-6 text-base">
-    Special sponsors<a
-      target="_blank"
-      href="https://github.com/sponsors/coollabsio/sponsorships?tier_id=334953&preview=false"
-      class="text-warning border rounded-full px-1 ml-2 border-warning cursor-pointer hover:bg-warning hover:text-black font-bold text-xs"
-      >?</a
-    >
-    <div class="text-xs text-neutral-400">
-      Check out our sponsors' amazing products (click on them)! It helps us
-      grow!
-    </div>
-  </div> -->
-
   <div id="sponsors-section">
     <BigSponsors client:load />
     <SmallSponsors client:load />
@@ -255,8 +242,8 @@ import SmallSponsors from "../components/SmallSponsors.svelte";
           class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
         >
           <p class="flex-auto">
-            You can deploy your resources (apps, databases, services) to a single server 
-            or multiple servers according to your requirements.
+            You can deploy your resources (apps, databases, services) to a
+            single server or multiple servers according to your requirements.
           </p>
         </dd>
       </div>
@@ -705,18 +692,5 @@ import SmallSponsors from "../components/SmallSponsors.svelte";
         });
       }
     });
-
-    // Fetch cloud users from business.json
-    fetch("https://cdn-new.coollabs.io/business.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const cloudUsersEl = document.getElementById("cloud-users");
-        if (cloudUsersEl && data["coolify-cloud-users"]) {
-          cloudUsersEl.textContent = data["coolify-cloud-users"].toLocaleString();
-        }
-      })
-      .catch(() => {
-        // Keep the default value on error
-      });
   </script>
 </Layout>

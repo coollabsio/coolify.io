@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
-  title="Sponsorship | Coolify"
+  title="Sponsorship | coolLabs"
   canonicalUrl="https://coolify.io/sponsorships/"
   description="Support Coolify's development. Sponsor us on GitHub or Open Collective to keep the project free and accessible for everyone."
 >
@@ -17,13 +17,23 @@ import Layout from "../layouts/Layout.astro";
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        fill="#BE1931"
+        fill="#EC4899"
         d="M2.067 11.319C2.067 2.521 14.251-.74 18 9.445C21.749-.741 33.933 2.52 33.933 11.319C33.933 20.879 18 33 18 33S2.067 20.879 2.067 11.319z"
       ></path>
     </svg>
   </h2>
+
+  <div class="pt-4 max-w-2xl mx-auto px-4">
+    <div class="text-left text-neutral-400">
+      We are a self-funded company and depend on your support to sustain the
+      project. This allows for a focus on real users (like you) rather than on
+      investors or revenue. If you opt for our self-hosted version, you have the
+      option to support our work through donations.
+    </div>
+  </div>
+
   <div
-    class="pb-2 flex lg:flex-row flex-col items-center justify-center text-center gap-8 px-4"
+    class="pt-10 pb-2 flex lg:flex-row flex-col items-center justify-center text-center gap-8 px-4"
   >
     <a
       href="https://github.com/sponsors/coollabsio"
@@ -70,58 +80,34 @@ import Layout from "../layouts/Layout.astro";
         <span class="text-xs text-gray-400">Donation</span>
       </div>
     </a>
-    <!-- <a
-      href="https://newsletter.coollabs.io/"
-      target="_blank"
-      class="button flex items-center gap-4 w-64 justify-center"
-    >
-      <svg
-        class="w-10 h-10"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g
-          fill="none"
-          stroke="#fff"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-        >
-          <path
-            d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"
-          ></path>
-          <path d="m3 7l9 6l9-6"></path>
-        </g>
-      </svg>
-      <div class="flex flex-col">
-        <span>Newsletter</span>
-        <span class="text-xs text-gray-400">Sponsorship</span>
-      </div>
-    </a> -->
   </div>
-  <div class="pt-4 max-w-xl mx-auto px-4">
-    We are a self-funded company and depend on your support to sustain the
-    project. This allows for a focus on real users (like you) rather than on
-    investors or revenue. If you opt for our self-hosted version, you have the
-    option to support our work through donations.
-    <br />
-    <br />
-    You can even get free visitors (170k+ unique visitors per month - landing page,
-    docs, Github readme...) to your project, by buying a slot: <br />a <a
-      class="text-warning underline font-bold"
-      href="https://github.com/sponsors/coollabsio/sponsorships?tier_id=61570&preview=false"
-      >small</a
-    > or a <a
-      class="text-warning underline font-bold"
-      href="https://github.com/sponsors/coollabsio/sponsorships?tier_id=334953&preview=false"
-      >large</a
-    > logo + link.
-  </div>
-  <div class="pt-16 max-w-xl mx-auto px-4">
-    <div class="text-3xl font-bold text-white">
-      Who is behind this<span class="text-warning">?</span>
+
+  <div class="pt-4 max-w-2xl mx-auto px-4">
+    <div class="text-left text-neutral-400">
+      You can even get free visitors (170k+ unique visitors per month - landing
+      page, docs, Github readme...) to your project, by buying a slot: a <a
+        class="text-warning underline font-bold"
+        href="https://github.com/sponsors/coollabsio/sponsorships?tier_id=61570&preview=false"
+        >small</a
+      > or a <a
+        class="text-warning underline font-bold"
+        href="https://github.com/sponsors/coollabsio/sponsorships?tier_id=334953&preview=false"
+        >large</a
+      > logo + link.
     </div>
-    <div class="text-left pt-20">
+  </div>
+
+  <h3
+    class="text-xl font-bold tracking-tight text-white md:text-3xl pt-16 px-4"
+  >
+    Who Is Behind This<span class="text-warning">?</span>
+  </h3>
+  <h4 class="text-base pb-10 pt-2 text-neutral-400 px-4">
+    A one-person mission that grew into a team.
+  </h4>
+
+  <div class="pt-4 max-w-2xl mx-auto px-4 pb-8">
+    <div class="text-left text-neutral-400">
       Hey, I'm
       <a
         href="https://twitter.com/heyandras"
@@ -131,6 +117,7 @@ import Layout from "../layouts/Layout.astro";
           viewBox="0 0 24 24"
           stroke-width="3"
           stroke="currentColor"
+          fill="none"
           class="w-3 h-3 -mt-1 ml-1"
         >
           <path
@@ -139,24 +126,28 @@ import Layout from "../layouts/Layout.astro";
             d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path>
         </svg>
       </a>
-    </div>
-    <br />
-    <div class="text-left">
-      I'm a software developer based in Hungary who shifted to being an
-      independent entrepreneur in July 2022. I quit my job to focus entirely on
-      my dream of devoting myself to open-source projects.<br /><br />Since the
-      middle of 2024, I'm not the only one working on these projects. Thanks to
-      the sponsors and paid users, I hired a developer and a few community
-      support members who help me with the projects. <br /><br />If you find my
-      open-source projects helpful or value my work, please think about making a <a
+      <br /><br />
+      I'm a software developer based in Hungary who shifted to being an independent
+      entrepreneur in July 2022. I quit my job to focus entirely on my dream of devoting
+      myself to open-source projects.
+      <br /><br />
+      Since the middle of 2024, I'm not the only one working on these projects. Thanks
+      to the sponsors and paid users, I hired a developer and a few community support
+      members who help me with the projects.
+      <br /><br />
+      If you find my open-source projects helpful or value my work, please think about
+      making a <a
         href="https://github.com/sponsors/coollabsio"
         class="text-white hover:underline font-bold underline"
         >donation or sponsoring</a
-      >.<br /><br />This will guarantee that the projects stay free, accessible,
-      and keep developing, enabling me to devote all my time to creating and
-      enhancing them. <br /><br />It provides me with significant long-term
-      benefits!
-      <br /><br />Thank you!
+      >.
+      <br /><br />
+      This will guarantee that the projects stay free, accessible, and keep developing,
+      enabling me to devote all my time to creating and enhancing them.
+      <br /><br />
+      It provides me with significant long-term benefits!
+      <br /><br />
+      Thank you!
     </div>
   </div>
 </Layout>
