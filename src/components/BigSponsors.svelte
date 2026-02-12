@@ -279,6 +279,12 @@
             description: "The AI Code Reviewer",
             imageKey: "greptile.svg",
         },
+        {
+            name: "MVPS",
+            url: "https://www.mvps.net",
+            description: "Cheap VPS servers at the highest possible quality",
+            imageKey: "mvps.png",
+        },
     ];
 
     function shuffleArray(array) {
