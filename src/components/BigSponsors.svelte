@@ -113,13 +113,6 @@
             imageKey: "coderabbit.svg",
         },
         {
-            name: "Sweep",
-            url: "https://sweep.dev/",
-            description: "AI coding assistant for JetBrains IDEs",
-            imageKey: "sweep.png",
-            additionalContent: "Sweep",
-        },
-        {
             name: "Convex",
             url: "https://convex.link/coolify.io",
             description:
