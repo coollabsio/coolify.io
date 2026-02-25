@@ -13,23 +13,27 @@ This is the landing page for coolify.io, an open-source self-hostable Heroku/Net
 - **Layout**: Single main layout (`Layout.astro`) with navigation and footer
 - **Components**: Svelte components for interactive elements (sponsors, pricing, etc.)
 - **Build Tool**: Astro's built-in Vite-based build system
+- **Package Manager**: Bun (use `bun` instead of `npm` everywhere)
 
 ## Development Commands
 
 ```bash
 # Start development server
-npm run dev
+bun run dev
 # or
-npm start
+bun start
 
 # Build for production
-npm run build
+bun run build
 
 # Preview production build
-npm run preview
+bun run preview
+
+# Install dependencies
+bun install
 
 # Run Astro CLI commands
-npm run astro
+bun run astro
 ```
 
 ## Project Structure

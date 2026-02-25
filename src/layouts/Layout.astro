@@ -16,7 +16,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -85,7 +85,7 @@ const {
     <link rel="me" href="https://fosstodon.org/@andrasbacsai" />
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
-  <body class="antialiased">
+  <body class="antialiased leading-relaxed">
     <Navigation />
     <main class="max-w-6xl mx-auto">
       <div class="text-center pt-12 md:pt-24">
@@ -96,6 +96,22 @@ const {
     <style is:global>
       html {
         font-family: "Inter", sans-serif;
+        background-color: #101010;
+        color: #fff;
+      }
+      html[data-theme="dark"] {
+        --color-primary: #6B16ED;
+        --color-secondary: #7317FF;
+        --color-accent: #FCD34D;
+        --color-neutral: #242424;
+        --color-base-100: #101010;
+        --color-base-200: #181818;
+        --color-base-300: #202020;
+        --color-base-content: #fff;
+        --color-info: #2563EB;
+        --color-success: #16A34A;
+        --color-warning: #FCD34D;
+        --color-error: #DC2626;
       }
       .navbar-link {
         @apply text-white text-base hover:bg-coolgray-200 py-2 px-3 rounded flex items-center gap-2 transition-colors;

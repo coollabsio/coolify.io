@@ -1,25 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	daisyui: {
-        themes: [
-            {
-                coollabs: {
-                    primary: "#181818",
-                    "primary-focus": "#242424",
-                    secondary: "#4338ca",
-                    accent: "#4338ca",
-                    neutral: "#1B1D1D",
-                    "base-100": "#101010",
-                    info: "#2563EB",
-                    success: "#16A34A",
-                    warning: "#FCD34D",
-                    error: "#DC2626",
-                },
-            },
-        ],
-    },
 	theme: {
 		extend: {
 		  keyframes: {
@@ -39,13 +20,24 @@ module.exports = {
 			'coolgray-200': '#202020',
 			'coolgray-300': '#242424',
 			'coolgray-400': '#282828',
-			'coolgray-500': '#323232'
+			'coolgray-500': '#323232',
+			neutral: {
+			  50: '#fafafa',
+			  100: '#f5f5f5',
+			  200: '#e5e5e5',
+			  300: '#d4d4d4',
+			  400: '#a3a3a3',
+			  500: '#737373',
+			  600: '#525252',
+			  700: '#404040',
+			  800: '#262626',
+			  900: '#171717',
+			  950: '#0a0a0a',
+			},
 		  }
 		}
 	  },
-	  variants: {
-		scrollbar: ['dark'],
-		extend: {}
-	  },
-	  plugins: [require("daisyui")]
+	  plugins: [require('daisyui').default({
+		themes: ['dark --default'],
+	  })]
 }

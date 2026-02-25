@@ -2,7 +2,7 @@
   <a
     href="https://newsletter.coollabs.io/#/portal/signup"
     target="_blank"
-    class="btn btn-primary no-animation">Subscribe to our newsletter!</a
+    class="btn btn-primary">Subscribe to our newsletter!</a
   >
   <div class="text-xs pt-1">(No bullsh*t, promise)</div>
 </div>
