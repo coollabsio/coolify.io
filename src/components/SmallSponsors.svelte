@@ -371,7 +371,7 @@
   <div class="flex flex-col items-center gap-2">
     <div bind:this={emblaSmallNode} class="embla-small">
       <div class="embla-small__container">
-        {#each smallSponsors as sponsor}
+        {#each smallSponsors as sponsor (sponsor.name)}
           <div class="embla-small__slide">
             {#if sponsor.isSpecial && sponsor.imageUrl === "question"}
               <a

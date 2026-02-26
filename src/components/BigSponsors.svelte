@@ -336,7 +336,7 @@
     </div>
 
     <div bind:this={sponsorsGridElement} class="sponsors-grid pb-10">
-        {#each sponsorsWithRef as sponsor, index}
+        {#each sponsorsWithRef as sponsor (sponsor.name)}
             <div class="tooltip tooltip-top" data-tip={sponsor.description}>
                 <a
                     class="sponsor-card {sponsor.tier ||
@@ -409,10 +409,53 @@
         }
     }
 
-    .tooltip:before,
-    .tooltip:after {
-        max-width: 100%;
+    /* DaisyUI v5 tooltip CSS requires Tailwind v4 nested @layer,
+       which doesn't work with Tailwind v3. Manual tooltip styles: */
+    .tooltip {
+        position: relative;
+        display: inline-block;
+    }
+
+    .tooltip::before {
+        content: attr(data-tip);
+        position: absolute;
+        bottom: calc(100% + 0.5rem);
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #242424;
+        color: #e5e7eb;
+        font-size: 0.875rem;
+        line-height: 1.25;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
         white-space: normal;
+        max-width: 20rem;
+        width: max-content;
+        text-align: center;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 50;
+        transition: opacity 0.2s ease;
+    }
+
+    .tooltip::after {
+        content: "";
+        position: absolute;
+        bottom: calc(100% + 0.25rem);
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 4px;
+        border-style: solid;
+        border-color: #242424 transparent transparent transparent;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 50;
+        transition: opacity 0.2s ease;
+    }
+
+    .tooltip:hover::before,
+    .tooltip:hover::after {
+        opacity: 1;
     }
 
     .sponsor-card {

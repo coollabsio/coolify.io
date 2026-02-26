@@ -152,8 +152,8 @@ import SmallSponsors from "../components/SmallSponsors.svelte";
     </div>
   </div>
   <div id="sponsors-section">
-    <BigSponsors client:load />
-    <SmallSponsors client:load />
+    <BigSponsors client:only="svelte" />
+    <SmallSponsors client:only="svelte" />
   </div>
 
   <div id="features" class="text-center text-4xl font-bold pt-10 text-white">
