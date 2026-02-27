@@ -3,6 +3,21 @@
 
     const ref = "coolify.io";
 
+    const hugeSponsors = [
+        {
+            name: "SerpAPI",
+            url: "https://serpapi.com",
+            description: "Google Search API — Scrape Google and other search engines from our fast, easy, and complete API.",
+            imageKey: "serpapi.png",
+        },
+        {
+            name: "Your Company",
+            url: "https://github.com/sponsors/coollabsio/sponsorships?tier_id=554249&preview=false",
+            description: "Become a huge sponsor",
+            isPlaceholder: true,
+        },
+    ];
+
     const sponsors = [
         {
             name: "ByteBase",
@@ -298,6 +313,7 @@
             : `${sponsor.url}?ref=${ref}&utm_source=${ref}`,
     });
 
+    const hugeSponsorsWithRef = shuffleArray(hugeSponsors.map(addRef));
     const pinned = shuffleArray(sponsors.filter((s) => s.pinned).map(addRef));
     const unpinned = shuffleArray(sponsors.filter((s) => !s.pinned).map(addRef));
     const sponsorsWithRef = [...pinned, ...unpinned];
@@ -305,13 +321,23 @@
     let descriptionContainer;
     let descriptionText;
     let sponsorsGridElement;
+    let hugeSponsorGridElement;
 
     onMount(() => {
-        // Add staggered animation to sponsor items
+        // Animate huge sponsors first
+        if (hugeSponsorGridElement) {
+            const hugeItems = hugeSponsorGridElement.querySelectorAll(".sponsor-card");
+            hugeItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 50}ms`;
+                item.classList.add("animate-in");
+            });
+        }
+        // Then stagger regular sponsor items
         const sponsorItems =
             sponsorsGridElement.querySelectorAll(".sponsor-card");
+        const offset = hugeSponsorsWithRef.length;
         sponsorItems.forEach((item, index) => {
-            item.style.animationDelay = `${index * 50}ms`;
+            item.style.animationDelay = `${(offset + index) * 50}ms`;
             item.classList.add("animate-in");
         });
     });
@@ -338,6 +364,35 @@
             >
         </div>
     </div>
+
+    {#if hugeSponsorsWithRef.length > 0}
+        <div bind:this={hugeSponsorGridElement} class="huge-sponsors-grid pb-6">
+            {#each hugeSponsorsWithRef as sponsor (sponsor.name)}
+                <div class="tooltip tooltip-top" data-tip={sponsor.description}>
+                    <a
+                        class="sponsor-card huge {sponsor.isPlaceholder ? 'placeholder' : ''} plausible-event-name=big-sponsor-clicks"
+                        href={sponsor.url}
+                    >
+                        {#if sponsor.isPlaceholder}
+                            <div class="placeholder-content">
+                                <span class="placeholder-icon">+</span>
+                                <span class="placeholder-text">Become a sponsor</span>
+                            </div>
+                        {:else}
+                            <div class="sponsor-image-container">
+                                <img
+                                    src={`/images/${sponsor.imageKey}`}
+                                    loading="eager"
+                                    alt={sponsor.description}
+                                    class="sponsor-image huge-image"
+                                />
+                            </div>
+                        {/if}
+                    </a>
+                </div>
+            {/each}
+        </div>
+    {/if}
 
     <div bind:this={sponsorsGridElement} class="sponsors-grid pb-10">
         {#each sponsorsWithRef as sponsor (sponsor.name)}
@@ -398,6 +453,48 @@
 
     .sponsors-subtitle {
         font-size: 1rem;
+    }
+
+    .huge-sponsors-grid {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .sponsor-card.huge {
+        padding: 2rem 3rem;
+        border: 1px solid rgba(107, 22, 237, 0.3);
+        min-width: 300px;
+        min-height: 140px;
+    }
+
+    .huge-image {
+        max-height: 80px;
+    }
+
+    .sponsor-card.huge.placeholder {
+        border-style: dashed;
+        border-color: rgba(107, 22, 237, 0.4);
+    }
+
+    .placeholder-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .placeholder-icon {
+        font-size: 2rem;
+        color: rgba(107, 22, 237, 0.6);
+        line-height: 1;
+    }
+
+    .placeholder-text {
+        font-size: 0.95rem;
+        color: #9ca3af;
+        font-weight: 500;
     }
 
     .sponsors-grid {
