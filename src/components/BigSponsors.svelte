@@ -48,6 +48,7 @@
             url: "http://htznr.li/CoolifyXHetzner",
             description: "Server, cloud, hosting, and data center solutions",
             imageKey: "hetzner.jpg",
+            pinned: true,
         },
         {
             name: "Logto",
@@ -111,6 +112,7 @@
             url: "https://coderabbit.ai",
             description: "Cut Code Review Time & Bugs in Half",
             imageKey: "coderabbit.svg",
+            pinned: true,
         },
         {
             name: "Convex",
@@ -289,14 +291,16 @@
         return shuffled;
     }
 
-    const sponsorsWithRef = shuffleArray(
-        sponsors.map((sponsor) => ({
-            ...sponsor,
-            url: sponsor.url.includes("?")
-                ? `${sponsor.url}&ref=${ref}&utm_source=${ref}`
-                : `${sponsor.url}?ref=${ref}&utm_source=${ref}`,
-        })),
-    );
+    const addRef = (sponsor) => ({
+        ...sponsor,
+        url: sponsor.url.includes("?")
+            ? `${sponsor.url}&ref=${ref}&utm_source=${ref}`
+            : `${sponsor.url}?ref=${ref}&utm_source=${ref}`,
+    });
+
+    const pinned = shuffleArray(sponsors.filter((s) => s.pinned).map(addRef));
+    const unpinned = shuffleArray(sponsors.filter((s) => !s.pinned).map(addRef));
+    const sponsorsWithRef = [...pinned, ...unpinned];
 
     let descriptionContainer;
     let descriptionText;
