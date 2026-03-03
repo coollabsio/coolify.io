@@ -295,6 +295,12 @@
             description: "Cheap VPS servers at the highest possible quality",
             imageKey: "mvps.png",
         },
+        {
+            name: "ispirto",
+            url: "https://github.com/ispirto",
+            description: "A mysterious supporter of open source",
+            isAnonymous: true,
+        },
     ];
 
     function shuffleArray(array) {
@@ -408,6 +414,10 @@
                                 <div class="special-icon">✨</div>
                                 <span class="sponsor-label">{sponsor.name}</span
                                 >
+                            </div>
+                        {:else if sponsor.isAnonymous}
+                            <div class="sponsor-image-container">
+                                <span class="anonymous-icon">?</span>
                             </div>
                         {:else}
                             <div class="sponsor-image-container">
@@ -686,6 +696,13 @@
         object-fit: contain;
         transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         filter: brightness(0.9) contrast(1.1);
+    }
+
+    .anonymous-icon {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #9ca3af;
+        line-height: 1;
     }
 
     .logo-23m {
