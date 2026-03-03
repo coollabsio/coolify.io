@@ -296,10 +296,10 @@
             imageKey: "mvps.png",
         },
         {
-            name: "ispirto",
-            url: "https://github.com/ispirto",
-            description: "A mysterious supporter of open source",
-            isAnonymous: true,
+            name: "VPSDime",
+            url: "https://vpsdime.com/",
+            description: "Affordable high-performance VPS hosting solutions",
+            imageKey: "vpsdime-logo.svg",
         },
     ];
 
