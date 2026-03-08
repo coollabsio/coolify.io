@@ -298,7 +298,7 @@
         {
             name: "VPSDime",
             url: "https://vpsdime.com/",
-            description: "Affordable high-performance VPS hosting solutions",
+            description: "Cheap VPS Hosting - 4GB for $5/month",
             imageKey: "vpsdime-logo.svg",
         },
         {

@@ -86,11 +86,6 @@
       imageUrl: "https://github.com/magicasaservice.png",
     },
     {
-      name: "CricketMonitor",
-      url: "https://cricketmon.io/?utm_source=coolify.io",
-      imageUrl: "https://github.com/CricketMonitor.png",
-    },
-    {
       name: "FiveManage",
       url: "https://fivemanage.com?utm_source=coolify.io",
       imageUrl: "/images/fivemanage.jpg",
