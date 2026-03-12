@@ -307,6 +307,12 @@
             description: "JT Business Solutions combines business consulting with full-stack engineering - so you get real solutions, not just recommendations.",
             imageKey: "jtbs.png",
         },
+        {
+            name: "dataforest Cloud",
+            url: "https://cloud.dataforest.net/en",
+            description: "Deploy cloud servers as seeds independently in seconds. Enterprise hardware, premium network, 100% made in Germany.",
+            imageKey: "dataforest.svg",
+        },
     ];
 
     function shuffleArray(array) {
