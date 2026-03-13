@@ -4,9 +4,7 @@
   let instances = "loading.";
   onMount(async () => {
     const { count } = await (
-      await fetch(`${url}/instances`, {
-        headers: { "cool-api-key": "coolify" },
-      })
+      await fetch(`${url}/instances`)
     ).json();
     instances = count.toLocaleString() + "+";
   });
