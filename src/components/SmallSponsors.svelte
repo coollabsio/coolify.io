@@ -361,7 +361,7 @@
   }
 </script>
 
-<div class="py-4 mt-4">
+<div class="py-4 mt-4 overflow-x-hidden">
   <div class="flex flex-col items-center gap-2">
     <div bind:this={emblaSmallNode} class="embla-small">
       <div class="embla-small__container">

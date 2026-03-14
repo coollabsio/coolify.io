@@ -85,9 +85,9 @@ const {
     <link rel="me" href="https://fosstodon.org/@andrasbacsai" />
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
-  <body class="antialiased leading-relaxed">
+  <body class="antialiased leading-relaxed overflow-x-hidden">
     <Navigation />
-    <main class="max-w-6xl mx-auto">
+    <main class="max-w-6xl mx-auto overflow-x-hidden">
       <div class="text-center pt-12 md:pt-24">
         <slot />
       </div>
@@ -98,6 +98,7 @@ const {
         font-family: "Inter", sans-serif;
         background-color: #101010;
         color: #fff;
+        overflow-x: hidden;
       }
       html[data-theme="dark"] {
         --color-primary: #6B16ED;
