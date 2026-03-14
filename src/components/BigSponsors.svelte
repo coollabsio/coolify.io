@@ -822,6 +822,10 @@
 
     /* Responsive adjustments */
     @media (max-width: 640px) {
+        .huge-sponsors-grid {
+            flex-direction: column;
+            align-items: center;
+        }
         .sponsors-title {
             font-size: 2rem;
         }
