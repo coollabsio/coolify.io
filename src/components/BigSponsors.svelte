@@ -826,6 +826,10 @@
             flex-direction: column;
             align-items: center;
         }
+        .sponsor-card.huge {
+            min-width: 0;
+            width: 100%;
+        }
         .sponsors-title {
             font-size: 2rem;
         }
