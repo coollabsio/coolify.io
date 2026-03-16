@@ -16,14 +16,15 @@
             url: "https://www.mvps.net",
             description: "Cheap VPS servers at the highest possible quality",
             imageKey: "mvps.png",
-            hugeImageStyle: "width: auto; height: 78px; max-width: 100%;",
+            hugeImageStyle: "width: min(80%, 320px); height: auto; max-height: none;",
+            hugeCardStyle: "padding-inline: 1rem;",
         },
         {
             name: "ScreenshotOne",
             url: "https://screenshotone.com",
             description: "Screenshot API for devs",
             imageKey: "screenshotone.svg",
-            hugeImageStyle: "width: auto; height: 84px; max-width: 100%;",
+            hugeImageStyle: "width: min(88%, 320px); height: auto; max-height: none;",
         },
         {
             name: "Your Company",
@@ -78,6 +79,7 @@
             url: "http://htznr.li/CoolifyXHetzner",
             description: "Server, cloud, hosting, and data center solutions",
             imageKey: "hetzner.jpg",
+            imageStyle: "width: auto; height: 60px; max-height: none;",
             pinned: true,
         },
         {
@@ -105,6 +107,7 @@
             url: "https://formbricks.com",
             description: "The open source feedback platform",
             imageKey: "formbricks.svg",
+            imageStyle: "width: auto; height: 75px; max-height: none;",
         },
         {
             name: "Tolgee",
@@ -150,6 +153,7 @@
             description:
                 "Convex is the open-source reactive database for web app developers.",
             imageKey: "convex.svg",
+            imageStyle: "width: auto; height: 60px; max-height: none;",
         },
         {
             name: "GoldenVM",
@@ -202,18 +206,21 @@
             url: "https://blacksmith.sh",
             description: "Infrastructure automation platform",
             imageKey: "blacksmith.svg",
+            imageStyle: "width: auto; height: 40px; max-height: none;",
         },
         {
             name: "Syntax.fm",
             url: "https://syntax.fm",
             description: "Podcast for web developers",
             imageKey: "syntax.svg",
+            imageStyle: "width: auto; height: 60px; max-height: none;",
         },
         {
             name: "JobsCollider",
             url: "https://jobscollider.com/remote-jobs",
             description: "30,000+ remote jobs for developers",
             imageKey: "jobscollider.svg",
+            imageStyle: "width: auto; height: 42px; max-height: none;",
         },
         {
             name: "Darweb",
@@ -227,6 +234,7 @@
             url: "https://www.hostinger.com/vps/coolify-hosting",
             description: "Web hosting and VPS solutions",
             imageKey: "hostinger.svg",
+            imageStyle: "width: auto; height: 40px; max-height: none;",
         },
         {
             name: "Mobb",
@@ -260,6 +268,7 @@
             url: "https://pfglabs.com",
             description: "Build Real Projects with Golang",
             imageKey: "pfglabs.svg",
+            imageStyle: "width: auto; height: 40px; max-height: none;",
             additionalContent: "PFGLabs",
         },
         {
@@ -273,6 +282,7 @@
             url: "https://saasykit.com",
             description: "Complete SaaS starter kit for developers",
             imageKey: "sassykit.jpeg",
+            imageStyle: "width: auto; height: 60px; max-height: none;",
         },
         // {
         //     name: "MassiveGrid",
@@ -285,6 +295,7 @@
             url: "https://americancloud.com",
             description: "US-based cloud infrastructure services",
             imageKey: "americancloud.svg",
+            imageStyle: "width: auto; height: 60px; max-height: none;",
         },
         {
             name: "Algora",
@@ -315,6 +326,7 @@
             url: "https://jtbsllc.com",
             description: "JT Business Solutions combines business consulting with full-stack engineering - so you get real solutions, not just recommendations.",
             imageKey: "jtbs.png",
+            imageStyle: "width: auto; height: 38px; max-height: none;",
         },
         {
             name: "dataforest Cloud",
@@ -380,11 +392,11 @@
     <p bind:this={descriptionText} class="text-white text-xl font-medium"></p>
 </div>
 
-<div class="pt-10">
+<div class="pt-4">
     <div class="sponsors-header">
-        <h2 class="sponsors-title pb-0">Our Amazing Sponsors</h2>
+        <h2 class="sponsors-title">Our Amazing Sponsors</h2>
         {#if placeholder}
-            <a href={placeholder.url} class="text-warning text-sm hover:underline">Become a sponsor <span class="text-neutral-400 text-xs">(~170k+ unique visitors/month)</span></a>
+            <a href={placeholder.url} class="text-warning text-sm hover:underline">Become one <span class="text-neutral-400 text-xs">(~170k+ unique visitors/month)</span></a>
         {/if}
     </div>
 
@@ -395,6 +407,7 @@
                     <a
                         class="sponsor-card huge plausible-event-name=big-sponsor-clicks"
                         href={sponsor.url}
+                        style={sponsor.hugeCardStyle}
                     >
                         <div class="sponsor-image-container">
                             <img
@@ -440,6 +453,7 @@
                                     '23mlogo.svg'
                                         ? 'logo-23m'
                                         : ''}"
+                                    style={sponsor.imageStyle}
                                 />
                                 {#if sponsor.additionalContent}
                                     <div class="sponsor-label">
@@ -458,7 +472,7 @@
 <style>
     .sponsors-header {
         text-align: center;
-        margin-bottom: 3rem;
+        margin-bottom: 1rem;
     }
 
     .sponsors-title {
