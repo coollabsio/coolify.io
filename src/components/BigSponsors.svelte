@@ -419,7 +419,7 @@
                         ''} plausible-event-name=big-sponsor-clicks"
                     href={sponsor.url}
                 >
-                    <div>
+                    <div class="sponsor-content">
                         {#if sponsor.isSpecial}
                             <div class="bg-red-500">
                                 <div class="special-icon">✨</div>
@@ -526,7 +526,8 @@
        which doesn't work with Tailwind v3. Manual tooltip styles: */
     .tooltip {
         position: relative;
-        display: inline-block;
+        display: block;
+        height: 100%;
     }
 
     .tooltip::before {
@@ -586,6 +587,7 @@
         align-items: center;
         display: flex;
         width: 100%;
+        min-height: 118px;
     }
 
     .sponsor-card::before {
@@ -677,7 +679,8 @@
         align-items: center;
         justify-content: center;
         height: 100%;
-        min-height: 120px;
+        min-height: 72px;
+        width: 100%;
         position: relative;
         z-index: 1;
     }
@@ -688,11 +691,12 @@
         justify-content: center;
         flex: 1;
         width: 100%;
+        min-height: 56px;
     }
 
     .sponsor-image {
         max-width: 100%;
-        max-height: 60px;
+        max-height: 44px;
         width: auto;
         height: auto;
         object-fit: contain;
@@ -708,7 +712,7 @@
     }
 
     .logo-23m {
-        max-height: 38px;
+        max-height: 34px;
     }
 
     .sponsor-card:hover .sponsor-image {
@@ -718,13 +722,14 @@
 
     .sponsor-label {
         margin-top: 0.75rem;
-        margin-left: 0.5rem;
+        margin-left: 0;
         font-size: 1.3rem;
         font-weight: 600;
         color: #e5e7eb;
         text-transform: capitalize;
         letter-spacing: 0.05em;
         text-align: center;
+        line-height: 1.2;
     }
 
     .special-content {
@@ -776,11 +781,11 @@
         }
 
         .sponsor-content {
-            min-height: 100px;
+            min-height: 64px;
         }
 
         .sponsor-image {
-            max-height: 60px;
+            max-height: 40px;
         }
         .sponsor-label {
             display: none;
