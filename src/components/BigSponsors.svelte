@@ -9,16 +9,25 @@
             url: "https://serpapi.com",
             description: "Google Search API — Scrape Google and other search engines from our fast, easy, and complete API.",
             imageKey: "serpapi.png",
+            hugeImageStyle: "width: auto; height: 68px; max-width: 100%;",
         },
         {
             name: "MVPS",
             url: "https://www.mvps.net",
             description: "Cheap VPS servers at the highest possible quality",
             imageKey: "mvps.png",
+            hugeImageStyle: "width: auto; height: 78px; max-width: 100%;",
+        },
+        {
+            name: "ScreenshotOne",
+            url: "https://screenshotone.com",
+            description: "Screenshot API for devs",
+            imageKey: "screenshotone.svg",
+            hugeImageStyle: "width: auto; height: 84px; max-width: 100%;",
         },
         {
             name: "Your Company",
-            url: "https://github.com/sponsors/coollabsio/sponsorships?tier_id=554249&preview=false",
+            url: "https://github.com/sponsors/coollabsio",
             description: "Become a huge sponsor",
             isPlaceholder: true,
         },
@@ -333,11 +342,7 @@
 
     const realHuge = hugeSponsors.filter((s) => !s.isPlaceholder).map(addRef);
     const placeholder = hugeSponsors.find((s) => s.isPlaceholder);
-    const shuffledHuge = shuffleArray(realHuge);
-    const mid = Math.floor(shuffledHuge.length / 2);
-    const hugeSponsorsWithRef = placeholder
-        ? [...shuffledHuge.slice(0, mid), addRef(placeholder), ...shuffledHuge.slice(mid)]
-        : shuffledHuge;
+    const hugeSponsorsWithRef = shuffleArray(realHuge);
     const pinned = shuffleArray(sponsors.filter((s) => s.pinned).map(addRef));
     const unpinned = shuffleArray(sponsors.filter((s) => !s.pinned).map(addRef));
     const sponsorsWithRef = [...pinned, ...unpinned];
@@ -377,7 +382,10 @@
 
 <div class="pt-10">
     <div class="sponsors-header">
-        <h2 class="sponsors-title">Our Amazing Sponsors</h2>
+        <h2 class="sponsors-title pb-0">Our Amazing Sponsors</h2>
+        {#if placeholder}
+            <a href={placeholder.url} class="text-warning text-sm hover:underline">Become a sponsor <span class="text-neutral-400 text-xs">(~170k+ unique visitors/month)</span></a>
+        {/if}
     </div>
 
     {#if hugeSponsorsWithRef.length > 0}
@@ -385,25 +393,18 @@
             {#each hugeSponsorsWithRef as sponsor (sponsor.name)}
                 <div class="tooltip tooltip-top" data-tip={sponsor.description}>
                     <a
-                        class="sponsor-card huge {sponsor.isPlaceholder ? 'placeholder' : ''} plausible-event-name=big-sponsor-clicks"
+                        class="sponsor-card huge plausible-event-name=big-sponsor-clicks"
                         href={sponsor.url}
                     >
-                        {#if sponsor.isPlaceholder}
-                            <div class="flex flex-col">
-                                <span class="text-warning text-3xl">+</span>
-                                <span class="text-neutral-200">Become a sponsor</span>
-                                <span class="text-neutral-400 text-xs">~170k+ unique visitors per month</span>
-                            </div>
-                        {:else}
-                            <div class="sponsor-image-container">
-                                <img
-                                    src={`/images/${sponsor.imageKey}`}
-                                    loading="eager"
-                                    alt={sponsor.description}
-                                    class="sponsor-image huge-image"
-                                />
-                            </div>
-                        {/if}
+                        <div class="sponsor-image-container">
+                            <img
+                                src={`/images/${sponsor.imageKey}`}
+                                loading="eager"
+                                alt={sponsor.description}
+                                class="sponsor-image huge-image"
+                                style={sponsor.hugeImageStyle}
+                            />
+                        </div>
                     </a>
                 </div>
             {/each}
@@ -461,13 +462,12 @@
     }
 
     .sponsors-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: 700;
         background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        margin-bottom: 0.5rem;
         letter-spacing: -0.025em;
     }
 
@@ -476,100 +476,38 @@
     }
 
     .huge-sponsors-grid {
-        display: flex;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         gap: 1.5rem;
         margin-bottom: 1.5rem;
     }
 
     .sponsor-card.huge {
         padding: 2rem 3rem;
-        border: none;
-        min-width: 300px;
+        width: 100%;
         min-height: 140px;
-        position: relative;
-        overflow: hidden;
-        z-index: 0;
     }
 
-    .sponsor-card.huge:not(.placeholder)::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 300%;
-        height: 300%;
-        transform-origin: center;
-        background: conic-gradient(
-            from 0deg,
-            transparent 0%,
-            transparent 20%,
-            rgba(107, 22, 237, 0.9) 35%,
-            rgba(115, 23, 255, 0.8) 50%,
-            rgba(107, 22, 237, 0.9) 65%,
-            transparent 80%,
-            transparent 100%
-        );
-        animation: rotateBorder 5s linear infinite;
-        z-index: -2;
-        opacity: 1;
-        transition: opacity 0.3s ease;
-    }
-
-    .sponsor-card.huge::before {
-        content: "";
-        position: absolute;
-        inset: 2px;
-        border-radius: 0.25rem;
-        background: #101010;
-        opacity: 1;
-        z-index: -1;
-        transition: background 0.3s ease;
-    }
-
-    .sponsor-card.huge:hover::after {
-        opacity: 0;
+    .sponsor-card.huge:hover {
+        transform: translateY(-8px) scale(1.02);
+        border-color: #6b16ed;
+        border-style: solid;
+        box-shadow:
+            0 20px 25px -5px rgba(0, 0, 0, 0.3),
+            0 10px 10px -5px rgba(0, 0, 0, 0.1),
+            0 0 0 1px rgba(96, 165, 250, 0.2);
     }
 
     .sponsor-card.huge:hover::before {
-        background: rgba(107, 22, 237, 0.15);
-    }
-
-    @keyframes rotateBorder {
-        from {
-            transform: translate(-50%, -50%) rotate(0deg);
-        }
-        to {
-            transform: translate(-50%, -50%) rotate(360deg);
-        }
+        opacity: 1;
     }
 
     .huge-image {
-        max-height: 80px;
+        width: 100%;
+        max-height: 160px;
+        object-fit: contain;
     }
 
-    .sponsor-card.huge.placeholder {
-        border: none;
-    }
-
-    .placeholder-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .placeholder-icon {
-        font-size: 2rem;
-        color: rgba(107, 22, 237, 0.6);
-        line-height: 1;
-    }
-
-    .placeholder-text {
-        font-size: 0.95rem;
-        color: #9ca3af;
-        font-weight: 500;
-    }
 
     .sponsors-grid {
         display: grid;
@@ -823,15 +761,10 @@
     /* Responsive adjustments */
     @media (max-width: 640px) {
         .huge-sponsors-grid {
-            flex-direction: column;
-            align-items: center;
-        }
-        .sponsor-card.huge {
-            min-width: 0;
-            width: 100%;
+            grid-template-columns: 1fr;
         }
         .sponsors-title {
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
 
         .sponsors-subtitle {
