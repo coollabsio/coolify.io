@@ -1,6 +1,13 @@
 {
   "scripts": {
     "setup": "bun i",
+    "teardown": null,
     "run": "bun run dev"
-  }
+  },
+  "ports": [
+    {
+      "port": 4321,
+      "label": "Frontend"
+    }
+  ]
 }

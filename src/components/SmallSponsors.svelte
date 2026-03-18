@@ -311,6 +311,12 @@
       url: "https://decidable.no?utm_source=coolify.io",
       imageUrl: "https://github.com/Decidable-AS.png",
     },
+    {
+      name: "Arnaud-IFEA",
+      url: "https://github.com/Arnaud-IFEA",
+      imageUrl: "https://github.com/Arnaud-IFEA.png",
+      newest: true,
+    },
   ];
   function shuffleArray(array) {
     const shuffled = [...array];
