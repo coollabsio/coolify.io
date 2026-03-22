@@ -48,11 +48,11 @@
             imageKey: "ramnode.png",
         },
         {
-            name: "Brand.dev",
-            url: "https://brand.dev",
+            name: "Context.dev",
+            url: "https://context.dev",
             description:
                 "API to personalize your product with logos, colors, and company info from any domain.",
-            imageKey: "branddev.png",
+            imageKey: "contextdev.png",
         },
         {
             name: "23M",
