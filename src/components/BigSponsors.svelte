@@ -36,6 +36,13 @@
 
     const sponsors = [
         {
+            name: "Cloudways",
+            url: "https://www.cloudways.com/en/?id=2125302",
+            description: "Managed cloud hosting platform by DigitalOcean",
+            imageKey: "cloudways.svg",
+            pinned: true,
+        },
+        {
             name: "ByteBase",
             url: "https://www.bytebase.com",
             description: "Database CI/CD and Security at Scale",
