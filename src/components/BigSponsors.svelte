@@ -341,6 +341,12 @@
             description: "Deploy cloud servers as seeds independently in seconds. Enterprise hardware, premium network, 100% made in Germany.",
             imageKey: "dataforest.svg",
         },
+        {
+            name: "PetroSky Cloud",
+            url: "https://petrosky.io",
+            description: "Open source cloud deployment solutions",
+            imageKey: "petrosky.svg",
+        },
     ];
 
     function shuffleArray(array) {
