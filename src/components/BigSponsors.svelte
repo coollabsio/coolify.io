@@ -342,6 +342,13 @@
             imageKey: "dataforest.svg",
         },
         {
+            name: "ISHosting",
+            url: "https://ishosting.com/",
+            description: "Hosting and VPS solutions",
+            imageKey: "ishosting.svg",
+            imageStyle: "width: auto; height: 60px; max-height: none;",
+        },
+        {
             name: "PetroSky Cloud",
             url: "https://petrosky.io",
             description: "Open source cloud deployment solutions",
