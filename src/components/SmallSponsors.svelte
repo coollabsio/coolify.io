@@ -199,11 +199,6 @@
       imageUrl: "/images/arvensis.png",
     },
     {
-      name: "Fider",
-      url: "https://fider.io/?utm_source=coolify.io",
-      imageUrl: "https://github.com/getfider.png",
-    },
-    {
       name: "Reshot",
       url: "https://www.reshot.ai/?utm_source=coolify.io",
       imageUrl: "/images/reshotai.png",
