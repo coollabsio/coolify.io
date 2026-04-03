@@ -329,13 +329,6 @@
             imageKey: "vpsdime-logo.svg",
         },
         {
-            name: "JTBS",
-            url: "https://jtbsllc.com",
-            description: "JT Business Solutions combines business consulting with full-stack engineering - so you get real solutions, not just recommendations.",
-            imageKey: "jtbs.png",
-            imageStyle: "width: auto; height: 38px; max-height: none;",
-        },
-        {
             name: "dataforest Cloud",
             url: "https://cloud.dataforest.net/en",
             description: "Deploy cloud servers as seeds independently in seconds. Enterprise hardware, premium network, 100% made in Germany.",
