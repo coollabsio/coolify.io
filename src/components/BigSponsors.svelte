@@ -216,13 +216,6 @@
             imageStyle: "width: auto; height: 40px; max-height: none;",
         },
         {
-            name: "Syntax.fm",
-            url: "https://syntax.fm",
-            description: "Podcast for web developers",
-            imageKey: "syntax.svg",
-            imageStyle: "width: auto; height: 60px; max-height: none;",
-        },
-        {
             name: "JobsCollider",
             url: "https://jobscollider.com/remote-jobs",
             description: "30,000+ remote jobs for developers",
@@ -303,12 +296,6 @@
             description: "US-based cloud infrastructure services",
             imageKey: "americancloud.svg",
             imageStyle: "width: auto; height: 60px; max-height: none;",
-        },
-        {
-            name: "Algora",
-            url: "https://algora.io",
-            description: "Open source contribution platform",
-            imageKey: "algora.svg",
         },
         {
             name: "LiquidWeb",
