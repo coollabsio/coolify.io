@@ -37,7 +37,10 @@ module.exports = {
 		  }
 		}
 	  },
-	  plugins: [require('daisyui').default({
-		themes: ['dark --default'],
-	  })]
+	  plugins: [
+		require('@tailwindcss/typography'),
+		require('daisyui').default({
+		  themes: ['dark --default'],
+		})
+	  ]
 }
