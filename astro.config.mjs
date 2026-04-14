@@ -13,5 +13,13 @@ export default defineConfig({
   server: {
     host: '0.0.0.0'
   },
-  integrations: [tailwind(), svelte(), sitemap()]
+  integrations: [
+    tailwind(),
+    svelte(),
+    sitemap({
+      filter: (page) =>
+        page !== "https://coolify.io/integrations" &&
+        page !== "https://coolify.io/integrations/",
+    }),
+  ]
 });
