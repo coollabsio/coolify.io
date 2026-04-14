@@ -16,10 +16,6 @@ export default defineConfig({
   integrations: [
     tailwind(),
     svelte(),
-    sitemap({
-      filter: (page) =>
-        page !== "https://coolify.io/integrations" &&
-        page !== "https://coolify.io/integrations/",
-    }),
+    sitemap(),
   ]
 });
