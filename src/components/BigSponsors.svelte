@@ -216,13 +216,6 @@
             imageStyle: "width: auto; height: 40px; max-height: none;",
         },
         {
-            name: "Syntax.fm",
-            url: "https://syntax.fm",
-            description: "Podcast for web developers",
-            imageKey: "syntax.svg",
-            imageStyle: "width: auto; height: 60px; max-height: none;",
-        },
-        {
             name: "JobsCollider",
             url: "https://jobscollider.com/remote-jobs",
             description: "30,000+ remote jobs for developers",
@@ -305,12 +298,6 @@
             imageStyle: "width: auto; height: 60px; max-height: none;",
         },
         {
-            name: "Algora",
-            url: "https://algora.io",
-            description: "Open source contribution platform",
-            imageKey: "algora.svg",
-        },
-        {
             name: "LiquidWeb",
             url: "https://liquidweb.com",
             description: "Premium managed hosting solutions",
@@ -329,17 +316,17 @@
             imageKey: "vpsdime-logo.svg",
         },
         {
-            name: "JTBS",
-            url: "https://jtbsllc.com",
-            description: "JT Business Solutions combines business consulting with full-stack engineering - so you get real solutions, not just recommendations.",
-            imageKey: "jtbs.png",
-            imageStyle: "width: auto; height: 38px; max-height: none;",
-        },
-        {
             name: "dataforest Cloud",
             url: "https://cloud.dataforest.net/en",
             description: "Deploy cloud servers as seeds independently in seconds. Enterprise hardware, premium network, 100% made in Germany.",
             imageKey: "dataforest.svg",
+        },
+        {
+            name: "ISHosting",
+            url: "https://ishosting.com/",
+            description: "Hosting and VPS solutions",
+            imageKey: "ishosting.svg",
+            imageStyle: "width: auto; height: 60px; max-height: none;",
         },
         {
             name: "PetroSky Cloud",

@@ -199,11 +199,6 @@
       imageUrl: "/images/arvensis.png",
     },
     {
-      name: "Fider",
-      url: "https://fider.io/?utm_source=coolify.io",
-      imageUrl: "https://github.com/getfider.png",
-    },
-    {
       name: "Reshot",
       url: "https://www.reshot.ai/?utm_source=coolify.io",
       imageUrl: "/images/reshotai.png",
@@ -310,12 +305,6 @@
       name: "Decidable",
       url: "https://decidable.no?utm_source=coolify.io",
       imageUrl: "https://github.com/Decidable-AS.png",
-    },
-    {
-      name: "Arnaud-IFEA",
-      url: "https://github.com/Arnaud-IFEA",
-      imageUrl: "https://github.com/Arnaud-IFEA.png",
-      newest: true,
     },
   ];
   function shuffleArray(array) {
