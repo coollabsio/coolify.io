@@ -1,12 +1,62 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Integrations from "../components/Integrations.svelte";
+
+export const prerender = true;
+
+const SERVICES_URL =
+  "https://raw.githubusercontent.com/coollabsio/coolify/v4.x/templates/service-templates-latest.json";
+const RAW_PUBLIC_BASE_URL =
+  "https://raw.githubusercontent.com/coollabsio/coolify/v4.x/public/";
+
+function formatName(id) {
+  return id
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+function buildLogoUrl(logo) {
+  if (!logo) return null;
+  if (/^https?:\/\//.test(logo)) return logo;
+  return `${RAW_PUBLIC_BASE_URL}${logo.replace(/^\/+/, "")}`;
+}
+
+function normalizeCategory(category) {
+  return String(category || "other")
+    .split(",")[0]
+    .trim() || "other";
+}
+
+const response = await fetch(SERVICES_URL);
+if (!response.ok) {
+  throw new Error(`Failed to fetch service templates: HTTP ${response.status}`);
+}
+
+const templates = await response.json();
+const services = Object.entries(templates)
+  .map(([id, template]) => {
+    const tags = Array.isArray(template.tags)
+      ? [...new Set(template.tags.filter(Boolean).map((tag) => String(tag).trim().toLowerCase()))]
+      : [];
+
+    return {
+      id,
+      name: template.name || formatName(id),
+      slogan: template.slogan || "",
+      logo: buildLogoUrl(template.logo),
+      category: normalizeCategory(template.category),
+      tags,
+      documentation: `https://coolify.io/docs/services/${id}`,
+    };
+  })
+  .sort((a, b) => a.name.localeCompare(b.name));
 ---
 
 <Layout
   title="Integrations | Coolify"
   canonicalUrl="https://coolify.io/integrations/"
-  description="Browse hundreds of one-click services you can self-host with Coolify. Databases, CMS, monitoring, AI, dev tools, and more."
+  description="Browse one-click services you can self-host with Coolify. Databases, CMS, monitoring, AI, dev tools, and more."
 >
   <h1 class="text-3xl font-bold tracking-tight text-white md:text-6xl px-4">
     Integrations<span class="text-warning">.</span>
@@ -14,5 +64,5 @@ import Integrations from "../components/Integrations.svelte";
   <h2 class="text-base pb-10 pt-2 text-neutral-400 px-4">
     Hundreds of one-click services ready to deploy on your own servers.
   </h2>
-  <Integrations client:load />
+  <Integrations services={services} client:load />
 </Layout>

@@ -1,13 +1,11 @@
 <script>
-  import { onMount } from "svelte";
+  export let services = [];
 
-  let services = $state([]);
-  let search = $state("");
-  let selectedCategory = $state("all");
-  let categories = $state([]);
-  let loading = $state(true);
+  let search = "";
+  let selectedCategory = "all";
 
   const categoryLabels = {
+    RSS: "RSS",
     ai: "AI",
     analytics: "Analytics",
     api: "API",
@@ -28,7 +26,6 @@
     git: "Git",
     health: "Health",
     helpdesk: "Helpdesk",
-    mattermost: "Mattermost",
     mcp: "MCP",
     media: "Media",
     messaging: "Messaging",
@@ -37,53 +34,45 @@
     other: "Other",
     productivity: "Productivity",
     proxy: "Proxy",
-    RSS: "RSS",
     search: "Search",
     security: "Security",
     storage: "Storage",
     vpn: "VPN",
   };
 
-  onMount(async () => {
-    const res = await fetch("/services.json");
-    services = await res.json();
-
-    const cats = [...new Set(services.map((s) => s.category))].sort();
-    categories = cats;
-    loading = false;
-  });
-
-  let filtered = $derived.by(() => {
-    let result = services;
-
-    if (selectedCategory !== "all") {
-      result = result.filter((s) => s.category === selectedCategory);
-    }
-
-    if (search.trim()) {
-      const q = search.toLowerCase().trim();
-      result = result.filter(
-        (s) =>
-          s.name.toLowerCase().includes(q) ||
-          s.slogan.toLowerCase().includes(q) ||
-          s.category.toLowerCase().includes(q),
-      );
-    }
-
-    return result;
-  });
-
   function getCategoryLabel(cat) {
     return categoryLabels[cat] || cat.charAt(0).toUpperCase() + cat.slice(1);
   }
 
-  function handleImgError(e) {
-    e.target.style.display = "none";
+  function matchesSearch(service, query) {
+    return [service.name, service.slogan, service.category, ...(service.tags || [])]
+      .filter(Boolean)
+      .some((value) => value.toLowerCase().includes(query));
   }
+
+  function handleImgError(event) {
+    event.currentTarget.style.display = "none";
+  }
+
+  $: categories = [...new Set(services.map((service) => service.category).filter(Boolean))]
+    .sort((a, b) => getCategoryLabel(a).localeCompare(getCategoryLabel(b)));
+
+  $: normalizedSearch = search.toLowerCase().trim();
+
+  $: filtered = services.filter((service) => {
+    if (selectedCategory !== "all" && service.category !== selectedCategory) {
+      return false;
+    }
+
+    if (normalizedSearch && !matchesSearch(service, normalizedSearch)) {
+      return false;
+    }
+
+    return true;
+  });
 </script>
 
 <div class="w-full px-4">
-  <!-- Search and Filter Bar -->
   <div
     class="flex flex-col sm:flex-row gap-4 mb-8 max-w-3xl mx-auto items-stretch sm:items-center"
   >
@@ -105,62 +94,71 @@
         type="text"
         bind:value={search}
         placeholder="Search services..."
-        class="w-full pl-10 pr-4 py-3 bg-coolgray-200 border border-coolgray-400 rounded-lg text-white placeholder-neutral-500 focus:outline-none focus:border-coollabs transition-colors"
+        class="h-14 w-full pl-10 pr-4 bg-coolgray-200 border border-coolgray-400 rounded-lg text-base text-white placeholder-neutral-500 focus:outline-none focus:border-coollabs transition-colors"
       />
     </div>
-    <select
-      bind:value={selectedCategory}
-      class="px-4 py-3 bg-coolgray-200 border border-coolgray-400 rounded-lg text-white focus:outline-none focus:border-coollabs transition-colors cursor-pointer"
-    >
-      <option value="all">All Categories</option>
-      {#each categories as cat}
-        <option value={cat}>{getCategoryLabel(cat)}</option>
-      {/each}
-    </select>
+    <div class="relative sm:min-w-72">
+      <select
+        bind:value={selectedCategory}
+        class="h-14 w-full appearance-none pl-4 pr-12 bg-coolgray-200 border border-coolgray-400 rounded-lg text-base text-white focus:outline-none focus:border-coollabs transition-colors cursor-pointer"
+      >
+        <option value="all">All Categories</option>
+        {#each categories as category}
+          <option value={category}>{getCategoryLabel(category)}</option>
+        {/each}
+      </select>
+      <svg
+        class="pointer-events-none absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 text-neutral-400"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m6 9 6 6 6-6"
+        />
+      </svg>
+    </div>
   </div>
 
-  <!-- Count -->
   <p class="text-neutral-400 mb-6 text-sm">
-    {#if loading}
-      Loading services...
-    {:else}
-      Showing {filtered.length} of {services.length} services
-      {#if selectedCategory !== "all"}
-        in <span class="text-warning"
-          >{getCategoryLabel(selectedCategory)}</span
-        >
-      {/if}
+    Showing {filtered.length} of {services.length} services
+    {#if selectedCategory !== "all"}
+      in <span class="text-warning">{getCategoryLabel(selectedCategory)}</span>
     {/if}
   </p>
 
-  <!-- Service Grid -->
-  {#if !loading}
-    <div
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-left"
-    >
+  {#if filtered.length > 0}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-left">
       {#each filtered as service (service.id)}
         <a
-          href={service.documentation || "#"}
-          target={service.documentation ? "_blank" : undefined}
-          rel={service.documentation
-            ? "noopener noreferrer"
-            : undefined}
+          href={service.documentation}
+          target="_blank"
+          rel="noopener noreferrer"
           class="group flex items-start gap-4 p-4 bg-coolgray-200 border border-coolgray-400 rounded-xl hover:border-coollabs transition-colors"
         >
           <div
             class="w-12 h-12 flex-shrink-0 rounded-lg bg-coolgray-300 flex items-center justify-center overflow-hidden"
           >
-            <img
-              src={service.logo}
-              alt={service.name}
-              class="w-8 h-8 object-contain"
-              loading="lazy"
-              onerror={handleImgError}
-            />
+            {#if service.logo}
+              <img
+                src={service.logo}
+                alt={service.name}
+                class="w-8 h-8 object-contain"
+                loading="lazy"
+                on:error={handleImgError}
+              />
+            {:else}
+              <span class="text-neutral-500 font-semibold text-lg">
+                {service.name.charAt(0)}
+              </span>
+            {/if}
           </div>
           <div class="min-w-0 flex-1">
             <h3
-              class="text-white font-semibold text-sm group-hover:text-coollabs-100 transition-colors truncate"
+              class="text-white font-semibold text-sm transition-colors truncate"
             >
               {service.name}
             </h3>
@@ -176,15 +174,13 @@
         </a>
       {/each}
     </div>
-
-    {#if filtered.length === 0}
-      <div class="py-20 text-center">
-        <p class="text-neutral-400 text-lg">No services found.</p>
-        <p class="text-neutral-500 text-sm mt-2">
-          Try a different search term or category.
-        </p>
-      </div>
-    {/if}
+  {:else}
+    <div class="py-20 text-center">
+      <p class="text-neutral-400 text-lg">No services found.</p>
+      <p class="text-neutral-500 text-sm mt-2">
+        Try a different search term or category.
+      </p>
+    </div>
   {/if}
 </div>
 
