@@ -8,6 +8,9 @@ const SERVICES_URL =
   "https://raw.githubusercontent.com/coollabsio/coolify/v4.x/templates/service-templates-latest.json";
 const RAW_PUBLIC_BASE_URL =
   "https://raw.githubusercontent.com/coollabsio/coolify/v4.x/public/";
+const DOCS_HASHMAP_URL = "https://coolify.io/docs/hashmap.json";
+const TEMPLATES_FALLBACK_URL =
+  "https://github.com/coollabsio/coolify/tree/v4.x/templates";
 
 function formatName(id) {
   return id
@@ -34,6 +37,25 @@ if (!response.ok) {
 }
 
 const templates = await response.json();
+
+let docsPages = new Set();
+try {
+  const docsRes = await fetch(DOCS_HASHMAP_URL);
+  if (docsRes.ok) {
+    const hashmap = await docsRes.json();
+    docsPages = new Set(Object.keys(hashmap));
+  }
+} catch {
+  // Non-fatal: proceed with empty set so cards fall back to template.documentation
+}
+
+function resolveDocumentation(id, templateDoc) {
+  if (docsPages.has(`services_${id}.md`)) {
+    return `https://coolify.io/docs/services/${id}`;
+  }
+  return templateDoc || TEMPLATES_FALLBACK_URL;
+}
+
 const services = Object.entries(templates)
   .map(([id, template]) => {
     const tags = Array.isArray(template.tags)
@@ -47,7 +69,7 @@ const services = Object.entries(templates)
       logo: buildLogoUrl(template.logo),
       category: normalizeCategory(template.category),
       tags,
-      documentation: `https://coolify.io/docs/services/${id}`,
+      documentation: resolveDocumentation(id, template.documentation),
     };
   })
   .sort((a, b) => a.name.localeCompare(b.name));
