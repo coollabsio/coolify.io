@@ -29,7 +29,7 @@
         {
             name: "PrivateAlps",
             url: "https://privatealps.net",
-            description: "Offshore hosting — anonymity, uncensored, security.",
+            description: "Cloud Services Provider, VPS, servers Infrastructure for people who care about privacy and control",
             imageKey: "privatealps.png",
             hugeImageStyle: "width: min(95%, 360px); height: auto; max-height: none;",
         },
