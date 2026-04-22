@@ -9,14 +9,14 @@
             url: "https://serpapi.com",
             description: "Google Search API — Scrape Google and other search engines from our fast, easy, and complete API.",
             imageKey: "serpapi.png",
-            hugeImageStyle: "width: auto; height: 68px; max-width: 100%;",
+            hugeImageStyle: "width: auto; height: 80px; max-width: 100%;",
         },
         {
             name: "MVPS",
             url: "https://www.mvps.net",
             description: "Cheap VPS servers at the highest possible quality",
             imageKey: "mvps.png",
-            hugeImageStyle: "width: min(80%, 320px); height: auto; max-height: none;",
+            hugeImageStyle: "width: min(95%, 360px); height: auto; max-height: none;",
             hugeCardStyle: "padding-inline: 1rem;",
         },
         {
@@ -24,7 +24,14 @@
             url: "https://screenshotone.com",
             description: "Screenshot API for devs",
             imageKey: "screenshotone.svg",
-            hugeImageStyle: "width: min(88%, 320px); height: auto; max-height: none;",
+            hugeImageStyle: "width: 100%; height: auto; max-height: none; transform: scale(1.2);",
+        },
+        {
+            name: "PrivateAlps",
+            url: "https://privatealps.net",
+            description: "Offshore hosting — anonymity, uncensored, security.",
+            imageKey: "privatealps.png",
+            hugeImageStyle: "width: min(95%, 360px); height: auto; max-height: none;",
         },
         {
             name: "Your Company",
@@ -393,14 +400,10 @@
 </div>
 
 <div class="pt-4">
-    <div class="sponsors-header">
-        <h2 class="sponsors-title">Our Amazing Sponsors</h2>
-        {#if placeholder}
-            <a href={placeholder.url} class="text-warning text-sm hover:underline">Become one <span class="text-neutral-400 text-xs">(~170k+ unique visitors/month)</span></a>
-        {/if}
-    </div>
+
 
     {#if hugeSponsorsWithRef.length > 0}
+        <h3 class="tier-title tier-title-huge">Huge Sponsors</h3>
         <div bind:this={hugeSponsorGridElement} class="huge-sponsors-grid pb-6">
             {#each hugeSponsorsWithRef as sponsor (sponsor.name)}
                 <div class="tooltip tooltip-top" data-tip={sponsor.description}>
@@ -424,6 +427,7 @@
         </div>
     {/if}
 
+    <h3 class="tier-title">Big Sponsors</h3>
     <div bind:this={sponsorsGridElement} class="sponsors-grid pb-10">
         {#each sponsorsWithRef as sponsor (sponsor.name)}
             <div class="tooltip tooltip-top" data-tip={sponsor.description}>
@@ -475,6 +479,20 @@
         margin-bottom: 1rem;
     }
 
+    .tier-title {
+        text-align: center;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #9ca3af;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin: 1.5rem 0 1rem 0;
+    }
+
+    .tier-title-huge {
+        color: #a78bfa;
+    }
+
     .sponsors-title {
         font-size: 2rem;
         font-weight: 700;
@@ -491,25 +509,32 @@
 
     .huge-sponsors-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 1.5rem;
         margin-bottom: 1.5rem;
     }
 
     .sponsor-card.huge {
-        padding: 2rem 3rem;
+        padding: 2.25rem 2rem;
         width: 100%;
-        min-height: 140px;
+        min-height: 200px;
+        border: 1px solid rgba(107, 22, 237, 0.35);
+        background: linear-gradient(
+            135deg,
+            rgba(96, 165, 250, 0.06) 0%,
+            rgba(167, 139, 250, 0.06) 50%,
+            rgba(244, 114, 182, 0.06) 100%
+        );
     }
 
     .sponsor-card.huge:hover {
         transform: translateY(-8px) scale(1.02);
-        border-color: #6b16ed;
+        border-color: #a78bfa;
         border-style: solid;
         box-shadow:
             0 20px 25px -5px rgba(0, 0, 0, 0.3),
             0 10px 10px -5px rgba(0, 0, 0, 0.1),
-            0 0 0 1px rgba(96, 165, 250, 0.2);
+            0 0 0 1px rgba(167, 139, 250, 0.35);
     }
 
     .sponsor-card.huge:hover::before {
@@ -777,10 +802,20 @@
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
 
+    @media (max-width: 1024px) {
+        .huge-sponsors-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
     /* Responsive adjustments */
     @media (max-width: 640px) {
         .huge-sponsors-grid {
             grid-template-columns: 1fr;
+            padding-inline: 1rem;
+        }
+        .sponsors-grid {
+            padding-inline: 1rem;
         }
         .sponsors-title {
             font-size: 1.5rem;
@@ -792,6 +827,19 @@
 
         .sponsor-card {
             padding: 1rem;
+        }
+
+        .sponsor-card.huge {
+            min-height: 120px;
+            padding: 1.75rem 1.5rem;
+        }
+
+        .huge-image {
+            max-height: 70px !important;
+            width: auto !important;
+            max-width: 75% !important;
+            height: auto !important;
+            transform: none !important;
         }
 
         .sponsor-content {

@@ -5,6 +5,12 @@
 
   const sponsors = [
     {
+      name: "YouStable",
+      url: "https://youstable.com/?utm_source=coolify.io",
+      imageUrl: "https://github.com/youstable.png",
+      newest: true,
+    },
+    {
       name: "SneakersAPI",
       url: "https://kicks.dev/?utm_source=coolify.io",
       imageUrl: "https://github.com/SneakersAPI.png",
@@ -358,6 +364,7 @@
 
 <div class="py-4 mt-4 overflow-x-hidden">
   <div class="flex flex-col items-center gap-2">
+    <h3 class="tier-title-small">Small Sponsors</h3>
     <div bind:this={emblaSmallNode} class="embla-small">
       <div class="embla-small__container">
         {#each smallSponsors as sponsor (sponsor.name)}
@@ -437,6 +444,16 @@
 </div>
 
 <style>
+  .tier-title-small {
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #9ca3af;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
+  }
+
   .embla-small {
     overflow: hidden;
     max-width: 100%;
