@@ -5,10 +5,15 @@
 
   const sponsors = [
     {
+      name: "MindEd Tech",
+      url: "https://github.com/mindedtech",
+      imageUrl: "https://github.com/mindedtech.png",
+      newest: true,
+    },
+    {
       name: "YouStable",
       url: "https://youstable.com/?utm_source=coolify.io",
       imageUrl: "https://github.com/youstable.png",
-      newest: true,
     },
     {
       name: "SneakersAPI",
