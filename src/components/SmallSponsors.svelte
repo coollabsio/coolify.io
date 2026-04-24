@@ -5,10 +5,15 @@
 
   const sponsors = [
     {
+      name: "Netrouting",
+      url: "https://www.netrouting.com/?utm_source=coolify.io",
+      imageUrl: "https://github.com/netroutingcom.png",
+      newest: true,
+    },
+    {
       name: "MindEd Tech",
       url: "https://github.com/mindedtech",
       imageUrl: "https://github.com/mindedtech.png",
-      newest: true,
     },
     {
       name: "YouStable",
