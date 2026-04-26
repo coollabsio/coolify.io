@@ -5,10 +5,15 @@
 
   const sponsors = [
     {
+      name: "ParsecPH",
+      url: "https://github.com/parsecph",
+      imageUrl: "https://github.com/parsecph.png",
+      newest: true,
+    },
+    {
       name: "Netrouting",
       url: "https://www.netrouting.com/?utm_source=coolify.io",
       imageUrl: "https://github.com/netroutingcom.png",
-      newest: true,
     },
     {
       name: "MindEd Tech",
