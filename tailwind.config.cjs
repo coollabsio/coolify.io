@@ -21,7 +21,19 @@ module.exports = {
 			'coolgray-300': '#242424',
 			'coolgray-400': '#282828',
 			'coolgray-500': '#323232',
+			primary: '#6B16ED',
+			secondary: '#7317FF',
+			accent: '#FCD34D',
+			info: '#2563EB',
+			success: '#16A34A',
+			warning: '#FCD34D',
+			error: '#DC2626',
+			'base-100': '#101010',
+			'base-200': '#181818',
+			'base-300': '#202020',
+			'base-content': '#ffffff',
 			neutral: {
+			  DEFAULT: '#242424',
 			  50: '#fafafa',
 			  100: '#f5f5f5',
 			  200: '#e5e5e5',
@@ -39,8 +51,5 @@ module.exports = {
 	  },
 	  plugins: [
 		require('@tailwindcss/typography'),
-		require('daisyui').default({
-		  themes: ['dark --default'],
-		})
 	  ]
 }

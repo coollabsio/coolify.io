@@ -100,13 +100,9 @@ const {
         color: #fff;
         overflow-x: hidden;
       }
-      html:not(span),
-      body:not(span) {
-        overflow-x: hidden;
-      }
       @supports (overflow-x: clip) {
-        html:not(span),
-        body:not(span) {
+        html,
+        body {
           overflow-x: clip;
         }
       }
