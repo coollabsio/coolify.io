@@ -100,6 +100,12 @@ const {
         color: #fff;
         overflow-x: hidden;
       }
+      @supports (overflow-x: clip) {
+        html,
+        body {
+          overflow-x: clip;
+        }
+      }
       html[data-theme="dark"] {
         --color-primary: #6B16ED;
         --color-secondary: #7317FF;
