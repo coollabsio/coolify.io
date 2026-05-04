@@ -1,4 +1,5 @@
 ---
+import "../styles/global.css";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
 
@@ -94,6 +95,8 @@ const {
     </main>
     <Footer />
     <style is:global>
+      @reference "../styles/global.css";
+
       html {
         font-family: "Inter", sans-serif;
         background-color: #101010;

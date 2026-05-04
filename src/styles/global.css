@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-coollabs: #6B16ED;
+  --color-coollabs-100: #7317FF;
+  --color-coolblack: #181818;
+  --color-coolgray-100: #181818;
+  --color-coolgray-200: #202020;
+  --color-coolgray-300: #242424;
+  --color-coolgray-400: #282828;
+  --color-coolgray-500: #323232;
+  --color-primary: #6B16ED;
+  --color-secondary: #7317FF;
+  --color-accent: #FCD34D;
+  --color-info: #2563EB;
+  --color-success: #16A34A;
+  --color-warning: #FCD34D;
+  --color-error: #DC2626;
+  --color-base-100: #101010;
+  --color-base-200: #181818;
+  --color-base-300: #202020;
+  --color-base-content: #ffffff;
+
+  --color-neutral: #242424;
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0a0a0a;
+
+  --animate-wiggle: wiggle 1s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50%      { transform: rotate(3deg); }
+}
