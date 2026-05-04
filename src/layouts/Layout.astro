@@ -94,6 +94,9 @@ const {
     </main>
     <Footer />
     <style is:global>
+      :root {
+        --page-overflow: hidden;
+      }
       html {
         font-family: "Inter", sans-serif;
         background-color: #101010;
@@ -101,6 +104,9 @@ const {
         overflow-x: hidden;
       }
       @supports (overflow-x: clip) {
+        :root {
+          --page-overflow: clip;
+        }
         html,
         body {
           overflow-x: clip;
