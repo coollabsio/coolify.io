@@ -223,6 +223,13 @@
             imageStyle: "width: auto; height: 40px; max-height: none;",
         },
         {
+            name: "Capture.page",
+            url: "https://capture.page/",
+            description: "Fast & Reliable Screenshot API for Developers",
+            imageKey: "capture-page.png",
+            imageStyle: "width: auto; height: 50px; max-height: none;",
+        },
+        {
             name: "JobsCollider",
             url: "https://jobscollider.com/remote-jobs",
             description: "30,000+ remote jobs for developers",
@@ -340,6 +347,13 @@
             url: "https://petrosky.io",
             description: "Open source cloud deployment solutions",
             imageKey: "petrosky.svg",
+        },
+        {
+            name: "LumaDock",
+            url: "https://lumadock.com/vps-hosting/coolify?utm_source=coolify&utm_medium=sponsorship&utm_campaign=coolify_oss_sponsor_2026&utm_content=landing_footer",
+            description: "Fast and reliable virtual server hosting",
+            imageKey: "lumadock.png",
+            imageStyle: "width: auto; height: 36px; max-height: none;",
         },
     ];
 
