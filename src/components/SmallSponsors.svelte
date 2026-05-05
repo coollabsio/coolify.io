@@ -385,17 +385,13 @@
         {#each smallSponsors as sponsor (sponsor.name)}
           <div class="embla-small__slide">
             {#if sponsor.isSpecial && sponsor.imageUrl === "question"}
-              <a
-                class="w-12 h-12 border border-warning font-bold border-dashed hover:bg-warning hover:text-black flex justify-center text-center items-center text-3xl text-white animate-pulse rounded-full plausible-event-name=small-sponsor-clicks"
-                href={sponsor.url}
+              <div
+                class="small-sponsor-visual w-12 h-12 border border-warning font-bold border-dashed hover:bg-warning hover:text-black flex justify-center text-center items-center text-3xl text-white animate-pulse rounded-full"
               >
                 ?!
-              </a>
+              </div>
             {:else if sponsor.isSpecial && sponsor.imageUrl === "runpod-svg"}
-              <a
-                href={sponsor.url}
-                class="plausible-event-name=small-sponsor-clicks"
-              >
+              <div class="small-sponsor-visual">
                 <svg
                   class="w-11 h-11 fill-[#824edc] bg-white rounded"
                   xmlns="http://www.w3.org/2000/svg"
@@ -411,12 +407,9 @@
                     />
                   </g>
                 </svg>
-              </a>
+              </div>
             {:else if sponsor.isPublicImage}
-              <a
-                href={sponsor.url}
-                class="plausible-event-name=small-sponsor-clicks"
-              >
+              <div class="small-sponsor-visual">
                 <img
                   class={sponsor.customStyle || ""}
                   src={sponsor.imageUrl}
@@ -425,11 +418,10 @@
                   loading="eager"
                   alt={sponsor.name}
                 />
-              </a>
+              </div>
             {:else}
-              <a
-                href={sponsor.url}
-                class="transition-all duration-100 hover:scale-110 plausible-event-name=small-sponsor-clicks {sponsor.newest
+              <div
+                class="small-sponsor-visual transition-all duration-100 {sponsor.newest
                   ? 'rainbow-border'
                   : ''}"
               >
@@ -441,8 +433,13 @@
                   loading="eager"
                   alt={sponsor.name}
                 />
-              </a>
+              </div>
             {/if}
+            <a
+              href={sponsor.url}
+              class="small-sponsor-link plausible-event-name=small-sponsor-clicks"
+              aria-label={sponsor.name}
+            ></a>
           </div>
         {/each}
       </div>
@@ -494,6 +491,35 @@
     user-select: none;
     -webkit-touch-callout: none;
     -webkit-tap-highlight-color: transparent;
+  }
+
+  .small-sponsor-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .small-sponsor-link {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+  }
+
+  .small-sponsor-link:focus-visible {
+    outline: 2px solid #fcd34d;
+    outline-offset: 3px;
+    border-radius: 9999px;
+  }
+
+  .embla-small__slide:hover .small-sponsor-visual.transition-all,
+  .embla-small__slide:has(.small-sponsor-link:focus-visible)
+    .small-sponsor-visual.transition-all {
+    transform: scale(1.1);
+  }
+
+  .embla-small__slide:hover .small-sponsor-visual.border-warning {
+    background-color: var(--color-warning, #fcd34d);
+    color: #000;
   }
 
   .rainbow-border {
