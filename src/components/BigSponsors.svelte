@@ -407,11 +407,7 @@
         <div bind:this={hugeSponsorGridElement} class="huge-sponsors-grid pb-6">
             {#each hugeSponsorsWithRef as sponsor (sponsor.name)}
                 <div class="tooltip tooltip-top" data-tip={sponsor.description}>
-                    <a
-                        class="sponsor-card huge plausible-event-name=big-sponsor-clicks"
-                        href={sponsor.url}
-                        style={sponsor.hugeCardStyle}
-                    >
+                    <div class="sponsor-card huge" style={sponsor.hugeCardStyle}>
                         <div class="sponsor-image-container">
                             <img
                                 src={`/images/${sponsor.imageKey}`}
@@ -421,7 +417,12 @@
                                 style={sponsor.hugeImageStyle}
                             />
                         </div>
-                    </a>
+                    </div>
+                    <a
+                        class="sponsor-link-overlay plausible-event-name=big-sponsor-clicks"
+                        href={sponsor.url}
+                        aria-label={sponsor.name}
+                    ></a>
                 </div>
             {/each}
         </div>
@@ -431,11 +432,7 @@
     <div bind:this={sponsorsGridElement} class="sponsors-grid pb-10">
         {#each sponsorsWithRef as sponsor (sponsor.name)}
             <div class="tooltip tooltip-top" data-tip={sponsor.description}>
-                <a
-                    class="sponsor-card {sponsor.tier ||
-                        ''} plausible-event-name=big-sponsor-clicks"
-                    href={sponsor.url}
-                >
+                <div class="sponsor-card {sponsor.tier || ''}">
                     <div class="sponsor-content">
                         {#if sponsor.isSpecial}
                             <div class="bg-red-500">
@@ -467,7 +464,12 @@
                             </div>
                         {/if}
                     </div>
-                </a>
+                </div>
+                <a
+                    class="sponsor-link-overlay plausible-event-name=big-sponsor-clicks"
+                    href={sponsor.url}
+                    aria-label={sponsor.name}
+                ></a>
             </div>
         {/each}
     </div>
@@ -537,7 +539,23 @@
             0 0 0 1px rgba(167, 139, 250, 0.35);
     }
 
+    .tooltip:hover .sponsor-card.huge,
+    .tooltip:has(.sponsor-link-overlay:focus-visible) .sponsor-card.huge {
+        transform: translateY(-8px) scale(1.02);
+        border-color: #a78bfa;
+        border-style: solid;
+        box-shadow:
+            0 20px 25px -5px rgba(0, 0, 0, 0.3),
+            0 10px 10px -5px rgba(0, 0, 0, 0.1),
+            0 0 0 1px rgba(167, 139, 250, 0.35);
+    }
+
     .sponsor-card.huge:hover::before {
+        opacity: 1;
+    }
+
+    .tooltip:hover .sponsor-card.huge::before,
+    .tooltip:has(.sponsor-link-overlay:focus-visible) .sponsor-card.huge::before {
         opacity: 1;
     }
 
@@ -629,6 +647,18 @@
         min-height: 118px;
     }
 
+    .sponsor-link-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+        border-radius: 0.3rem;
+    }
+
+    .sponsor-link-overlay:focus-visible {
+        outline: 2px solid #a78bfa;
+        outline-offset: 3px;
+    }
+
     .sponsor-card::before {
         content: "";
         position: absolute;
@@ -672,7 +702,23 @@
             0 0 0 1px rgba(96, 165, 250, 0.2);
     }
 
+    .tooltip:hover .sponsor-card:not(.huge),
+    .tooltip:has(.sponsor-link-overlay:focus-visible) .sponsor-card:not(.huge) {
+        transform: translateY(-8px) scale(1.02);
+        border-color: #6b16ed;
+        border-style: solid;
+        box-shadow:
+            0 20px 25px -5px rgba(0, 0, 0, 0.3),
+            0 10px 10px -5px rgba(0, 0, 0, 0.1),
+            0 0 0 1px rgba(96, 165, 250, 0.2);
+    }
+
     .sponsor-card:hover:not(.huge)::before {
+        opacity: 1;
+    }
+
+    .tooltip:hover .sponsor-card:not(.huge)::before,
+    .tooltip:has(.sponsor-link-overlay:focus-visible) .sponsor-card:not(.huge)::before {
         opacity: 1;
     }
 
@@ -755,6 +801,12 @@
     }
 
     .sponsor-card:hover .sponsor-image {
+        transform: scale(1.1);
+        filter: brightness(1) contrast(1.2);
+    }
+
+    .tooltip:hover .sponsor-image,
+    .tooltip:has(.sponsor-link-overlay:focus-visible) .sponsor-image {
         transform: scale(1.1);
         filter: brightness(1) contrast(1.2);
     }
