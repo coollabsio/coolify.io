@@ -3,45 +3,8 @@
 
     const ref = "coolify.io";
 
-    const hugeSponsors = [
-        {
-            name: "SerpAPI",
-            url: "https://serpapi.com",
-            description: "Google Search API — Scrape Google and other search engines from our fast, easy, and complete API.",
-            imageKey: "serpapi.png",
-            hugeImageStyle: "width: auto; height: 80px; max-width: 100%;",
-        },
-        {
-            name: "MVPS",
-            url: "https://www.mvps.net",
-            description: "Cheap VPS servers at the highest possible quality",
-            imageKey: "mvps.png",
-            hugeImageStyle: "width: min(95%, 360px); height: auto; max-height: none;",
-            hugeCardStyle: "padding-inline: 1rem;",
-        },
-        {
-            name: "ScreenshotOne",
-            url: "https://screenshotone.com",
-            description: "Screenshot API for devs",
-            imageKey: "screenshotone.svg",
-            hugeImageStyle: "width: 100%; height: auto; max-height: none; transform: scale(1.2);",
-        },
-        {
-            name: "PrivateAlps",
-            url: "https://privatealps.net",
-            description: "Cloud Services Provider, VPS, servers Infrastructure for people who care about privacy and control",
-            imageKey: "privatealps.png",
-            hugeImageStyle: "width: min(95%, 360px); height: auto; max-height: none;",
-        },
-        {
-            name: "Your Company",
-            url: "https://github.com/sponsors/coollabsio",
-            description: "Become a huge sponsor",
-            isPlaceholder: true,
-        },
-    ];
-
     const sponsors = [
+        // off-platform: cloudways
         {
             name: "Cloudways",
             url: "https://www.cloudways.com/en/?id=2125302",
@@ -88,6 +51,7 @@
                 "Best IP Transit & Carrier Ethernet Solutions for Simplified Network Connectivity",
             imageKey: "macarne.svg",
         },
+        // off-platform: hetzner
         {
             name: "Hetzner",
             url: "http://htznr.li/CoolifyXHetzner",
@@ -130,6 +94,7 @@
             imageKey: "tolgee.svg",
             additionalContent: "Tolgee",
         },
+        // gh: unpseudocomplique
         {
             name: "Best Consultant",
             url: "https://bc.direct",
@@ -161,6 +126,7 @@
             imageKey: "coderabbit.svg",
             pinned: true,
         },
+        // gh: waynesutton
         {
             name: "Convex",
             url: "https://convex.link/coolify.io",
@@ -355,6 +321,14 @@
             imageKey: "lumadock.png",
             imageStyle: "width: auto; height: 36px; max-height: none;",
         },
+        // gh: arjunkomath
+        {
+            name: "Techulus",
+            url: "https://techulus.com",
+            description: "Arjun Komath — building developer tools and SaaS at Techulus.",
+            imageKey: "arjunkomath.png",
+            imageStyle: "width: auto; height: 56px; max-height: none; border-radius: 50%;",
+        },
     ];
 
     function shuffleArray(array) {
@@ -373,9 +347,6 @@
             : `${sponsor.url}?ref=${ref}&utm_source=${ref}`,
     });
 
-    const realHuge = hugeSponsors.filter((s) => !s.isPlaceholder).map(addRef);
-    const placeholder = hugeSponsors.find((s) => s.isPlaceholder);
-    const hugeSponsorsWithRef = shuffleArray(realHuge);
     const pinned = shuffleArray(sponsors.filter((s) => s.pinned).map(addRef));
     const unpinned = shuffleArray(sponsors.filter((s) => !s.pinned).map(addRef));
     const sponsorsWithRef = [...pinned, ...unpinned];
@@ -383,23 +354,12 @@
     let descriptionContainer;
     let descriptionText;
     let sponsorsGridElement;
-    let hugeSponsorGridElement;
 
     onMount(() => {
-        // Animate huge sponsors first
-        if (hugeSponsorGridElement) {
-            const hugeItems = hugeSponsorGridElement.querySelectorAll(".sponsor-card");
-            hugeItems.forEach((item, index) => {
-                item.style.animationDelay = `${index * 50}ms`;
-                item.classList.add("animate-in");
-            });
-        }
-        // Then stagger regular sponsor items
         const sponsorItems =
             sponsorsGridElement.querySelectorAll(".sponsor-card");
-        const offset = hugeSponsorsWithRef.length;
         sponsorItems.forEach((item, index) => {
-            item.style.animationDelay = `${(offset + index) * 50}ms`;
+            item.style.animationDelay = `${index * 50}ms`;
             item.classList.add("animate-in");
         });
     });
@@ -414,34 +374,6 @@
 </div>
 
 <div class="pt-4">
-
-
-    {#if hugeSponsorsWithRef.length > 0}
-        <h3 class="tier-title tier-title-huge">Huge Sponsors</h3>
-        <div bind:this={hugeSponsorGridElement} class="huge-sponsors-grid pb-6">
-            {#each hugeSponsorsWithRef as sponsor (sponsor.name)}
-                <div class="tooltip tooltip-top" data-tip={sponsor.description}>
-                    <div class="sponsor-card huge" style={sponsor.hugeCardStyle}>
-                        <div class="sponsor-image-container">
-                            <img
-                                src={`/images/${sponsor.imageKey}`}
-                                loading="eager"
-                                alt={sponsor.description}
-                                class="sponsor-image huge-image"
-                                style={sponsor.hugeImageStyle}
-                            />
-                        </div>
-                    </div>
-                    <a
-                        class="sponsor-link-overlay plausible-event-name=big-sponsor-clicks"
-                        href={sponsor.url}
-                        aria-label={sponsor.name}
-                    ></a>
-                </div>
-            {/each}
-        </div>
-    {/if}
-
     <h3 class="tier-title">Big Sponsors</h3>
     <div bind:this={sponsorsGridElement} class="sponsors-grid pb-10">
         {#each sponsorsWithRef as sponsor (sponsor.name)}
@@ -505,10 +437,6 @@
         margin: 1.5rem 0 1rem 0;
     }
 
-    .tier-title-huge {
-        color: #a78bfa;
-    }
-
     .sponsors-title {
         font-size: 2rem;
         font-weight: 700;
@@ -522,63 +450,6 @@
     .sponsors-subtitle {
         font-size: 1rem;
     }
-
-    .huge-sponsors-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1.5rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .sponsor-card.huge {
-        padding: 2.25rem 2rem;
-        width: 100%;
-        min-height: 200px;
-        border: 1px solid rgba(107, 22, 237, 0.35);
-        background: linear-gradient(
-            135deg,
-            rgba(96, 165, 250, 0.06) 0%,
-            rgba(167, 139, 250, 0.06) 50%,
-            rgba(244, 114, 182, 0.06) 100%
-        );
-    }
-
-    .sponsor-card.huge:hover {
-        transform: translateY(-8px) scale(1.02);
-        border-color: #a78bfa;
-        border-style: solid;
-        box-shadow:
-            0 20px 25px -5px rgba(0, 0, 0, 0.3),
-            0 10px 10px -5px rgba(0, 0, 0, 0.1),
-            0 0 0 1px rgba(167, 139, 250, 0.35);
-    }
-
-    .tooltip:hover .sponsor-card.huge,
-    .tooltip:has(.sponsor-link-overlay:focus-visible) .sponsor-card.huge {
-        transform: translateY(-8px) scale(1.02);
-        border-color: #a78bfa;
-        border-style: solid;
-        box-shadow:
-            0 20px 25px -5px rgba(0, 0, 0, 0.3),
-            0 10px 10px -5px rgba(0, 0, 0, 0.1),
-            0 0 0 1px rgba(167, 139, 250, 0.35);
-    }
-
-    .sponsor-card.huge:hover::before {
-        opacity: 1;
-    }
-
-    .tooltip:hover .sponsor-card.huge::before,
-    .tooltip:has(.sponsor-link-overlay:focus-visible) .sponsor-card.huge::before {
-        opacity: 1;
-    }
-
-    .huge-image {
-        width: 100%;
-        max-height: 160px;
-        object-fit: contain;
-    }
-
 
     .sponsors-grid {
         display: grid;
@@ -706,7 +577,7 @@
         }
     }
 
-    .sponsor-card:not(.huge):hover {
+    .sponsor-card:hover {
         transform: translateY(-8px) scale(1.02);
         border-color: #6b16ed;
         border-style: solid;
@@ -716,8 +587,8 @@
             0 0 0 1px rgba(96, 165, 250, 0.2);
     }
 
-    .tooltip:hover .sponsor-card:not(.huge),
-    .tooltip:has(.sponsor-link-overlay:focus-visible) .sponsor-card:not(.huge) {
+    .tooltip:hover .sponsor-card,
+    .tooltip:has(.sponsor-link-overlay:focus-visible) .sponsor-card {
         transform: translateY(-8px) scale(1.02);
         border-color: #6b16ed;
         border-style: solid;
@@ -727,12 +598,12 @@
             0 0 0 1px rgba(96, 165, 250, 0.2);
     }
 
-    .sponsor-card:hover:not(.huge)::before {
+    .sponsor-card:hover::before {
         opacity: 1;
     }
 
-    .tooltip:hover .sponsor-card:not(.huge)::before,
-    .tooltip:has(.sponsor-link-overlay:focus-visible) .sponsor-card:not(.huge)::before {
+    .tooltip:hover .sponsor-card::before,
+    .tooltip:has(.sponsor-link-overlay:focus-visible) .sponsor-card::before {
         opacity: 1;
     }
 
@@ -868,18 +739,7 @@
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
 
-    @media (max-width: 1024px) {
-        .huge-sponsors-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    /* Responsive adjustments */
     @media (max-width: 640px) {
-        .huge-sponsors-grid {
-            grid-template-columns: 1fr;
-            padding-inline: 1rem;
-        }
         .sponsors-grid {
             padding-inline: 1rem;
         }
@@ -893,19 +753,6 @@
 
         .sponsor-card {
             padding: 1rem;
-        }
-
-        .sponsor-card.huge {
-            min-height: 120px;
-            padding: 1.75rem 1.5rem;
-        }
-
-        .huge-image {
-            max-height: 70px !important;
-            width: auto !important;
-            max-width: 75% !important;
-            height: auto !important;
-            transform: none !important;
         }
 
         .sponsor-content {

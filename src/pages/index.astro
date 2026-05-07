@@ -1,8 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Instances from "../components/Instances.svelte";
+import HugeSponsors from "../components/HugeSponsors.svelte";
 import BigSponsors from "../components/BigSponsors.svelte";
 import SmallSponsors from "../components/SmallSponsors.svelte";
+import SponsorsPreview from "../components/SponsorsPreview.svelte";
+
+const isDev = import.meta.env.DEV;
 ---
 
 <Layout
@@ -132,8 +136,10 @@ import SmallSponsors from "../components/SmallSponsors.svelte";
     </div>
   </div>
   <div id="sponsors-section">
+    <HugeSponsors client:only="svelte" />
     <BigSponsors client:only="svelte" />
     <SmallSponsors client:only="svelte" />
+    {isDev && <SponsorsPreview client:only="svelte" />}
   </div>
 
   <div id="features" class="text-center text-4xl font-bold pt-10 text-white">

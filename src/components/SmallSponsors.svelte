@@ -5,10 +5,15 @@
 
   const sponsors = [
     {
+      name: "Vanaways",
+      url: "https://vanaways.co.uk/?utm_source=coolify.io",
+      imageUrl: "https://github.com/Vanaways.png",
+      newest: true,
+    },
+    {
       name: "ParsecPH",
       url: "https://github.com/parsecph",
       imageUrl: "https://github.com/parsecph.png",
-      newest: true,
     },
     {
       name: "Netrouting",

@@ -2,6 +2,7 @@
   "name": "@coollabsio/coolify.io",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Landing pages of coolLabs",
   "keywords": [
     "astro",
@@ -16,7 +17,9 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "prebuild": "node scripts/fetch-contributors.js",
+    "prebuild": "node --env-file-if-exists=.env scripts/fetch-contributors.js && node --env-file-if-exists=.env scripts/fetch-sponsors.js",
+    "fetch:sponsors": "node --env-file-if-exists=.env scripts/fetch-sponsors.js",
+    "fetch:contributors": "node --env-file-if-exists=.env scripts/fetch-contributors.js",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
