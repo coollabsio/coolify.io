@@ -146,6 +146,7 @@ async function fetchOpenCollective() {
           totalCount
           nodes {
             role
+            isActive
             tier { name amount { value currency } interval }
             account {
               type
@@ -200,6 +201,7 @@ function transformOpenCollective(nodes, known) {
   let skippedKnown = 0;
 
   for (const node of nodes) {
+    if (node.isActive === false) continue;
     const tier = node.tier;
     if (!tier || tier.interval !== 'month') continue; // monthly only
     const amount = tier.amount?.value ?? 0;
@@ -372,7 +374,10 @@ async function main() {
 
     const activeLogins = new Set([
       ...ghNodes.map((n) => n.sponsorEntity?.login?.toLowerCase()).filter(Boolean),
-      ...ocNodes.map((n) => n.account?.slug?.toLowerCase()).filter(Boolean),
+      ...ocNodes
+        .filter((n) => n.isActive !== false)
+        .map((n) => n.account?.slug?.toLowerCase())
+        .filter(Boolean),
     ]);
     const staleSponsors = [...known.logins]
       .filter((l) => !activeLogins.has(l) && !known.offPlatform.has(l))

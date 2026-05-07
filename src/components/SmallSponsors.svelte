@@ -31,11 +31,6 @@
       imageUrl: "https://github.com/youstable.png",
     },
     {
-      name: "SneakersAPI",
-      url: "https://kicks.dev/?utm_source=coolify.io",
-      imageUrl: "https://github.com/SneakersAPI.png",
-    },
-    {
       name: "Transcript LOL",
       url: "https://transcript.lol/?utm_source=coolify.io",
       imageUrl: "https://transcript.lol/logo.png",
@@ -56,19 +51,9 @@
       imageUrl: "https://github.com/ULTRASERVERS.png",
     },
     {
-      name: "pkpio",
-      url: "https://pkp.io?utm_source=coolify.io",
-      imageUrl: "https://github.com/pkpio.png",
-    },
-    {
       name: "VibeTone",
       url: "https://vibetone.com/?utm_source=coolify.io",
       imageUrl: "https://github.com/vibetonefm.png",
-    },
-    {
-      name: "Catalin Pit",
-      url: "https://catalins.tech/?utm_source=coolify.io",
-      imageUrl: "https://github.com/catalinpit.png",
     },
     {
       name: "Piloterr",
@@ -117,16 +102,6 @@
       imageUrl: "/images/fivemanage.jpg",
     },
     {
-      name: "Darren Beale",
-      url: "https://siftware.com?utm_source=coolify.io",
-      imageUrl: "https://github.com/bealers.png",
-    },
-    {
-      name: "Creating Coding Careers",
-      url: "https://cccareers.org/?utm_source=coolify.io",
-      imageUrl: "https://github.com/cccareers.png",
-    },
-    {
       name: "Crypto Jobs List",
       url: "https://cryptojobslist.com/?utm_source=coolify.io",
       imageUrl: "https://github.com/cryptojobslist.png",
@@ -155,11 +130,6 @@
     },
 
     {
-      name: "Startup Fame",
-      url: "https://startupfa.me?utm_source=coolify.io",
-      imageUrl: "https://github.com/startupfame.png",
-    },
-    {
       name: "Cirun",
       url: "https://cirun.io/?utm_source=coolify.io",
       imageUrl: "/images/cirun-logo.png",
@@ -177,21 +147,11 @@
       isSpecial: true,
     },
     {
-      name: "BitLaunch",
-      url: "https://bitlaunch.io/?utm_source=coolify.io",
-      imageUrl: "https://github.com/bitlaunchio.png",
-    },
-    {
       name: "Internet Garden",
       url: "https://internetgarden.co/?utm_source=coolify.io",
       imageUrl: "/images/internetgarden.ico",
 
       isPublicImage: true,
-    },
-    {
-      name: "Jonas Jaeger",
-      url: "https://jonasjaeger.com?utm_source=coolify.io",
-      imageUrl: "https://github.com/toxin20.png",
     },
     // {
     //   name: "TheRealJP",
@@ -202,11 +162,6 @@
       name: "Evercam",
       url: "https://evercam.io/?utm_source=coolify.io",
       imageUrl: "https://github.com/evercam.png",
-    },
-    {
-      name: "Formbricks",
-      url: "https://formbricks.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/formbricks.png",
     },
     {
       name: "Web3 Jobs",
@@ -246,16 +201,6 @@
       imageUrl: "https://github.com/gravitywiz.png",
     },
     {
-      name: "Flint-company",
-      url: "https://www.flint.sh/en/home?utm_source=coolify.io",
-      imageUrl: "https://github.com/Flint-company.png",
-    },
-    {
-      name: "Thompson Edolo",
-      url: "https://x.com/mrsmith9ja?utm_source=coolify.io",
-      imageUrl: "https://github.com/verygreenboi.png",
-    },
-    {
       name: "UXWizz",
       url: "https://www.uxwizz.com/?utm_source=coolify.io",
       imageUrl: "https://github.com/UXWizz.png",
@@ -264,63 +209,6 @@
       name: "Codext",
       url: "https://codext.link/coolify-io?utm_source=coolify.io",
       imageUrl: "/images/codext.jpg",
-    },
-    {
-      name: "Lightspeed.run",
-      url: "https://lightspeed.run/?utm_source=coolify.io",
-      imageUrl: "https://github.com/lightspeedrun.png",
-
-      customStyle: "rounded bg-white",
-    },
-    {
-      name: "Younes Barrad",
-      url: "https://barrad.me/?utm_source=coolify.io",
-      imageUrl: "https://github.com/Flowko.png",
-    },
-    {
-      name: "Corentin Clichy",
-      url: "https://github.com/corentinclichy",
-      imageUrl: "https://github.com/corentinclichy.png",
-    },
-    {
-      name: "Niklas Lausch",
-      url: "https://github.com/Niki2k1",
-      imageUrl: "https://github.com/Niki2k1.png",
-    },
-    {
-      name: "Pixel Infinito",
-      url: "https://pixel.ao/?utm_source=coolify.io",
-      imageUrl: "https://github.com/pixelinfinito.png",
-    },
-    {
-      name: "Tyler Whitesides",
-      url: "https://github.com/whitesidest",
-      imageUrl: "https://avatars.githubusercontent.com/u/12365916?s=52&v=4",
-    },
-    {
-      name: "NiftyCo",
-      url: "https://github.com/aniftyco",
-      imageUrl: "https://github.com/aniftyco.png",
-    },
-    {
-      name: "Imre Ujlaki",
-      url: "https://github.com/iujlaki",
-      imageUrl: "https://github.com/iujlaki.png",
-    },
-    {
-      name: "Paweł Pierścionek",
-      url: "https://github.com/urtho",
-      imageUrl: "https://github.com/urtho.png",
-    },
-    {
-      name: "Michael Mazurczak",
-      url: "https://github.com/monocursive",
-      imageUrl: "https://github.com/monocursive.png",
-    },
-    {
-      name: "Server Searcher",
-      url: "https://www.serversearcher.com/",
-      imageUrl: "https://github.com/serversearcher.png",
     },
     {
       name: "InterviewPal",

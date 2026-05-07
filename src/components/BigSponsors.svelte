@@ -81,13 +81,6 @@
         //     imageKey: "wzit.png",
         // },
         {
-            name: "Formbricks",
-            url: "https://formbricks.com",
-            description: "The open source feedback platform",
-            imageKey: "formbricks.svg",
-            imageStyle: "width: auto; height: 75px; max-height: none;",
-        },
-        {
             name: "Tolgee",
             url: "https://tolgee.io",
             description: "The open source localization platform",
