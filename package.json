@@ -17,7 +17,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "prebuild": "node --env-file-if-exists=.env scripts/fetch-contributors.js && node --env-file-if-exists=.env scripts/fetch-sponsors.js",
+    "prebuild": "node --env-file-if-exists=.env scripts/fetch-contributors.js",
     "fetch:sponsors": "node --env-file-if-exists=.env scripts/fetch-sponsors.js",
     "fetch:contributors": "node --env-file-if-exists=.env scripts/fetch-contributors.js",
     "build": "astro build",
