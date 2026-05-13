@@ -181,6 +181,7 @@
             imageKey: "blacksmith.svg",
             imageStyle: "width: auto; height: 40px; max-height: none;",
         },
+        // gh: arjunkomath (Arjun Komath)
         {
             name: "Capture.page",
             url: "https://capture.page/",
@@ -313,14 +314,6 @@
             description: "Fast and reliable virtual server hosting",
             imageKey: "lumadock.png",
             imageStyle: "width: auto; height: 36px; max-height: none;",
-        },
-        // gh: arjunkomath
-        {
-            name: "Techulus",
-            url: "https://techulus.com",
-            description: "Arjun Komath — building developer tools and SaaS at Techulus.",
-            imageKey: "arjunkomath.png",
-            imageStyle: "width: auto; height: 56px; max-height: none; border-radius: 50%;",
         },
     ];
 
