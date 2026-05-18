@@ -28,7 +28,7 @@
         {
             name: "PrivateAlps",
             url: "https://privatealps.net",
-            description: "Cloud Services Provider, VPS, servers Infrastructure for people who care about privacy and control",
+            description: "Cloud Services Provider, VPS, servers infrastructure for people who care about privacy and control",
             imageKey: "privatealps.png",
             hugeImageStyle: "width: min(95%, 360px); height: auto; max-height: none;",
         },
