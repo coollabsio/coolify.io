@@ -25,13 +25,6 @@
             imageKey: "ramnode.png",
         },
         {
-            name: "Context.dev",
-            url: "https://context.dev",
-            description:
-                "API to personalize your product with logos, colors, and company info from any domain.",
-            imageKey: "contextdev.png",
-        },
-        {
             name: "23M",
             url: "https://23m.com",
             description:
