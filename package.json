@@ -37,7 +37,7 @@
     "svelte": "^5.49.1",
     "swiper": "11.2.6",
     "tailwindcss": "^4.2.4",
-    "typescript": "^5.6.3"
+    "typescript": "^6.0.3"
   },
   "overrides": {
     "rollup": "npm:@rollup/wasm-node@^4.60.3"
