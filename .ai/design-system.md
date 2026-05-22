@@ -1825,7 +1825,7 @@ Replace "Coolify" with the product name when adapting. Everything else stays ide
 #### Live stats script (same for both pages):
 ```html
 <script>
-  fetch("https://cdn-new.coollabs.io/business.json")
+  fetch("https://raw.githubusercontent.com/coollabsio/coollabs-cdn/main/json/business.json")
     .then((res) => res.json())
     .then((data) => {
       const hostedEl = document.getElementById("hosted-mrr");
@@ -1857,7 +1857,7 @@ Replace "Coolify" with the product name when adapting. Everything else stays ide
 #### Adaptation notes for new products:
 - Replace product name in `<title>` and `<meta description>`
 - Replace product URLs in stats card `href` values (MRR, Cloud Users links)
-- Stats `id` attributes and API JSON keys stay the same — all products share `cdn-new.coollabs.io/business.json`
+- Stats `id` attributes and API JSON keys stay the same — all products share `raw.githubusercontent.com/coollabsio/coollabs-cdn/main/json/business.json`
 - Update fallback values in `catch` block per product
 - Philosophy page uses "Support Us" as button sub-label; Sponsorships page uses "Donation"
 - The "Where We Are Today" stats section can be omitted for products without cloud stats, but always keep donation buttons + closing section
