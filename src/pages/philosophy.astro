@@ -309,6 +309,11 @@ import Layout from "../layouts/Layout.astro";
           openCollectiveEl.textContent =
             data["open-collective-sponsors"].toLocaleString();
         }
+        const cloudUsersEl = document.getElementById("cloud-users");
+        if (cloudUsersEl && data["coolify-cloud-users"]) {
+          cloudUsersEl.textContent =
+            data["coolify-cloud-users"].toLocaleString();
+        }
       })
       .catch(() => {
         const hostedEl = document.getElementById("hosted-mrr");
@@ -322,6 +327,10 @@ import Layout from "../layouts/Layout.astro";
         const openCollectiveEl = document.getElementById("open-collective");
         if (openCollectiveEl) {
           openCollectiveEl.textContent = "1,200";
+        }
+        const cloudUsersEl = document.getElementById("cloud-users");
+        if (cloudUsersEl) {
+          cloudUsersEl.textContent = "3,641";
         }
       });
   </script>

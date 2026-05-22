@@ -666,6 +666,17 @@ const isDev = import.meta.env.DEV;
     <span class="sm:hidden">Jump to Features</span>
   </a>
   <script>
+    fetch("https://raw.githubusercontent.com/coollabsio/coollabs-cdn/main/json/business.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const cloudUsersEl = document.getElementById("cloud-users");
+        if (cloudUsersEl && data["coolify-cloud-users"]) {
+          cloudUsersEl.textContent =
+            data["coolify-cloud-users"].toLocaleString();
+        }
+      })
+      .catch(() => {});
+
     // Smooth scroll for skip to features button
     const skipButton = document.getElementById("skip-to-features");
     skipButton?.addEventListener("click", (e) => {
