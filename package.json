@@ -22,7 +22,8 @@
     "fetch:contributors": "node --env-file-if-exists=.env scripts/fetch-contributors.js",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
