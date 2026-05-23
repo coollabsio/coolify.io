@@ -3,306 +3,10 @@
 
     const ref = "coolify.io";
 
-    const sponsors = [
-        // off-platform: cloudways
-        {
-            name: "Cloudways",
-            url: "https://www.cloudways.com/en/?id=2125302",
-            description: "Managed cloud hosting platform by DigitalOcean",
-            imageKey: "cloudways.svg",
-            pinned: true,
-        },
-        {
-            name: "ByteBase",
-            url: "https://www.bytebase.com",
-            description: "Database CI/CD and Security at Scale",
-            imageKey: "bytebase-white.svg",
-        },
-        {
-            name: "Ramnode",
-            url: "https://ramnode.com/",
-            description: "High Performance Cloud VPS Hosting",
-            imageKey: "ramnode.png",
-        },
-        {
-            name: "23M",
-            url: "https://23m.com",
-            description:
-                "Your experts for high-availability hosting solutions!",
-            imageKey: "23mlogo.svg",
-        },
-        {
-            name: "Macarne",
-            url: "https://macarne.com",
-            description:
-                "Best IP Transit & Carrier Ethernet Solutions for Simplified Network Connectivity",
-            imageKey: "macarne.svg",
-        },
-        // off-platform: hetzner
-        {
-            name: "Hetzner",
-            url: "http://htznr.li/CoolifyXHetzner",
-            description: "Server, cloud, hosting, and data center solutions",
-            imageKey: "hetzner.jpg",
-            imageStyle: "width: auto; height: 60px; max-height: none;",
-            pinned: true,
-        },
-        {
-            name: "Logto",
-            url: "https://logto.io",
-            description: "The better identity infrastructure for developers",
-            imageKey: "logto.webp",
-        },
-        {
-            name: "Supadata",
-            url: "https://supadata.ai/",
-            description:
-                "Scrape YouTube, web, and files. Get AI-ready, clean data for your next project. ",
-            imageKey: "supadata.svg",
-        },
-        // {
-        //     name: "WZ-IT",
-        //     url: "https://wz-it.com/",
-        //     description:
-        //         "German agency for customised cloud solutions, migration, managed services and open source hosting, specialising in consulting and implementation of tailor-made cloud infrastructures for SMEs.",
-        //     imageKey: "wzit.png",
-        // },
-        {
-            name: "Tolgee",
-            url: "https://tolgee.io",
-            description: "The open source localization platform",
-            imageKey: "tolgee.svg",
-            additionalContent: "Tolgee",
-        },
-        // gh: unpseudocomplique
-        {
-            name: "Best Consultant",
-            url: "https://bc.direct",
-            description: "Your trusted technology consulting partner",
-            imageKey: "bc.png",
-        },
-        // {
-        //     name: "QuantCDN",
-        //     url: "https://www.quantcdn.io",
-        //     description: "Enterprise-grade content delivery network",
-        //     imageKey: "quant.svg",
-        // },
-        {
-            name: "ArcJet",
-            url: "https://arcjet.com",
-            description: "Advanced web security and performance solutions",
-            imageKey: "arcjet.svg",
-        },
-        {
-            name: "SupaGuide",
-            url: "https://supa.guide",
-            description: "Your comprehensive guide to Supabase",
-            imageKey: "supaguide.png",
-        },
-        {
-            name: "CodeRabbit",
-            url: "https://coderabbit.ai",
-            description: "Cut Code Review Time & Bugs in Half",
-            imageKey: "coderabbit.svg",
-            pinned: true,
-        },
-        // gh: waynesutton
-        {
-            name: "Convex",
-            url: "https://convex.link/coolify.io",
-            description:
-                "Convex is the open-source reactive database for web app developers.",
-            imageKey: "convex.svg",
-            imageStyle: "width: auto; height: 60px; max-height: none;",
-        },
-        {
-            name: "GoldenVM",
-            url: "https://billing.goldenvm.com",
-            description: "Premium virtual machine hosting solutions",
-            imageKey: "goldenvm.png",
-        },
-        {
-            name: "Comit International",
-            url: "https://comit.international",
-            description: "New York Times award–winning contractor!",
-            imageKey: "comit.svg",
-        },
-        // {
-        //     name: "This could be you",
-        //     url: "https://github.com/sponsors/coollabsio/sponsorships?tier_id=334953&preview=false",
-        //     description: "Become a sponsor",
-        //     isSpecial: false,
-        //     tier: "special",
-        // },
-        {
-            name: "Compai",
-            url: "https://www.trycomp.ai",
-            description:
-                "The open source compliance automation platform that does everything you need to get compliant, fast. Open source alternative to Drata & Vanta.",
-            imageKey: "compai.svg",
-        },
-        {
-            name: "Tigris",
-            url: "https://www.tigrisdata.com",
-            description: "Modern S3 Alternative",
-            imageKey: "tigris.svg",
-        },
-        // {
-        //     name: "Cloudify",
-        //     url: "https://cloudify.ro",
-        //     description: "Cloud hosting solutions",
-        //     imageKey: "cloudify.svg",
-        // },
-        // {
-        //     name: "Trieve",
-        //     url: "https://trieve.ai",
-        //     description: "AI-powered search and analytics",
-        //     imageKey: "trieve-logo.png",
+    const SPONSORS_URL =
+        "https://raw.githubusercontent.com/coollabsio/coollabs-cdn/main/json/sponsors.json";
 
-        //     additionalContent: "Trieve",
-        // },
-        {
-            name: "Blacksmith",
-            url: "https://blacksmith.sh",
-            description: "Infrastructure automation platform",
-            imageKey: "blacksmith.svg",
-            imageStyle: "width: auto; height: 40px; max-height: none;",
-        },
-        // gh: arjunkomath (Arjun Komath)
-        {
-            name: "Capture.page",
-            url: "https://capture.page/",
-            description: "Fast & Reliable Screenshot API for Developers",
-            imageKey: "capture-page.png",
-            imageStyle: "width: auto; height: 50px; max-height: none;",
-        },
-        {
-            name: "JobsCollider",
-            url: "https://jobscollider.com/remote-jobs",
-            description: "30,000+ remote jobs for developers",
-            imageKey: "jobscollider.svg",
-            imageStyle: "width: auto; height: 42px; max-height: none;",
-        },
-        {
-            name: "Darweb",
-            url: "https://darweb.nl/?ref=coolify.io&utm_source=coolify.io",
-            description:
-                "Design. Develop. Deliver. Specialized in 3D CPQ Solutions for eCommerce.",
-            imageKey: "darweb.svg",
-        },
-        {
-            name: "Hostinger",
-            url: "https://www.hostinger.com/vps/coolify-hosting",
-            description: "Web hosting and VPS solutions",
-            imageKey: "hostinger.svg",
-            imageStyle: "width: auto; height: 40px; max-height: none;",
-        },
-        {
-            name: "Mobb",
-            url: "https://vibe.mobb.ai/",
-            description:
-                "Secure Your AI-Generated Code to Unlock Dev Productivity",
-            imageKey: "mobb.svg",
-        },
-        // {
-        //     name: "GlueOps",
-        //     url: "https://www.glueops.dev",
-        //     description: "DevOps automation and infrastructure management",
-        //     imageKey: "glueops.webp",
-        //     additionalContent: "GlueOps",
-        // },
-        // {
-        //     name: "How long is this???",
-        //     url: "https://github.com/sponsors/coollabsio/sponsorships?tier_id=334953&preview=false",
-        //     description: "Become a sponsor",
-        //     isSpecial: true,
-        //     tier: "special",
-        // },
-        {
-            name: "Ubicloud",
-            url: "https://www.ubicloud.com",
-            description: "Open source cloud infrastructure platform",
-            imageKey: "ubicloud.svg",
-        },
-        {
-            name: "PFGLabs",
-            url: "https://pfglabs.com",
-            description: "Build Real Projects with Golang",
-            imageKey: "pfglabs.svg",
-            imageStyle: "width: auto; height: 40px; max-height: none;",
-            additionalContent: "PFGLabs",
-        },
-        {
-            name: "JuxtDigital",
-            url: "https://juxtdigital.com",
-            description: "Digital PR & AI Authority Building Agency",
-            imageKey: "juxtdigital.png",
-        },
-        {
-            name: "SaasyKit",
-            url: "https://saasykit.com",
-            description: "Complete SaaS starter kit for developers",
-            imageKey: "sassykit.jpeg",
-            imageStyle: "width: auto; height: 60px; max-height: none;",
-        },
-        // {
-        //     name: "MassiveGrid",
-        //     url: "https://massivegrid.com",
-        //     description: "Enterprise cloud hosting solutions",
-        //     imageKey: "massivegrid.svg",
-        // },
-        {
-            name: "American Cloud",
-            url: "https://americancloud.com",
-            description: "US-based cloud infrastructure services",
-            imageKey: "americancloud.svg",
-            imageStyle: "width: auto; height: 60px; max-height: none;",
-        },
-        {
-            name: "LiquidWeb",
-            url: "https://liquidweb.com",
-            description: "Premium managed hosting solutions",
-            imageKey: "liquid.svg",
-        },
-        {
-            name: "Greptile",
-            url: "https://www.greptile.com",
-            description: "The AI Code Reviewer",
-            imageKey: "greptile.svg",
-        },
-        {
-            name: "VPSDime",
-            url: "https://vpsdime.com/",
-            description: "Cheap VPS Hosting - 4GB for $5/month",
-            imageKey: "vpsdime-logo.svg",
-        },
-        {
-            name: "dataforest Cloud",
-            url: "https://cloud.dataforest.net/en",
-            description: "Deploy cloud servers as seeds independently in seconds. Enterprise hardware, premium network, 100% made in Germany.",
-            imageKey: "dataforest.svg",
-        },
-        {
-            name: "ISHosting",
-            url: "https://ishosting.com/",
-            description: "Hosting and VPS solutions",
-            imageKey: "ishosting.svg",
-            imageStyle: "width: auto; height: 60px; max-height: none;",
-        },
-        {
-            name: "PetroSky Cloud",
-            url: "https://petrosky.io",
-            description: "Open source cloud deployment solutions",
-            imageKey: "petrosky.svg",
-        },
-        {
-            name: "LumaDock",
-            url: "https://lumadock.com/vps-hosting/coolify?utm_source=coolify&utm_medium=sponsorship&utm_campaign=coolify_oss_sponsor_2026&utm_content=landing_footer",
-            description: "Fast and reliable virtual server hosting",
-            imageKey: "lumadock.png",
-            imageStyle: "width: auto; height: 36px; max-height: none;",
-        },
-    ];
+    let sponsorsWithRef = [];
 
     function shuffleArray(array) {
         const shuffled = [...array];
@@ -320,21 +24,30 @@
             : `${sponsor.url}?ref=${ref}&utm_source=${ref}`,
     });
 
-    const pinned = shuffleArray(sponsors.filter((s) => s.pinned).map(addRef));
-    const unpinned = shuffleArray(sponsors.filter((s) => !s.pinned).map(addRef));
-    const sponsorsWithRef = [...pinned, ...unpinned];
-
     let descriptionContainer;
     let descriptionText;
     let sponsorsGridElement;
 
-    onMount(() => {
-        const sponsorItems =
-            sponsorsGridElement.querySelectorAll(".sponsor-card");
-        sponsorItems.forEach((item, index) => {
-            item.style.animationDelay = `${index * 50}ms`;
-            item.classList.add("animate-in");
-        });
+    onMount(async () => {
+        try {
+            const response = await fetch(SPONSORS_URL);
+            const data = await response.json();
+            const sponsors = data.tiers?.big ?? [];
+            const pinned = shuffleArray(sponsors.filter((s) => s.pinned).map(addRef));
+            const unpinned = shuffleArray(sponsors.filter((s) => !s.pinned).map(addRef));
+            sponsorsWithRef = [...pinned, ...unpinned];
+
+            setTimeout(() => {
+                const sponsorItems =
+                    sponsorsGridElement.querySelectorAll(".sponsor-card");
+                sponsorItems.forEach((item, index) => {
+                    item.style.animationDelay = `${index * 50}ms`;
+                    item.classList.add("animate-in");
+                });
+            });
+        } catch (error) {
+            console.error("Failed to load big sponsors", error);
+        }
     });
 </script>
 
@@ -366,7 +79,7 @@
                         {:else}
                             <div class="sponsor-image-container">
                                 <img
-                                    src={`/images/${sponsor.imageKey}`}
+                                    src={sponsor.imagePath ?? `/images/${sponsor.imageKey}`}
                                     loading="eager"
                                     alt={sponsor.description}
                                     class="sponsor-image {sponsor.imageKey ===

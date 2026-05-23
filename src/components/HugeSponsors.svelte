@@ -1,51 +1,12 @@
 <script>
+    import { onMount } from "svelte";
+
     const ref = "coolify.io";
 
-    const hugeSponsors = [
-        // off-platform: serpapi until 2027-02-01
-        {
-            name: "SerpAPI",
-            url: "https://serpapi.com",
-            description: "Google Search API — Scrape Google and other search engines from our fast, easy, and complete API.",
-            imageKey: "serpapi.png",
-            hugeImageStyle: "width: auto; height: 80px; max-width: 100%;",
-        },
-        {
-            name: "MVPS",
-            url: "https://www.mvps.net",
-            description: "Cheap VPS servers at the highest possible quality",
-            imageKey: "mvps.png",
-            hugeImageStyle: "width: min(95%, 360px); height: auto; max-height: none;",
-            hugeCardStyle: "padding-inline: 1rem;",
-        },
-        {
-            name: "ScreenshotOne",
-            url: "https://screenshotone.com",
-            description: "Screenshot API for devs",
-            imageKey: "screenshotone.svg",
-            hugeImageStyle: "width: 100%; height: auto; max-height: none; transform: scale(1.2);",
-        },
-        {
-            name: "PrivateAlps",
-            url: "https://privatealps.net",
-            description: "Cloud Services Provider, VPS, servers infrastructure for people who care about privacy and control",
-            imageKey: "privatealps.png",
-            hugeImageStyle: "width: min(95%, 360px); height: auto; max-height: none;",
-        },
-        {
-            name: "Seibert Group",
-            url: "https://seibert.link/coolifysoftware",
-            description: "Boost productivity company-wide with AI agents like Claude Code",
-            imageKey: "seibert.png",
-            hugeImageStyle: "width: min(80%, 280px); height: auto; max-height: 140px;",
-        },
-        {
-            name: "Your Company",
-            url: "https://github.com/sponsors/coollabsio",
-            description: "Become a huge sponsor",
-            isPlaceholder: true,
-        },
-    ];
+    const SPONSORS_URL =
+        "https://raw.githubusercontent.com/coollabsio/coollabs-cdn/main/json/sponsors.json";
+
+    let hugeSponsorsWithRef = [];
 
     function shuffleArray(array) {
         const shuffled = [...array];
@@ -63,8 +24,16 @@
             : `${sponsor.url}?ref=${ref}&utm_source=${ref}`,
     });
 
-    const realHuge = hugeSponsors.filter((s) => !s.isPlaceholder).map(addRef);
-    const hugeSponsorsWithRef = shuffleArray(realHuge);
+    onMount(async () => {
+        try {
+            const response = await fetch(SPONSORS_URL);
+            const data = await response.json();
+            const realHuge = (data.tiers?.huge ?? []).map(addRef);
+            hugeSponsorsWithRef = shuffleArray(realHuge);
+        } catch (error) {
+            console.error("Failed to load huge sponsors", error);
+        }
+    });
 </script>
 
 {#if hugeSponsorsWithRef.length > 0}
@@ -76,7 +45,7 @@
                     <div class="sponsor-card huge" style={sponsor.hugeCardStyle}>
                         <div class="sponsor-image-container">
                             <img
-                                src={`/images/${sponsor.imageKey}`}
+                                src={sponsor.imagePath ?? `/images/${sponsor.imageKey}`}
                                 loading="eager"
                                 alt={sponsor.description}
                                 class="sponsor-image huge-image"
