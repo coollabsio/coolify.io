@@ -33,6 +33,13 @@
             hugeImageStyle: "width: min(95%, 360px); height: auto; max-height: none;",
         },
         {
+            name: "Seibert Group",
+            url: "https://seibert.link/coolifysoftware",
+            description: "Boost productivity company-wide with AI agents like Claude Code",
+            imageKey: "seibert.png",
+            hugeImageStyle: "width: min(80%, 280px); height: auto; max-height: 140px;",
+        },
+        {
             name: "Your Company",
             url: "https://github.com/sponsors/coollabsio",
             description: "Become a huge sponsor",
@@ -104,10 +111,16 @@
     }
 
     .huge-sponsors-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 1.5rem;
         margin-bottom: 1.5rem;
+    }
+
+    .huge-sponsors-grid .tooltip {
+        flex: 1 1 280px;
+        max-width: 312px;
     }
 
     .sponsor-card {
@@ -128,9 +141,10 @@
     }
 
     .sponsor-card.huge {
+        box-sizing: border-box;
         padding: 2.25rem 2rem;
         width: 100%;
-        min-height: 200px;
+        height: 200px;
         border: 1px solid rgba(107, 22, 237, 0.35);
         background: linear-gradient(
             135deg,
@@ -296,15 +310,18 @@
     }
 
     @media (max-width: 1024px) {
-        .huge-sponsors-grid {
-            grid-template-columns: repeat(2, 1fr);
+        .huge-sponsors-grid .tooltip {
+            max-width: calc(50% - 0.75rem);
         }
     }
 
     @media (max-width: 640px) {
         .huge-sponsors-grid {
-            grid-template-columns: 1fr;
             padding-inline: 1rem;
+        }
+
+        .huge-sponsors-grid .tooltip {
+            max-width: 100%;
         }
 
         .sponsor-card {
@@ -312,7 +329,7 @@
         }
 
         .sponsor-card.huge {
-            min-height: 120px;
+            height: 140px;
             padding: 1.75rem 1.5rem;
         }
 
