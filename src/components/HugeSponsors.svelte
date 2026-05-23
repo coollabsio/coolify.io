@@ -45,7 +45,7 @@
                     <div class="sponsor-card huge" style={sponsor.hugeCardStyle}>
                         <div class="sponsor-image-container">
                             <img
-                                src={sponsor.imagePath ?? `/images/${sponsor.imageKey}`}
+                                src={sponsor.imageUrl ?? sponsor.imagePath ?? `/images/${sponsor.imageKey}`}
                                 loading="eager"
                                 alt={sponsor.description}
                                 class="sponsor-image huge-image"
