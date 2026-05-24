@@ -1,10 +1,8 @@
 <script>
     import { onMount } from "svelte";
+    import sponsorsData from "../data/sponsors.json";
 
     const ref = "coolify.io";
-
-    const SPONSORS_URL =
-        "https://raw.githubusercontent.com/coollabsio/coollabs-cdn/main/json/sponsors.json";
 
     let sponsorsWithRef = [];
 
@@ -30,9 +28,7 @@
 
     onMount(async () => {
         try {
-            const response = await fetch(SPONSORS_URL);
-            const data = await response.json();
-            const sponsors = data.tiers?.big ?? [];
+            const sponsors = sponsorsData.tiers?.big ?? [];
             const pinned = shuffleArray(sponsors.filter((s) => s.pinned).map(addRef));
             const unpinned = shuffleArray(sponsors.filter((s) => !s.pinned).map(addRef));
             sponsorsWithRef = [...pinned, ...unpinned];
@@ -79,7 +75,7 @@
                         {:else}
                             <div class="sponsor-image-container">
                                 <img
-                                    src={`/images/${sponsor.imageKey}`}
+                                    src={sponsor.imageUrl ?? `/images/${sponsor.imageKey}`}
                                     loading="eager"
                                     alt={sponsor.description}
                                     class="sponsor-image {sponsor.imageKey ===

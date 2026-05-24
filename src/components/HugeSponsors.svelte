@@ -1,10 +1,8 @@
 <script>
     import { onMount } from "svelte";
+    import sponsorsData from "../data/sponsors.json";
 
     const ref = "coolify.io";
-
-    const SPONSORS_URL =
-        "https://raw.githubusercontent.com/coollabsio/coollabs-cdn/main/json/sponsors.json";
 
     let hugeSponsorsWithRef = [];
 
@@ -26,9 +24,7 @@
 
     onMount(async () => {
         try {
-            const response = await fetch(SPONSORS_URL);
-            const data = await response.json();
-            const realHuge = (data.tiers?.huge ?? []).map(addRef);
+            const realHuge = (sponsorsData.tiers?.huge ?? []).map(addRef);
             hugeSponsorsWithRef = shuffleArray(realHuge);
         } catch (error) {
             console.error("Failed to load huge sponsors", error);
@@ -45,7 +41,7 @@
                     <div class="sponsor-card huge" style={sponsor.hugeCardStyle}>
                         <div class="sponsor-image-container">
                             <img
-                                src={`/images/${sponsor.imageKey}`}
+                                src={sponsor.imageUrl ?? `/images/${sponsor.imageKey}`}
                                 loading="eager"
                                 alt={sponsor.description}
                                 class="sponsor-image huge-image"
