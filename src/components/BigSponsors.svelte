@@ -79,7 +79,7 @@
                         {:else}
                             <div class="sponsor-image-container">
                                 <img
-                                    src={sponsor.imageUrl ?? sponsor.imagePath ?? `/images/${sponsor.imageKey}`}
+                                    src={`/images/${sponsor.imageKey}`}
                                     loading="eager"
                                     alt={sponsor.description}
                                     class="sponsor-image {sponsor.imageKey ===
