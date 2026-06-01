@@ -416,7 +416,9 @@
         "imagePath": "/sponsors/lumadock.png",
         "imageUrl": "https://raw.githubusercontent.com/coollabsio/coollabs-cdn/main/images/sponsors/lumadock.png",
         "tier": "big"
-      },
+      }
+    ],
+    "small": [
       {
         "name": "Host Havoc",
         "url": "https://hosthavoc.com",
@@ -424,7 +426,7 @@
         "imageKey": "hosthavoc.png",
         "imagePath": "/sponsors/hosthavoc.png",
         "imageUrl": "https://raw.githubusercontent.com/coollabsio/coollabs-cdn/main/images/sponsors/hosthavoc.png",
-        "tier": "big",
+        "tier": "small",
         "offPlatform": {
           "aliases": [
             "hosthavoc"
