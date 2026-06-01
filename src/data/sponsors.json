@@ -416,6 +416,20 @@
         "imagePath": "/sponsors/lumadock.png",
         "imageUrl": "https://raw.githubusercontent.com/coollabsio/coollabs-cdn/main/images/sponsors/lumadock.png",
         "tier": "big"
+      },
+      {
+        "name": "Host Havoc",
+        "url": "https://hosthavoc.com",
+        "description": "Game server hosting, VPS, and dedicated server hosting",
+        "imageKey": "hosthavoc.png",
+        "imagePath": "/sponsors/hosthavoc.png",
+        "imageUrl": "https://raw.githubusercontent.com/coollabsio/coollabs-cdn/main/images/sponsors/hosthavoc.png",
+        "tier": "big",
+        "offPlatform": {
+          "aliases": [
+            "hosthavoc"
+          ]
+        }
       }
     ]
   }
