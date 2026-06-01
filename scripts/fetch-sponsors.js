@@ -87,7 +87,7 @@ function collectKnownTokens() {
     if (!sponsor || typeof sponsor !== 'object') return;
     const h = hostFromUrl(sponsor.url || sponsor.websiteUrl);
     if (h && h !== 'github.com') hosts.add(h);
-    for (const imageValue of [sponsor.imageKey, sponsor.imagePath, sponsor.imageUrl]) {
+    for (const imageValue of [sponsor.image?.key, sponsor.image?.path, sponsor.image?.url, sponsor.imageKey, sponsor.imagePath, sponsor.imageUrl]) {
       if (!imageValue || typeof imageValue !== 'string') continue;
       const base = imageValue.split('/').pop().replace(/\.[a-z0-9]+$/i, '').toLowerCase();
       const head = base.split(/[-_]/)[0];

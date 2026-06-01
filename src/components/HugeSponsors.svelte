@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import sponsorsData from "../data/sponsors.json";
+    import sponsorsData from "../data/sponsors.js";
 
     const ref = "coolify.io";
 
@@ -41,7 +41,7 @@
                     <div class="sponsor-card huge" style={sponsor.hugeCardStyle}>
                         <div class="sponsor-image-container">
                             <img
-                                src={sponsor.imageUrl ?? `/images/${sponsor.imageKey}`}
+                                src={sponsor.image?.url}
                                 loading="eager"
                                 alt={sponsor.description}
                                 class="sponsor-image huge-image"

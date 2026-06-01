@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import sponsorsData from "../data/sponsors.json";
+    import sponsorsData from "../data/sponsors.js";
 
     const ref = "coolify.io";
 
@@ -75,10 +75,10 @@
                         {:else}
                             <div class="sponsor-image-container">
                                 <img
-                                    src={sponsor.imageUrl ?? `/images/${sponsor.imageKey}`}
+                                    src={sponsor.image?.url}
                                     loading="eager"
                                     alt={sponsor.description}
-                                    class="sponsor-image {sponsor.imageKey ===
+                                    class="sponsor-image {sponsor.image?.key ===
                                     '23mlogo.svg'
                                         ? 'logo-23m'
                                         : ''}"
