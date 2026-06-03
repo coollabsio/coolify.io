@@ -4,148 +4,15 @@
   import { onMount } from "svelte";
   import IconRunpod from "./Icons/IconRunpod.svelte";
 
-  const sponsors = [
-    {
-      name: "Vanaways",
-      url: "https://vanaways.co.uk/?utm_source=coolify.io",
-      imageUrl: "https://github.com/Vanaways.png",
-      newest: true,
-    },
-    {
-      name: "Netrouting",
-      url: "https://www.netrouting.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/netroutingcom.png",
-    },
-    {
-      name: "MindEd Tech",
-      url: "https://github.com/mindedtech",
-      imageUrl: "https://github.com/mindedtech.png",
-    },
-    {
-      name: "YouStable",
-      url: "https://youstable.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/youstable.png",
-    },
-    {
-      name: "Transcript LOL",
-      url: "https://transcript.lol/?utm_source=coolify.io",
-      imageUrl: "https://transcript.lol/logo.png",
-    },
-    {
-      name: "Autom",
-      url: "https://www.autom.dev/?utm_source=coolify.io",
-      imageUrl: "/images/autom.png",
-    },
-    {
-      name: "HuntAPI",
-      url: "https://www.huntapi.com/?utm_source=coolify.io",
-      imageUrl: "/images/huntapi.png",
-    },
-    {
-      name: "ULTRASERVERS",
-      url: "https://ultraservers.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/ULTRASERVERS.png",
-    },
-    {
-      name: "VibeTone",
-      url: "https://vibetone.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/vibetonefm.png",
-    },
-    {
-      name: "Piloterr",
-      url: "https://www.piloterr.com/?utm_source=coolify.io",
-      imageUrl: "/images/piloterr.svg",
-      isPublicImage: true,
-    },
-    {
-      name: "Alexey Panteleev",
-      url: "https://yoxel.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/aspantel.png",
-    },
-    // {
-    //   name: "Cloo Solutions",
-    //   url: "https://cloo-solutions.de/?utm_source=coolify.io",
-    //   imageUrl: "https://github.com/Cloo-Solutions.png",
-    // },
-    {
-      name: "SummYT - YouTube Summarizer",
-      url: "https://summyt.app?utm_source=coolify.io",
-      imageUrl: "https://summyt.app/logo.svg",
-    },
-    {
-      name: "OpenElements",
-      url: "https://open-elements.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/OpenElements.png",
-    },
-    {
-      name: "Xaman",
-      url: "https://xaman.app/?utm_source=coolify.io",
-      imageUrl: "https://github.com/XamanApp.png",
-    },
-    {
-      name: "Monadical",
-      url: "https://monadical.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/Monadical-SAS.png",
-    },
-    {
-      name: "Magic as a Service",
-      url: "https://maas.engineering/?utm_source=coolify.io",
-      imageUrl: "https://github.com/magicasaservice.png",
-    },
-    {
-      name: "FiveManage",
-      url: "https://fivemanage.com?utm_source=coolify.io",
-      imageUrl: "/images/fivemanage.jpg",
-    },
-    {
-      name: "Crypto Jobs List",
-      url: "https://cryptojobslist.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/cryptojobslist.png",
-    },
-    {
-      name: "SerpAPI",
-      url: "https://serpapi.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/serpapi.png",
-    },
-    {
-      name: "typebot",
-      url: "https://typebot.io/?utm_source=coolify.io",
-      imageUrl:
-        "https://cdn.bsky.app/img/avatar/plain/did:plc:gwxcta3pccyim4z5vuultdqx/bafkreig23hci7e2qpdxicsshnuzujbcbcgmydxhbybkewszdezhdodv42m@jpeg",
-    },
-    {
-      name: "360Creators",
-      url: "https://360creators.com/?utm_source=coolify.io",
-      imageUrl:
-        "https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/503e0953-bff7-4296-b4cc-5e36d40eecc0/icon-360creators.png",
-    },
-    {
-      name: "Cap-go",
-      url: "https://capgo.app/?utm_source=coolify.io",
-      imageUrl: "https://github.com/cap-go.png",
-    },
+  const sponsors = sponsorsData.tiers?.small ?? [];
 
-    {
-      name: "Cirun",
-      url: "https://cirun.io/?utm_source=coolify.io",
-      imageUrl: "/images/cirun-logo.png",
-    },
-    // {
-    //   name: "Alfred Nutile",
-    //   url: "https://www.youtube.com/@AlfredNutile?utm_source=coolify.io",
-    //   imageUrl: "https://github.com/alnutile.png",
-    // },
-    {
-      name: "Become a sponsor",
-      url: "https://github.com/sponsors/coollabsio/sponsorships?tier_id=61570&preview=false",
-      imageUrl: "question",
-
-      isSpecial: true,
-    },
-    {
-      name: "Internet Garden",
-      url: "https://internetgarden.co/?utm_source=coolify.io",
-      imageUrl: "/images/internetgarden.ico",
+  function normalizeSponsor(sponsor) {
+    return {
+      ...sponsor,
+      imageUrl: sponsor.imageUrl || sponsor.image?.url || sponsor.image?.path || "",
+      customStyle: sponsor.customStyle || sponsor.imageStyle || "",
+    };
+  }
 
       isPublicImage: true,
     },
@@ -231,7 +98,7 @@
     return shuffled;
   }
 
-  const smallSponsors = shuffleArray(sponsors);
+  const smallSponsors = shuffleArray(sponsors.map(normalizeSponsor));
   let emblaSmallNode;
 
   onMount(() => {
