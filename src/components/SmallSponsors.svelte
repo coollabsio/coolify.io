@@ -2,220 +2,18 @@
   import EmblaCarousel from "embla-carousel";
   import AutoScroll from "embla-carousel-auto-scroll";
   import { onMount } from "svelte";
+  import sponsorsData from "../data/sponsors.js";
 
-  const sponsors = [
-    {
-      name: "Vanaways",
-      url: "https://vanaways.co.uk/?utm_source=coolify.io",
-      imageUrl: "https://github.com/Vanaways.png",
-      newest: true,
-    },
-    {
-      name: "Netrouting",
-      url: "https://www.netrouting.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/netroutingcom.png",
-    },
-    {
-      name: "MindEd Tech",
-      url: "https://github.com/mindedtech",
-      imageUrl: "https://github.com/mindedtech.png",
-    },
-    {
-      name: "YouStable",
-      url: "https://youstable.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/youstable.png",
-    },
-    {
-      name: "Transcript LOL",
-      url: "https://transcript.lol/?utm_source=coolify.io",
-      imageUrl: "https://transcript.lol/logo.png",
-    },
-    {
-      name: "Autom",
-      url: "https://www.autom.dev/?utm_source=coolify.io",
-      imageUrl: "/images/autom.png",
-    },
-    {
-      name: "HuntAPI",
-      url: "https://www.huntapi.com/?utm_source=coolify.io",
-      imageUrl: "/images/huntapi.png",
-    },
-    {
-      name: "ULTRASERVERS",
-      url: "https://ultraservers.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/ULTRASERVERS.png",
-    },
-    {
-      name: "VibeTone",
-      url: "https://vibetone.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/vibetonefm.png",
-    },
-    {
-      name: "Piloterr",
-      url: "https://www.piloterr.com/?utm_source=coolify.io",
-      imageUrl: "/images/piloterr.svg",
-      isPublicImage: true,
-    },
-    {
-      name: "Alexey Panteleev",
-      url: "https://yoxel.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/aspantel.png",
-    },
-    // {
-    //   name: "Cloo Solutions",
-    //   url: "https://cloo-solutions.de/?utm_source=coolify.io",
-    //   imageUrl: "https://github.com/Cloo-Solutions.png",
-    // },
-    {
-      name: "SummYT - YouTube Summarizer",
-      url: "https://summyt.app?utm_source=coolify.io",
-      imageUrl: "https://summyt.app/logo.svg",
-    },
-    {
-      name: "OpenElements",
-      url: "https://open-elements.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/OpenElements.png",
-    },
-    {
-      name: "Xaman",
-      url: "https://xaman.app/?utm_source=coolify.io",
-      imageUrl: "https://github.com/XamanApp.png",
-    },
-    {
-      name: "Monadical",
-      url: "https://monadical.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/Monadical-SAS.png",
-    },
-    {
-      name: "Magic as a Service",
-      url: "https://maas.engineering/?utm_source=coolify.io",
-      imageUrl: "https://github.com/magicasaservice.png",
-    },
-    {
-      name: "FiveManage",
-      url: "https://fivemanage.com?utm_source=coolify.io",
-      imageUrl: "/images/fivemanage.jpg",
-    },
-    {
-      name: "Crypto Jobs List",
-      url: "https://cryptojobslist.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/cryptojobslist.png",
-    },
-    {
-      name: "SerpAPI",
-      url: "https://serpapi.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/serpapi.png",
-    },
-    {
-      name: "typebot",
-      url: "https://typebot.io/?utm_source=coolify.io",
-      imageUrl:
-        "https://cdn.bsky.app/img/avatar/plain/did:plc:gwxcta3pccyim4z5vuultdqx/bafkreig23hci7e2qpdxicsshnuzujbcbcgmydxhbybkewszdezhdodv42m@jpeg",
-    },
-    {
-      name: "360Creators",
-      url: "https://360creators.com/?utm_source=coolify.io",
-      imageUrl:
-        "https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/503e0953-bff7-4296-b4cc-5e36d40eecc0/icon-360creators.png",
-    },
-    {
-      name: "Cap-go",
-      url: "https://capgo.app/?utm_source=coolify.io",
-      imageUrl: "https://github.com/cap-go.png",
-    },
+  const sponsors = sponsorsData.tiers?.small ?? [];
 
-    {
-      name: "Cirun",
-      url: "https://cirun.io/?utm_source=coolify.io",
-      imageUrl: "/images/cirun-logo.png",
-    },
-    // {
-    //   name: "Alfred Nutile",
-    //   url: "https://www.youtube.com/@AlfredNutile?utm_source=coolify.io",
-    //   imageUrl: "https://github.com/alnutile.png",
-    // },
-    {
-      name: "Become a sponsor",
-      url: "https://github.com/sponsors/coollabsio/sponsorships?tier_id=61570&preview=false",
-      imageUrl: "question",
+  function normalizeSponsor(sponsor) {
+    return {
+      ...sponsor,
+      imageUrl: sponsor.imageUrl || sponsor.image?.url || sponsor.image?.path || "",
+      customStyle: sponsor.customStyle || sponsor.imageStyle || "",
+    };
+  }
 
-      isSpecial: true,
-    },
-    {
-      name: "Internet Garden",
-      url: "https://internetgarden.co/?utm_source=coolify.io",
-      imageUrl: "/images/internetgarden.ico",
-
-      isPublicImage: true,
-    },
-    // {
-    //   name: "TheRealJP",
-    //   url: "https://github.com/therealjp?utm_source=coolify.io",
-    //   imageUrl: "https://github.com/therealjp.png",
-    // },
-    {
-      name: "Evercam",
-      url: "https://evercam.io/?utm_source=coolify.io",
-      imageUrl: "https://github.com/evercam.png",
-    },
-    {
-      name: "Web3 Jobs",
-      url: "https://web3.career/?utm_source=coolify.io",
-      imageUrl: "/images/web3jobs.png",
-    },
-    {
-      name: "LinkDr",
-      url: "https://linkdr.com?utm_source=coolify.io",
-      imageUrl: "/images/linkdr.svg",
-      isPublicImage: true,
-    },
-    {
-      name: "Arvensis Systems",
-      url: "https://arvensis.systems/?utm_source=coolify.io",
-      imageUrl: "/images/arvensis.png",
-    },
-    {
-      name: "Reshot",
-      url: "https://www.reshot.ai/?utm_source=coolify.io",
-      imageUrl: "/images/reshotai.png",
-    },
-    // {
-    //   name: "Devhuset",
-    //   url: "https://devhuset.no?utm_source=coolify.io",
-    //   imageUrl: "https://github.com/devhuset.png",
-    // },
-    {
-      name: "RunPod",
-      url: "https://www.runpod.io/?utm_source=coolify.io",
-      imageUrl: "/images/runpod.svg",
-      isSpecial: true,
-    },
-    {
-      name: "Gravity Wiz",
-      url: "http://gravitywiz.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/gravitywiz.png",
-    },
-    {
-      name: "UXWizz",
-      url: "https://www.uxwizz.com/?utm_source=coolify.io",
-      imageUrl: "https://github.com/UXWizz.png",
-    },
-    {
-      name: "Codext",
-      url: "https://codext.link/coolify-io?utm_source=coolify.io",
-      imageUrl: "/images/codext.jpg",
-    },
-    {
-      name: "InterviewPal",
-      url: "https://interviewpal.com",
-      imageUrl: "/images/interviewpal.svg",
-    },
-    {
-      name: "Decidable",
-      url: "https://decidable.no?utm_source=coolify.io",
-      imageUrl: "https://github.com/Decidable-AS.png",
-    },
-  ];
   function shuffleArray(array) {
     const shuffled = [...array];
     for (let i = shuffled.length - 1; i > 0; i--) {
@@ -225,7 +23,7 @@
     return shuffled;
   }
 
-  const smallSponsors = shuffleArray(sponsors);
+  const smallSponsors = shuffleArray(sponsors.map(normalizeSponsor));
   let emblaSmallNode;
 
   onMount(() => {
