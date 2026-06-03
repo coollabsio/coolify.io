@@ -2,6 +2,7 @@
   import EmblaCarousel from "embla-carousel";
   import AutoScroll from "embla-carousel-auto-scroll";
   import { onMount } from "svelte";
+  import IconRunpod from "./Icons/IconRunpod.svelte";
 
   const sponsors = [
     {
@@ -220,6 +221,11 @@
       url: "https://decidable.no?utm_source=coolify.io",
       imageUrl: "https://github.com/Decidable-AS.png",
     },
+    {
+      name: "Host Havoc",
+      url: "https://hosthavoc.com",
+      imageUrl: "https://raw.githubusercontent.com/coollabsio/coollabs-cdn/main/images/sponsors/hosthavoc.png",
+    },
   ];
   function shuffleArray(array) {
     const shuffled = [...array];
@@ -272,11 +278,11 @@
 
 <div class="py-4 mt-4 overflow-x-hidden">
   <div class="flex flex-col items-center gap-2">
-    <h3 class="tier-title-small">Small Sponsors</h3>
+    <h3 class="tier-title-small tier-title-silver">&#9679; Silver Sponsors</h3>
     <div bind:this={emblaSmallNode} class="embla-small">
       <div class="embla-small__container">
         {#each smallSponsors as sponsor (sponsor.name)}
-          <div class="embla-small__slide">
+          <div class="embla-small__slide sponsor-tooltip-wrapper">
             {#if sponsor.isSpecial && sponsor.imageUrl === "question"}
               <div
                 class="small-sponsor-visual w-12 h-12 border border-warning font-bold border-dashed hover:bg-warning hover:text-black flex justify-center text-center items-center text-3xl text-white animate-pulse rounded-full"
@@ -285,21 +291,7 @@
               </div>
             {:else if sponsor.isSpecial && sponsor.imageUrl === "runpod-svg"}
               <div class="small-sponsor-visual">
-                <svg
-                  class="w-11 h-11 fill-[#824edc] bg-white rounded"
-                  xmlns="http://www.w3.org/2000/svg"
-                  version="1.0"
-                  viewBox="0 0 200 200"
-                >
-                  <g>
-                    <path
-                      d="M74.5 51.1c-25.4 14.9-27 16-29.6 20.2-1.8 3-1.9 5.3-1.9 32.3 0 21.7.3 29.4 1.3 30.6 1.9 2.5 46.7 27.9 48.5 27.6 1.5-.3 1.7-3.1 2-27.7.2-21.9 0-27.8-1.1-29.5-.8-1.2-9.9-6.8-20.2-12.6-10.3-5.8-19.4-11.5-20.2-12.7-1.8-2.6-.9-5.9 1.8-7.4 1.6-.8 6.3 0 21.8 4C87.8 78.7 98 81 99.6 81c4.4 0 49.9-25.9 49.9-28.4 0-1.6-3.4-2.8-24-8.2-13.2-3.5-25.1-6.3-26.5-6.3-1.4.1-12.4 5.9-24.5 13z"
-                    />
-                    <path
-                      d="m137.2 68.1-3.3 2.1 6.3 3.7c3.5 2 6.3 4.3 6.3 5.1 0 .9-8 6.1-19.4 12.6-10.6 6-20 11.9-20.7 12.9-1.2 1.6-1.4 7.2-1.2 29.4.3 24.8.5 27.6 2 27.9 1.8.3 46.6-25.1 48.6-27.6.9-1.2 1.2-8.8 1.2-30.2s-.3-29-1.2-30.2c-1.6-1.9-12.1-7.8-13.9-7.8-.8 0-2.9 1-4.7 2.1z"
-                    />
-                  </g>
-                </svg>
+                <IconRunpod class="w-11 h-11 fill-[#824edc] bg-white rounded" />
               </div>
             {:else if sponsor.isPublicImage}
               <div class="small-sponsor-visual">
@@ -328,6 +320,10 @@
                 />
               </div>
             {/if}
+            <span class="sponsor-tooltip" role="tooltip">
+              {sponsor.name}
+              <span class="tooltip-line" aria-hidden="true"></span>
+            </span>
             <a
               href={sponsor.url}
               class="small-sponsor-link plausible-event-name=small-sponsor-clicks"
@@ -349,118 +345,275 @@
 </div>
 
 <style>
-  .tier-title-small {
-    text-align: center;
-    font-size: 1.125rem;
-    font-weight: 600;
+.tier-title-small{
+    text-align:center;
+    font-size:1.125rem;
+    font-weight:600;
+    color:#9ca3af;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin:0 0 1rem 0;
+}
+
+.tier-title-silver {
     color: #9ca3af;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin: 0 0 1rem 0;
-  }
+    font-size: 1rem;
+}
 
-  .embla-small {
-    overflow: hidden;
-    max-width: 100%;
-    margin: 0 auto;
-    position: relative;
-  }
+/* marquee container */
 
-  .embla-small__container {
-    display: flex;
-    backface-visibility: hidden;
-    will-change: transform;
-    touch-action: pan-y;
-  }
+.embla-small{
+    overflow:hidden;
+    max-width:100%;
+    margin:0 auto;
+    position:relative;
 
-  .embla-small__slide {
-    flex: 0 0 auto;
-    min-width: 0;
-    position: relative;
-    padding: 0 0.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-    -webkit-touch-callout: none;
-    -webkit-tap-highlight-color: transparent;
-  }
+    /* fade mask */
+    mask-image:
+        linear-gradient(
+            to right,
+            transparent,
+            black 8%,
+            black 92%,
+            transparent
+        );
 
-  .small-sponsor-visual {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+    -webkit-mask-image:
+        linear-gradient(
+            to right,
+            transparent,
+            black 8%,
+            black 92%,
+            transparent
+        );
+}
 
-  .small-sponsor-link {
-    position: absolute;
-    inset: 0;
-    z-index: 10;
-  }
 
-  .small-sponsor-link:focus-visible {
-    outline: 2px solid #fcd34d;
-    outline-offset: 3px;
-    border-radius: 9999px;
-  }
+/* stronger visual overlay for browsers */
 
-  .embla-small__slide:hover .small-sponsor-visual.transition-all,
-  .embla-small__slide:has(.small-sponsor-link:focus-visible)
-    .small-sponsor-visual.transition-all {
-    transform: scale(1.1);
-  }
+.embla-small::before,
+.embla-small::after{
 
-  .embla-small__slide:hover .small-sponsor-visual.border-warning {
-    background-color: var(--color-warning, #fcd34d);
-    color: #000;
-  }
+    content:"";
 
-  .rainbow-border {
-    position: relative;
-    padding: 0rem;
-  }
+    position:absolute;
 
-  .rainbow-border::before {
-    content: "";
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: conic-gradient(
-      #ff2400,
-      #e81d1d,
-      #e8b71d,
-      #e3e81d,
-      #1de840,
-      #1ddde8,
-      #2b1de8,
-      #dd00f3,
-      #ff2400
+    top:0;
+    bottom:0;
+
+    width:100px;
+
+    z-index:5;
+
+    pointer-events:none;
+}
+
+.embla-small::before{
+
+    left:0;
+
+    background:
+    linear-gradient(
+        to right,
+        rgba(0,0,0,.95),
+        rgba(0,0,0,.65),
+        transparent
     );
-    border-radius: 50px;
-    z-index: -1;
-    animation: rotate 1s linear infinite;
-  }
+}
 
-  .rainbow-border::after {
-    content: "";
+.embla-small::after{
+
+    right:0;
+
+    background:
+    linear-gradient(
+        to left,
+        rgba(0,0,0,.95),
+        rgba(0,0,0,.65),
+        transparent
+    );
+}
+
+
+.embla-small__container{
+    display:flex;
+    backface-visibility:hidden;
+    will-change:transform;
+    touch-action:pan-y;
+}
+
+.embla-small__slide{
+
+    flex:0 0 auto;
+    min-width:0;
+
+    position:relative;
+
+    padding:0 .4rem;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    user-select:none;
+    -webkit-touch-callout:none;
+    -webkit-tap-highlight-color:transparent;
+}
+
+
+.small-sponsor-visual{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transition:none; /* removed hover animation */
+}
+
+
+.small-sponsor-visual img{
+
+    object-fit:contain;
+
+    transition:none; /* removed image hover */
+}
+
+
+.small-sponsor-link{
+
+    position:absolute;
+    inset:0;
+
+    z-index:10;
+}
+
+.small-sponsor-link:focus-visible{
+
+    outline:2px solid #fcd34d;
+    outline-offset:3px;
+    border-radius:9999px;
+}
+
+
+/* removed hover effects completely */
+
+.embla-small__slide:hover .small-sponsor-visual,
+.embla-small__slide:hover img{
+    transform:none;
+}
+
+.embla-small__slide:hover .small-sponsor-visual.border-warning{
+    background:transparent;
+    color:inherit;
+}
+
+
+/* rainbow */
+
+.rainbow-border{
+    position:relative;
+}
+
+.rainbow-border::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-2px;
+    left:-2px;
+    right:-2px;
+    bottom:-2px;
+
+    background:
+    conic-gradient(
+        #ff2400,
+        #e81d1d,
+        #e8b71d,
+        #e3e81d,
+        #1de840,
+        #1ddde8,
+        #2b1de8,
+        #dd00f3,
+        #ff2400
+    );
+
+    border-radius:999px;
+
+    z-index:-1;
+
+    animation:
+    rotate 1s linear infinite;
+}
+
+.rainbow-border::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-1px;
+
+    background:black;
+
+    border-radius:999px;
+
+    z-index:-1;
+}
+
+
+@keyframes rotate{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(360deg);
+}
+
+}
+
+.sponsor-tooltip {
     position: absolute;
-    top: -1px;
-    left: -1px;
-    right: -1px;
-    bottom: -1px;
-    background: #000;
-    border-radius: 200px;
-    z-index: -1;
-  }
+    left: 50%;
+    bottom: calc(100% + 10px);
+    transform: translateX(-50%) translateY(6px);
+    padding: 0.4rem 0.65rem 0.55rem;
+    border-radius: 0.6rem;
+    background: rgba(16, 16, 16, 0.94);
+    border: 1px solid rgba(252, 211, 77, 0.15);
+    color: white;
+    font-size: 0.68rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms ease, transform 180ms ease;
+    z-index: 50;
+    letter-spacing: 0.02em;
+}
 
-  @keyframes rotate {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
+.sponsor-tooltip-wrapper:hover .sponsor-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.tooltip-line {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(252, 211, 77, 0.3) 15%,
+        rgba(252, 211, 77, 0.8) 50%,
+        rgba(252, 211, 77, 0.3) 85%,
+        transparent 100%
+    );
+    pointer-events: none;
+}
 </style>

@@ -1,12 +1,44 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Instances from "../components/Instances.svelte";
+import Hero from "../components/Home/Hero.astro";
+import FeatureCard from "../components/Home/FeatureCard.astro";
+import HomeServicesCard from "../components/Home/HomeServicesCard.astro";
+import BoomStats from "../components/Home/BoomStats.svelte";
 import HugeSponsors from "../components/HugeSponsors.svelte";
 import BigSponsors from "../components/BigSponsors.svelte";
 import SmallSponsors from "../components/SmallSponsors.svelte";
 import SponsorsPreview from "../components/SponsorsPreview.svelte";
+import FloatingNav from "../components/Home/FloatingNav.svelte";
+import { homeFeatures } from "../data/homeFeatures";
+import IconDatabaseBackup from "../components/Icons/IconDatabaseBackup.svelte";
+import IconCode from "../components/Icons/IconCode.svelte";
+import IconMonitoring from "../components/Icons/IconMonitoring.svelte";
+import IconRobot from "../components/Icons/IconRobot.svelte";
+import IconAutomations from "../components/Icons/IconAutomations.svelte";
+import IconCommunity from "../components/Icons/IconCommunity.svelte";
+import IconPullRequest from "../components/Icons/IconPullRequest.svelte";
+import IconTerminalWindow from "../components/Icons/IconTerminalWindow.svelte";
+import IconApi from "../components/Icons/IconApi.svelte";
+import IconLockCheck from "../components/Icons/IconLockCheck.svelte";
+import IconServerFeature from "../components/Icons/IconServerFeature.svelte";
+import IconNotifications from "../components/Icons/IconNotifications.svelte";
 
 const isDev = import.meta.env.DEV;
+
+const services = [
+  { title: "Databases", description: "MySQL, PostgreSQL, MongoDB, Redis, MariaDB, and more. Deploy production databases in one click.", icon: IconDatabaseBackup },
+  { title: "CMS", description: "WordPress, Ghost, Strapi, Directus, Plausible, and 20+ content platforms ready to deploy.", icon: IconCode },
+  { title: "Monitoring", description: "Grafana, Prometheus, Uptime Kuma, Sentry, Metabase, and observability tools for your stack.", icon: IconMonitoring },
+  { title: "AI & ML", description: "Ollama, LocalAI, Open WebUI, and AI infrastructure to run models on your own hardware.", icon: IconRobot },
+  { title: "Automation", description: "n8n, Activepieces, Dagu, Huginn, and workflow engines to automate everything.", icon: IconAutomations },
+  { title: "Communication", description: "Mattermost, Rocket.Chat, Nextcloud Talk, and team collaboration platforms.", icon: IconCommunity },
+  { title: "CI/CD", description: "GitLab Runner, Jenkins, Woodpecker, and continuous deployment pipelines.", icon: IconPullRequest },
+  { title: "Dev Tools", description: "VSCode Server, code-server, GitLab, Supabase, PocketBase, and developer platforms.", icon: IconTerminalWindow },
+  { title: "Analytics", description: "Plausible, Matomo, Umami, Fathom, and privacy-first analytics solutions.", icon: IconApi },
+  { title: "Security", description: "Vaultwarden, Authelia, Authentik, and identity & access management tools.", icon: IconLockCheck },
+  { title: "Storage", description: "MinIO, Nextcloud, Seafile, and file sync & object storage platforms.", icon: IconServerFeature },
+  { title: "Notifications", description: "Gotify, Ntfy, Novu, and real-time notification infrastructure.", icon: IconNotifications },
+];
 ---
 
 <Layout
@@ -14,669 +46,83 @@ const isDev = import.meta.env.DEV;
   canonicalUrl="https://coolify.io/"
   description="Self-hosting platform with superpowers. Deploy apps, databases & 280+ services to your server. Open-source alternative to Heroku."
 >
-  <h1 class="text-3xl font-bold tracking-tight text-white md:text-6xl px-4">
-    Self-hosting with superpowers<span class="text-warning">.</span>
-  </h1>
-  <h2 class="text-base pt-4 text-neutral-400 px-4 max-w-4xl mx-auto">
-    An open-source & self-hostable alternative to Vercel, Heroku, Netlify and
-    Railway for easily deploying websites, databases, web applications and 280+
-    one-click services to your own server.
-  </h2>
-  <p>Open source & free forever, backed by <a class="underline" href="/philosophy">our philosophy</a>.</p>
-  <div class="pb-10 pt-4 text-xs flex gap-2 justify-center flex-row flex-wrap">
-    <a
-      class="hover:underline cursor-pointer text-white flex gap-2 items-center justify-center"
-      target="_blank"
-      href="https://coolify.io/docs/get-started/screenshots"
-      ><svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-5 h-5 text-warning"
-        viewBox="0 0 256 256"
-      >
-        <g fill="currentColor">
-          <path
-            d="M208 64h-32l-16-24H96L80 64H48a16 16 0 0 0-16 16v112a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16Zm-80 104a36 36 0 1 1 36-36a36 36 0 0 1-36 36Z"
-            opacity=".2"></path>
-          <path
-            d="M208 56h-27.72l-13.63-20.44A8 8 0 0 0 160 32H96a8 8 0 0 0-6.65 3.56L75.71 56H48a24 24 0 0 0-24 24v112a24 24 0 0 0 24 24h160a24 24 0 0 0 24-24V80a24 24 0 0 0-24-24Zm8 136a8 8 0 0 1-8 8H48a8 8 0 0 1-8-8V80a8 8 0 0 1 8-8h32a8 8 0 0 0 6.66-3.56L100.28 48h55.43l13.63 20.44A8 8 0 0 0 176 72h32a8 8 0 0 1 8 8ZM128 88a44 44 0 1 0 44 44a44.05 44.05 0 0 0-44-44Zm0 72a28 28 0 1 1 28-28a28 28 0 0 1-28 28Z"
-          ></path>
-        </g>
-      </svg>Screenshots</a
-    >
-    <a
-      class="hover:underline cursor-pointer text-white flex gap-2 items-center justify-center"
-      target="_blank"
-      href="https://coolify.io/docs/get-started/videos"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        class="w-5 h-5 text-warning"
-        viewBox="0 0 256 256"
-        ><path
-          d="M200,72V184a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V72a8,8,0,0,1,8-8H192A8,8,0,0,1,200,72Z"
-          opacity="0.2"></path><path
-          d="M251.77,73a8,8,0,0,0-8.21.39L208,97.05V72a16,16,0,0,0-16-16H32A16,16,0,0,0,16,72V184a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V159l35.56,23.71A8,8,0,0,0,248,184a8,8,0,0,0,8-8V80A8,8,0,0,0,251.77,73ZM192,184H32V72H192V184Zm48-22.95-32-21.33V116.28L240,95Z"
-        ></path></svg
-      >
-      Videos</a
-    >
-    <a
-      class="hover:underline cursor-pointer text-white flex gap-2 items-center justify-center text-xs"
-      target="_blank"
-      href="https://twitch.tv/heyandras"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-4 w-4 text-purple-500"
-        width="200"
-        height="200"
-        viewBox="0 0 24 24"
-        ><path
-          fill="currentColor"
-          d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"
-        ></path></svg
-      >
+  <Hero isDev={isDev} />
 
-      Building in live-streams</a
+  <!-- Features -->
+  <section id="features" class="px-4 pt-20 md:pt-28 scroll-mt-24 reveal">
+    <div class="text-center">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase text-warning mb-3">Platform</span>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white">
+        Everything you need to ship<span class="text-warning">.</span>
+      </h2>
+      <p class="mt-3 text-sm md:text-base text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+        From deployment to monitoring — Coolify handles the infrastructure so you can focus on building.
+      </p>
+    </div>
+    <div
+      class="mx-auto mt-12 lg:mt-12 text-left"
     >
-  </div>
-  <div class="pb-2 flex justify-center text-center gap-8 px-4">
-    <div>
-      <a
-        href="/cloud"
-        class="text-xs sm:text-base font-bold rounded p-4 px-2 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2 lg:w-64 justify-center"
-        ><svg
-          class="icon hidden sm:block"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6.657 18C4.085 18 2 15.993 2 13.517c0-2.475 2.085-4.482 4.657-4.482c.393-1.762 1.794-3.2 3.675-3.773c1.88-.572 3.956-.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927-1.551 3.487-3.465 3.487H6.657"
-          ></path>
-        </svg>Cloud</a
+      <dl
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-6 lg:gap-x-6 lg:gap-y-8 reveal-children"
       >
-      <div
-        class="text-neutral-400 sm:text-base text-xs sm:flex-row flex flex-col gap-1 pt-2 sm:justify-center"
-      >
-        <span class="text-warning mt-[0.1rem] font-bold font-mono"
-          ><span id="cloud-users">3,641</span>+</span
-        > customers in the cloud.
+        {homeFeatures.map((feature) => <FeatureCard {...feature} />)}
+      </dl>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="px-4 pt-20 md:pt-28 scroll-mt-24 reveal">
+    <div class="text-center">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase text-warning mb-3">One-Click Services</span>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white">
+        280+ services at your fingertips<span class="text-warning">.</span>
+      </h2>
+      <p class="mt-3 text-sm md:text-base text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+        Deploy databases, CMS platforms, monitoring tools, and more with a single click. No configuration headaches.
+      </p>
+    </div>
+
+    <div class="mx-auto mt-12 max-w-6xl">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 reveal-children">
+        {services.map((service) => <HomeServicesCard {...service} />)}
       </div>
     </div>
-    <div>
+
+    <div class="text-center mt-10">
       <a
-        href="/self-hosted"
-        class="text-xs sm:text-base font-bold rounded p-4 px-2 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2 lg:w-64 justify-center"
-        ><svg
-          class="icon hidden sm:block"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          >
-            <path d="M9.5 11h.01m4.99 0h.01M9.5 15a3.5 3.5 0 0 0 5 0"></path>
-            <path
-              d="M7 5h1V3h8v2h1a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3v1H7v-1a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3"
-            ></path>
-          </g>
-        </svg>Self-hosted</a
+        href="/services"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm text-white bg-white/5 border border-white/10 hover:bg-white/10 hover:border-warning/30 transition-all duration-200 group"
       >
-      <Instances client:load />
+        Explore all services
+        <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
     </div>
-  </div>
-  <div id="sponsors-section">
-    <HugeSponsors client:only="svelte" />
-    <BigSponsors client:only="svelte" />
-    <SmallSponsors client:only="svelte" />
-    {isDev && <SponsorsPreview client:only="svelte" />}
-  </div>
+  </section>
 
-  <div id="features" class="text-center text-4xl font-bold pt-10 text-white scroll-mt-20">
-    Features
-  </div>
-  <div
-    class="mx-auto mt-16 max-w-2xl sm:mt-14 lg:mt-14 lg:max-w-none text-left"
-  >
-    <dl
-      class="grid max-w-xl grid-cols-1 gap-x-8 px-4 gap-y-16 lg:max-w-none lg:grid-cols-3"
-    >
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <svg
-            class="icon text-warning"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m7 8l-4 4l4 4m10-8l4 4l-4 4M14 4l-4 16"></path>
-          </svg>
-          Any Language
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Coolify is compatible with a wide range of programming languages and
-            frameworks, enabling you to launch static websites, APIs, backends,
-            databases, services, and other types of applications.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <svg
-            class="icon text-warning"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M3 7a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3zm12 13H6a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h12M7 8v.01M7 16v.01M20 15l-2 3h3l-2 3"
-            ></path>
-          </svg>
-          Any Server
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            You can deploy your resources to any server, including your own
-            servers, VPS, Raspberry Pi, EC2, DigitalOcean, Linode, Hetzner, and
-            more. All you need is an SSH connection.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <svg
-            class="icon text-warning"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M11 6h9m-9 6h9m-9 6h9M4 10V5.5a1.5 1.5 0 0 1 3 0V10M4 8h3M4 20h1.5a1.5 1.5 0 0 0 0-3H4h1.5a1.5 1.5 0 0 0 0-3H4z"
-            ></path>
-          </svg>
-          Any Use-Case
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            You can deploy your resources (apps, databases, services) to a
-            single server or multiple servers according to your requirements.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <svg
-            class="icon text-warning"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 12a3 3 0 1 0 6 0a3 3 0 1 0-6 0m3-9v6m0 6v6"></path>
-          </svg>
-          Any Service
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            You can deploy any service you want that is compatible with Docker.
-            Also there are lots of one-click services available to deploy. <br
-            />See the full list <a
-              class="text-warning underline"
-              href="https://coolify.io/docs/services/overview?utm_source=coolify.io"
-              >here</a
-            >.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <svg
-            class="icon text-warning"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 12a3 3 0 1 0 6 0a3 3 0 1 0-6 0m3-9v6m0 6v6"></path>
-          </svg>
-          Push to deploy
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Nowadays, Git integration is considered the norm. We provide
-            integration with both hosted and self-hosted platforms like GitHub,
-            GitLab, Bitbucket, Gitea, and others.
-          </p>
-        </dd>
-      </div>
+  <!-- Sponsors -->
+  <section id="sponsors" class="px-4 pt-20 md:pt-28 reveal">
+    <div class="text-center">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase text-warning mb-3">Supported By</span>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white">
+        Backed by the best<span class="text-warning">.</span>
+      </h2>
+      <p class="mt-3 text-sm md:text-base text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+        Our sponsors make open-source development sustainable. Join them in supporting Coolify.
+      </p>
+    </div>
+    <div id="sponsors-section" class="mt-12">
+      <HugeSponsors client:only="svelte" />
+      <BigSponsors client:only="svelte" />
+      <SmallSponsors client:only="svelte" />
+      {isDev && (
+        <SponsorsPreview client:only="svelte" />
+      )}
+    </div>
+  </section>
 
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <svg
-            class="icon text-warning"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            >
-              <path
-                d="M11.5 21H7a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v.5"
-              ></path>
-              <path
-                d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0-2 0m-3-5V7a4 4 0 1 1 8 0v4m-1 8l2 2l4-4"
-              ></path>
-            </g>
-          </svg>
-          Free SSL Certificates
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Coolify takes care of automatically setting up and renewing Let's
-            Encrypt SSL certificates for your custom domains, so you can relax
-            and not have to deal with it.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <svg
-            class="icon text-warning"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M11 7h8a1 1 0 0 1 1 1v7c0 .27-.107.516-.282.696M16 16H5a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h2m0 9v4m.5-4l4.244-4.244m2.001-2.001L16.5 7m-3 9l1.249-1.249m1.992-1.992L20 9.5m-16 4l4.752-4.752M17 17v3M5 20h4m6 0h4M17 7V5M3 3l18 18"
-            ></path>
-          </svg>
-          No vendor lock-in
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            You have complete control over your data. All settings are saved on
-            your own servers, giving you the ability to oversee everything even
-            if you decide to stop using Coolify (oh nooo).
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <svg
-            class="icon text-warning"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            >
-              <path
-                d="M6 4h10l4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2"
-              ></path>
-              <path d="M10 14a2 2 0 1 0 4 0a2 2 0 1 0-4 0m4-10v4H8V4"></path>
-            </g>
-          </svg>
-          Automatic DB Backups
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Your data is automatically backed up to any S3 compatible solution,
-            allowing you to easily restore it with just a few clicks if any
-            problems occur.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <svg
-            class="icon text-warning"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            >
-              <path d="M4.876 13.61A4 4 0 1 0 11 17h6"></path>
-              <path
-                d="M15.066 20.502A4 4 0 1 0 17 13c-.706 0-1.424.179-2 .5L12 8"
-              ></path>
-              <path d="M16 8a4 4 0 1 0-8 0c0 1.506.77 2.818 2 3.5L7 17"></path>
-            </g>
-          </svg>
-          Webhooks
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Integrate into your CI/CD pipelines or create custom integrations
-            using Github Actions, Gitlab CI, Bitbucket Pipelines, or any other
-            CI/CD tool of your choice.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <svg
-            class="icon text-warning"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="3"
-              d="M9 6l-3 6l3 6m6-12l3 6l-3 6"></path>
-          </svg>
-          Powerful API
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Coolify offers a robust API that enables you to automate
-            deployments, manage resources, and integrate with your current
-            tools, providing limitless possibilities.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <svg
-            class="icon text-warning"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m5 7l5 5l-5 5m7 2h7"></path>
-          </svg>
-          <a
-            href="https://github.com/coollabsio/coolify-cli"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="underline decoration-warning decoration-2 underline-offset-4 hover:text-warning transition-colors"
-          >
-            Command Line Tool
-          </a>
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Control Coolify from your terminal or integrate with AI assistants
-            like Claude to debug deployments and manage infrastructure with
-            natural language.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="icon text-warning"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-              d="M8 9l3 3l-3 3"></path><path d="M13 15l3 0"></path><path
-              d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"
-            ></path></svg
-          >
+  <BoomStats client:visible />
 
-          Real-time Terminal
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            You do not need to leave your browser to manage your servers.
-            Coolify's real-time terminal allows you to run commands on your
-            servers directly from your browser.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <svg
-            class="icon text-warning"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="currentColor"
-              d="M12 11a5 5 0 0 1 5 5v6h-2v-6a3 3 0 0 0-2.824-2.995L12 13a3 3 0 0 0-2.995 2.824L9 16v6H7v-6a5 5 0 0 1 5-5m-6.5 3c.279 0 .55.033.81.094a5.948 5.948 0 0 0-.301 1.575L6 16v.086a1.493 1.493 0 0 0-.356-.08L5.5 16a1.5 1.5 0 0 0-1.493 1.355L4 17.5V22H2v-4.5A3.5 3.5 0 0 1 5.5 14m13 0a3.5 3.5 0 0 1 3.5 3.5V22h-2v-4.5a1.5 1.5 0 0 0-1.355-1.493L18.5 16c-.175 0-.343.03-.5.085V16c0-.666-.108-1.306-.308-1.904c.258-.063.53-.096.808-.096m-13-6a2.5 2.5 0 1 1 0 5a2.5 2.5 0 0 1 0-5m13 0a2.5 2.5 0 1 1 0 5a2.5 2.5 0 0 1 0-5m-13 2a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1m13 0a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1M12 2a4 4 0 1 1 0 8a4 4 0 0 1 0-8m0 2a2 2 0 1 0 0 4a2 2 0 0 0 0-4"
-            ></path>
-          </svg>
-          Collaborative
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Share your projects with your team members and work together on
-            them. You can also control permissions and roles for each member.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <svg
-            class="icon text-warning"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            >
-              <path
-                d="M4 18a2 2 0 1 0 4 0a2 2 0 1 0-4 0M4 6a2 2 0 1 0 4 0a2 2 0 1 0-4 0m12 12a2 2 0 1 0 4 0a2 2 0 1 0-4 0M6 8v8"
-              ></path>
-              <path d="M11 6h5a2 2 0 0 1 2 2v8"></path>
-              <path d="m14 9l-3-3l3-3"></path>
-            </g>
-          </svg>
-          Pull Request Deployments
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Automagically deploy new commits and pull requests separately to
-            quickly review contributions and speed up your teamwork!
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <svg
-            class="icon text-warning"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zm6-4v2m-3 8v9m6-9v9M5 16l4-2m6 0l4 2M9 18h6M10 8v.01M14 8v.01"
-            ></path>
-          </svg>
-          Server Automations
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Once your server is connected, Coolify will handle numerous tasks
-            automatically, allowing you to concentrate on your code.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <svg
-            class="icon text-warning"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            >
-              <path
-                d="M3 5a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1zm4 15h10m-8-4v4m6-4v4"
-              ></path>
-              <path d="M7 10h2l2 3l2-6l1 3h3"></path>
-            </g>
-          </svg>
-          Monitoring
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Coolify will keep an eye on your deployments, servers, disk usage,
-            and other aspects, and notify you if any issues arise.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <svg
-            class="icon text-warning"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            >
-              <path d="M10 21v-6.5a3.5 3.5 0 0 0-7 0V21h18v-6a4 4 0 0 0-4-4H6.5"
-              ></path>
-              <path d="M12 11V3h4l2 2l-2 2h-4m-6 8h1"></path>
-            </g>
-          </svg>
-          Notifications
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Coolify will notify you through your chosen channels like Discord,
-            Telegram, and email in case of any events on your server or with
-            your deployments.
-          </p>
-        </dd>
-      </div>
-    </dl>
-  </div>
-  <!-- Skip to Features Button -->
-  <a
-    href="#features"
-    id="skip-to-features"
-    class="fixed bottom-4 right-4 bg-coollabs hover:bg-coollabs/80 text-white px-3 py-2 rounded-full shadow-lg transition-all duration-300 text-xs font-medium z-50 flex items-center gap-2"
-    aria-label="Skip to Features section"
-  >
-    <span class="hidden sm:inline">Jump to Features</span>
-    <span class="sm:hidden">Jump to Features</span>
-  </a>
-  <script>
-    // Smooth scroll for skip to features button
-    const skipButton = document.getElementById("skip-to-features");
-    skipButton?.addEventListener("click", (e) => {
-      e.preventDefault();
-      const targetElement = document.getElementById("features");
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    });
-  </script>
+  <FloatingNav client:only="svelte" />
 </Layout>

@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Navigation from "../components/Navigation.astro";
+import CtaCard from "../components/CtaCard.astro";
 import Footer from "../components/Footer.astro";
 
 export interface Props {
@@ -93,6 +94,7 @@ const {
         <slot />
       </div>
     </main>
+    <CtaCard />
     <Footer />
     <style is:global>
       @reference "../styles/global.css";
@@ -124,7 +126,7 @@ const {
         --color-error: #DC2626;
       }
       .navbar-link {
-        @apply text-white text-sm hover:bg-coolgray-200 py-2 px-3 rounded flex items-center gap-2 transition-colors;
+        @apply text-white text-sm hover:bg-coolgray-200 py-2 px-3 rounded flex items-center gap-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coollabs/60;
       }
       @media (max-width: 767px) {
         .navbar-link {
@@ -167,23 +169,5 @@ const {
       data-domain="coolify.io"
       src="https://analytics.coollabs.io/js/script.tagged-events.js"></script>
 
-    <script>
-      const mobileMenuButton = document.getElementById("mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-
-      function toggleMobileMenu() {
-        mobileMenu?.classList.toggle("hidden");
-        mobileMenu?.classList.toggle("flex");
-      }
-
-      mobileMenuButton?.addEventListener("click", toggleMobileMenu);
-
-      mobileMenu?.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          mobileMenu?.classList.add("hidden");
-          mobileMenu?.classList.remove("flex");
-        });
-      });
-    </script>
   </body>
 </html>

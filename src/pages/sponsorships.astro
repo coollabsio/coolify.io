@@ -1,5 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import IconHeart from "../components/Icons/IconHeart.svelte";
+import IconGitHubSponsors from "../components/Icons/IconGitHubSponsors.svelte";
+import IconOpenCollective from "../components/Icons/IconOpenCollective.svelte";
+import IconStripe from "../components/Icons/IconStripe.svelte";
+import HoverCardLink from "../components/Sponsorships/HoverCardLink.svelte";
 ---
 
 <Layout
@@ -11,16 +16,8 @@ import Layout from "../layouts/Layout.astro";
     Sponsor Us<span class="text-warning">.</span>
   </h1>
   <h2 class="text-base pb-10 pt-2 text-neutral-400 px-4">
-    We love doing open-source projects. <svg
-      class="w-6 h-6 inline-block"
-      viewBox="0 0 36 36"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        fill="#EC4899"
-        d="M2.067 11.319C2.067 2.521 14.251-.74 18 9.445C21.749-.741 33.933 2.52 33.933 11.319C33.933 20.879 18 33 18 33S2.067 20.879 2.067 11.319z"
-      ></path>
-    </svg>
+    We love doing open-source projects.
+    <IconHeart class="w-6 h-6 inline-block text-pink-400" />
   </h2>
 
   <div class="pt-4 max-w-2xl mx-auto px-4">
@@ -40,17 +37,7 @@ import Layout from "../layouts/Layout.astro";
       target="_blank"
       class="button flex items-center gap-4 w-64 justify-center"
     >
-      <svg viewBox="0 0 128 128" class="w-10 h-10">
-        <g fill="currentColor"
-          ><path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z"
-          ></path><path
-            d="M26.484 91.806c-.133.3-.605.39-1.035.185-.44-.196-.685-.605-.543-.906.13-.31.603-.395 1.04-.188.44.197.69.61.537.91zm2.446 2.729c-.287.267-.85.143-1.232-.28-.396-.42-.47-.983-.177-1.254.298-.266.844-.14 1.24.28.394.426.472.984.17 1.255zM31.312 98.012c-.37.258-.976.017-1.35-.52-.37-.538-.37-1.183.01-1.44.373-.258.97-.025 1.35.507.368.545.368 1.19-.01 1.452zm3.261 3.361c-.33.365-1.036.267-1.552-.23-.527-.487-.674-1.18-.343-1.544.336-.366 1.045-.264 1.564.23.527.486.686 1.18.333 1.543zm4.5 1.951c-.147.473-.825.688-1.51.486-.683-.207-1.13-.76-.99-1.238.14-.477.823-.7 1.512-.485.683.206 1.13.756.988 1.237zm4.943.361c.017.498-.563.91-1.28.92-.723.017-1.308-.387-1.315-.877 0-.503.568-.91 1.29-.924.717-.013 1.306.387 1.306.88zm4.598-.782c.086.485-.413.984-1.126 1.117-.7.13-1.35-.172-1.44-.653-.086-.498.422-.997 1.122-1.126.714-.123 1.354.17 1.444.663zm0 0"
-          ></path>
-        </g>
-      </svg>
+      <IconGitHubSponsors class="w-10 h-10 text-white" />
       <div class="flex flex-col">
         <span>GitHub Sponsors</span>
         <span class="text-xs text-gray-400">Donation</span>
@@ -61,20 +48,7 @@ import Layout from "../layouts/Layout.astro";
       target="_blank"
       class="button flex items-center gap-4 w-64 justify-center"
     >
-      <svg
-        class="w-10 h-10"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M16.6818 15.7529L18.8116 17.8827C20.1752 16.3052 21 14.249 21 12.0001C21 9.78747 20.2016 7.76133 18.8771 6.19409L16.7444 8.32671C17.5315 9.34177 18 10.6162 18 12.0001C18 13.4203 17.5066 14.7253 16.6818 15.7529Z"
-          fill="currentColor"
-          fill-opacity="0.5"></path>
-        <path
-          d="M15.6734 16.7445C14.6583 17.5315 13.3839 18 12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C13.4202 6 14.7252 6.49344 15.7528 7.31823L17.8826 5.18843C16.3051 3.82482 14.2489 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C14.2126 21 16.2387 20.2016 17.806 18.8771L15.6734 16.7445Z"
-          fill="currentColor"></path>
-      </svg>
+      <IconOpenCollective class="w-10 h-10 text-white" />
       <div class="flex flex-col">
         <span>Open Collective</span>
         <span class="text-xs text-gray-400">Donation</span>
@@ -85,15 +59,7 @@ import Layout from "../layouts/Layout.astro";
       target="_blank"
       class="button flex items-center gap-4 w-64 justify-center"
     >
-      <svg class="w-10 h-10" viewBox="0 0 360 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M360 77.4001C360 51.8001 347.6 31.6001 323.9 31.6001C300.1 31.6001 285.7 51.8001 285.7 77.2001C285.7 107.3 302.7 122.5 327.1 122.5C339 122.5 348 119.8 354.8 116V96.0001C348 99.4001 340.2 101.5 330.3 101.5C320.6 101.5 312 98.1001 310.9 86.3001H359.8C359.8 85.0001 360 79.8001 360 77.4001ZM310.6 67.9001C310.6 56.6001 317.5 51.9001 323.8 51.9001C329.9 51.9001 336.4 56.6001 336.4 67.9001H310.6Z" fill="currentColor"></path>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M247.1 31.6001C237.3 31.6001 231 36.2001 227.5 39.4001L226.2 33.2001H204.2V149.8L229.2 144.5L229.3 116.2C232.9 118.8 238.2 122.5 247 122.5C264.9 122.5 281.2 108.1 281.2 76.4001C281.1 47.4001 264.6 31.6001 247.1 31.6001ZM241.1 100.5C235.2 100.5 231.7 98.4001 229.3 95.8001L229.2 58.7001C231.8 55.8001 235.4 53.8001 241.1 53.8001C250.2 53.8001 256.5 64.0001 256.5 77.1001C256.5 90.5001 250.3 100.5 241.1 100.5Z" fill="currentColor"></path>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M169.8 25.7L194.9 20.3V0L169.8 5.3V25.7Z" fill="currentColor"></path>
-        <path d="M194.9 33.3H169.8V120.8H194.9V33.3Z" fill="currentColor"></path>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M142.9 40.7L141.3 33.3H119.7V120.8H144.7V61.5C150.6 53.8 160.6 55.2 163.7 56.3V33.3C160.5 32.1 148.8 29.9 142.9 40.7Z" fill="currentColor"></path>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M92.8999 11.6001L68.4999 16.8001L68.3999 96.9001C68.3999 111.7 79.4999 122.6 94.2999 122.6C102.5 122.6 108.5 121.1 111.8 119.3V99.0001C108.6 100.3 92.7999 104.9 92.7999 90.1001V54.6001H111.8V33.3001H92.7999L92.8999 11.6001Z" fill="currentColor"></path>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M25.3 58.7001C25.3 54.8001 28.5 53.3001 33.8 53.3001C41.4 53.3001 51 55.6001 58.6 59.7001V36.2001C50.3 32.9001 42.1 31.6001 33.8 31.6001C13.5 31.6001 0 42.2001 0 59.9001C0 87.5001 38 83.1001 38 95.0001C38 99.6001 34 101.1 28.4 101.1C20.1 101.1 9.5 97.7001 1.1 93.1001V116.9C10.4 120.9 19.8 122.6 28.4 122.6C49.2 122.6 63.5 112.3 63.5 94.4001C63.4 64.6001 25.3 69.9001 25.3 58.7001Z" fill="currentColor"></path>
-      </svg>
+      <IconStripe class="w-10 h-10 text-white" />
       <div class="flex flex-col">
         <span>Stripe</span>
         <span class="text-xs text-gray-400">Donation</span>
@@ -106,19 +72,46 @@ import Layout from "../layouts/Layout.astro";
       You can even get free visitors (170k+ unique visitors per month - landing
       page, docs, Github readme...) to your project, by buying a slot.
       <br/><br/>
-      <div class="text-center"><a
-        class="text-warning underline font-bold"
-        href="https://github.com/sponsors/coollabsio/sponsorships?tier_id=61570&preview=false"
-        >Small</a
-      >, a <a
-        class="text-warning underline font-bold"
-        href="https://github.com/sponsors/coollabsio/sponsorships?tier_id=334953&preview=false"
-        >large</a
-      > or a <a
-        class="text-warning underline font-bold"
-        href="https://github.com/sponsors/coollabsio/sponsorships?tier_id=554249&preview=false"
-        >huge</a
-      > logo + link on the front page and on Github README.
+      <div class="text-center">
+        <HoverCardLink
+          client:load
+          href="https://github.com/sponsors/coollabsio/sponsorships?tier_id=61570&preview=false"
+          label="Small"
+          newTab={true}
+          warning={true}
+          card={{
+            kind: "sponsor",
+            tierName: "Small Sponsor",
+            amount: 40,
+            description: "Small logo + link on the front page and on GitHub README."
+          }}
+        />, a
+        <HoverCardLink
+          client:load
+          href="https://github.com/sponsors/coollabsio/sponsorships?tier_id=334953&preview=false"
+          label="large"
+          newTab={true}
+          warning={true}
+          card={{
+            kind: "sponsor",
+            tierName: "Large Sponsor",
+            amount: 200,
+            description: "Larger logo + link on the front page and on GitHub README."
+          }}
+        /> or a
+        <HoverCardLink
+          client:load
+          href="https://github.com/sponsors/coollabsio/sponsorships?tier_id=554249&preview=false"
+          label="huge"
+          newTab={true}
+          warning={true}
+          card={{
+            kind: "sponsor",
+            tierName: "Huge Sponsor",
+            amount: 500,
+            description: "Huge logo (featured) + link on the front page and on GitHub README."
+          }}
+        /> logo + link on the front page and on Github README.
       </div>
     </div>
   </div>
@@ -135,23 +128,24 @@ import Layout from "../layouts/Layout.astro";
   <div class="pt-4 max-w-2xl mx-auto px-4 pb-8">
     <div class="text-left text-neutral-400">
       Hey, I'm
-      <a
+      <HoverCardLink
+        client:load
         href="https://twitter.com/heyandras"
-        class="underline text-white font-bold inline-flex items-center"
-        >Andras Bacsai <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          stroke-width="3"
-          stroke="currentColor"
-          fill="none"
-          class="w-3 h-3 -mt-1 ml-1"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path>
-        </svg>
-      </a>
+        label="Andras Bacsai"
+        showExternalIcon={true}
+        newTab={true}
+        card={{
+          kind: "twitter",
+          name: "Andras Bacsai",
+          username: "heyandras",
+          bio: "Entrepreneur, 2 x dad, 💜 OSS & simplicity.",
+          website: "coolify.io / jean.build / ideas.coollabs.io",
+          joined: "Joined December 2013",
+          avatarUrl: "https://pbs.twimg.com/profile_images/2049068753334452224/vSOyoJ6X_400x400.jpg",
+          followers: 23900,
+          following: 494
+        }}
+      />
       <br /><br />
       I'm a software developer based in Hungary who shifted to being an independent
       entrepreneur in July 2022. I quit my job to focus entirely on my dream of devoting
@@ -162,11 +156,21 @@ import Layout from "../layouts/Layout.astro";
       members who help me with the projects.
       <br /><br />
       If you find my open-source projects helpful or value my work, please think about
-      making a <a
+      making a
+      <HoverCardLink
+        client:load
         href="https://github.com/sponsors/coollabsio"
-        class="text-white hover:underline font-bold underline"
-        >donation or sponsoring</a
-      >.
+        label="donation or sponsoring"
+        newTab={true}
+        card={{
+          kind: "github-sponsor",
+          name: "coollabsio",
+          username: "coollabsio",
+          bio: "Cool Labs is an independent open-source company that builds and maintains open-source projects like Coolify.",
+          sponsorCount: 304,
+          imageUrl: "https://avatars.githubusercontent.com/u/60715044?s=160&v=4"
+        }}
+      />.
       <br /><br />
       This will guarantee that the projects stay free, accessible, and keep developing,
       enabling me to devote all my time to creating and enhancing them.
@@ -175,5 +179,6 @@ import Layout from "../layouts/Layout.astro";
       <br /><br />
       Thank you!
     </div>
+
   </div>
 </Layout>

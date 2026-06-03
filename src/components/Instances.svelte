@@ -10,8 +10,15 @@
   });
 </script>
 
-<span
-  class="text-neutral-400 sm:text-base text-xs sm:flex-row flex flex-col gap-1 pt-2 sm:justify-center"
-  ><span class="text-warning font-bold font-mono mt-[0.1rem]">{instances}</span>
+<span class="hero-stats-instances"
+  ><span class="text-warning font-bold tabular-nums">{instances}</span>
   self-hosted instances.
 </span>
+
+<style>
+  .hero-stats-instances {
+    margin-top: 0.5rem;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+</style>

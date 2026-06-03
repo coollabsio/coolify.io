@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
+import path from "path";
 
 const repos = [
-  { name: 'coolify', repo: 'coollabsio/coolify' },
-  { name: 'docs', repo: 'coollabsio/coolify-docs' }
+  { name: "coolify", repo: "coollabsio/coolify" },
+  { name: "docs", repo: "coollabsio/coolify-docs" },
 ];
 
 function isBot(user) {
-  return user.type === 'Bot' || /\[bot\]$/i.test(user.login);
+  return user.type === "Bot" || /\[bot\]$/i.test(user.login);
 }
 
 async function fetchAllContributors(repo) {
@@ -23,10 +23,12 @@ async function fetchAllContributors(repo) {
   const githubToken = process.env.GITHUB_TOKEN;
   const headers = {};
   if (githubToken) {
-    headers['Authorization'] = `Bearer ${githubToken}`;
-    console.log('✓ Using GitHub token for authentication');
+    headers["Authorization"] = `Bearer ${githubToken}`;
+    console.log("✓ Using GitHub token for authentication");
   } else {
-    console.log('⚠ No GITHUB_TOKEN found - using unauthenticated requests (rate limit: 60/hour)');
+    console.log(
+      "⚠ No GITHUB_TOKEN found - using unauthenticated requests (rate limit: 60/hour)",
+    );
   }
 
   while (true) {
@@ -36,14 +38,20 @@ async function fetchAllContributors(repo) {
 
       if (!response.ok) {
         if (response.status === 403) {
-          const rateLimitRemaining = response.headers.get('x-ratelimit-remaining');
-          const rateLimitReset = response.headers.get('x-ratelimit-reset');
-          const resetTime = rateLimitReset ? new Date(rateLimitReset * 1000).toLocaleTimeString() : 'unknown';
+          const rateLimitRemaining = response.headers.get(
+            "x-ratelimit-remaining",
+          );
+          const rateLimitReset = response.headers.get("x-ratelimit-reset");
+          const resetTime = rateLimitReset
+            ? new Date(rateLimitReset * 1000).toLocaleTimeString()
+            : "unknown";
           console.error(`Rate limited while fetching ${repo} (page ${page})`);
           console.error(`Rate limit remaining: ${rateLimitRemaining}`);
           console.error(`Rate limit resets at: ${resetTime}`);
-          console.error('💡 Set GITHUB_TOKEN environment variable to increase rate limit to 5,000/hour');
-          throw new Error('GitHub API rate limit exceeded');
+          console.error(
+            "💡 Set GITHUB_TOKEN environment variable to increase rate limit to 5,000/hour",
+          );
+          throw new Error("GitHub API rate limit exceeded");
         }
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
@@ -52,10 +60,14 @@ async function fetchAllContributors(repo) {
 
       // Log rate limit info on first page
       if (page === 1) {
-        const rateLimitRemaining = response.headers.get('x-ratelimit-remaining');
-        const rateLimitLimit = response.headers.get('x-ratelimit-limit');
+        const rateLimitRemaining = response.headers.get(
+          "x-ratelimit-remaining",
+        );
+        const rateLimitLimit = response.headers.get("x-ratelimit-limit");
         if (rateLimitRemaining && rateLimitLimit) {
-          console.log(`Rate limit: ${rateLimitRemaining}/${rateLimitLimit} requests remaining`);
+          console.log(
+            `Rate limit: ${rateLimitRemaining}/${rateLimitLimit} requests remaining`,
+          );
         }
       }
 
@@ -65,9 +77,9 @@ async function fetchAllContributors(repo) {
       }
 
       // Filter out bots and process contributors
-      const validContributors = data.filter(user => {
+      const validContributors = data.filter((user) => {
         // Handle anonymous contributors (they have 'name' instead of 'login')
-        if (user.type === 'Anonymous') {
+        if (user.type === "Anonymous") {
           return true; // Include anonymous contributors
         }
         // For regular users, check for login and filter out bots
@@ -75,7 +87,9 @@ async function fetchAllContributors(repo) {
       });
       contributors.push(...validContributors);
 
-      console.log(`Fetched page ${page} for ${repo}: ${data.length} contributors (${validContributors.length} valid)`);
+      console.log(
+        `Fetched page ${page} for ${repo}: ${data.length} contributors (${validContributors.length} valid)`,
+      );
 
       // If we got less than perPage, we've reached the end
       if (data.length < perPage) {
@@ -85,8 +99,7 @@ async function fetchAllContributors(repo) {
       page++;
 
       // Small delay to be nice to GitHub API
-      await new Promise(resolve => setTimeout(resolve, 100));
-
+      await new Promise((resolve) => setTimeout(resolve, 100));
     } catch (error) {
       console.error(`Error fetching page ${page} for ${repo}:`, error.message);
 
@@ -111,20 +124,20 @@ async function fetchAllContributors(repo) {
 
 async function main() {
   const result = {
-    lastUpdated: new Date().toISOString()
+    lastUpdated: new Date().toISOString(),
   };
 
   try {
     for (const { name, repo } of repos) {
       const contributors = await fetchAllContributors(repo);
-      result[name] = contributors.map(c => {
+      result[name] = contributors.map((c) => {
         // Handle anonymous contributors
-        if (c.type === 'Anonymous') {
+        if (c.type === "Anonymous") {
           return {
-            login: 'Anonymous',
-            avatar_url: '/android-launchericon-144-144.png', // Use Coolify logo for anonymous contributors
+            login: "Anonymous",
+            avatar_url: "/android-launchericon-144-144.png", // Use Coolify logo for anonymous contributors
             html_url: null, // Anonymous contributors don't have profile links
-            contributions: c.contributions
+            contributions: c.contributions,
           };
         }
         // Regular contributors
@@ -132,28 +145,39 @@ async function main() {
           login: c.login,
           avatar_url: c.avatar_url,
           html_url: c.html_url,
-          contributions: c.contributions
+          contributions: c.contributions,
         };
       });
     }
 
     // Ensure public directory exists
-    const publicDir = path.join(process.cwd(), 'public');
+    const publicDir = path.join(process.cwd(), "public");
     if (!fs.existsSync(publicDir)) {
       fs.mkdirSync(publicDir, { recursive: true });
     }
 
     // Write contributors data to public directory
-    const outputPath = path.join(publicDir, 'contributors.json');
+    const outputPath = path.join(publicDir, "contributors.json");
     fs.writeFileSync(outputPath, JSON.stringify(result, null, 2));
 
-    console.log('\n✅ Contributors data saved to public/contributors.json');
+    console.log("\n✅ Contributors data saved to public/contributors.json");
     console.log(`📊 Coolify contributors: ${result.coolify.length}`);
     console.log(`📚 Docs contributors: ${result.docs.length}`);
-
   } catch (error) {
-    console.error('❌ Failed to fetch contributors:', error.message);
-    process.exit(1);
+    console.error("❌ Failed to fetch contributors:", error.message);
+
+    const outputPath = path.join(process.cwd(), "public", "contributors.json");
+    if (fs.existsSync(outputPath)) {
+      console.warn(
+        "⚠ Using existing public/contributors.json and continuing build.",
+      );
+      console.warn(
+        "💡 Tip: set GITHUB_TOKEN to refresh contributors without rate limits.",
+      );
+      return;
+    }
+
+    process.exitCode = 1;
   }
 }
 

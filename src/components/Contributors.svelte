@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import IconPlus from "./Icons/IconPlus.svelte";
 
   let coolifyContributors = [];
   let docsContributors = [];
@@ -185,21 +186,7 @@
           target="_blank"
           class="text-base font-medium rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex items-center justify-center gap-2"
         >
-          <svg
-            class="icon hidden sm:block"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            >
-              <path d="M12 5v14m7-7H5" />
-            </g>
-          </svg>
+          <IconPlus class="icon hidden sm:block" />
           Contribute to Coolify
         </a>
         <a
@@ -207,21 +194,7 @@
           target="_blank"
           class="text-base font-medium rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex items-center justify-center gap-2"
         >
-          <svg
-            class="icon hidden sm:block"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            >
-              <path d="M12 5v14m7-7H5" />
-            </g>
-          </svg>
+          <IconPlus class="icon hidden sm:block" />
           Contribute to Docs
         </a>
       </div>
