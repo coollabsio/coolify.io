@@ -1,0 +1,199 @@
+---
+import IconGitHubSponsors from "./Icons/IconGitHubSponsors.svelte";
+import IconGitHub from "./Icons/IconGitHub.svelte";
+---
+
+<div class="cta-section">
+  <div class="cta-card">
+    <div class="card-noise"></div>
+    <div class="card-glow"></div>
+
+    <div class="cta-content">
+      <h2 class="cta-title">
+        Support the project<span class="text-warning">.</span>
+      </h2>
+      <p class="cta-desc">
+        Coolify is built in the open by a small independent team. Your support keeps
+        it free, sustainable, and continuously improving.
+      </p>
+
+      <div class="cta-actions">
+        <a href="/sponsorships" class="cta-btn cta-btn-primary">
+          <IconGitHubSponsors class="w-5 h-5 shrink-0" />
+          <span>Sponsor Us</span>
+        </a>
+        <a
+          href="https://github.com/coollabsio/coolify"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cta-btn cta-btn-secondary"
+        >
+          <IconGitHub class="w-5 h-5 shrink-0" />
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="cta-footer">
+      Built with &hearts; by <a href="https://x.com/heyandras" target="_blank" rel="noopener noreferrer">Andras Bacsai</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cta-section {
+    padding: 0 1rem;
+    margin: 4rem auto 0;
+    max-width: 42rem;
+  }
+
+  .cta-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    padding: 2.5rem 2rem 1.5rem;
+    background: linear-gradient(135deg, #6B16ED, #8B3AFF, #6B16ED);
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease-in-out infinite alternate;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 60px rgba(107, 22, 237, 0.25);
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+
+  .card-noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.08;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 128px 128px;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    z-index: 0;
+  }
+
+  .card-glow {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    translate: -50% 0;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.08), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .cta-title {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: white;
+    line-height: 1.15;
+  }
+
+  .cta-desc {
+    margin-top: 0.75rem;
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    max-width: 32rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 650;
+    font-size: 0.9rem;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+    white-space: nowrap;
+    flex: 1 1 auto;
+    min-width: 160px;
+  }
+
+  .cta-btn:active {
+    transform: scale(0.97);
+  }
+
+  .cta-btn-primary {
+    background: white;
+    color: #6B16ED;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .cta-btn-primary:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-btn-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+  }
+
+  .cta-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  .cta-footer {
+    position: relative;
+    z-index: 1;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .cta-footer a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 200ms ease;
+  }
+
+  .cta-footer a:hover {
+    color: white;
+  }
+
+  @media (max-width: 480px) {
+    .cta-card {
+      padding: 1.75rem 1.25rem 1.25rem;
+    }
+
+    .cta-btn {
+      min-width: 0;
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cta-card {
+      animation: none;
+    }
+  }
+</style>

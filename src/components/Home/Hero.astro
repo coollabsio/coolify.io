@@ -1,0 +1,88 @@
+---
+import HeroIntro from "./HeroIntro.svelte";
+import HeroPreview from "./HeroPreview.svelte";
+
+import contributorsData from "../../../public/contributors.json";
+
+import IconCamera from "../Icons/IconCamera.svelte";
+import IconVideo from "../Icons/IconVideo.svelte";
+import IconTwitch from "../Icons/IconTwitch.svelte";
+
+export type Props = {
+    isDev: boolean;
+};
+
+const { isDev } = Astro.props;
+
+const topContributors = (contributorsData?.coolify || []).slice(0, 3);
+
+const contributorsCount = 650;
+const cloudUsers = 3641;
+---
+
+
+<section class="px-4 pt-4">
+
+    <HeroIntro
+        client:load
+        cloudUsers={cloudUsers}
+        contributorsCount={contributorsCount}
+        topContributors={topContributors}
+    />
+
+    <div class="max-w-5xl mx-auto text-center mt-8">
+        <HeroPreview client:load />
+    </div>
+
+    <div class="flex gap-3 justify-center flex-wrap text-sm mt-5">
+        <a
+            class="hero-link"
+            href="https://coolify.io/docs/get-started/screenshots"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <IconCamera class="w-3.5 h-3.5" />
+            Screenshots
+        </a>
+        <a
+            class="hero-link"
+            href="https://coolify.io/docs/get-started/videos"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <IconVideo class="w-3.5 h-3.5" />
+            Videos
+        </a>
+        <a
+            class="hero-link"
+            href="https://twitch.tv/heyandras"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <IconTwitch class="w-3.5 h-3.5 text-purple-500" />
+            Live Streams
+        </a>
+    </div>
+
+</section>
+
+<style>
+    .hero-link {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.45rem 0.85rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 0.82rem;
+        transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease, transform 180ms ease;
+    }
+
+    .hero-link:hover {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 255, 255, 0.14);
+        color: rgba(255, 255, 255, 0.95);
+    }
+</style>

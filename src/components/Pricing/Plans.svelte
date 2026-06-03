@@ -1,5 +1,10 @@
 <script>
   import { onMount } from "svelte";
+  import IconCheckmarkCircle from "../Icons/IconCheckmarkCircle.svelte";
+  import IconRobot from "../Icons/IconRobot.svelte";
+  import IconCloud from "../Icons/IconCloud.svelte";
+  import IconAsterisk from "../Icons/IconAsterisk.svelte";
+  import IconChevronDownSolid from "../Icons/IconChevronDownSolid.svelte";
 
   let freq = "monthly";
   let openFAQ = null;
@@ -87,14 +92,6 @@
       .catch(() => {});
   });
 
-  function checkmark() {
-    return `
-      <svg class="flex-none w-5 h-6 mr-3" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-        <path d="M10 18a8 8 0 100-16 8 8 0 000 16z" fill="#7317ff"/>
-        <path d="M13.857 8.191a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" fill="white"/>
-      </svg>
-    `;
-  }
 </script>
 
 <div class="text-white max-w-6xl mx-auto py-12 px-4">
@@ -116,48 +113,37 @@
         </p>
         <ul class="space-y-4 text-sm leading-6 pt-2 text-white text-left">
           <li class="flex items-start">
-            {@html checkmark()}Full access to all features
+            <IconCheckmarkCircle class="flex-none w-5 h-6 mr-3" />
+            Full access to all features
           </li>
           <li class="flex items-start">
-            {@html checkmark()}Need your own infrastructure for Coolify
+            <IconCheckmarkCircle class="flex-none w-5 h-6 mr-3" />
+            Need your own infrastructure for Coolify
           </li>
           <li class="flex items-start">
-            {@html checkmark()}No limitation or restrictions
+            <IconCheckmarkCircle class="flex-none w-5 h-6 mr-3" />
+            No limitation or restrictions
           </li>
           <li class="flex items-start">
-            {@html checkmark()}Community support ({communityMembers} members)
+            <IconCheckmarkCircle class="flex-none w-5 h-6 mr-3" />
+            Community support ({communityMembers} members)
           </li>
           <li class="flex items-start">
-            {@html checkmark()}Automated or Self-managed updates
+            <IconCheckmarkCircle class="flex-none w-5 h-6 mr-3" />
+            Automated or Self-managed updates
           </li>
           <li class="flex items-start">
-            {@html checkmark()}Includes all upcoming features
+            <IconCheckmarkCircle class="flex-none w-5 h-6 mr-3" />
+            Includes all upcoming features
           </li>
         </ul>
       </div>
       <div class="mt-6">
         <a
           href="https://coolify.io/docs/get-started/installation"
-          class="text-base font-medium rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex justify-center items-center gap-2"
+          class="text-base font-medium rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex justify-center items-center gap-2 pricing-cta"
         >
-          <svg
-            class="icon hidden sm:block"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            >
-              <path d="M9.5 11h.01m4.99 0h.01M9.5 15a3.5 3.5 0 0 0 5 0"></path>
-              <path
-                d="M7 5h1V3h8v2h1a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3v1H7v-1a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3"
-              ></path>
-            </g>
-          </svg>
+          <IconRobot class="icon hidden sm:block" />
           Start Self‑hosting
         </a>
       </div>
@@ -220,34 +206,32 @@
         </p>
         <ul class="space-y-4 text-sm leading-6 text-white text-left">
           <li class="flex items-start">
-            {@html checkmark()}Connect unlimited servers
+            <IconCheckmarkCircle class="flex-none w-5 h-6 mr-3" />
+            Connect unlimited servers
           </li>
           <li class="flex items-start">
-            {@html checkmark()}Unlimited deployments per server
+            <IconCheckmarkCircle class="flex-none w-5 h-6 mr-3" />
+            Unlimited deployments per server
           </li>
           <li class="flex items-start">
-            {@html checkmark()}Free email alerts for Coolify events
+            <IconCheckmarkCircle class="flex-none w-5 h-6 mr-3" />
+            Free email alerts for Coolify events
           </li>
           <li class="flex items-start">
-            {@html checkmark()}Community + limited email support
+            <IconCheckmarkCircle class="flex-none w-5 h-6 mr-3" />
+            Community + limited email support
           </li>
           <li class="flex items-start">
-            {@html checkmark()}Founder-tested updates
+            <IconCheckmarkCircle class="flex-none w-5 h-6 mr-3" />
+            Founder-tested updates
           </li>
         </ul>
         <div class="mt-4 flex items-center text-warning text-sm">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
+          <IconAsterisk
             width="16"
             height="16"
-            fill="currentColor"
             class="bi bi-asterisk mr-3 ml-1"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1"
-            />
-          </svg>
+          />
           <div class="relative group">
             <span
               class="underline decoration-dotted decoration-1 underline-offset-4 cursor-help"
@@ -281,23 +265,10 @@
       <div class="mt-6">
         <a
           href="https://app.coolify.io/register"
-          class="text-base font-medium rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex justify-center items-center gap-2"
+          class="text-base font-medium rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex justify-center items-center gap-2 pricing-cta"
         >
           <!-- Cloud Icon -->
-          <svg
-            class="icon hidden sm:block"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6.657 18C4.085 18 2 15.993 2 13.517c0-2.475 2.085-4.482 4.657-4.482c.393-1.762 1.794-3.2 3.675-3.773c1.88-.572 3.956-.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927-1.551 3.487-3.465 3.487H6.657"
-            ></path>
-          </svg>
+          <IconCloud class="icon hidden sm:block" />
           Get Started in the Cloud
         </a>
       </div>
@@ -305,69 +276,63 @@
   </div>
 
   <!-- Feature Table -->
-  <div class="mt-16 overflow-x-auto">
-    <table class="w-full table-pin-auto text-left">
+  <div class="mt-16">
+    <table class="w-full text-left table-auto">
       <thead>
         <tr class="bg-coolgray-100">
-          <th class="px-6 py-3 font-medium w-1/2">Feature</th>
-          <th class="px-6 py-3 font-medium min-w-[120px] whitespace-nowrap"
-            >Self-hosted</th
-          >
-          <th class="px-6 py-3 font-medium min-w-[80px] whitespace-nowrap"
-            >Cloud</th
-          >
+          <th class="px-3 sm:px-6 py-3 font-medium w-1/2 sm:w-auto">Feature</th>
+          <th class="px-3 sm:px-6 py-3 font-medium">Self-hosted</th>
+          <th class="px-3 sm:px-6 py-3 font-medium">Cloud</th>
         </tr>
       </thead>
       <tbody class="divide-y divide-coolgray-300">
-        <tr>
-          <td class="px-6 py-4">Application Deployments</td>
-          <td class="px-6 py-4">{@html checkmark()}</td>
-          <td class="px-6 py-4">{@html checkmark()}</td>
+        <tr class="transition-colors duration-200 hover:bg-coolgray-100/60">
+          <td class="px-3 sm:px-6 py-4">Application Deployments</td>
+          <td class="px-3 sm:px-6 py-4"><IconCheckmarkCircle class="w-5 h-5" /></td>
+          <td class="px-3 sm:px-6 py-4"><IconCheckmarkCircle class="w-5 h-5" /></td>
         </tr>
-        <tr>
-          <td class="px-6 py-4">Database Deployments</td>
-          <td class="px-6 py-4">{@html checkmark()}</td>
-          <td class="px-6 py-4">{@html checkmark()}</td>
+        <tr class="transition-colors duration-200 hover:bg-coolgray-100/60">
+          <td class="px-3 sm:px-6 py-4">Database Deployments</td>
+          <td class="px-3 sm:px-6 py-4"><IconCheckmarkCircle class="w-5 h-5" /></td>
+          <td class="px-3 sm:px-6 py-4"><IconCheckmarkCircle class="w-5 h-5" /></td>
         </tr>
-        <tr>
-          <td class="px-6 py-4">Service/One-click Deployments</td>
-          <td class="px-6 py-4">{@html checkmark()}</td>
-          <td class="px-6 py-4">{@html checkmark()}</td>
+        <tr class="transition-colors duration-200 hover:bg-coolgray-100/60">
+          <td class="px-3 sm:px-6 py-4">Service/One-click Deployments</td>
+          <td class="px-3 sm:px-6 py-4"><IconCheckmarkCircle class="w-5 h-5" /></td>
+          <td class="px-3 sm:px-6 py-4"><IconCheckmarkCircle class="w-5 h-5" /></td>
         </tr>
-        <tr>
-          <td class="px-6 py-4">API Access</td>
-          <td class="px-6 py-4">{@html checkmark()}</td>
-          <td class="px-6 py-4">{@html checkmark()}</td>
+        <tr class="transition-colors duration-200 hover:bg-coolgray-100/60">
+          <td class="px-3 sm:px-6 py-4">API Access</td>
+          <td class="px-3 sm:px-6 py-4"><IconCheckmarkCircle class="w-5 h-5" /></td>
+          <td class="px-3 sm:px-6 py-4"><IconCheckmarkCircle class="w-5 h-5" /></td>
         </tr>
-        <tr>
-          <td class="px-6 py-4">Codebase</td>
-          <td class="px-6 py-4 text-neutral-400">Open source</td>
-          <td class="px-6 py-4 text-neutral-400">Open source</td>
+        <tr class="transition-colors duration-200 hover:bg-coolgray-100/60">
+          <td class="px-3 sm:px-6 py-4">Codebase</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">Open source</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">Open source</td>
         </tr>
-        <tr>
-          <td class="px-6 py-4">Coolify Hosting</td>
-          <td class="px-6 py-4 text-neutral-400">Self-managed</td>
-          <td class="px-6 py-4 text-neutral-400">Managed</td>
+        <tr class="transition-colors duration-200 hover:bg-coolgray-100/60">
+          <td class="px-3 sm:px-6 py-4">Coolify Hosting</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">Self-managed</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">Managed</td>
         </tr>
-        <tr>
-          <td class="px-6 py-4">Coolify Dashboard Domain</td>
-          <td class="px-6 py-4 text-neutral-400">Custom Domain</td>
-          <td class="px-6 py-4 text-neutral-400">app.coolify.io</td>
+        <tr class="transition-colors duration-200 hover:bg-coolgray-100/60">
+          <td class="px-3 sm:px-6 py-4">Coolify Dashboard Domain</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">Custom Domain</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">app.coolify.io</td>
         </tr>
-        <tr>
-          <td class="px-6 py-4">Coolify Setup</td>
-          <td class="px-6 py-4 text-neutral-400">Manual</td>
-          <td class="px-6 py-4 text-neutral-400">Managed</td>
+        <tr class="transition-colors duration-200 hover:bg-coolgray-100/60">
+          <td class="px-3 sm:px-6 py-4">Coolify Setup</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">Manual</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">Managed</td>
         </tr>
-        <tr>
-          <td class="px-6 py-4">Coolify Backups</td>
-          <td class="px-6 py-4 text-neutral-400"
-            >Self-managed (but automated)</td
-          >
-          <td class="px-6 py-4 text-neutral-400">Managed</td>
+        <tr class="transition-colors duration-200 hover:bg-coolgray-100/60">
+          <td class="px-3 sm:px-6 py-4">Coolify Backups</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">Self-managed (but automated)</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">Managed</td>
         </tr>
-        <tr>
-          <td class="px-6 py-4">
+        <tr class="transition-colors duration-200 hover:bg-coolgray-100/60">
+          <td class="px-3 sm:px-6 py-4">
             <span
               class="underline decoration-dotted underline-offset-4 cursor-help relative group"
             >
@@ -380,12 +345,12 @@
               </span>
             </span>
           </td>
-          <td class="px-6 py-4 text-neutral-400">Manual (but automated)</td>
-          <td class="px-6 py-4 text-neutral-400">Managed</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">Manual (but automated)</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">Managed</td>
         </tr>
 
-        <tr>
-          <td class="px-6 py-4">
+        <tr class="transition-colors duration-200 hover:bg-coolgray-100/60">
+          <td class="px-3 sm:px-6 py-4">
             <span
               class="underline decoration-dotted underline-offset-4 cursor-help relative group"
             >
@@ -399,15 +364,13 @@
               </span>
             </span>
           </td>
-          <td class="px-6 py-4 text-neutral-400"
-            >Manual (requires SMTP/Resend)</td
-          >
-          <td class="px-6 py-4 text-neutral-400">Managed</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">Manual (requires SMTP/Resend)</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">Managed</td>
         </tr>
-        <tr>
-          <td class="px-6 py-4">Teams</td>
-          <td class="px-6 py-4 text-neutral-400">Unlimited</td>
-          <td class="px-6 py-4 text-neutral-400">
+        <tr class="transition-colors duration-200 hover:bg-coolgray-100/60">
+          <td class="px-3 sm:px-6 py-4">Teams</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">Unlimited</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">
             <span
               class="underline decoration-dotted underline-offset-4 cursor-help relative group"
             >
@@ -421,20 +384,20 @@
           </td>
         </tr>
 
-        <tr>
-          <td class="px-6 py-4">Team Members</td>
-          <td class="px-6 py-4 text-neutral-400">Unlimited</td>
-          <td class="px-6 py-4 text-neutral-400">Unlimited</td>
+        <tr class="transition-colors duration-200 hover:bg-coolgray-100/60">
+          <td class="px-3 sm:px-6 py-4">Team Members</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">Unlimited</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">Unlimited</td>
         </tr>
-        <tr>
-          <td class="px-6 py-4">Connected Servers</td>
-          <td class="px-6 py-4 text-neutral-400">Unlimited</td>
-          <td class="px-6 py-4 text-neutral-400">Unlimited</td>
+        <tr class="transition-colors duration-200 hover:bg-coolgray-100/60">
+          <td class="px-3 sm:px-6 py-4">Connected Servers</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">Unlimited</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">Unlimited</td>
         </tr>
-        <tr>
-          <td class="px-6 py-4">Any Other Upcoming Features</td>
-          <td class="px-6 py-4 text-neutral-400">Unlimited & Free Forever</td>
-          <td class="px-6 py-4 text-neutral-400">Included In The Price</td>
+        <tr class="transition-colors duration-200 hover:bg-coolgray-100/60">
+          <td class="px-3 sm:px-6 py-4">Any Other Upcoming Features</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">Unlimited & Free Forever</td>
+          <td class="px-3 sm:px-6 py-4 text-neutral-400">Included In The Price</td>
         </tr>
       </tbody>
     </table>
@@ -451,18 +414,11 @@
             class="w-full text-left text-sm font-medium flex justify-between items-center"
           >
             <span>{question}</span>
-            <svg
-              class="w-6 h-6 transition-transform duration-200"
-              class:rotate-180={openFAQ === i}
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 12l-4-4h8l-4 4z"
-                clip-rule="evenodd"
-              />
-            </svg>
+            <IconChevronDownSolid
+              class={`w-6 h-6 transition-transform duration-200 ${
+                openFAQ === i ? "rotate-180" : ""
+              }`}
+            />
           </button>
           {#if openFAQ === i}
             <p class="mt-2 text-sm text-neutral-300 text-left">{answer}</p>
