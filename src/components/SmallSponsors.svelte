@@ -12,11 +12,6 @@
       newest: true,
     },
     {
-      name: "ParsecPH",
-      url: "https://github.com/parsecph",
-      imageUrl: "https://github.com/parsecph.png",
-    },
-    {
       name: "Netrouting",
       url: "https://www.netrouting.com/?utm_source=coolify.io",
       imageUrl: "https://github.com/netroutingcom.png",

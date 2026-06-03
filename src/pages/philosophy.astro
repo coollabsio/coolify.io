@@ -225,7 +225,7 @@ import IconStripe from "../components/Icons/IconStripe.svelte";
   </div>
 
   <script>
-    fetch("https://cdn-new.coollabs.io/business.json")
+    fetch("https://raw.githubusercontent.com/coollabsio/coollabs-cdn/main/json/business.json")
       .then((res) => res.json())
       .then((data) => {
         const hostedEl = document.getElementById("hosted-mrr");
@@ -242,6 +242,11 @@ import IconStripe from "../components/Icons/IconStripe.svelte";
           openCollectiveEl.textContent =
             data["open-collective-sponsors"].toLocaleString();
         }
+        const cloudUsersEl = document.getElementById("cloud-users");
+        if (cloudUsersEl && data["coolify-cloud-users"]) {
+          cloudUsersEl.textContent =
+            data["coolify-cloud-users"].toLocaleString();
+        }
       })
       .catch(() => {
         const hostedEl = document.getElementById("hosted-mrr");
@@ -255,6 +260,10 @@ import IconStripe from "../components/Icons/IconStripe.svelte";
         const openCollectiveEl = document.getElementById("open-collective");
         if (openCollectiveEl) {
           openCollectiveEl.textContent = "1,200";
+        }
+        const cloudUsersEl = document.getElementById("cloud-users");
+        if (cloudUsersEl) {
+          cloudUsersEl.textContent = "3,641";
         }
       });
   </script>

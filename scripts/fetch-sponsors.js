@@ -46,6 +46,10 @@ const SPONSOR_FILES = [
   'src/components/SmallSponsors.svelte',
 ];
 
+const SPONSOR_JSON_FILES = [
+  '../coollabs-cdn/json/sponsors.json',
+];
+
 function rootHost(host) {
   if (!host) return null;
   return host.replace(/^www\./i, '').toLowerCase();
@@ -78,6 +82,36 @@ function collectKnownTokens() {
   const offPlatformRe = /\/\/\s*off-platform:\s*([^\n\r]+)/gi;
 
   const RESERVED_PATHS = new Set(['sponsors', 'orgs', 'apps']);
+
+  const addKnownSponsor = (sponsor) => {
+    if (!sponsor || typeof sponsor !== 'object') return;
+    const h = hostFromUrl(sponsor.url || sponsor.websiteUrl);
+    if (h && h !== 'github.com') hosts.add(h);
+    for (const imageValue of [sponsor.image?.key, sponsor.image?.path, sponsor.image?.url, sponsor.imageKey, sponsor.imagePath, sponsor.imageUrl]) {
+      if (!imageValue || typeof imageValue !== 'string') continue;
+      const base = imageValue.split('/').pop().replace(/\.[a-z0-9]+$/i, '').toLowerCase();
+      const head = base.split(/[-_]/)[0];
+      if (head && head.length > 2) tokens.add(head);
+    }
+    for (const alias of sponsor.offPlatform?.aliases || []) {
+      const a = String(alias).trim().toLowerCase();
+      if (!a) continue;
+      offPlatform.add(a);
+      logins.add(a);
+    }
+  };
+
+  for (const file of SPONSOR_JSON_FILES) {
+    const full = path.resolve(process.cwd(), file);
+    if (!fs.existsSync(full)) continue;
+    const data = JSON.parse(fs.readFileSync(full, 'utf8'));
+    for (const tierSponsors of Object.values(data.tiers || {})) {
+      if (!Array.isArray(tierSponsors)) continue;
+      for (const sponsor of tierSponsors) {
+        addKnownSponsor(sponsor);
+      }
+    }
+  }
 
   for (const file of SPONSOR_FILES) {
     const full = path.join(process.cwd(), file);
