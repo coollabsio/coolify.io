@@ -89,10 +89,7 @@
 
   function checkmark() {
     return `
-      <svg class="flex-none w-5 h-6 mr-3" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-        <path d="M10 18a8 8 0 100-16 8 8 0 000 16z" fill="#7317ff"/>
-        <path d="M13.857 8.191a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" fill="white"/>
-      </svg>
+      <i class="ph-duotone ph-check-circle mt-0 flex-none text-warning text-2xl" aria-hidden="true"></i>
     `;
   }
 </script>
@@ -140,24 +137,7 @@
           href="https://coolify.io/docs/get-started/installation"
           class="text-base font-medium rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex justify-center items-center gap-2"
         >
-          <svg
-            class="icon hidden sm:block"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            >
-              <path d="M9.5 11h.01m4.99 0h.01M9.5 15a3.5 3.5 0 0 0 5 0"></path>
-              <path
-                d="M7 5h1V3h8v2h1a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3v1H7v-1a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3"
-              ></path>
-            </g>
-          </svg>
+          <i class="ph-duotone ph-rocket-launch text-warning text-xl" aria-hidden="true"></i>
           Start Self‑hosting
         </a>
       </div>
@@ -236,18 +216,7 @@
           </li>
         </ul>
         <div class="mt-4 flex items-center text-warning text-sm">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-asterisk mr-3 ml-1"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1"
-            />
-          </svg>
+          <i class="ph-duotone ph-info mr-3 ml-1 text-warning text-base" aria-hidden="true"></i>
           <div class="relative group">
             <span
               class="underline decoration-dotted decoration-1 underline-offset-4 cursor-help"
@@ -284,20 +253,7 @@
           class="text-base font-medium rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex justify-center items-center gap-2"
         >
           <!-- Cloud Icon -->
-          <svg
-            class="icon hidden sm:block"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6.657 18C4.085 18 2 15.993 2 13.517c0-2.475 2.085-4.482 4.657-4.482c.393-1.762 1.794-3.2 3.675-3.773c1.88-.572 3.956-.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927-1.551 3.487-3.465 3.487H6.657"
-            ></path>
-          </svg>
+          <i class="ph-duotone ph-rocket-launch text-warning text-xl" aria-hidden="true"></i>
           Get Started in the Cloud
         </a>
       </div>
@@ -451,18 +407,7 @@
             class="w-full text-left text-sm font-medium flex justify-between items-center"
           >
             <span>{question}</span>
-            <svg
-              class="w-6 h-6 transition-transform duration-200"
-              class:rotate-180={openFAQ === i}
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 12l-4-4h8l-4 4z"
-                clip-rule="evenodd"
-              />
-            </svg>
+            <i class="ph-duotone ph-caret-down text-xl transition-transform duration-200" aria-hidden="true"></i>
           </button>
           {#if openFAQ === i}
             <p class="mt-2 text-sm text-neutral-300 text-left">{answer}</p>

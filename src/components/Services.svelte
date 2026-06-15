@@ -77,19 +77,7 @@
     class="flex flex-col sm:flex-row gap-4 mb-8 max-w-3xl mx-auto items-stretch sm:items-center"
   >
     <div class="relative flex-1">
-      <svg
-        class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-        />
-      </svg>
+      <i class="ph-duotone ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500 text-xl" aria-hidden="true"></i>
       <input
         type="text"
         bind:value={search}
@@ -107,19 +95,7 @@
           <option value={category}>{getCategoryLabel(category)}</option>
         {/each}
       </select>
-      <svg
-        class="pointer-events-none absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 text-neutral-400"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="m6 9 6 6 6-6"
-        />
-      </svg>
+      <i class="ph-duotone ph-caret-down pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-neutral-400 text-xl" aria-hidden="true"></i>
     </div>
   </div>
 
