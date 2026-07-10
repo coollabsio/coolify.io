@@ -1,4 +1,4 @@
-const SPONSORS_URL = "https://raw.githubusercontent.com/coollabsio/coollabs-cdn/main/json/sponsors.json";
+const SPONSORS_URL = "https://cdn.coollabs.io/sponsors.json";
 
 const response = await fetch(SPONSORS_URL);
 
