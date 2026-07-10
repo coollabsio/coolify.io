@@ -77,7 +77,7 @@
   ];
 
   onMount(() => {
-    fetch("https://raw.githubusercontent.com/coollabsio/coollabs-cdn/main/json/business.json")
+    fetch("https://cdn.coollabs.io/business.json")
       .then((res) => res.json())
       .then((data) => {
         if (data.discord) {

@@ -252,7 +252,7 @@ import Layout from "../layouts/Layout.astro";
   </div>
 
   <script>
-    fetch("https://raw.githubusercontent.com/coollabsio/coollabs-cdn/main/json/business.json")
+    fetch("https://cdn.coollabs.io/business.json")
       .then((res) => res.json())
       .then((data) => {
         const hostedEl = document.getElementById("hosted-mrr");

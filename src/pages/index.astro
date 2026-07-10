@@ -342,7 +342,7 @@ const isDev = import.meta.env.DEV;
     <span class="sm:hidden">Jump to Features</span>
   </a>
   <script>
-    fetch("https://raw.githubusercontent.com/coollabsio/coollabs-cdn/main/json/business.json")
+    fetch("https://cdn.coollabs.io/business.json")
       .then((res) => res.json())
       .then((data) => {
         const cloudUsersEl = document.getElementById("cloud-users");
