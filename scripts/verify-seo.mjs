@@ -25,7 +25,7 @@ assert(canonicalize("http://www.coolify.io/cloud/") === `${SITE_ORIGIN}/cloud`, 
 assert(isRedirectPath("/github/") === true, "github is a redirect path");
 assert(isRedirectPath("/pricing") === false, "pricing is not a redirect path");
 
-const distDir = join(import.meta.dirname, "..", "dist");
+const distDir = join(dirname(fileURLToPath(import.meta.url)), "..", "dist");
 if (existsSync(distDir)) {
   const marketingPages = [
     "index.html",
