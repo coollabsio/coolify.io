@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import svelte, { vitePreprocess } from "@astrojs/svelte";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
+import { canonicalize, isRedirectPath } from "./src/lib/seo.js";
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,7 +16,13 @@ export default defineConfig({
   },
   integrations: [
     svelte({ preprocess: vitePreprocess() }),
-    sitemap(),
+    sitemap({
+      filter: (page) => !isRedirectPath(page),
+      serialize(item) {
+        item.url = canonicalize(item.url);
+        return item;
+      },
+    }),
   ],
   vite: {
     plugins: [tailwindcss()],

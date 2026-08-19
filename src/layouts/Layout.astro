@@ -2,18 +2,25 @@
 import "../styles/global.css";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
+import { canonicalize } from "../lib/seo.js";
 
 export interface Props {
   title: string;
   canonicalUrl?: string;
   description?: string;
+  noindex?: boolean;
 }
 
 const {
   title,
   canonicalUrl,
   description = "Open-source alternative to Vercel, Heroku & Netlify. Self-host apps, databases & 280+ services on your own server.",
+  noindex = false,
 } = Astro.props;
+
+const resolvedCanonical = noindex
+  ? undefined
+  : canonicalize(canonicalUrl ?? Astro.url.pathname);
 ---
 
 <!doctype html>
@@ -64,17 +71,18 @@ const {
     <meta name="theme-color" content="#ffffff" />
     <meta name="Description" content={description} />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@coolifyio" />
-    <meta name="twitter:title" content="Coolify" />
+    <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta
       name="twitter:image"
       content="https://cdn.coollabs.io/og-images/coolify.png"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://coolify.io" />
-    <meta property="og:title" content="Coolify" />
+    <meta property="og:url" content={resolvedCanonical ?? "https://coolify.io"} />
+    <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content="Coolify" />
     <meta
@@ -82,7 +90,7 @@ const {
       content="https://cdn.coollabs.io/og-images/coolify.png"
     />
     <title>{title}</title>
-    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    {resolvedCanonical && <link rel="canonical" href={resolvedCanonical} />}
     <link rel="me" href="https://fosstodon.org/@andrasbacsai" />
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
