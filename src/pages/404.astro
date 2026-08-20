@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Page not found | Coolify"
+  description="This page does not exist."
+  noindex
+>
+  <h1 class="text-3xl font-bold tracking-tight text-white md:text-6xl px-4">
+    Page not found<span class="text-warning">.</span>
+  </h1>
+  <p class="text-base pt-4 text-neutral-400 px-4">
+    That URL is not a page on coolify.io.
+  </p>
+  <p class="pt-8">
+    <a
+      href="/"
+      class="text-base font-bold rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 inline-flex gap-2 justify-center"
+    >
+      Back to homepage
+    </a>
+  </p>
+</Layout>
