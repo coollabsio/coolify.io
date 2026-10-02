@@ -1,9 +1,15 @@
 <script>
   import { onMount } from "svelte";
+  import Icon from "../Icon.svelte";
+  import Check from "reicon/icons/Check";
+  import ChevronDown from "reicon/icons/ChevronDown";
+  import Cloud from "reicon/icons/Cloud";
+  import HardDrive from "reicon/icons/HardDrive";
+  import InfoCircle from "reicon/icons/InfoCircle";
 
   let freq = "monthly";
   let openFAQ = null;
-  let communityMembers = "19+";
+  let communityMembers = "20k+";
 
   const faqs = [
     {
@@ -81,83 +87,98 @@
       .then((res) => res.json())
       .then((data) => {
         if (data.discord) {
-          communityMembers = `(${(data.discord / 1000).toFixed(0)}k+)`;
+          communityMembers = `${(data.discord / 1000).toFixed(0)}k+`;
         }
       })
       .catch(() => {});
   });
 
-  function checkmark() {
-    return `
-      <i class="ph-duotone ph-check-circle mt-0 flex-none text-warning text-2xl" aria-hidden="true"></i>
-    `;
-  }
+  const selfHostedFeatures = [
+    "Full access to all features",
+    "Need your own infrastructure for Coolify",
+    "No limitation or restrictions",
+    null, // community support, rendered with live member count
+    "Automated or self-managed updates",
+    "Includes all upcoming features",
+  ];
+
+  const cloudFeatures = [
+    "Connect unlimited servers",
+    "Unlimited deployments per server",
+    "Free email alerts for Coolify events",
+    "Community + limited email support",
+    "Founder-tested updates",
+  ];
+
+  const segment =
+    "cursor-pointer rounded px-3 py-1 text-xs font-medium transition-colors sm:text-sm has-[:focus-visible]:outline-1 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-warning";
+  const td = "px-4 py-3";
+  const tdDim = "px-4 py-3 text-fg-dim";
+  const tip =
+    "underline decoration-fg-faint decoration-dotted underline-offset-4 cursor-help relative group";
+  const tipBox =
+    "absolute bottom-full z-10 mb-2 w-max max-w-xs rounded-md bg-raised px-3 py-2 text-xs font-normal whitespace-normal text-fg-dim ring-1 ring-hairline opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible";
 </script>
 
-<div class="text-white max-w-6xl mx-auto py-12 px-4">
-  <!-- Cards -->
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-    <!-- Free Plan -->
-    <div
-      class="bg-coolgray-200/70 p-6 rounded-lg flex flex-col justify-between"
-    >
+<div class="mx-auto max-w-5xl px-4 pt-10 pb-4 text-left">
+  <!-- Plan cards -->
+  <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+    <!-- Self-hosted -->
+    <div class="card flex flex-col justify-between p-6">
       <div>
-        <h2 class="text-2xl font-medium mb-4 text-left">Self-hosted</h2>
-        <p class="text-3xl font-medium mb-6 text-left">
-          Free Forever <span class="text-sm font-semibold text-neutral-400"
-          ></span>
-        </p>
-        <p class="text-sm leading-6 text-neutral-400 mb-4 pt-4 text-left">
+        <div class="flex items-center gap-3">
+          <div class="flex size-8 items-center justify-center rounded-md bg-white/[0.06] ring-1 ring-hairline">
+            <Icon icon={HardDrive} class="size-4 text-warning" />
+          </div>
+          <h2 class="text-lg font-semibold tracking-tight text-fg">Self-hosted</h2>
+        </div>
+        <p class="mt-5 text-3xl font-semibold tracking-tight text-fg">Free forever</p>
+        <p class="mt-4 text-sm leading-6 text-fg-dim">
           Deploy Coolify on your infrastructure without any restrictions on
           features.
         </p>
-        <ul class="space-y-4 text-sm leading-6 pt-2 text-white text-left">
-          <li class="flex items-start">
-            {@html checkmark()}Full access to all features
-          </li>
-          <li class="flex items-start">
-            {@html checkmark()}Need your own infrastructure for Coolify
-          </li>
-          <li class="flex items-start">
-            {@html checkmark()}No limitation or restrictions
-          </li>
-          <li class="flex items-start">
-            {@html checkmark()}Community support ({communityMembers} members)
-          </li>
-          <li class="flex items-start">
-            {@html checkmark()}Automated or Self-managed updates
-          </li>
-          <li class="flex items-start">
-            {@html checkmark()}Includes all upcoming features
-          </li>
+        <ul class="mt-5 space-y-2.5 text-sm text-fg-dim">
+          {#each selfHostedFeatures as feature}
+            <li class="flex items-start gap-2.5">
+              <Icon icon={Check} class="mt-0.5 size-4 flex-none text-success" />
+              {#if feature}
+                {feature}
+              {:else}
+                Community support ({communityMembers} members)
+              {/if}
+            </li>
+          {/each}
         </ul>
       </div>
-      <div class="mt-6">
+      <div class="mt-8">
         <a
           href="https://coolify.io/docs/get-started/installation"
-          class="text-base font-medium rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex justify-center items-center gap-2"
+          class="btn btn-neutral btn-lg w-full"
         >
-          <i class="ph-duotone ph-rocket-launch text-warning text-xl" aria-hidden="true"></i>
-          Start Self‑hosting
+          <Icon icon={HardDrive} class="size-4" />
+          Start self-hosting
         </a>
       </div>
     </div>
 
-    <!-- Cloud Plan -->
-    <div
-      class="bg-coolgray-200/70 p-6 rounded-lg flex flex-col justify-between"
-    >
+    <!-- Cloud -->
+    <div class="card flex flex-col justify-between p-6 ring-coollabs/40">
       <div>
-        <!-- Always inline on mobile+desktop -->
-        <div class="flex items-center justify-between mb-4 gap-4">
-          <h2 class="text-2xl font-medium text-left">Cloud</h2>
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <div class="flex size-8 items-center justify-center rounded-md bg-white/[0.06] ring-1 ring-hairline">
+              <Icon icon={Cloud} class="size-4 text-warning" />
+            </div>
+            <h2 class="text-lg font-semibold tracking-tight text-fg">Cloud</h2>
+          </div>
           <fieldset
-            class="inline-flex gap-1 p-1 bg-coolgray-100 rounded whitespace-nowrap"
+            class="inline-flex gap-0.5 rounded-md bg-white/[0.04] p-0.5 whitespace-nowrap ring-1 ring-hairline"
           >
+            <legend class="sr-only">Billing period</legend>
             <label
-              class="cursor-pointer px-3 py-1 text-xs sm:text-sm font-semibold rounded"
-              class:bg-coollabs-100={freq === "monthly"}
-              class:text-white={freq === "monthly"}
+              class="{segment} {freq === 'monthly'
+                ? 'bg-selected text-fg'
+                : 'text-fg-faint hover:text-fg'}"
             >
               <input
                 type="radio"
@@ -169,9 +190,9 @@
               Monthly
             </label>
             <label
-              class="cursor-pointer px-3 py-1 text-xs sm:text-sm font-semibold rounded"
-              class:bg-coollabs-100={freq === "yearly"}
-              class:text-white={freq === "yearly"}
+              class="{segment} {freq === 'yearly'
+                ? 'bg-selected text-fg'
+                : 'text-fg-faint hover:text-fg'}"
             >
               <input
                 type="radio"
@@ -185,52 +206,43 @@
           </fieldset>
         </div>
 
-        <p class="text-3xl font-medium text-left">
-          {freq === "monthly" ? "$5" : "$4"}
-          <span class="text-sm font-semibold text-neutral-400"
-            >/month Base price (connect 2 servers)</span
+        <p class="mt-5 text-3xl font-semibold tracking-tight text-fg">
+          <span class="font-mono tabular-nums">{freq === "monthly" ? "$5" : "$4"}</span>
+          <span class="text-sm font-normal tracking-normal text-fg-faint"
+            >/month base price (connect 2 servers)</span
           >
         </p>
-        <p class="text-sm text-warning font-semibold mb-4 text-left">
-          + {freq === "monthly" ? "$3" : "$2.70"} /month per additional server
+        <p class="mt-1 text-sm font-medium text-warning">
+          + <span class="font-mono tabular-nums">{freq === "monthly" ? "$3" : "$2.70"}</span> /month per additional server
         </p>
 
-        <p class="text-sm leading-6 text-neutral-400 mb-6 text-left">
+        <p class="mt-4 text-sm leading-6 text-fg-dim">
           Just connect your servers, Coolify runs on our managed infrastructure.
         </p>
-        <ul class="space-y-4 text-sm leading-6 text-white text-left">
-          <li class="flex items-start">
-            {@html checkmark()}Connect unlimited servers
-          </li>
-          <li class="flex items-start">
-            {@html checkmark()}Unlimited deployments per server
-          </li>
-          <li class="flex items-start">
-            {@html checkmark()}Free email alerts for Coolify events
-          </li>
-          <li class="flex items-start">
-            {@html checkmark()}Community + limited email support
-          </li>
-          <li class="flex items-start">
-            {@html checkmark()}Founder-tested updates
-          </li>
+        <ul class="mt-5 space-y-2.5 text-sm text-fg-dim">
+          {#each cloudFeatures as feature}
+            <li class="flex items-start gap-2.5">
+              <Icon icon={Check} class="mt-0.5 size-4 flex-none text-success" />
+              {feature}
+            </li>
+          {/each}
         </ul>
-        <div class="mt-4 flex items-center text-warning text-sm">
-          <i class="ph-duotone ph-info mr-3 ml-1 text-warning text-base" aria-hidden="true"></i>
-          <div class="relative group">
+        <div class="mt-5 flex items-center gap-2 text-sm text-warning">
+          <Icon icon={InfoCircle} class="size-4 flex-none" />
+          <div class="group relative">
             <span
-              class="underline decoration-dotted decoration-1 underline-offset-4 cursor-help"
+              class="cursor-help underline decoration-warning/50 decoration-dotted underline-offset-4"
             >
               You need to bring your own servers
             </span>
             <div
-              class="absolute top-full left-0 mt-0 w-[336px] p-5 rounded-lg bg-black/90 text-white text-sm text-left opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity z-10 pointer-events-auto"
+              class="invisible absolute top-full left-0 z-10 mt-2 w-[min(336px,calc(100vw-5rem))] rounded-lg bg-raised p-4 text-sm leading-6 text-fg-dim opacity-0 ring-1 ring-hairline group-hover:visible group-hover:opacity-100"
             >
               You need to bring your own servers from any cloud provider (such
               as
               <a
                 href="https://coolify.io/hetzner"
-                class="underline text-white hover:text-warning">Hetzner</a
+                class="text-fg underline decoration-fg-faint underline-offset-2 hover:decoration-fg">Hetzner</a
               >, DigitalOcean, AWS, etc.).
               <br /><br />
               Your apps will be deployed on the server you connect to the cloud,
@@ -240,177 +252,168 @@
               the
               <a
                 href="https://coolify.io/docs/get-started/installation#_2-supported-operating-systems"
-                class="underline text-white hover:text-warning"
+                class="text-fg underline decoration-fg-faint underline-offset-2 hover:decoration-fg"
                 >supported operating systems</a
               >.)
             </div>
           </div>
         </div>
       </div>
-      <div class="mt-6">
+      <div class="mt-8">
         <a
           href="https://app.coolify.io/register"
-          class="text-base font-medium rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex justify-center items-center gap-2"
+          class="btn btn-primary btn-lg w-full"
         >
-          <!-- Cloud Icon -->
-          <i class="ph-duotone ph-rocket-launch text-warning text-xl" aria-hidden="true"></i>
-          Get Started in the Cloud
+          <Icon icon={Cloud} class="size-4" />
+          Get started in the cloud
         </a>
       </div>
     </div>
   </div>
 
-  <!-- Feature Table -->
-  <div class="mt-16 overflow-x-auto">
-    <table class="w-full table-pin-auto text-left">
+  <!-- Comparison -->
+  <div class="mt-20 text-center">
+    <p class="eyebrow">Compare</p>
+    <h2 class="mt-2 text-2xl font-semibold tracking-tight text-fg md:text-3xl">
+      Self-hosted vs Cloud
+    </h2>
+  </div>
+  <div class="card mt-8 overflow-x-auto">
+    <table class="w-full text-left text-sm">
       <thead>
-        <tr class="bg-coolgray-100">
-          <th class="px-6 py-3 font-medium w-1/2">Feature</th>
-          <th class="px-6 py-3 font-medium min-w-[120px] whitespace-nowrap"
-            >Self-hosted</th
-          >
-          <th class="px-6 py-3 font-medium min-w-[80px] whitespace-nowrap"
-            >Cloud</th
-          >
+        <tr class="border-b border-hairline text-xs text-fg-faint">
+          <th class="w-1/2 px-4 py-3 font-medium">Feature</th>
+          <th class="min-w-[120px] px-4 py-3 font-medium whitespace-nowrap">Self-hosted</th>
+          <th class="min-w-[80px] px-4 py-3 font-medium whitespace-nowrap">Cloud</th>
         </tr>
       </thead>
-      <tbody class="divide-y divide-coolgray-300">
+      <tbody class="divide-y divide-hairline text-fg">
         <tr>
-          <td class="px-6 py-4">Application Deployments</td>
-          <td class="px-6 py-4">{@html checkmark()}</td>
-          <td class="px-6 py-4">{@html checkmark()}</td>
+          <td class={td}>Application deployments</td>
+          <td class={td}><Icon icon={Check} class="size-4 text-success" /></td>
+          <td class={td}><Icon icon={Check} class="size-4 text-success" /></td>
         </tr>
         <tr>
-          <td class="px-6 py-4">Database Deployments</td>
-          <td class="px-6 py-4">{@html checkmark()}</td>
-          <td class="px-6 py-4">{@html checkmark()}</td>
+          <td class={td}>Database deployments</td>
+          <td class={td}><Icon icon={Check} class="size-4 text-success" /></td>
+          <td class={td}><Icon icon={Check} class="size-4 text-success" /></td>
         </tr>
         <tr>
-          <td class="px-6 py-4">Service/One-click Deployments</td>
-          <td class="px-6 py-4">{@html checkmark()}</td>
-          <td class="px-6 py-4">{@html checkmark()}</td>
+          <td class={td}>Service/one-click deployments</td>
+          <td class={td}><Icon icon={Check} class="size-4 text-success" /></td>
+          <td class={td}><Icon icon={Check} class="size-4 text-success" /></td>
         </tr>
         <tr>
-          <td class="px-6 py-4">API Access</td>
-          <td class="px-6 py-4">{@html checkmark()}</td>
-          <td class="px-6 py-4">{@html checkmark()}</td>
+          <td class={td}>API access</td>
+          <td class={td}><Icon icon={Check} class="size-4 text-success" /></td>
+          <td class={td}><Icon icon={Check} class="size-4 text-success" /></td>
         </tr>
         <tr>
-          <td class="px-6 py-4">Codebase</td>
-          <td class="px-6 py-4 text-neutral-400">Open source</td>
-          <td class="px-6 py-4 text-neutral-400">Open source</td>
+          <td class={td}>Codebase</td>
+          <td class={tdDim}>Open source</td>
+          <td class={tdDim}>Open source</td>
         </tr>
         <tr>
-          <td class="px-6 py-4">Coolify Hosting</td>
-          <td class="px-6 py-4 text-neutral-400">Self-managed</td>
-          <td class="px-6 py-4 text-neutral-400">Managed</td>
+          <td class={td}>Coolify hosting</td>
+          <td class={tdDim}>Self-managed</td>
+          <td class={tdDim}>Managed</td>
         </tr>
         <tr>
-          <td class="px-6 py-4">Coolify Dashboard Domain</td>
-          <td class="px-6 py-4 text-neutral-400">Custom Domain</td>
-          <td class="px-6 py-4 text-neutral-400">app.coolify.io</td>
+          <td class={td}>Coolify dashboard domain</td>
+          <td class={tdDim}>Custom domain</td>
+          <td class={tdDim}>app.coolify.io</td>
         </tr>
         <tr>
-          <td class="px-6 py-4">Coolify Setup</td>
-          <td class="px-6 py-4 text-neutral-400">Manual</td>
-          <td class="px-6 py-4 text-neutral-400">Managed</td>
+          <td class={td}>Coolify setup</td>
+          <td class={tdDim}>Manual</td>
+          <td class={tdDim}>Managed</td>
         </tr>
         <tr>
-          <td class="px-6 py-4">Coolify Backups</td>
-          <td class="px-6 py-4 text-neutral-400"
-            >Self-managed (but automated)</td
-          >
-          <td class="px-6 py-4 text-neutral-400">Managed</td>
+          <td class={td}>Coolify backups</td>
+          <td class={tdDim}>Self-managed (but automated)</td>
+          <td class={tdDim}>Managed</td>
         </tr>
         <tr>
-          <td class="px-6 py-4">
-            <span
-              class="underline decoration-dotted underline-offset-4 cursor-help relative group"
-            >
+          <td class={td}>
+            <span class={tip}>
               Updates *
-              <span
-                class="absolute bottom-full left-0 mb-2 min-w-max max-w-sm rounded bg-black text-white text-xs px-3 py-2 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-10 whitespace-nowrap"
-              >
+              <span class="{tipBox} left-0">
                 Limited to Coolify updates, does not include changes to deployed
                 resources.
               </span>
             </span>
           </td>
-          <td class="px-6 py-4 text-neutral-400">Manual (but automated)</td>
-          <td class="px-6 py-4 text-neutral-400">Managed</td>
+          <td class={tdDim}>Manual (but automated)</td>
+          <td class={tdDim}>Managed</td>
         </tr>
-
         <tr>
-          <td class="px-6 py-4">
-            <span
-              class="underline decoration-dotted underline-offset-4 cursor-help relative group"
-            >
-              Email Alerts *
-              <span
-                class="absolute bottom-full left-0 mb-2 min-w-max max-w-sm rounded bg-black text-white text-xs px-3 py-2 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-10 whitespace-nowrap"
-              >
+          <td class={td}>
+            <span class={tip}>
+              Email alerts *
+              <span class="{tipBox} left-0">
                 Other alerts (Discord, Telegram, etc.) are also supported, but
                 those needs to be configured manually on each type, self-hosted
                 or cloud.
               </span>
             </span>
           </td>
-          <td class="px-6 py-4 text-neutral-400"
-            >Manual (requires SMTP/Resend)</td
-          >
-          <td class="px-6 py-4 text-neutral-400">Managed</td>
+          <td class={tdDim}>Manual (requires SMTP/Resend)</td>
+          <td class={tdDim}>Managed</td>
         </tr>
         <tr>
-          <td class="px-6 py-4">Teams</td>
-          <td class="px-6 py-4 text-neutral-400">Unlimited</td>
-          <td class="px-6 py-4 text-neutral-400">
-            <span
-              class="underline decoration-dotted underline-offset-4 cursor-help relative group"
-            >
+          <td class={td}>Teams</td>
+          <td class={tdDim}>Unlimited</td>
+          <td class={tdDim}>
+            <span class={tip}>
               Unlimited *
-              <span
-                class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-max max-w-xs rounded bg-black text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity"
-              >
+              <span class="{tipBox} right-0">
                 Requires an additional subscription per team.
               </span>
             </span>
           </td>
         </tr>
-
         <tr>
-          <td class="px-6 py-4">Team Members</td>
-          <td class="px-6 py-4 text-neutral-400">Unlimited</td>
-          <td class="px-6 py-4 text-neutral-400">Unlimited</td>
+          <td class={td}>Team members</td>
+          <td class={tdDim}>Unlimited</td>
+          <td class={tdDim}>Unlimited</td>
         </tr>
         <tr>
-          <td class="px-6 py-4">Connected Servers</td>
-          <td class="px-6 py-4 text-neutral-400">Unlimited</td>
-          <td class="px-6 py-4 text-neutral-400">Unlimited</td>
+          <td class={td}>Connected servers</td>
+          <td class={tdDim}>Unlimited</td>
+          <td class={tdDim}>Unlimited</td>
         </tr>
         <tr>
-          <td class="px-6 py-4">Any Other Upcoming Features</td>
-          <td class="px-6 py-4 text-neutral-400">Unlimited & Free Forever</td>
-          <td class="px-6 py-4 text-neutral-400">Included In The Price</td>
+          <td class={td}>Any other upcoming features</td>
+          <td class={tdDim}>Unlimited & free forever</td>
+          <td class={tdDim}>Included in the price</td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <!-- FAQ -->
-  <div class="mt-16 max-w-3xl mx-auto">
-    <h2 class="text-2xl font-medium mb-6">Frequently Asked Questions</h2>
-    <div class="divide-y divide-coolgray-300 border-y border-coolgray-300">
+  <div class="mx-auto mt-20 max-w-3xl">
+    <div class="text-center">
+      <p class="eyebrow">FAQ</p>
+      <h2 class="mt-2 text-2xl font-semibold tracking-tight text-fg md:text-3xl">
+        Frequently asked questions
+      </h2>
+    </div>
+    <div class="card mt-8 divide-y divide-hairline">
       {#each faqs as { question, answer }, i}
-        <div class="py-4">
+        <div>
           <button
             on:click={() => (openFAQ = openFAQ === i ? null : i)}
-            class="w-full text-left text-sm font-medium flex justify-between items-center"
+            aria-expanded={openFAQ === i}
+            class="flex w-full items-center justify-between gap-4 px-4 py-3 text-left text-sm font-medium text-fg transition-colors hover:bg-white/[0.03] focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning"
           >
             <span>{question}</span>
-            <i class="ph-duotone ph-caret-down text-xl transition-transform duration-200" aria-hidden="true"></i>
+            <span class="flex-none text-fg-faint" class:rotate-180={openFAQ === i}>
+              <Icon icon={ChevronDown} class="size-4" />
+            </span>
           </button>
           {#if openFAQ === i}
-            <p class="mt-2 text-sm text-neutral-300 text-left">{answer}</p>
+            <p class="px-4 pb-4 text-sm leading-6 text-fg-dim">{answer}</p>
           {/if}
         </div>
       {/each}

@@ -9,7 +9,7 @@ This is the landing page for coolify.io, an open-source self-hostable Heroku/Net
 ## Tech Stack Architecture
 
 - **Framework**: Astro 4.x with Svelte integration for interactive components
-- **Styling**: Tailwind CSS with DaisyUI components and custom coolLabs theme
+- **Styling**: Tailwind CSS v4 with the Coolify graphite tokens
 - **Layout**: Single main layout (`Layout.astro`) with navigation and footer
 - **Components**: Svelte components for interactive elements (sponsors, pricing, etc.)
 - **Build Tool**: Astro's built-in Vite-based build system
@@ -41,8 +41,8 @@ bun run astro
 ```
 src/
 ├── components/          # Svelte interactive components
-│   ├── BigSponsors.svelte
-│   ├── SmallSponsors.svelte  
+│   ├── Sponsors.svelte
+│   ├── Icon.astro / Icon.svelte  # Reicon wrappers
 │   ├── Contributors.svelte
 │   ├── Pricing/Plans.svelte
 │   └── Footer.astro
@@ -55,50 +55,35 @@ src/
 
 public/
 ├── images/             # Sponsor logos and assets
-└── fonts/             # Self-hosted Inter font files
+└── fonts/             # Self-hosted Geist font files
 ```
 
 ## Key Patterns
 
 ### Styling
-- Uses custom coolLabs color palette defined in `tailwind.config.cjs`
-- DaisyUI theme called "coollabs" with dark color scheme
-- Custom CSS variables: `coolblack`, `coolgray-*`, `coollabs` purple variants
-- Self-hosted Inter font with multiple weights
+- Visual language matches the Coolify app "graphite" design (`DESIGN.md` in coollabsio/coolify)
+- Tokens live in `src/styles/global.css` (Tailwind v4 `@theme`): `app`, `panel`, `surface`, `raised`, `fg`, `fg-dim`, `fg-faint`, `hairline`, `coollabs` purple, `warning` yellow
+- Shared classes: `.btn` + `.btn-primary` / `.btn-neutral` (2px bottom edge), `.card` (subtle fill + hairline ring), `.eyebrow`
+- Self-hosted Geist Sans / Geist Mono variable fonts in `public/fonts/`
+- Icons: Reicon outline glyphs (same family as the app's `<x-reicon>`) from the `reicon` package. Always deep-import one icon and render it with the wrapper:
+  `import Icon from "../components/Icon.astro"; import Rocket from "reicon/icons/Rocket";` then `<Icon icon={Rocket} class="size-4" />` (Svelte: `Icon.svelte`, same API). Brand logos (GitHub, Discord, X) stay inline SVGs.
 
 ### Components
-- Sponsor components dynamically shuffle and add UTM parameters to links
+- Sponsors component shuffles each tier and adds ref/UTM parameters to huge and big links
 - Navigation includes mobile hamburger menu with JavaScript toggle
 - Components use Svelte's reactivity for animations and state management
 
-### Adding Sponsors
+### Sponsors
 
-**SmallSponsors Component** (`src/components/SmallSponsors.svelte`):
-1. Add new sponsor object to the `sponsors` array at the top
-2. Required fields:
-   - `name`: Sponsor name
-   - `url`: Link to sponsor website (can include `?utm_source=coolify.io` for tracking)
-   - `imageUrl`: GitHub avatar URL (`https://github.com/username.png`) or path to image in `/public/images/`
-3. Optional fields:
-   - `newest: true`: Adds animated rainbow border to highlight new sponsors (remove from previous sponsors when adding new ones)
-   - `isPublicImage: true`: For logos stored in `/public/images/`
-   - `isSpecial: true`: For special styling (e.g., "Become a sponsor" button)
-   - `customStyle`: Custom CSS classes for the image
-   - `width`/`height`: Custom dimensions (default: 45px)
+Sponsors are not stored in this repo. `src/data/sponsors.js` loads
+`https://cdn.coollabs.io/sponsors.json` (maintained in `coollabsio/coollabs-cdn`).
+`src/components/Sponsors.svelte` renders all three tiers on the homepage:
 
-**Example:**
-```javascript
-{
-  name: "Company Name",
-  url: "https://example.com/",
-  imageUrl: "https://github.com/username.png",
-  newest: true,
-}
-```
+- `huge`: large cards with logo, name and description (`hugeImageStyle`, `hugeCardStyle` optional)
+- `big`: logo grid; `pinned` sponsors come first, `imageStyle` and `additionalContent` optional
+- `small`: static avatar + name pills; `newest` adds a yellow ring, `isPublicImage` uses `object-contain`
 
-**BigSponsors Component** (`src/components/BigSponsors.svelte`):
-- Similar structure for larger sponsor logos
-- Typically displayed more prominently on the homepage
+Keep the section static: no carousels or entrance animations.
 
 ### Commit Standards
 - Follow conventional commits format: `type(scope): description`
@@ -109,7 +94,7 @@ public/
 ## Configuration Files
 
 - `astro.config.mjs`: Astro configuration with Tailwind, Svelte, and sitemap
-- `tailwind.config.cjs`: Tailwind with DaisyUI and custom coolLabs theme
+- `src/styles/global.css`: Tailwind v4 theme tokens and shared component classes
 - `tsconfig.json`: Basic TypeScript config extending Astro base
 - `.cursor/rules/commit.mdc`: Detailed commit message guidelines
 

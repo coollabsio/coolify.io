@@ -8,13 +8,11 @@ import Contributors from "../components/Contributors.svelte";
   canonicalUrl="https://coolify.io/contributors/"
   description="Meet the amazing developers building Coolify. Join our open-source community and help shape the future of self-hosting."
 >
-  <h1
-    class="text-3xl font-bold tracking-tight text-white md:text-6xl px-4 text-center"
-  >
+  <h1 class="px-4 text-4xl font-semibold tracking-tight text-balance text-fg md:text-5xl">
     Contributors<span class="text-warning">.</span>
   </h1>
-  <h2 class="text-base pb-6 pt-2 text-neutral-400 px-4 text-center">
-    Meet the incredible developers who are building Coolify
-  </h2>
+  <p class="mx-auto mt-4 max-w-2xl px-4 text-base text-pretty text-fg-dim">
+    Meet the incredible developers who are building Coolify.
+  </p>
   <Contributors client:load />
 </Layout>

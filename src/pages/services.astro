@@ -80,11 +80,11 @@ const services = Object.entries(templates)
   canonicalUrl="https://coolify.io/services/"
   description="Browse one-click services you can self-host with Coolify. Databases, CMS, monitoring, AI, dev tools, and more."
 >
-  <h1 class="text-3xl font-bold tracking-tight text-white md:text-6xl px-4">
+  <h1 class="px-4 text-4xl font-semibold tracking-tight text-balance text-fg md:text-5xl">
     Services<span class="text-warning">.</span>
   </h1>
-  <h2 class="text-base pb-10 pt-2 text-neutral-400 px-4">
+  <p class="mx-auto mt-4 mb-10 max-w-2xl px-4 text-base text-pretty text-fg-dim">
     Hundreds of one-click services ready to deploy on your own servers.
-  </h2>
+  </p>
   <Services services={services} client:load />
 </Layout>

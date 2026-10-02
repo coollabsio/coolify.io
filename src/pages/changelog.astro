@@ -48,77 +48,80 @@ const parsedReleases = await Promise.all(
   canonicalUrl="https://coolify.io/changelog/"
   description="Latest Coolify releases and updates from the GitHub repository."
 >
-  <section class="max-w-3xl mx-auto px-4 pb-16">
-    <div class="mb-12">
-      <h1 class="text-3xl font-bold tracking-tight text-white md:text-6xl">
-        Changelog<span class="text-warning">.</span>
-      </h1>
-      <p class="pt-2 text-base text-neutral-400">
-        Latest releases from the <a
-          href="https://github.com/coollabsio/coolify"
-          class="text-warning hover:underline"
-          target="_blank"
-          rel="noopener"
-        >
-          GitHub repository
-        </a>.
-      </p>
-    </div>
+  <h1 class="px-4 text-4xl font-semibold tracking-tight text-balance text-fg md:text-5xl">
+    Changelog<span class="text-warning">.</span>
+  </h1>
+  <p class="mx-auto mt-4 max-w-2xl px-4 text-base text-pretty text-fg-dim">
+    Latest releases from the <a
+      href="https://github.com/coollabsio/coolify"
+      class="text-fg underline decoration-fg-faint underline-offset-2 transition-colors hover:decoration-fg"
+      target="_blank"
+      rel="noopener"
+    >GitHub repository</a>.
+  </p>
 
-    <div class="space-y-12 text-left">
-      {parsedReleases.length === 0 && (
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-6 text-center text-neutral-400">
-          Unable to load releases right now.
-        </div>
-      )}
+  <section class="mx-auto mt-16 max-w-3xl px-4 pb-16 text-left">
+    {parsedReleases.length === 0 && (
+      <div class="card p-6 text-center text-sm text-fg-dim">
+        Unable to load releases right now.
+      </div>
+    )}
 
-      {parsedReleases.map((release: any) => (
-        <article class="relative border-l-2 border-warning pl-6">
-          <div class="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-warning"></div>
-
-          <div class="mb-3 flex flex-wrap items-baseline gap-3">
+    {parsedReleases.map((release: any) => (
+      <article class="grid gap-4 border-t border-hairline py-8 first:border-t-0 first:pt-0 md:grid-cols-[10rem_1fr] md:gap-8">
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-2 md:flex-col md:items-start">
+          {release.tag && (
             <a
               href={release.url}
               target="_blank"
               rel="noopener"
-              class="text-xl font-semibold text-white transition-colors hover:text-warning md:text-2xl"
+              class="inline-flex rounded-full bg-white/[0.04] px-2.5 py-0.5 font-mono text-xs text-fg-dim ring-1 ring-hairline transition-colors hover:bg-white/[0.07] hover:text-fg focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning"
             >
-              {release.name}
+              {release.tag}
             </a>
-            {release.tag && release.tag !== release.name && (
-              <code class="rounded bg-coolgray-300 px-2 py-1 text-xs text-neutral-300">
-                {release.tag}
-              </code>
-            )}
-            {release.date && (
-              <time class="text-sm text-neutral-500">
-                {new Date(release.date).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </time>
-            )}
-          </div>
+          )}
+          {release.date && (
+            <time datetime={release.date} class="text-xs text-fg-faint">
+              {new Date(release.date).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </time>
+          )}
+        </div>
+
+        <div class="min-w-0">
+          {release.name !== release.tag && (
+            <h2 class="text-lg font-semibold tracking-tight text-fg">
+              <a
+                href={release.url}
+                target="_blank"
+                rel="noopener"
+                class="transition-colors hover:text-warning"
+              >
+                {release.name}
+              </a>
+            </h2>
+          )}
 
           <div
-            class="prose prose-invert prose-sm max-w-none
-            prose-headings:mb-3 prose-headings:mt-5 prose-headings:font-semibold prose-headings:text-white
-            prose-h2:text-xl prose-h3:text-lg
-            prose-p:leading-relaxed prose-p:text-neutral-300
-            prose-a:text-warning prose-a:no-underline hover:prose-a:underline
-            prose-strong:text-white
-            prose-ul:list-disc prose-ul:pl-6 prose-ul:space-y-1
-            prose-ol:list-decimal prose-ol:pl-6 prose-ol:space-y-1
-            prose-li:text-neutral-300 marker:text-warning
-            prose-code:rounded prose-code:bg-neutral-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-neutral-200
-            prose-pre:border prose-pre:border-white/10 prose-pre:bg-neutral-900
-            prose-blockquote:border-warning/40 prose-blockquote:text-neutral-300
-            prose-hr:border-white/10"
+            class="prose prose-invert max-w-none min-w-0 wrap-anywhere [&>:first-child]:mt-0 [h2+&]:mt-3 text-[15px] leading-7 text-fg-dim
+            prose-headings:mb-2 prose-headings:mt-6 prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-fg
+            prose-h1:text-lg prose-h2:text-base prose-h3:text-[15px] prose-h4:text-[15px]
+            prose-p:my-3 prose-p:text-fg-dim
+            prose-a:font-normal prose-a:text-fg prose-a:underline prose-a:decoration-fg-faint prose-a:underline-offset-2 hover:prose-a:decoration-fg
+            prose-strong:text-fg
+            prose-ul:my-3 prose-ol:my-3 prose-li:my-1 prose-li:text-fg-dim prose-li:marker:text-fg-faint
+            prose-code:rounded prose-code:bg-white/[0.06] prose-code:px-1 prose-code:py-0.5 prose-code:font-mono prose-code:text-[13px] prose-code:font-normal prose-code:text-fg prose-code:before:content-none prose-code:after:content-none
+            prose-pre:rounded-lg prose-pre:bg-white/[0.04] prose-pre:ring-1 prose-pre:ring-hairline
+            prose-blockquote:border-hairline prose-blockquote:font-normal prose-blockquote:not-italic prose-blockquote:text-fg-dim
+            prose-hr:border-hairline
+            prose-img:rounded-lg"
             set:html={release.body}
           />
-        </article>
-      ))}
-    </div>
+        </div>
+      </article>
+    ))}
   </section>
 </Layout>

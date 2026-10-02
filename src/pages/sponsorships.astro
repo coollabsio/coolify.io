@@ -1,5 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon.astro";
+import Heart from "reicon/icons/Heart";
+import ArrowUpRight from "reicon/icons/ArrowUpRight";
 ---
 
 <Layout
@@ -7,31 +10,30 @@ import Layout from "../layouts/Layout.astro";
   canonicalUrl="https://coolify.io/sponsorships/"
   description="Support Coolify's development. Sponsor us on GitHub or Open Collective to keep the project free and accessible for everyone."
 >
-  <h1 class="text-3xl font-bold tracking-tight text-white md:text-6xl px-4">
-    Sponsor Us<span class="text-warning">.</span>
+  <h1 class="px-4 text-4xl font-semibold tracking-tight text-balance text-fg md:text-5xl">
+    Sponsor us<span class="text-warning">.</span>
   </h1>
-  <h2 class="text-base pb-10 pt-2 text-neutral-400 px-4">
-    We love doing open-source projects. <i class="ph-duotone ph-heart text-pink-500 text-xl inline-block -mt-0.5" aria-hidden="true"></i>
-  </h2>
+  <p class="mx-auto mt-4 flex max-w-2xl items-center justify-center gap-1.5 px-4 text-base text-pretty text-fg-dim">
+    We love doing open-source projects.
+    <Icon icon={Heart} class="size-4 text-pink-400" />
+  </p>
 
-  <div class="pt-4 max-w-2xl mx-auto px-4">
-    <div class="text-left text-neutral-400">
+  <div class="mx-auto mt-12 max-w-3xl px-4">
+    <p class="text-left text-[15px] leading-7 text-fg-dim">
       We are a self-funded company and depend on your support to sustain the
       project. This allows for a focus on real users (like you) rather than on
       investors or revenue. If you opt for our self-hosted version, you have the
       option to support our work through donations.
-    </div>
-  </div>
+    </p>
 
-  <div
-    class="pt-10 pb-2 flex lg:flex-row flex-col items-center justify-center text-center gap-8 px-4"
-  >
+    <div class="mt-8 grid gap-3 sm:grid-cols-3">
     <a
       href="https://github.com/sponsors/coollabsio"
       target="_blank"
-      class="button flex items-center gap-4 w-64 justify-center"
+      class="card flex items-center gap-3 p-4 text-left transition-colors hover:bg-white/[0.07] hover:ring-white/15 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning"
     >
-      <svg viewBox="0 0 128 128" class="w-10 h-10">
+      <div class="flex size-10 shrink-0 items-center justify-center rounded-md bg-white/[0.06] text-fg ring-1 ring-hairline">
+        <svg viewBox="0 0 128 128" class="size-6" aria-hidden="true">
         <g fill="currentColor"
           ><path
             fill-rule="evenodd"
@@ -42,18 +44,20 @@ import Layout from "../layouts/Layout.astro";
           ></path>
         </g>
       </svg>
-      <div class="flex flex-col">
-        <span>GitHub Sponsors</span>
-        <span class="text-xs text-gray-400">Donation</span>
-      </div></a
-    >
+      </div>
+      <div class="flex min-w-0 flex-col">
+        <span class="text-sm font-medium text-fg">GitHub Sponsors</span>
+        <span class="text-xs text-fg-faint">Donation</span>
+      </div>
+    </a>
     <a
-      href="https://opencollective.com/coollabsio/donate?interval=month&amount=10&name=&legalName=&email="
+      href="https://opencollective.com/coollabsio/donate?interval=month&amp;amount=10&amp;name=&amp;legalName=&amp;email="
       target="_blank"
-      class="button flex items-center gap-4 w-64 justify-center"
+      class="card flex items-center gap-3 p-4 text-left transition-colors hover:bg-white/[0.07] hover:ring-white/15 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning"
     >
-      <svg
-        class="w-10 h-10"
+      <div class="flex size-10 shrink-0 items-center justify-center rounded-md bg-white/[0.06] text-fg ring-1 ring-hairline">
+        <svg
+        class="size-6" aria-hidden="true"
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -66,17 +70,19 @@ import Layout from "../layouts/Layout.astro";
           d="M15.6734 16.7445C14.6583 17.5315 13.3839 18 12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C13.4202 6 14.7252 6.49344 15.7528 7.31823L17.8826 5.18843C16.3051 3.82482 14.2489 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C14.2126 21 16.2387 20.2016 17.806 18.8771L15.6734 16.7445Z"
           fill="currentColor"></path>
       </svg>
-      <div class="flex flex-col">
-        <span>Open Collective</span>
-        <span class="text-xs text-gray-400">Donation</span>
+      </div>
+      <div class="flex min-w-0 flex-col">
+        <span class="text-sm font-medium text-fg">Open Collective</span>
+        <span class="text-xs text-fg-faint">Donation</span>
       </div>
     </a>
     <a
       href="https://donate.stripe.com/8x2bJ104ifmB9kB45u38402"
       target="_blank"
-      class="button flex items-center gap-4 w-64 justify-center"
+      class="card flex items-center gap-3 p-4 text-left transition-colors hover:bg-white/[0.07] hover:ring-white/15 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning"
     >
-      <svg class="w-10 h-10" viewBox="0 0 360 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="flex size-10 shrink-0 items-center justify-center rounded-md bg-white/[0.06] text-fg ring-1 ring-hairline">
+        <svg class="h-6 w-8" aria-hidden="true" viewBox="0 0 360 150" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M360 77.4001C360 51.8001 347.6 31.6001 323.9 31.6001C300.1 31.6001 285.7 51.8001 285.7 77.2001C285.7 107.3 302.7 122.5 327.1 122.5C339 122.5 348 119.8 354.8 116V96.0001C348 99.4001 340.2 101.5 330.3 101.5C320.6 101.5 312 98.1001 310.9 86.3001H359.8C359.8 85.0001 360 79.8001 360 77.4001ZM310.6 67.9001C310.6 56.6001 317.5 51.9001 323.8 51.9001C329.9 51.9001 336.4 56.6001 336.4 67.9001H310.6Z" fill="currentColor"></path>
         <path fill-rule="evenodd" clip-rule="evenodd" d="M247.1 31.6001C237.3 31.6001 231 36.2001 227.5 39.4001L226.2 33.2001H204.2V149.8L229.2 144.5L229.3 116.2C232.9 118.8 238.2 122.5 247 122.5C264.9 122.5 281.2 108.1 281.2 76.4001C281.1 47.4001 264.6 31.6001 247.1 31.6001ZM241.1 100.5C235.2 100.5 231.7 98.4001 229.3 95.8001L229.2 58.7001C231.8 55.8001 235.4 53.8001 241.1 53.8001C250.2 53.8001 256.5 64.0001 256.5 77.1001C256.5 90.5001 250.3 100.5 241.1 100.5Z" fill="currentColor"></path>
         <path fill-rule="evenodd" clip-rule="evenodd" d="M169.8 25.7L194.9 20.3V0L169.8 5.3V25.7Z" fill="currentColor"></path>
@@ -85,86 +91,117 @@ import Layout from "../layouts/Layout.astro";
         <path fill-rule="evenodd" clip-rule="evenodd" d="M92.8999 11.6001L68.4999 16.8001L68.3999 96.9001C68.3999 111.7 79.4999 122.6 94.2999 122.6C102.5 122.6 108.5 121.1 111.8 119.3V99.0001C108.6 100.3 92.7999 104.9 92.7999 90.1001V54.6001H111.8V33.3001H92.7999L92.8999 11.6001Z" fill="currentColor"></path>
         <path fill-rule="evenodd" clip-rule="evenodd" d="M25.3 58.7001C25.3 54.8001 28.5 53.3001 33.8 53.3001C41.4 53.3001 51 55.6001 58.6 59.7001V36.2001C50.3 32.9001 42.1 31.6001 33.8 31.6001C13.5 31.6001 0 42.2001 0 59.9001C0 87.5001 38 83.1001 38 95.0001C38 99.6001 34 101.1 28.4 101.1C20.1 101.1 9.5 97.7001 1.1 93.1001V116.9C10.4 120.9 19.8 122.6 28.4 122.6C49.2 122.6 63.5 112.3 63.5 94.4001C63.4 64.6001 25.3 69.9001 25.3 58.7001Z" fill="currentColor"></path>
       </svg>
-      <div class="flex flex-col">
-        <span>Stripe</span>
-        <span class="text-xs text-gray-400">Donation</span>
+      </div>
+      <div class="flex min-w-0 flex-col">
+        <span class="text-sm font-medium text-fg">Stripe</span>
+        <span class="text-xs text-fg-faint">Donation</span>
       </div>
     </a>
-  </div>
-
-  <div class="pt-4 max-w-2xl mx-auto px-4">
-    <div class="text-center text-neutral-400">
-      You can even get free visitors (170k+ unique visitors per month - landing
-      page, docs, Github readme...) to your project, by buying a slot.
-      <br/><br/>
-      <div class="text-center"><a
-        class="text-warning underline font-bold"
-        href="https://github.com/sponsors/coollabsio/sponsorships?tier_id=61570&preview=false"
-        >Small</a
-      >, a <a
-        class="text-warning underline font-bold"
-        href="https://github.com/sponsors/coollabsio/sponsorships?tier_id=334953&preview=false"
-        >large</a
-      > or a <a
-        class="text-warning underline font-bold"
-        href="https://github.com/sponsors/coollabsio/sponsorships?tier_id=554249&preview=false"
-        >huge</a
-      > logo + link on the front page and on Github README.
-      </div>
     </div>
   </div>
 
-  <h3
-    class="text-xl font-bold tracking-tight text-white md:text-3xl pt-16 px-4"
-  >
-    Who Is Behind This<span class="text-warning">?</span>
-  </h3>
-  <h4 class="text-base pb-10 pt-2 text-neutral-400 px-4">
-    A one-person mission that grew into a team.
-  </h4>
+  <section class="mx-auto mt-20 max-w-3xl px-4">
+    <p class="eyebrow">Sponsor slots</p>
+    <h2 class="mt-2 text-2xl font-semibold tracking-tight text-fg md:text-3xl">
+      Get your project in front of developers
+    </h2>
+    <p class="mx-auto mt-3 max-w-xl text-sm text-fg-faint">
+      You can even get free visitors (170k+ unique visitors per month - landing
+      page, docs, GitHub README...) to your project, by buying a slot.
+    </p>
+    <div class="card mt-8 divide-y divide-hairline overflow-hidden text-left">
+        <a
+          href="https://github.com/sponsors/coollabsio/sponsorships?tier_id=61570&preview=false"
+          class="flex items-center justify-between gap-4 px-4 py-3 text-sm transition-colors hover:bg-white/[0.04] focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning"
+        >
+          <div class="min-w-0">
+            <div class="font-medium text-fg">Small slot</div>
+            <div class="mt-0.5 text-xs text-fg-faint">Small logo + link on the front page and on GitHub README.</div>
+          </div>
+          <span class="inline-flex shrink-0 items-center gap-1 text-xs text-fg-dim">
+            View tier
+            <Icon icon={ArrowUpRight} class="size-3.5" />
+          </span>
+        </a>
+        <a
+          href="https://github.com/sponsors/coollabsio/sponsorships?tier_id=334953&preview=false"
+          class="flex items-center justify-between gap-4 px-4 py-3 text-sm transition-colors hover:bg-white/[0.04] focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning"
+        >
+          <div class="min-w-0">
+            <div class="font-medium text-fg">Large slot</div>
+            <div class="mt-0.5 text-xs text-fg-faint">Large logo + link on the front page and on GitHub README.</div>
+          </div>
+          <span class="inline-flex shrink-0 items-center gap-1 text-xs text-fg-dim">
+            View tier
+            <Icon icon={ArrowUpRight} class="size-3.5" />
+          </span>
+        </a>
+        <a
+          href="https://github.com/sponsors/coollabsio/sponsorships?tier_id=554249&preview=false"
+          class="flex items-center justify-between gap-4 px-4 py-3 text-sm transition-colors hover:bg-white/[0.04] focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning"
+        >
+          <div class="min-w-0">
+            <div class="font-medium text-fg">Huge slot</div>
+            <div class="mt-0.5 text-xs text-fg-faint">Huge logo + link on the front page and on GitHub README.</div>
+          </div>
+          <span class="inline-flex shrink-0 items-center gap-1 text-xs text-fg-dim">
+            View tier
+            <Icon icon={ArrowUpRight} class="size-3.5" />
+          </span>
+        </a>
+    </div>
+  </section>
 
-  <div class="pt-4 max-w-2xl mx-auto px-4 pb-8">
-    <div class="text-left text-neutral-400">
-      Hey, I'm
-      <a
-        href="https://twitter.com/heyandras"
-        class="underline text-white font-bold inline-flex items-center"
-        >Andras Bacsai <svg
+  <section class="mx-auto mt-20 max-w-3xl px-4">
+    <p class="eyebrow">About</p>
+    <h2 class="mt-2 text-2xl font-semibold tracking-tight text-fg md:text-3xl">
+      Who is behind this<span class="text-warning">?</span>
+    </h2>
+    <p class="mx-auto mt-3 max-w-xl text-sm text-fg-faint">
+      A one-person mission that grew into a team.
+    </p>
+
+    <div class="mt-10 space-y-4 text-left text-[15px] leading-7 text-fg-dim">
+      <p>
+        Hey, I'm
+        <a
+          href="https://twitter.com/heyandras"
+          class="inline-flex items-center font-medium text-fg underline decoration-fg-faint underline-offset-2 hover:decoration-fg"
+          >Andras Bacsai <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           stroke-width="3"
           stroke="currentColor"
           fill="none"
-          class="w-3 h-3 -mt-1 ml-1"
+          class="ml-0.5 size-3" aria-hidden="true"
         >
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
             d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path>
-        </svg>
-      </a>
-      <br /><br />
-      I'm a software developer based in Hungary who shifted to being an independent
-      entrepreneur in July 2022. I quit my job to focus entirely on my dream of devoting
-      myself to open-source projects.
-      <br /><br />
-      Since the middle of 2024, I'm not the only one working on these projects. Thanks
-      to the sponsors and paid users, I hired a developer and a few community support
-      members who help me with the projects.
-      <br /><br />
-      If you find my open-source projects helpful or value my work, please think about
-      making a <a
-        href="https://github.com/sponsors/coollabsio"
-        class="text-white hover:underline font-bold underline"
-        >donation or sponsoring</a
-      >.
-      <br /><br />
-      This will guarantee that the projects stay free, accessible, and keep developing,
-      enabling me to devote all my time to creating and enhancing them.
-      <br /><br />
-      It provides me with significant long-term benefits!
-      <br /><br />
-      Thank you!
+        </svg></a
+        >
+      </p>
+      <p>
+        I'm a software developer based in Hungary who shifted to being an independent
+        entrepreneur in July 2022. I quit my job to focus entirely on my dream of devoting
+        myself to open-source projects.
+      </p>
+      <p>
+        Since the middle of 2024, I'm not the only one working on these projects. Thanks
+        to the sponsors and paid users, I hired a developer and a few community support
+        members who help me with the projects.
+      </p>
+      <p>
+        If you find my open-source projects helpful or value my work, please think about
+        making a <a href="https://github.com/sponsors/coollabsio" class="text-fg underline decoration-fg-faint underline-offset-2 hover:decoration-fg">donation or sponsoring</a>.
+      </p>
+      <p>
+        This will guarantee that the projects stay free, accessible, and keep developing,
+        enabling me to devote all my time to creating and enhancing them.
+      </p>
+      <p>It provides me with significant long-term benefits!</p>
+      <p>Thank you!</p>
     </div>
-  </div>
+  </section>
 </Layout>

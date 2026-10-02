@@ -1,0 +1,7 @@
+---
+// Reicon outline glyph, same icon family as the Coolify app (`<x-reicon>`).
+// Usage: import Rocket from "reicon/icons/Rocket"; <Icon icon={Rocket} class="size-4" />
+const { icon, class: className = "size-4", ...attrs } = Astro.props;
+---
+
+<Fragment set:html={icon.toSvg({ className, attrs: { "aria-hidden": "true", ...attrs } })} />

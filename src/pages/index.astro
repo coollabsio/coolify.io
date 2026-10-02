@@ -1,12 +1,175 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Instances from "../components/Instances.svelte";
-import HugeSponsors from "../components/HugeSponsors.svelte";
-import BigSponsors from "../components/BigSponsors.svelte";
-import SmallSponsors from "../components/SmallSponsors.svelte";
-import SponsorsPreview from "../components/SponsorsPreview.svelte";
+import Sponsors from "../components/Sponsors.svelte";
+import ScreenshotGallery from "../components/ScreenshotGallery.astro";
+import DeployAnimation from "../components/DeployAnimation.astro";
+import screenshots from "../data/screenshots.js";
+import Maximize from "reicon/icons/Maximize";
+import MagicStar from "reicon/icons/MagicStar";
+import Icon from "../components/Icon.astro";
+import ArrowRight from "reicon/icons/ArrowRight";
+import BellRing from "reicon/icons/BellRing";
+import BranchDown from "reicon/icons/BranchDown";
+import BranchUp from "reicon/icons/BranchUp";
+import ChartLine from "reicon/icons/ChartLine";
+import Cloud from "reicon/icons/Cloud";
+import Code from "reicon/icons/Code";
+import CodeSquare from "reicon/icons/CodeSquare";
+import Cpu from "reicon/icons/Cpu";
+import Database from "reicon/icons/Database";
+import HardDrive from "reicon/icons/HardDrive";
+import HeartHand from "reicon/icons/HeartHand";
+import Layers from "reicon/icons/Layers";
+import Link from "reicon/icons/Link";
+import Lock from "reicon/icons/Lock";
+import LockOpen from "reicon/icons/LockOpen";
+import Plug from "reicon/icons/Plug";
+import TerminalSquare from "reicon/icons/TerminalSquare";
+import Users from "reicon/icons/Users";
+import Package from "reicon/icons/Package";
+import Server from "reicon/icons/Server";
+import History from "reicon/icons/History";
+import Clock from "reicon/icons/Clock";
+import Key from "reicon/icons/Key";
+import ShieldNetwork from "reicon/icons/ShieldNetwork";
+import FileText from "reicon/icons/FileText";
+import Fingerprint from "reicon/icons/Fingerprint";
 
-const isDev = import.meta.env.DEV;
+
+const features = [
+  {
+    "wide": "full",
+    "icon": MagicStar,
+    "title": "MCP server for AI agents",
+    "html": "Connect Claude, Cursor or any MCP client to your Coolify. Your AI agent can list resources, deploy, read logs, restart services and troubleshoot failed deployments, with the same API tokens and team permissions you already use.",
+    "code": "https://your-coolify/mcp"
+  },
+  {
+    "icon": Code,
+    "title": "Any language",
+    "html": "Coolify is compatible with a wide range of programming languages and frameworks, enabling you to launch static websites, APIs, backends, databases, services, and other types of applications."
+  },
+  {
+    "icon": HardDrive,
+    "title": "Any server",
+    "html": "You can deploy your resources to any server, including your own servers, VPS, Raspberry Pi, EC2, DigitalOcean, Linode, Hetzner, and more. All you need is an SSH connection."
+  },
+  {
+    "icon": Layers,
+    "title": "Any use case",
+    "html": "You can deploy your resources (apps, databases, services) to a single server or multiple servers according to your requirements."
+  },
+  {
+    "icon": Plug,
+    "title": "Any service",
+    "html": "You can deploy any service you want that is compatible with Docker. Also there are lots of one-click services available to deploy. See the full list <a class=\"text-fg underline decoration-fg-faint underline-offset-2 hover:decoration-fg\" href=\"https://coolify.io/docs/services/overview?utm_source=coolify.io\" >here</a >."
+  },
+  {
+    "icon": Package,
+    "title": "Flexible builds",
+    "html": "Build with Nixpacks, Railpack, a Dockerfile or Docker Compose, serve static sites, or deploy any prebuilt Docker image from a registry."
+  },
+  {
+    "icon": Server,
+    "title": "One-click databases",
+    "html": "Start PostgreSQL, MySQL, MariaDB, MongoDB, Redis, KeyDB, Dragonfly or ClickHouse in seconds, with optional public access and SSL."
+  },
+  {
+    "icon": Lock,
+    "title": "Free SSL certificates",
+    "html": "Coolify takes care of automatically setting up and renewing Let's Encrypt SSL certificates for your custom domains, so you can relax and not have to deal with it."
+  },
+  {
+    "icon": Link,
+    "title": "Webhooks",
+    "html": "Integrate into your CI/CD pipelines or create custom integrations using Github Actions, Gitlab CI, Bitbucket Pipelines, or any other CI/CD tool of your choice."
+  },
+  {
+    "wide": "full",
+    "icon": BranchUp,
+    "title": "Push to deploy",
+    "html": "Nowadays, Git integration is considered the norm. We provide integration with both hosted and self-hosted platforms like GitHub, GitLab, Bitbucket, Gitea, and others."
+  },
+  {
+    "icon": CodeSquare,
+    "title": "Powerful API",
+    "html": "Coolify offers a robust API that enables you to automate deployments, manage resources, and integrate with your current tools, providing limitless possibilities."
+  },
+  {
+    "icon": TerminalSquare,
+    "title": "Real-time terminal",
+    "html": "You do not need to leave your browser to manage your servers. Coolify's real-time terminal allows you to run commands on your servers directly from your browser."
+  },
+  {
+    "icon": Users,
+    "title": "Collaborative",
+    "html": "Share your projects with your team members and work together on them. You can also control permissions and roles for each member."
+  },
+  {
+    "icon": BranchDown,
+    "title": "Pull request deployments",
+    "html": "Automagically deploy new commits and pull requests separately to quickly review contributions and speed up your teamwork!"
+  },
+  {
+    "icon": Clock,
+    "title": "Scheduled tasks",
+    "html": "Run cron jobs inside your applications and services, like cleanups, reports or queue workers, and check every execution log."
+  },
+  {
+    "icon": Key,
+    "title": "Environments & shared variables",
+    "html": "Separate production, staging and more in each project. Share environment variables across your team, projects, environments and servers."
+  },
+  {
+    "icon": Cpu,
+    "title": "Server automations",
+    "html": "Once your server is connected, Coolify will handle numerous tasks automatically, allowing you to concentrate on your code."
+  },
+  {
+    "icon": ShieldNetwork,
+    "title": "Cloudflare Tunnels",
+    "html": "Expose your apps and servers through Cloudflare Tunnels, without opening ports or exposing your server's IP address."
+  },
+  {
+    "wide": "full",
+    "icon": Database,
+    "title": "Automatic database backups",
+    "html": "Your data is automatically backed up to any S3 compatible solution, allowing you to easily restore it with just a few clicks if any problems occur."
+  },
+  {
+    "icon": ChartLine,
+    "title": "Monitoring",
+    "html": "Coolify will keep an eye on your deployments, servers, disk usage, and other aspects, and notify you if any issues arise."
+  },
+  {
+    "icon": FileText,
+    "title": "Log drains",
+    "html": "Send your application and server logs to Axiom, New Relic, Highlight or your own log collector."
+  },
+  {
+    "icon": BellRing,
+    "title": "Notifications",
+    "html": "Coolify will notify you through your chosen channels like Discord, Telegram, and email in case of any events on your server or with your deployments."
+  },
+  {
+    "icon": Fingerprint,
+    "title": "2FA & single sign-on",
+    "html": "Protect your dashboard with two-factor authentication and let your team sign in with GitHub, GitLab, Google, Azure, Authentik and more."
+  },
+  {
+    "wide": "half",
+    "icon": LockOpen,
+    "title": "No vendor lock-in",
+    "html": "You have complete control over your data. All settings are saved on your own servers, giving you the ability to oversee everything even if you decide to stop using Coolify (oh nooo)."
+  },
+  {
+    "wide": "half",
+    "icon": History,
+    "title": "Instant rollbacks",
+    "html": "Something broke after a deploy? Roll back to any previous build with one click while you fix the issue."
+  }
+];
 ---
 
 <Layout
@@ -14,333 +177,157 @@ const isDev = import.meta.env.DEV;
   canonicalUrl="https://coolify.io/"
   description="Self-hosting platform with superpowers. Deploy apps, databases & 280+ services to your server. Open-source alternative to Heroku."
 >
-  <h1 class="text-3xl font-bold tracking-tight text-white md:text-6xl px-4">
-    Self-hosting with superpowers<span class="text-warning">.</span>
-  </h1>
-  <h2 class="text-base pt-4 text-neutral-400 px-4 max-w-4xl mx-auto">
-    An open-source & self-hostable alternative to Vercel, Heroku, Netlify and
-    Railway for easily deploying websites, databases, web applications and 280+
-    one-click services to your own server.
-  </h2>
-  <p>Open source & free forever, backed by <a class="underline" href="/philosophy">our philosophy</a>.</p>
-  <div class="pb-10 pt-4 text-xs flex gap-2 justify-center flex-row flex-wrap">
+  <section class="px-4">
     <a
-      class="hover:underline cursor-pointer text-white flex gap-2 items-center justify-center"
-      target="_blank"
-      href="https://coolify.io/docs/get-started/screenshots"
-      ><i class="ph-duotone ph-camera text-warning text-xl" aria-hidden="true"></i>Screenshots</a
+      href="/philosophy"
+      class="inline-flex items-center gap-2 rounded-full bg-white/[0.04] px-3 py-1 text-xs text-fg-dim ring-1 ring-hairline transition-colors hover:text-fg hover:bg-white/[0.07]"
     >
-    <a
-      class="hover:underline cursor-pointer text-white flex gap-2 items-center justify-center"
-      target="_blank"
-      href="https://coolify.io/docs/get-started/videos"
-    >
-      <i class="ph-duotone ph-video text-warning text-xl" aria-hidden="true"></i>
-      Videos</a
-    >
-    <a
-      class="hover:underline cursor-pointer text-white flex gap-2 items-center justify-center text-xs"
-      target="_blank"
-      href="https://twitch.tv/heyandras"
-    >
-      <i class="ph-duotone ph-twitch-logo text-purple-500 text-base" aria-hidden="true"></i>
+      <span class="size-1.5 rounded-full bg-warning"></span>
+      Open source and free forever. Read our philosophy
+      <Icon icon={ArrowRight} class="size-3.5" />
+    </a>
+    <h1 class="mx-auto mt-6 max-w-3xl text-4xl font-semibold tracking-tight text-balance text-fg md:text-6xl">
+      Self-hosting with superpowers<span class="text-warning">.</span>
+    </h1>
+    <p class="mx-auto mt-5 max-w-2xl text-base text-pretty text-fg-dim md:text-lg">
+      An open-source and self-hostable alternative to Vercel, Heroku, Netlify
+      and Railway. Deploy websites, databases, web applications and 280+
+      one-click services to your own server.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href="/cloud" class="btn btn-primary btn-lg">
+        <Icon icon={Cloud} class="size-4" />
+        Start with Cloud
+      </a>
+      <a href="/self-hosted" class="btn btn-neutral btn-lg">
+        <Icon icon={HardDrive} class="size-4" />
+        Self-host for free
+      </a>
+    </div>
+    <div class="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-fg-faint">
+      <span><span id="cloud-users" class="font-mono text-fg tabular-nums">3,641</span>+ customers on Cloud</span>
+      <span><Instances client:load /> self-hosted instances</span>
+    </div>
+    <div class="mt-4 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-fg-faint">
+      <a class="hover:text-fg transition-colors" target="_blank" href="https://coolify.io/docs/get-started/screenshots">Screenshots</a>
+      <a class="hover:text-fg transition-colors" target="_blank" href="https://coolify.io/docs/get-started/videos">Videos</a>
+      <a class="hover:text-fg transition-colors" target="_blank" href="https://twitch.tv/heyandras">Building in live streams</a>
+      <a class="hover:text-fg transition-colors" href="#features">Features</a>
+    </div>
+  </section>
 
-      Building in live-streams</a
+  <section class="mt-14 px-4" aria-label="Coolify screenshots">
+    <button
+      type="button"
+      data-gallery-open="0"
+      class="group relative block w-full cursor-zoom-in rounded-xl bg-white/[0.03] p-1.5 ring-1 ring-hairline transition-colors hover:ring-white/15 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning"
     >
-  </div>
-  <div class="pb-2 flex justify-center text-center gap-8 px-4">
-    <div>
-      <a
-        href="/cloud"
-        class="text-xs sm:text-base font-bold rounded p-4 px-2 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2 lg:w-64 justify-center"
-        ><i class="ph-duotone ph-cloud text-warning text-xl" aria-hidden="true"></i>Cloud</a
-      >
-      <div
-        class="text-neutral-400 sm:text-base text-xs sm:flex-row flex flex-col gap-1 pt-2 sm:justify-center"
-      >
-        <span class="text-warning mt-[0.1rem] font-bold font-mono"
-          ><span id="cloud-users">3,641</span>+</span
-        > customers in the cloud.
+      <img
+        src={screenshots[0].src}
+        alt={screenshots[0].alt}
+        width="2880"
+        height="1800"
+        fetchpriority="high"
+        class="w-full rounded-lg"
+      />
+      <span class="absolute right-4 bottom-4 inline-flex items-center gap-1.5 rounded-full bg-app/80 px-3 py-1.5 text-xs font-medium text-fg ring-1 ring-hairline backdrop-blur transition-colors group-hover:bg-app">
+        <Icon icon={Maximize} class="size-3.5" />
+        View all {screenshots.length} screenshots
+      </span>
+    </button>
+    <p class="mt-3 text-[13px] text-fg-faint">
+      <span class="text-fg-dim">{screenshots[0].title}.</span> {screenshots[0].text}
+    </p>
+  </section>
+
+  <section id="how-it-works" class="mt-28 scroll-mt-20 px-4">
+    <p class="eyebrow">How it works</p>
+    <h2 class="mt-2 text-2xl font-semibold tracking-tight text-fg md:text-3xl">
+      Push your code. Coolify does the rest.
+    </h2>
+    <p class="mx-auto mt-3 max-w-xl text-sm text-fg-faint">
+      Coolify builds every commit and ships it to any server you connect over SSH.
+    </p>
+    <div class="mt-10">
+      <DeployAnimation />
+    </div>
+  </section>
+
+  <section id="sponsors" class="mt-24 scroll-mt-20 px-4">
+    <p class="eyebrow">Sponsors</p>
+    <h2 class="mt-2 text-2xl font-semibold tracking-tight text-fg md:text-3xl">
+      Coolify is free because of our sponsors
+    </h2>
+    <p class="mx-auto mt-3 max-w-xl text-sm text-fg-faint">
+      No paywalled features and no investors. These companies keep the project
+      independent and open source. Please check them out.
+    </p>
+    <div class="mt-5 flex flex-wrap justify-center gap-3">
+      <a href="/sponsorships" class="btn btn-neutral">
+        <Icon icon={HeartHand} class="size-4 text-pink-400" />
+        Become a sponsor
+      </a>
+    </div>
+    <div class="mt-12 min-h-96">
+      <Sponsors client:only="svelte" />
+    </div>
+    <p class="mt-8 text-xs text-fg-faint">
+      ...and many more on
+      <a class="text-fg-dim underline decoration-fg-faint underline-offset-2 hover:text-fg" href="https://github.com/sponsors/coollabsio">GitHub Sponsors</a>.
+    </p>
+  </section>
+
+  <section id="features" class="mt-28 scroll-mt-20 px-4">
+    <p class="eyebrow">Features</p>
+    <h2 class="mt-2 text-2xl font-semibold tracking-tight text-fg md:text-3xl">
+      Everything you need to ship
+    </h2>
+    <p class="mx-auto mt-3 max-w-xl text-sm text-fg-faint">
+      One dashboard for your servers, applications, databases and services.
+    </p>
+    <div class="mt-10 grid gap-3 text-left sm:grid-cols-2 lg:grid-cols-4">
+      {
+        features.map((feature) =>
+          feature.wide ? (
+            <div class={`card flex flex-col gap-4 p-4 sm:col-span-2 md:flex-row md:items-center ${feature.wide === "full" ? "lg:col-span-4" : "lg:col-span-2"}`}>
+              <div class="flex size-8 shrink-0 items-center justify-center rounded-md bg-white/[0.06] ring-1 ring-hairline">
+                <Icon icon={feature.icon} class="size-4 text-warning" />
+              </div>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-sm font-medium text-fg">{feature.title}</h3>
+                <p class="mt-1 text-[13px] leading-5 text-fg-faint" set:html={feature.html} />
+              </div>
+              {feature.code && (
+                <code class="shrink-0 self-start rounded-md bg-white/[0.04] px-3 py-1.5 font-mono text-xs text-fg-dim ring-1 ring-hairline md:self-center">{feature.code}</code>
+              )}
+            </div>
+          ) : (
+            <div class="card p-4">
+              <div class="flex size-8 items-center justify-center rounded-md bg-white/[0.06] ring-1 ring-hairline">
+                <Icon icon={feature.icon} class="size-4 text-warning" />
+              </div>
+              <h3 class="mt-3 text-sm font-medium text-fg">{feature.title}</h3>
+              <p class="mt-1 text-[13px] leading-5 text-fg-faint" set:html={feature.html} />
+            </div>
+          )
+        )
+      }
+    </div>
+  </section>
+
+  <section class="mt-28 px-4">
+    <div class="flex flex-col items-center gap-5 py-12">
+      <h2 class="text-2xl font-semibold tracking-tight text-fg">Ready to deploy?</h2>
+      <p class="max-w-md text-sm text-fg-faint">
+        Start on Coolify Cloud in minutes, or install it on your own server with one command.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="/cloud" class="btn btn-primary">Start with Cloud</a>
+        <a href="/self-hosted" class="btn btn-neutral">Self-host for free</a>
       </div>
     </div>
-    <div>
-      <a
-        href="/self-hosted"
-        class="text-xs sm:text-base font-bold rounded p-4 px-2 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2 lg:w-64 justify-center"
-        ><i class="ph-duotone ph-hard-drives text-warning text-xl" aria-hidden="true"></i>Self-hosted</a
-      >
-      <Instances client:load />
-    </div>
-  </div>
-  <div id="sponsors-section">
-    <HugeSponsors client:only="svelte" />
-    <BigSponsors client:only="svelte" />
-    <SmallSponsors client:only="svelte" />
-    {isDev && <SponsorsPreview client:only="svelte" />}
-  </div>
+  </section>
 
-  <div id="features" class="text-center text-4xl font-bold pt-10 text-white scroll-mt-20">
-    Features
-  </div>
-  <div
-    class="mx-auto mt-16 max-w-2xl sm:mt-14 lg:mt-14 lg:max-w-none text-left"
-  >
-    <dl
-      class="grid max-w-xl grid-cols-1 gap-x-8 px-4 gap-y-16 lg:max-w-none lg:grid-cols-3"
-    >
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-code text-warning text-2xl" aria-hidden="true"></i>
-          Any Language
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Coolify is compatible with a wide range of programming languages and
-            frameworks, enabling you to launch static websites, APIs, backends,
-            databases, services, and other types of applications.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-hard-drives text-warning text-2xl" aria-hidden="true"></i>
-          Any Server
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            You can deploy your resources to any server, including your own
-            servers, VPS, Raspberry Pi, EC2, DigitalOcean, Linode, Hetzner, and
-            more. All you need is an SSH connection.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-text-aa text-warning text-2xl" aria-hidden="true"></i>
-          Any Use-Case
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            You can deploy your resources (apps, databases, services) to a
-            single server or multiple servers according to your requirements.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-plugs text-warning text-2xl" aria-hidden="true"></i>
-          Any Service
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            You can deploy any service you want that is compatible with Docker.
-            Also there are lots of one-click services available to deploy. <br
-            />See the full list <a
-              class="text-warning underline"
-              href="https://coolify.io/docs/services/overview?utm_source=coolify.io"
-              >here</a
-            >.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-git-branch text-warning text-2xl" aria-hidden="true"></i>
-          Push to deploy
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Nowadays, Git integration is considered the norm. We provide
-            integration with both hosted and self-hosted platforms like GitHub,
-            GitLab, Bitbucket, Gitea, and others.
-          </p>
-        </dd>
-      </div>
-
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-lock-key text-warning text-2xl" aria-hidden="true"></i>
-          Free SSL Certificates
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Coolify takes care of automatically setting up and renewing Let's
-            Encrypt SSL certificates for your custom domains, so you can relax
-            and not have to deal with it.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-lock-open text-warning text-2xl" aria-hidden="true"></i>
-          No vendor lock-in
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            You have complete control over your data. All settings are saved on
-            your own servers, giving you the ability to oversee everything even
-            if you decide to stop using Coolify (oh nooo).
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-database text-warning text-2xl" aria-hidden="true"></i>
-          Automatic DB Backups
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Your data is automatically backed up to any S3 compatible solution,
-            allowing you to easily restore it with just a few clicks if any
-            problems occur.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-webhooks-logo text-warning text-2xl" aria-hidden="true"></i>
-          Webhooks
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Integrate into your CI/CD pipelines or create custom integrations
-            using Github Actions, Gitlab CI, Bitbucket Pipelines, or any other
-            CI/CD tool of your choice.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-code text-warning text-2xl" aria-hidden="true"></i>
-          Powerful API
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Coolify offers a robust API that enables you to automate
-            deployments, manage resources, and integrate with your current
-            tools, providing limitless possibilities.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-terminal-window text-warning text-2xl" aria-hidden="true"></i>
-
-          Real-time Terminal
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            You do not need to leave your browser to manage your servers.
-            Coolify's real-time terminal allows you to run commands on your
-            servers directly from your browser.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-users-three text-warning text-2xl" aria-hidden="true"></i>
-          Collaborative
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Share your projects with your team members and work together on
-            them. You can also control permissions and roles for each member.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-git-pull-request text-warning text-2xl" aria-hidden="true"></i>
-          Pull Request Deployments
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Automagically deploy new commits and pull requests separately to
-            quickly review contributions and speed up your teamwork!
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-robot text-warning text-2xl" aria-hidden="true"></i>
-          Server Automations
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Once your server is connected, Coolify will handle numerous tasks
-            automatically, allowing you to concentrate on your code.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-chart-line-up text-warning text-2xl" aria-hidden="true"></i>
-          Monitoring
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Coolify will keep an eye on your deployments, servers, disk usage,
-            and other aspects, and notify you if any issues arise.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-bell-ringing text-warning text-2xl" aria-hidden="true"></i>
-          Notifications
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Coolify will notify you through your chosen channels like Discord,
-            Telegram, and email in case of any events on your server or with
-            your deployments.
-          </p>
-        </dd>
-      </div>
-    </dl>
-  </div>
-  <!-- Skip to Features Button -->
-  <a
-    href="#features"
-    id="skip-to-features"
-    class="fixed bottom-4 right-4 bg-coollabs hover:bg-coollabs/80 text-white px-3 py-2 rounded-full shadow-lg transition-all duration-300 text-xs font-medium z-50 flex items-center gap-2"
-    aria-label="Skip to Features section"
-  >
-    <span class="hidden sm:inline">Jump to Features</span>
-    <span class="sm:hidden">Jump to Features</span>
-  </a>
   <script>
     fetch("https://cdn.coollabs.io/business.json")
       .then((res) => res.json())
@@ -352,18 +339,6 @@ const isDev = import.meta.env.DEV;
         }
       })
       .catch(() => {});
-
-    // Smooth scroll for skip to features button
-    const skipButton = document.getElementById("skip-to-features");
-    skipButton?.addEventListener("click", (e) => {
-      e.preventDefault();
-      const targetElement = document.getElementById("features");
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    });
   </script>
+  <ScreenshotGallery />
 </Layout>

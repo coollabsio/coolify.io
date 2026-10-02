@@ -1,0 +1,120 @@
+---
+// Full-screen screenshot viewer. Any element with `data-gallery-open="<index>"` opens it.
+// Keys: Left/Right to switch, Escape to close.
+import Icon from "./Icon.astro";
+import ArrowLeft from "reicon/icons/ArrowLeft";
+import ArrowRight from "reicon/icons/ArrowRight";
+import X from "reicon/icons/X";
+import screenshots from "../data/screenshots.js";
+
+const navButton =
+  "flex size-10 shrink-0 items-center justify-center rounded-full bg-white/[0.06] text-fg-dim ring-1 ring-hairline transition-colors hover:bg-white/[0.1] hover:text-fg focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning";
+---
+
+<dialog
+  id="screenshot-gallery"
+  aria-label="Coolify screenshots"
+  data-shots={JSON.stringify(screenshots)}
+  class="m-0 h-dvh max-h-none w-screen max-w-none bg-transparent p-0 text-fg backdrop:bg-black/90"
+>
+  <div class="flex h-full flex-col" data-gallery-backdrop>
+    <div class="flex items-center justify-between gap-4 px-4 py-3">
+      <span class="font-mono text-xs text-fg-faint tabular-nums" data-gallery-counter></span>
+      <button type="button" class={navButton} data-gallery-close aria-label="Close">
+        <Icon icon={X} class="size-5" />
+      </button>
+    </div>
+
+    <div class="flex min-h-0 flex-1 items-center gap-3 px-2 sm:px-4" data-gallery-backdrop>
+      <button type="button" class={`${navButton} hidden sm:flex`} data-gallery-prev aria-label="Previous screenshot">
+        <Icon icon={ArrowLeft} class="size-5" />
+      </button>
+      <div class="flex h-full min-w-0 flex-1 items-center justify-center" data-gallery-backdrop>
+        <img data-gallery-image alt="" class="max-h-full max-w-full rounded-lg object-contain ring-1 ring-hairline" />
+      </div>
+      <button type="button" class={`${navButton} hidden sm:flex`} data-gallery-next aria-label="Next screenshot">
+        <Icon icon={ArrowRight} class="size-5" />
+      </button>
+    </div>
+
+    <div class="mx-auto w-full max-w-3xl px-4 pt-4 pb-5 text-center">
+      <p class="text-sm font-medium text-fg" data-gallery-title></p>
+      <p class="mt-1 text-[13px] leading-5 text-fg-faint" data-gallery-text></p>
+      <div class="mt-4 flex items-center justify-center gap-2">
+        <button type="button" class={`${navButton} sm:hidden`} data-gallery-prev aria-label="Previous screenshot">
+          <Icon icon={ArrowLeft} class="size-5" />
+        </button>
+        {
+          screenshots.map((shot, index) => (
+            <button
+              type="button"
+              data-gallery-thumb={index}
+              aria-label={shot.title}
+              class="hidden w-20 overflow-hidden rounded-md opacity-50 ring-1 ring-hairline transition-opacity hover:opacity-100 aria-[current=true]:opacity-100 aria-[current=true]:ring-warning/70 sm:block"
+            >
+              <img src={shot.src} alt="" loading="lazy" class="aspect-[16/10] w-full object-cover" />
+            </button>
+          ))
+        }
+        <button type="button" class={`${navButton} sm:hidden`} data-gallery-next aria-label="Next screenshot">
+          <Icon icon={ArrowRight} class="size-5" />
+        </button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<style is:global>
+  html:has(#screenshot-gallery[open]) {
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  const dialog = document.getElementById("screenshot-gallery") as HTMLDialogElement | null;
+
+  if (dialog) {
+    const shots: { src: string; title: string; text: string; alt: string }[] = JSON.parse(dialog.dataset.shots ?? "[]");
+    const image = dialog.querySelector<HTMLImageElement>("[data-gallery-image]")!;
+    const title = dialog.querySelector("[data-gallery-title]")!;
+    const text = dialog.querySelector("[data-gallery-text]")!;
+    const counter = dialog.querySelector("[data-gallery-counter]")!;
+    const thumbs = dialog.querySelectorAll<HTMLElement>("[data-gallery-thumb]");
+    let current = 0;
+
+    const show = (index: number) => {
+      current = (index + shots.length) % shots.length;
+      const shot = shots[current];
+      image.src = shot.src;
+      image.alt = shot.alt;
+      title.textContent = shot.title;
+      text.textContent = shot.text;
+      counter.textContent = `${current + 1} / ${shots.length}`;
+      thumbs.forEach((thumb) => thumb.setAttribute("aria-current", String(Number(thumb.dataset.galleryThumb) === current)));
+    };
+
+    document.querySelectorAll<HTMLElement>("[data-gallery-open]").forEach((trigger) => {
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        show(Number(trigger.dataset.galleryOpen));
+        dialog.showModal();
+      });
+    });
+
+    dialog.querySelectorAll("[data-gallery-prev]").forEach((button) => button.addEventListener("click", () => show(current - 1)));
+    dialog.querySelectorAll("[data-gallery-next]").forEach((button) => button.addEventListener("click", () => show(current + 1)));
+    dialog.querySelector("[data-gallery-close]")?.addEventListener("click", () => dialog.close());
+    thumbs.forEach((thumb) => thumb.addEventListener("click", () => show(Number(thumb.dataset.galleryThumb))));
+
+    dialog.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight") show(current + 1);
+      if (event.key === "ArrowLeft") show(current - 1);
+    });
+
+    // Clicking the dark area around the image closes the viewer.
+    dialog.addEventListener("click", (event) => {
+      const target = event.target as HTMLElement;
+      if (target === dialog || target.hasAttribute("data-gallery-backdrop")) dialog.close();
+    });
+  }
+</script>

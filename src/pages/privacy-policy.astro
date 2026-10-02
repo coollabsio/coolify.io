@@ -1,5 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const link =
+    "text-fg underline decoration-fg-faint underline-offset-2 transition-colors hover:decoration-fg";
 ---
 
 <Layout
@@ -7,208 +10,178 @@ import Layout from "../layouts/Layout.astro";
     canonicalUrl="https://coolify.io/privacy-policy/"
     description="Privacy policy for Coolify and coolLabs services. Learn how we protect your data and respect your privacy."
 >
-    <div class="container mx-auto px-4 py-8 max-w-4xl text-left">
-        <h1 class="text-4xl font-bold mb-8">Privacy Policy</h1>
+    <h1
+        class="px-4 text-4xl font-semibold tracking-tight text-balance text-fg md:text-5xl"
+    >
+        Privacy policy<span class="text-warning">.</span>
+    </h1>
+    <p class="mx-auto mt-4 max-w-2xl px-4 text-base text-pretty text-fg-dim">
+        How coolLabs protects your data and respects your privacy.
+    </p>
 
-        <div class="prose prose-lg">
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold mb-4">Overview</h2>
-                <p class="mb-4">
-                    <strong>Last Updated</strong>: March 23, 2025
-                </p>
-                <p>
-                    At coolLabs Solutions Kft. ("we", "us", or "our"), we create
-                    services and applications ("products") under the domains
-                    coollabs.io, coolify.io, images.coollabs.io, safetyper.com,
-                    and all subdomains, as well as potentially other services we
-                    may launch. Our goal is to provide a secure place for your
-                    online information, and we own and operate these platforms.
-                    We are committed to not transferring your data to any
-                    external company unless required by law.
-                </p>
-                <p class="mt-4">
-                    Our products may include links to external sites not
-                    operated by us. Please be aware that we have no control over
-                    their content or privacy practices, and this policy does not
-                    apply to them.
-                </p>
-            </section>
+    <article
+        class="mx-auto mt-16 max-w-3xl px-4 pb-16 text-left text-[15px] leading-7 text-fg-dim
+        [&_h2]:mt-12 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:tracking-tight [&_h2]:text-fg
+        [&_p]:mt-3 [&_strong]:font-medium [&_strong]:text-fg
+        [&_ul]:mt-3 [&_ul]:list-disc [&_ul]:space-y-1.5 [&_ul]:pl-5 [&_li]:marker:text-fg-faint"
+    >
+        <p class="!mt-0 border-b border-hairline pb-6 text-xs text-fg-faint">
+            Last updated: <time datetime="2025-03-23">March 23, 2025</time>
+        </p>
 
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold mb-4">
-                    What Information We Collect
-                </h2>
-                <p>
-                    To make our products functional, we collect only the
-                    following basic information during registration:
-                </p>
-                <ul class="list-disc ml-6 mt-2">
-                    <li>Your email address</li>
-                </ul>
-                <p class="mt-2">
-                    We don't collect anything beyond what's necessary for our
-                    services, and we anonymize data whenever technically
-                    possible.
-                </p>
-            </section>
+        <section>
+            <h2>Overview</h2>
+            <p>
+                At coolLabs Solutions Kft. ("we", "us", or "our"), we create
+                services and applications ("products") under the domains
+                coollabs.io, coolify.io, images.coollabs.io, safetyper.com, and
+                all subdomains, as well as potentially other services we may
+                launch. Our goal is to provide a secure place for your online
+                information, and we own and operate these platforms. We are
+                committed to not transferring your data to any external company
+                unless required by law.
+            </p>
+            <p>
+                Our products may include links to external sites not operated by
+                us. Please be aware that we have no control over their content or
+                privacy practices, and this policy does not apply to them.
+            </p>
+        </section>
 
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold mb-4">
-                    How We Use Your Information
-                </h2>
-                <p>We use your email address to:</p>
-                <ul class="list-disc ml-6 mt-2">
-                    <li>Create and manage your account</li>
-                    <li>
-                        Communicate with you about your account or our services
-                    </li>
-                    <li>
-                        Send optional updates or promotions (only with your
-                        consent)
-                    </li>
-                </ul>
-            </section>
+        <section>
+            <h2>What information we collect</h2>
+            <p>
+                To make our products functional, we collect only the following
+                basic information during registration:
+            </p>
+            <ul>
+                <li>Your email address</li>
+            </ul>
+            <p>
+                We don't collect anything beyond what's necessary for our
+                services, and we anonymize data whenever technically possible.
+            </p>
+        </section>
 
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold mb-4">
-                    Legal Basis for Processing
-                </h2>
-                <p>We process your email address based on:</p>
-                <ul class="list-disc ml-6 mt-2">
-                    <li>
-                        <strong>Consent</strong>: You agree to this when you
-                        register, and you can withdraw consent anytime
-                    </li>
-                    <li>
-                        <strong>Contract</strong>: It's necessary to provide the
-                        services you've requested
-                    </li>
-                </ul>
-            </section>
+        <section>
+            <h2>How we use your information</h2>
+            <p>We use your email address to:</p>
+            <ul>
+                <li>Create and manage your account</li>
+                <li>Communicate with you about your account or our services</li>
+                <li>Send optional updates or promotions (only with your consent)</li>
+            </ul>
+        </section>
 
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold mb-4">
-                    How We Protect Your Information
-                </h2>
-                <p>
-                    We store your email address securely on servers within the
-                    European Union, using encryption and access controls to
-                    prevent unauthorized access. If we ever need to transfer
-                    your data outside the EU (e.g., for backups or service
-                    providers), we'll ensure safeguards like standard
-                    contractual clauses are in place to protect it, as required
-                    by GDPR.
-                </p>
-                <p class="mt-4">
-                    We keep your data only as long as necessary to provide the
-                    services you've requested or as required by law. Once you
-                    delete your account or no longer use our services, we retain
-                    your email address for a short period (e.g., 30 days) for
-                    administrative purposes, then securely delete it.
-                </p>
-            </section>
+        <section>
+            <h2>Legal basis for processing</h2>
+            <p>We process your email address based on:</p>
+            <ul>
+                <li>
+                    <strong>Consent</strong>: You agree to this when you
+                    register, and you can withdraw consent anytime
+                </li>
+                <li>
+                    <strong>Contract</strong>: It's necessary to provide the
+                    services you've requested
+                </li>
+            </ul>
+        </section>
 
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold mb-4">
-                    Sharing Your Information
-                </h2>
-                <p>
-                    We do not share your information with third parties, except:
-                </p>
-                <ul class="list-disc ml-6 mt-2">
-                    <li>
-                        When legally required (e.g., by a court order or
-                        regulation)
-                    </li>
-                    <li>
-                        With trusted service providers (e.g., hosting or email
-                        services) who process data on our behalf, under strict
-                        data protection agreements
-                    </li>
-                </ul>
-            </section>
+        <section>
+            <h2>How we protect your information</h2>
+            <p>
+                We store your email address securely on servers within the
+                European Union, using encryption and access controls to prevent
+                unauthorized access. If we ever need to transfer your data
+                outside the EU (e.g., for backups or service providers), we'll
+                ensure safeguards like standard contractual clauses are in place
+                to protect it, as required by GDPR.
+            </p>
+            <p>
+                We keep your data only as long as necessary to provide the
+                services you've requested or as required by law. Once you delete
+                your account or no longer use our services, we retain your email
+                address for a short period (e.g., 30 days) for administrative
+                purposes, then securely delete it.
+            </p>
+        </section>
 
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold mb-4">Your Rights</h2>
-                <p>You have control over your data. Under GDPR, you can:</p>
-                <ul class="list-disc ml-6 mt-2">
-                    <li>
-                        <strong>Access</strong>: Request a copy of your data
-                    </li>
-                    <li>
-                        <strong>Correct</strong>: Update inaccurate information
-                    </li>
-                    <li>
-                        <strong>Delete</strong>: Remove your data from our
-                        servers
-                    </li>
-                    <li>
-                        <strong>Restrict</strong>: Limit how we use your data
-                    </li>
-                    <li>
-                        <strong>Portability</strong>: Get your data in a usable
-                        format
-                    </li>
-                    <li>
-                        <strong>Object</strong>: Stop processing (e.g., for
-                        marketing)
-                    </li>
-                </ul>
-                <p class="mt-4">
-                    To exercise these rights or withdraw consent, use the
-                    deletion option in our products or contact us.
-                </p>
-                <p class="mt-4">
-                    If you're unhappy with how we handle your data, you have the
-                    right to lodge a complaint with your local supervisory
-                    authority (e.g., in Hungary, the National Authority for Data
-                    Protection and Freedom of Information –
-                    <a
-                        href="https://www.naih.hu/"
-                        class="text-blue-600 hover:underline">NAIH</a
-                    >).
-                </p>
-            </section>
+        <section>
+            <h2>Sharing your information</h2>
+            <p>We do not share your information with third parties, except:</p>
+            <ul>
+                <li>
+                    When legally required (e.g., by a court order or regulation)
+                </li>
+                <li>
+                    With trusted service providers (e.g., hosting or email
+                    services) who process data on our behalf, under strict data
+                    protection agreements
+                </li>
+            </ul>
+        </section>
 
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold mb-4">Contact Us</h2>
-                <p>Questions about data handling? Reach out to us:</p>
-                <ul class="list-none mt-2">
-                    <li>
-                        <strong>Email</strong>: <a
-                            href="mailto:security@coollabs.io"
-                            class="text-blue-600 hover:underline"
-                            >security@coollabs.io</a
-                        >
-                    </li>
-                    <li>
-                        <strong>More Info</strong>: <a
-                            href="https://coolify.io/docs/contact"
-                            class="text-blue-600 hover:underline"
-                            >https://coolify.io/docs/contact</a
-                        >
-                    </li>
-                </ul>
-            </section>
+        <section>
+            <h2>Your rights</h2>
+            <p>You have control over your data. Under GDPR, you can:</p>
+            <ul>
+                <li><strong>Access</strong>: Request a copy of your data</li>
+                <li><strong>Correct</strong>: Update inaccurate information</li>
+                <li><strong>Delete</strong>: Remove your data from our servers</li>
+                <li><strong>Restrict</strong>: Limit how we use your data</li>
+                <li>
+                    <strong>Portability</strong>: Get your data in a usable format
+                </li>
+                <li>
+                    <strong>Object</strong>: Stop processing (e.g., for marketing)
+                </li>
+            </ul>
+            <p>
+                To exercise these rights or withdraw consent, use the deletion
+                option in our products or contact us.
+            </p>
+            <p>
+                If you're unhappy with how we handle your data, you have the
+                right to lodge a complaint with your local supervisory authority
+                (e.g., in Hungary, the National Authority for Data Protection and
+                Freedom of Information –
+                <a href="https://www.naih.hu/" class={link}>NAIH</a>).
+            </p>
+        </section>
 
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold mb-4">
-                    Changes to This Policy
-                </h2>
-                <p>
-                    If we update this policy, we'll post the new version on our
-                    websites (coollabs.io, coolify.io, images.coollabs.io,
-                    safetyper.com, etc.) and notify you via email or within our
-                    products. Continued use of our services means you accept the
-                    updated policy.
-                </p>
-            </section>
+        <section>
+            <h2>Contact us</h2>
+            <p>Questions about data handling? Reach out to us:</p>
+            <ul class="!list-none !pl-0">
+                <li>
+                    <strong>Email</strong>:
+                    <a href="mailto:security@coollabs.io" class={link}
+                        >security@coollabs.io</a
+                    >
+                </li>
+                <li>
+                    <strong>More info</strong>:
+                    <a href="https://coolify.io/docs/contact" class={link}
+                        >https://coolify.io/docs/contact</a
+                    >
+                </li>
+            </ul>
+        </section>
 
-            <section class="mb-8">
-                <p class="mt-4">
-                    By using our products, you agree to this Privacy Policy.
-                </p>
-            </section>
-        </div>
-    </div>
+        <section>
+            <h2>Changes to this policy</h2>
+            <p>
+                If we update this policy, we'll post the new version on our
+                websites (coollabs.io, coolify.io, images.coollabs.io,
+                safetyper.com, etc.) and notify you via email or within our
+                products. Continued use of our services means you accept the
+                updated policy.
+            </p>
+        </section>
+
+        <p class="!mt-12 border-t border-hairline pt-6 text-fg-faint">
+            By using our products, you agree to this Privacy Policy.
+        </p>
+    </article>
 </Layout>

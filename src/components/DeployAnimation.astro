@@ -1,0 +1,184 @@
+---
+// Animated "git push -> Coolify -> your servers" diagram. Pure SVG + CSS, no JS.
+const servers = [
+  { name: "hetzner-vps", cy: 50, delay: 0 },
+  { name: "raspberry-pi", cy: 150, delay: 0.2 },
+  { name: "aws-ec2", cy: 250, delay: 0.4 },
+];
+const routes = [
+  "M500 150 C560 150 560 50 620 50",
+  "M500 150 L620 150",
+  "M500 150 C560 150 560 250 620 250",
+];
+---
+
+<div class="deploy-anim">
+  <svg viewBox="0 0 820 300" class="mx-auto w-full max-w-4xl font-mono" role="img" aria-label="A git push goes to Coolify, which deploys it to your servers">
+    <defs>
+      <radialGradient id="coolify-glow">
+        <stop offset="0%" stop-color="var(--color-coollabs)" stop-opacity="0.55" />
+        <stop offset="100%" stop-color="var(--color-coollabs)" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+
+    <!-- Wires -->
+    <path d="M190 150 L320 150" class="wire" />
+    {routes.map((d) => <path d={d} class="wire" />)}
+
+    <!-- Packets -->
+    <circle r="4" class="packet" style="offset-path: path('M190 150 L320 150')" />
+    {
+      routes.map((d, i) => (
+        <circle r="4" class="packet packet-out" style={`offset-path: path('${d}'); animation-delay: ${1.3 + servers[i].delay}s`} />
+      ))
+    }
+
+    <!-- Git push -->
+    <g>
+      <rect x="20" y="120" width="170" height="60" rx="10" class="node" />
+      <g class="stroke-fg-dim" fill="none" stroke-width="2" stroke-linecap="round">
+        <circle cx="48" cy="140" r="4" />
+        <circle cx="48" cy="162" r="4" />
+        <circle cx="64" cy="146" r="4" />
+        <path d="M48 144 V158 M64 150 C64 156 56 158 50 160" />
+      </g>
+      <text x="82" y="155" class="fill-fg" font-size="15">git push</text>
+    </g>
+
+    <!-- Coolify -->
+    <circle cx="410" cy="150" r="110" fill="url(#coolify-glow)" class="glow" />
+    <g>
+      <rect x="320" y="105" width="180" height="90" rx="12" class="node node-coolify" />
+      <text x="410" y="145" text-anchor="middle" class="fill-fg font-sans" font-size="20" font-weight="600">Coolify</text>
+      <text x="410" y="170" text-anchor="middle" class="fill-fg-faint" font-size="12">build · deploy · proxy</text>
+    </g>
+
+    <!-- Servers -->
+    {
+      servers.map((server) => (
+        <g class="server" style={`--d: ${1.3 + server.delay}s`}>
+          <rect x="620" y={server.cy - 38} width="180" height="76" rx="8" class="node" />
+          <rect x="630" y={server.cy - 30} width="160" height="26" rx="4" class="unit" />
+          <rect x="630" y={server.cy + 4} width="160" height="26" rx="4" class="unit" />
+          <circle cx="643" cy={server.cy - 17} r="3" class="led" />
+          <circle cx="653" cy={server.cy - 17} r="3" class="led led-deploy" />
+          <text x="664" y={server.cy - 13} class="fill-fg-dim" font-size="11">{server.name}</text>
+          {Array.from({ length: 18 }, (_, i) => (
+            <rect
+              x={640 + i * 8}
+              y={server.cy + 9}
+              width="4"
+              height="16"
+              rx="1"
+              class="bar"
+              style={`animation-delay: -${((i * 37 + server.cy) % 17) / 10}s`}
+            />
+          ))}
+        </g>
+      ))
+    }
+  </svg>
+</div>
+
+<style>
+  .deploy-anim {
+    --cycle: 3.6s;
+  }
+  .wire {
+    fill: none;
+    stroke: rgb(255 255 255 / 0.12);
+    stroke-width: 1.5;
+    stroke-dasharray: 4 6;
+    animation: wire-flow 1s linear infinite;
+  }
+  .node {
+    fill: var(--color-surface);
+    stroke: rgb(255 255 255 / 0.1);
+  }
+  .node-coolify {
+    stroke: var(--color-coollabs-100);
+    stroke-width: 1.5;
+  }
+  .unit {
+    fill: rgb(255 255 255 / 0.03);
+    stroke: rgb(255 255 255 / 0.06);
+  }
+  .packet {
+    fill: var(--color-warning);
+    filter: drop-shadow(0 0 6px var(--color-warning));
+    offset-rotate: 0deg;
+    opacity: 0;
+    animation: packet var(--cycle) var(--ease-out) infinite;
+  }
+  .glow {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: glow var(--cycle) ease-in-out infinite;
+  }
+  .led {
+    fill: var(--color-success);
+  }
+  /* Irregular flicker, like an old HDD activity light. */
+  .led-deploy {
+    fill: var(--color-warning);
+    animation: hdd 2.3s step-end infinite;
+    animation-delay: calc(var(--d) * -3);
+  }
+  .bar {
+    fill: rgb(255 255 255 / 0.18);
+    transform-box: fill-box;
+    transform-origin: bottom;
+    animation: bar 1.7s ease-in-out infinite alternate;
+  }
+
+  @keyframes wire-flow {
+    to { stroke-dashoffset: -10; }
+  }
+  @keyframes packet {
+    0% { offset-distance: 0%; opacity: 0; }
+    4% { opacity: 1; }
+    32% { offset-distance: 100%; opacity: 1; }
+    36%, 100% { offset-distance: 100%; opacity: 0; }
+  }
+  @keyframes glow {
+    0%, 25%, 70%, 100% { opacity: 0.35; transform: scale(0.9); }
+    38% { opacity: 1; transform: scale(1.05); }
+  }
+  @keyframes hdd {
+    0% { opacity: 1; }
+    3% { opacity: 0.2; }
+    5% { opacity: 1; }
+    9% { opacity: 0.2; }
+    20% { opacity: 1; }
+    22% { opacity: 0.2; }
+    24% { opacity: 1; }
+    25% { opacity: 0.2; }
+    27% { opacity: 1; }
+    31% { opacity: 0.2; }
+    48% { opacity: 1; }
+    50% { opacity: 0.2; }
+    61% { opacity: 1; }
+    62% { opacity: 0.2; }
+    63% { opacity: 1; }
+    66% { opacity: 0.2; }
+    67% { opacity: 1; }
+    70% { opacity: 0.2; }
+    84% { opacity: 1; }
+    86% { opacity: 0.2; }
+    88% { opacity: 1; }
+    89% { opacity: 0.2; }
+  }
+  @keyframes bar {
+    0% { transform: scaleY(0.2); }
+    100% { transform: scaleY(1); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .deploy-anim * {
+      animation: none !important;
+    }
+    .packet {
+      display: none;
+    }
+  }
+</style>

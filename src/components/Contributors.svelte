@@ -1,5 +1,7 @@
 <script>
   import { onMount } from "svelte";
+  import Icon from "./Icon.svelte";
+  import Plus from "reicon/icons/Plus";
 
   let coolifyContributors = [];
   let docsContributors = [];
@@ -38,192 +40,108 @@
   }
 
   onMount(fetchContributorsData);
+
+  $: sections = [
+    {
+      key: "coolify",
+      label: "Coolify",
+      topTitle: "Top Coolify contributors",
+      topSummary: "Leading contributors to the main Coolify project.",
+      allTitle: "All Coolify contributors",
+      allSummary: "Everyone improving the main Coolify project.",
+      top: coolifyTopContributors,
+      rest: coolifyContributors,
+      total: coolifyTotalContributions,
+    },
+    {
+      key: "docs",
+      label: "Docs",
+      topTitle: "Top documentation contributors",
+      topSummary: "Leading contributors to Coolify documentation.",
+      allTitle: "All documentation contributors",
+      allSummary: "Everyone improving Coolify documentation.",
+      top: docsTopContributors,
+      rest: docsContributors,
+      total: docsTotalContributions,
+    },
+  ];
 </script>
 
-<div class="text-white max-w-6xl mx-auto py-4 px-4">
-  <!-- Coolify Repository Section -->
-    <div class="mb-20">
-      <!-- Chips Section -->
-      <div class="flex flex-wrap justify-center gap-4 mb-10">
-        <div class="bg-coolgray-300/60 text-sm px-4 py-2 rounded">
-          Coolify Contributors: {coolifyTopContributors.length + coolifyContributors.length}
-        </div>
-        <div class="bg-coolgray-300/60 text-sm px-4 py-2 rounded">
-          Coolify Contributions: {coolifyTotalContributions}
-        </div>
+<div class="mx-auto max-w-6xl px-4 py-4">
+  {#each sections as section (section.key)}
+    <section class="mt-16 first:mt-8">
+      <div class="flex flex-wrap justify-center gap-2">
+        <span class="rounded-full bg-white/[0.04] px-2.5 py-0.5 text-xs text-fg-dim ring-1 ring-hairline">
+          {section.label} contributors: <span class="text-fg">{section.top.length + section.rest.length}</span>
+        </span>
+        <span class="rounded-full bg-white/[0.04] px-2.5 py-0.5 text-xs text-fg-dim ring-1 ring-hairline">
+          {section.label} contributions: <span class="text-fg">{section.total}</span>
+        </span>
       </div>
 
-      <!-- Top Coolify Contributors -->
-      <h2 class="text-2xl font-semibold mt-20 mb-2 text-center">
-        Top Coolify Contributors
-      </h2>
-      <p class="text-neutral-400 text-center mb-10">
-        Leading contributors to the main Coolify project
-      </p>
+      <div class="mt-12">
+        <h2 class="text-2xl font-semibold tracking-tight text-fg md:text-3xl">{section.topTitle}</h2>
+        <p class="mx-auto mt-3 max-w-xl text-sm text-fg-faint">{section.topSummary}</p>
+      </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
-        {#each coolifyTopContributors as c}
+      <div class="mx-auto mt-8 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
+        {#each section.top as c}
           <a
             href={c.html_url}
             target="_blank"
-            class="bg-coolgray-200/70 rounded p-6 flex flex-col items-center justify-center hover:bg-coolgray-300 transition h-56 text-center"
+            rel="noopener noreferrer"
+            class="card flex flex-col items-center p-6 text-center transition-colors hover:bg-white/[0.07] hover:ring-white/15 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning"
           >
             <img
               src={c.avatar_url}
               alt={c.login}
-              class="w-20 h-20 rounded-full mb-3"
+              class="size-16 rounded-full ring-1 ring-hairline"
+              loading="lazy"
             />
-            <div class="font-normal mt-1 text-lg">{c.login}</div>
-            <div class="text-md mt-1 text-neutral-400">
-              {c.contributions} contributions
-            </div>
+            <div class="mt-3 max-w-full truncate text-sm font-medium text-fg">{c.login}</div>
+            <div class="mt-0.5 text-xs text-fg-faint">{c.contributions} contributions</div>
           </a>
         {/each}
       </div>
 
-      <!-- All Coolify Contributors -->
-      <h2 class="text-xl font-semibold mt-24 mb-2 text-center">
-        All Coolify Contributors
-      </h2>
-      <p class="text-neutral-400 text-center mb-10">Everyone improving the main Coolify project</p>
-      <div
-        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
-      >
-        {#each coolifyContributors as c}
+      <div class="mt-16">
+        <h3 class="text-xl font-semibold tracking-tight text-fg">{section.allTitle}</h3>
+        <p class="mx-auto mt-2 max-w-xl text-sm text-fg-faint">{section.allSummary}</p>
+      </div>
+
+      <div class="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+        {#each section.rest as c}
           <a
             href={c.html_url}
             target="_blank"
-            class="bg-coolgray-200/70 rounded p-4 flex flex-col items-center hover:bg-coolgray-300 transition text-center"
+            rel="noopener noreferrer"
+            title="{c.login}: {c.contributions} contributions"
+            class="flex min-w-0 items-center gap-2.5 rounded-md px-2 py-2 text-left transition-colors hover:bg-white/[0.05] focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning"
           >
             <img
               src={c.avatar_url}
               alt={c.login}
-              class="w-16 h-16 rounded-full mb-2"
+              class="size-10 shrink-0 rounded-full ring-1 ring-hairline"
+              loading="lazy"
             />
-            <div class="font-semibold mt-1 text-sm truncate">{c.login}</div>
-            <div class="text-xs mt-1 text-neutral-400">
-              {c.contributions} contributions
+            <div class="min-w-0">
+              <div class="truncate text-xs font-medium text-fg">{c.login}</div>
+              <div class="truncate text-xs text-fg-faint">{c.contributions} contributions</div>
             </div>
           </a>
         {/each}
       </div>
-    </div>
+    </section>
+  {/each}
 
-    <!-- Docs Repository Section -->
-    <div class="mb-20">
-      <!-- Docs Chips Section -->
-      <div class="flex flex-wrap justify-center gap-4 mb-10">
-        <div class="bg-coolgray-300/60 text-sm px-4 py-2 rounded">
-          Docs Contributors: {docsTopContributors.length + docsContributors.length}
-        </div>
-        <div class="bg-coolgray-300/60 text-sm px-4 py-2 rounded">
-          Docs Contributions: {docsTotalContributions}
-        </div>
-      </div>
-
-      <!-- Top Docs Contributors -->
-      <h2 class="text-2xl font-semibold mt-20 mb-2 text-center">
-        Top Documentation Contributors
-      </h2>
-      <p class="text-neutral-400 text-center mb-10">
-        Leading contributors to Coolify documentation
-      </p>
-
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
-        {#each docsTopContributors as c}
-          <a
-            href={c.html_url}
-            target="_blank"
-            class="bg-coolgray-200/70 rounded p-6 flex flex-col items-center justify-center hover:bg-coolgray-300 transition h-56 text-center"
-          >
-            <img
-              src={c.avatar_url}
-              alt={c.login}
-              class="w-20 h-20 rounded-full mb-3"
-            />
-            <div class="font-normal mt-1 text-lg">{c.login}</div>
-            <div class="text-md mt-1 text-neutral-400">
-              {c.contributions} contributions
-            </div>
-          </a>
-        {/each}
-      </div>
-
-      <!-- All Docs Contributors -->
-      <h2 class="text-xl font-semibold mt-24 mb-2 text-center">
-        All Documentation Contributors
-      </h2>
-      <p class="text-neutral-400 text-center mb-10">Everyone improving Coolify documentation</p>
-      <div
-        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
-      >
-        {#each docsContributors as c}
-          <a
-            href={c.html_url}
-            target="_blank"
-            class="bg-coolgray-200/70 rounded p-4 flex flex-col items-center hover:bg-coolgray-300 transition text-center"
-          >
-            <img
-              src={c.avatar_url}
-              alt={c.login}
-              class="w-16 h-16 rounded-full mb-2"
-            />
-            <div class="font-semibold mt-1 text-sm truncate">{c.login}</div>
-            <div class="text-xs mt-1 text-neutral-400">
-              {c.contributions} contributions
-            </div>
-          </a>
-        {/each}
-      </div>
-    </div>
-
-    <!-- Call to Action -->
-    <div class="mt-12 text-center">
-      <div class="flex justify-center gap-4 flex-col sm:flex-row">
-        <a
-          href="https://github.com/coollabsio/coolify"
-          target="_blank"
-          class="text-base font-medium rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex items-center justify-center gap-2"
-        >
-          <svg
-            class="icon hidden sm:block"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            >
-              <path d="M12 5v14m7-7H5" />
-            </g>
-          </svg>
-          Contribute to Coolify
-        </a>
-        <a
-          href="https://github.com/coollabsio/coolify-docs"
-          target="_blank"
-          class="text-base font-medium rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex items-center justify-center gap-2"
-        >
-          <svg
-            class="icon hidden sm:block"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            >
-              <path d="M12 5v14m7-7H5" />
-            </g>
-          </svg>
-          Contribute to Docs
-        </a>
-      </div>
-    </div>
+  <div class="mt-20 flex flex-col justify-center gap-3 sm:flex-row">
+    <a href="https://github.com/coollabsio/coolify" target="_blank" rel="noopener noreferrer" class="btn btn-neutral btn-lg">
+      <Icon icon={Plus} class="size-4" />
+      Contribute to Coolify
+    </a>
+    <a href="https://github.com/coollabsio/coolify-docs" target="_blank" rel="noopener noreferrer" class="btn btn-neutral btn-lg">
+      <Icon icon={Plus} class="size-4" />
+      Contribute to Docs
+    </a>
+  </div>
 </div>

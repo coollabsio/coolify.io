@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon.astro";
+import CheckCircle from "reicon/icons/CheckCircle";
 ---
 
 <Layout
@@ -7,113 +9,82 @@ import Layout from "../layouts/Layout.astro";
   canonicalUrl="https://coolify.io/philosophy/"
   description="Our approach to open-source software: free, accessible, and community-supported. Learn about our philosophy and how we sustain development."
 >
-  <h1 class="text-3xl font-bold tracking-tight text-white md:text-6xl px-4">
-    Our Open Source Philosophy<span class="text-warning">.</span>
+  <h1 class="px-4 text-4xl font-semibold tracking-tight text-balance text-fg md:text-5xl">
+    Our open source philosophy<span class="text-warning">.</span>
   </h1>
-  <h2 class="text-base pb-10 pt-2 text-neutral-400 px-4">
+  <p class="mx-auto mt-4 max-w-2xl px-4 text-base text-pretty text-fg-dim">
     Software should be free and accessible to everyone.
-  </h2>
+  </p>
 
-  <div class="pt-4 max-w-2xl mx-auto px-4">
-    <div class="text-left text-neutral-400">
-      We believe that great software should be available to everyone, regardless
-      of their budget. That's why all of our projects are completely free and
-      open source, with no features locked behind paywalls.
-      <br /><br />
-      This isn't just a business decision - it's a core belief. We've seen too many
-      promising open-source projects slowly close their doors, adding "enterprise"
-      features and artificial limitations. We chose a different path.
-    </div>
-  </div>
+  <article class="mx-auto mt-14 max-w-3xl px-4 text-left text-[15px] leading-7 text-fg-dim">
+    <section class="space-y-4">
+      <p>
+        We believe that great software should be available to everyone, regardless
+        of their budget. That's why all of our projects are completely free and
+        open source, with no features locked behind paywalls.
+      </p>
+      <p>
+        This isn't just a business decision - it's a core belief. We've seen too many
+        promising open-source projects slowly close their doors, adding "enterprise"
+        features and artificial limitations. We chose a different path.
+      </p>
+    </section>
 
-  <h3
-    class="text-xl font-bold tracking-tight text-white md:text-3xl pt-16 px-4"
-  >
-    What This Means<span class="text-warning">.</span>
-  </h3>
-  <h4 class="text-base pb-10 pt-2 text-neutral-400 px-4">
-    Our commitments to the community.
-  </h4>
+    <section class="mt-14">
+      <h2 class="text-xl font-semibold tracking-tight text-fg md:text-2xl">What this means</h2>
+      <p class="mt-1 text-sm text-fg-faint">Our commitments to the community.</p>
+      <ul role="list" class="mt-6 space-y-5">
+        <li class="flex gap-3">
+          <Icon icon={CheckCircle} class="mt-1 size-5 shrink-0 text-warning" />
+          <span><strong class="font-medium text-fg">Free and open source.</strong> Every project we build is 100% open source. You can view the code, modify it, learn from it, and use it however you want.</span>
+        </li>
+        <li class="flex gap-3">
+          <Icon icon={CheckCircle} class="mt-1 size-5 shrink-0 text-warning" />
+          <span><strong class="font-medium text-fg">No features behind paywalls.</strong> Every feature we develop goes into the open-source version. There's no "enterprise edition" with the good stuff locked away. What you see is what you get - everything.</span>
+        </li>
+        <li class="flex gap-3">
+          <Icon icon={CheckCircle} class="mt-1 size-5 shrink-0 text-warning" />
+          <span><strong class="font-medium text-fg">Apache license.</strong> We use the Apache 2.0 license, which gives you the freedom to use our software for any purpose. However, we kindly ask that you don't commercially redistribute our work as your own product. The license allows it, but we'd appreciate if you didn't.</span>
+        </li>
+        <li class="flex gap-3">
+          <Icon icon={CheckCircle} class="mt-1 size-5 shrink-0 text-warning" />
+          <span><strong class="font-medium text-fg">Forever free.</strong> This isn't a temporary strategy or a growth hack. This is how we believe software should be made. These principles will never change.</span>
+        </li>
+      </ul>
+    </section>
 
-  <div class="mt-4 max-w-2xl mx-auto px-4">
-    <ul role="list" class="mt-8 space-y-8 text-neutral-400 text-left">
-      <li class="flex gap-x-3">
-        <i class="ph-duotone ph-check-circle mt-0 flex-none text-warning text-2xl" aria-hidden="true"></i>
-        <span
-          ><strong class="font-semibold text-warning"
-            >Free and Open Source.</strong
-          > Every project we build is 100% open source. You can view the code, modify
-          it, learn from it, and use it however you want.
-        </span>
-      </li>
-      <li class="flex gap-x-3">
-        <i class="ph-duotone ph-check-circle mt-0 flex-none text-warning text-2xl" aria-hidden="true"></i>
-        <span
-          ><strong class="font-semibold text-warning"
-            >No Features Behind Paywalls.</strong
-          > Every feature we develop goes into the open-source version. There's no
-          "enterprise edition" with the good stuff locked away. What you see is what
-          you get - everything.
-        </span>
-      </li>
-      <li class="flex gap-x-3">
-        <i class="ph-duotone ph-check-circle mt-0 flex-none text-warning text-2xl" aria-hidden="true"></i>
-        <span
-          ><strong class="font-semibold text-warning">Apache License.</strong> We
-          use the Apache 2.0 license, which gives you the freedom to use our software
-          for any purpose. However, we kindly ask that you don't commercially redistribute
-          our work as your own product. The license allows it, but we'd appreciate
-          if you didn't.
-        </span>
-      </li>
-      <li class="flex gap-x-3">
-        <i class="ph-duotone ph-check-circle mt-0 flex-none text-warning text-2xl" aria-hidden="true"></i>
-        <span
-          ><strong class="font-semibold text-warning">Forever Free.</strong> This
-          isn't a temporary strategy or a growth hack. This is how we believe software
-          should be made. These principles will never change.
-        </span>
-      </li>
-    </ul>
-  </div>
-
-  <h3
-    class="text-xl font-bold tracking-tight text-white md:text-3xl pt-16 px-4"
-  >
-    How We Sustain Development<span class="text-warning">.</span>
-  </h3>
-  <h4 class="text-base pb-10 pt-2 text-neutral-400 px-4">
-    Because we still need to pay the bills.
-  </h4>
-
-  <div class="pt-4 max-w-2xl mx-auto px-4">
-    <div class="text-left text-neutral-400">
-      Making software free doesn't mean development is free. We sustain our work
-      through two main channels:
-      <br /><br />
-      <strong class="text-warning">Community Donations.</strong> If you find our projects
-      valuable, you can support us through GitHub Sponsors or Open Collective. Every
-      contribution helps us dedicate more time to development and support.
-      <br /><br />
-      <strong class="text-warning">Hosted Services.</strong> For those who prefer
-      not to self-host, we offer managed cloud versions of our software. You get the
-      same features, we handle the infrastructure, and the revenue helps fund continued
-      development.
-      <br /><br />
-      This model lets us focus on building great software for real users, not on pleasing
-      investors or hitting arbitrary growth metrics.
-    </div>
-  </div>
-
-  <div
-    class="pt-10 pb-2 flex lg:flex-row flex-col items-center justify-center text-center gap-8 px-4"
-  >
+    <section class="mt-14">
+      <h2 class="text-xl font-semibold tracking-tight text-fg md:text-2xl">How we sustain development</h2>
+      <p class="mt-1 text-sm text-fg-faint">Because we still need to pay the bills.</p>
+      <div class="mt-6 space-y-4">
+        <p>
+          Making software free doesn't mean development is free. We sustain our work
+          through two main channels:
+        </p>
+        <p>
+          <strong class="font-medium text-fg">Community donations.</strong> If you find our projects
+          valuable, you can support us through GitHub Sponsors or Open Collective. Every
+          contribution helps us dedicate more time to development and support.
+        </p>
+        <p>
+          <strong class="font-medium text-fg">Hosted services.</strong> For those who prefer
+          not to self-host, we offer managed cloud versions of our software. You get the
+          same features, we handle the infrastructure, and the revenue helps fund continued
+          development.
+        </p>
+        <p>
+          This model lets us focus on building great software for real users, not on pleasing
+          investors or hitting arbitrary growth metrics.
+        </p>
+      </div>
+      <div class="mt-6 grid gap-3 sm:grid-cols-3">
     <a
       href="https://github.com/sponsors/coollabsio"
       target="_blank"
-      class="button flex items-center gap-4 w-64 justify-center"
+      class="card flex items-center gap-3 p-4 text-left transition-colors hover:bg-white/[0.07] hover:ring-white/15 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning"
     >
-      <svg viewBox="0 0 128 128" class="w-10 h-10">
+      <div class="flex size-10 shrink-0 items-center justify-center rounded-md bg-white/[0.06] text-fg ring-1 ring-hairline">
+        <svg viewBox="0 0 128 128" class="size-6" aria-hidden="true">
         <g fill="currentColor"
           ><path
             fill-rule="evenodd"
@@ -124,18 +95,20 @@ import Layout from "../layouts/Layout.astro";
           ></path>
         </g>
       </svg>
-      <div class="flex flex-col">
-        <span>GitHub Sponsors</span>
-        <span class="text-xs text-gray-400">Support Us</span>
-      </div></a
-    >
+      </div>
+      <div class="flex min-w-0 flex-col">
+        <span class="text-sm font-medium text-fg">GitHub Sponsors</span>
+        <span class="text-xs text-fg-faint">Support us</span>
+      </div>
+    </a>
     <a
       href="https://opencollective.com/coollabsio"
       target="_blank"
-      class="button flex items-center gap-4 w-64 justify-center"
+      class="card flex items-center gap-3 p-4 text-left transition-colors hover:bg-white/[0.07] hover:ring-white/15 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning"
     >
-      <svg
-        class="w-10 h-10"
+      <div class="flex size-10 shrink-0 items-center justify-center rounded-md bg-white/[0.06] text-fg ring-1 ring-hairline">
+        <svg
+        class="size-6" aria-hidden="true"
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -148,17 +121,19 @@ import Layout from "../layouts/Layout.astro";
           d="M15.6734 16.7445C14.6583 17.5315 13.3839 18 12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C13.4202 6 14.7252 6.49344 15.7528 7.31823L17.8826 5.18843C16.3051 3.82482 14.2489 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C14.2126 21 16.2387 20.2016 17.806 18.8771L15.6734 16.7445Z"
           fill="currentColor"></path>
       </svg>
-      <div class="flex flex-col">
-        <span>Open Collective</span>
-        <span class="text-xs text-gray-400">Support Us</span>
+      </div>
+      <div class="flex min-w-0 flex-col">
+        <span class="text-sm font-medium text-fg">Open Collective</span>
+        <span class="text-xs text-fg-faint">Support us</span>
       </div>
     </a>
     <a
       href="https://donate.stripe.com/8x2bJ104ifmB9kB45u38402"
       target="_blank"
-      class="button flex items-center gap-4 w-64 justify-center"
+      class="card flex items-center gap-3 p-4 text-left transition-colors hover:bg-white/[0.07] hover:ring-white/15 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning"
     >
-      <svg class="w-10 h-10" viewBox="0 0 360 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="flex size-10 shrink-0 items-center justify-center rounded-md bg-white/[0.06] text-fg ring-1 ring-hairline">
+        <svg class="h-6 w-8" aria-hidden="true" viewBox="0 0 360 150" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M360 77.4001C360 51.8001 347.6 31.6001 323.9 31.6001C300.1 31.6001 285.7 51.8001 285.7 77.2001C285.7 107.3 302.7 122.5 327.1 122.5C339 122.5 348 119.8 354.8 116V96.0001C348 99.4001 340.2 101.5 330.3 101.5C320.6 101.5 312 98.1001 310.9 86.3001H359.8C359.8 85.0001 360 79.8001 360 77.4001ZM310.6 67.9001C310.6 56.6001 317.5 51.9001 323.8 51.9001C329.9 51.9001 336.4 56.6001 336.4 67.9001H310.6Z" fill="currentColor"></path>
         <path fill-rule="evenodd" clip-rule="evenodd" d="M247.1 31.6001C237.3 31.6001 231 36.2001 227.5 39.4001L226.2 33.2001H204.2V149.8L229.2 144.5L229.3 116.2C232.9 118.8 238.2 122.5 247 122.5C264.9 122.5 281.2 108.1 281.2 76.4001C281.1 47.4001 264.6 31.6001 247.1 31.6001ZM241.1 100.5C235.2 100.5 231.7 98.4001 229.3 95.8001L229.2 58.7001C231.8 55.8001 235.4 53.8001 241.1 53.8001C250.2 53.8001 256.5 64.0001 256.5 77.1001C256.5 90.5001 250.3 100.5 241.1 100.5Z" fill="currentColor"></path>
         <path fill-rule="evenodd" clip-rule="evenodd" d="M169.8 25.7L194.9 20.3V0L169.8 5.3V25.7Z" fill="currentColor"></path>
@@ -167,89 +142,55 @@ import Layout from "../layouts/Layout.astro";
         <path fill-rule="evenodd" clip-rule="evenodd" d="M92.8999 11.6001L68.4999 16.8001L68.3999 96.9001C68.3999 111.7 79.4999 122.6 94.2999 122.6C102.5 122.6 108.5 121.1 111.8 119.3V99.0001C108.6 100.3 92.7999 104.9 92.7999 90.1001V54.6001H111.8V33.3001H92.7999L92.8999 11.6001Z" fill="currentColor"></path>
         <path fill-rule="evenodd" clip-rule="evenodd" d="M25.3 58.7001C25.3 54.8001 28.5 53.3001 33.8 53.3001C41.4 53.3001 51 55.6001 58.6 59.7001V36.2001C50.3 32.9001 42.1 31.6001 33.8 31.6001C13.5 31.6001 0 42.2001 0 59.9001C0 87.5001 38 83.1001 38 95.0001C38 99.6001 34 101.1 28.4 101.1C20.1 101.1 9.5 97.7001 1.1 93.1001V116.9C10.4 120.9 19.8 122.6 28.4 122.6C49.2 122.6 63.5 112.3 63.5 94.4001C63.4 64.6001 25.3 69.9001 25.3 58.7001Z" fill="currentColor"></path>
       </svg>
-      <div class="flex flex-col">
-        <span>Stripe</span>
-        <span class="text-xs text-gray-400">Support Us</span>
+      </div>
+      <div class="flex min-w-0 flex-col">
+        <span class="text-sm font-medium text-fg">Stripe</span>
+        <span class="text-xs text-fg-faint">Support us</span>
       </div>
     </a>
-  </div>
+      </div>
+    </section>
 
-  <h3
-    class="text-xl font-bold tracking-tight text-white md:text-3xl pt-16 px-4"
-  >
-    Where We Are Today<span class="text-warning">.</span>
-  </h3>
-  <h4 class="text-base pb-10 pt-2 text-neutral-400 px-4">
-    Transparency in numbers.
-  </h4>
+    <section class="mt-14">
+      <h2 class="text-xl font-semibold tracking-tight text-fg md:text-2xl">Where we are today</h2>
+      <p class="mt-1 text-sm text-fg-faint">Transparency in numbers.</p>
+      <div class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+      <a href="https://coolify.io/cloud" target="_blank" class="card p-4 text-left transition-colors hover:bg-white/[0.07] hover:ring-white/15 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning">
+        <div class="font-mono text-2xl text-fg tabular-nums">$<span id="hosted-mrr">...</span>+</div>
+        <div class="mt-1 text-xs text-fg-faint">MRR</div>
+      </a>
+      <a href="https://github.com/sponsors/coollabsio" target="_blank" class="card p-4 text-left transition-colors hover:bg-white/[0.07] hover:ring-white/15 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning">
+        <div class="font-mono text-2xl text-fg tabular-nums">$<span id="github-sponsors">...</span>+</div>
+        <div class="mt-1 text-xs text-fg-faint">GitHub Sponsors / month</div>
+      </a>
+      <a href="https://opencollective.com/coollabsio" target="_blank" class="card p-4 text-left transition-colors hover:bg-white/[0.07] hover:ring-white/15 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning">
+        <div class="font-mono text-2xl text-fg tabular-nums">$<span id="open-collective">...</span>+</div>
+        <div class="mt-1 text-xs text-fg-faint">Open Collective / month</div>
+      </a>
+      <a href="https://coolify.io/cloud" target="_blank" class="card p-4 text-left transition-colors hover:bg-white/[0.07] hover:ring-white/15 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning">
+        <div class="font-mono text-2xl text-fg tabular-nums"><span id="cloud-users">3,641</span>+</div>
+        <div class="mt-1 text-xs text-fg-faint">Cloud users</div>
+      </a>
+      </div>
+      <p class="mt-6">
+        This revenue allows us to work on these projects full-time, hire help, and
+        keep improving the software for everyone.
+      </p>
+    </section>
 
-  <div class="pt-4 max-w-4xl mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <a
-        href="https://coolify.io/cloud"
-        target="_blank"
-        class="bg-coolgray-200 rounded-xl p-6 border border-coolgray-400 hover:border-coolgray-300 transition-colors"
-      >
-        <div class="text-3xl md:text-4xl font-bold text-white">
-          $<span id="hosted-mrr">...</span>+
-        </div>
-        <div class="text-neutral-400 mt-2">MRR</div>
-      </a>
-      <a
-        href="https://github.com/sponsors/coollabsio"
-        target="_blank"
-        class="bg-coolgray-200 rounded-xl p-6 border border-coolgray-400 hover:border-coolgray-300 transition-colors"
-      >
-        <div class="text-3xl md:text-4xl font-bold text-white">
-          $<span id="github-sponsors">...</span>+
-        </div>
-        <div class="text-neutral-400 mt-2">GitHub Sponsors / month</div>
-      </a>
-      <a
-        href="https://opencollective.com/coollabsio"
-        target="_blank"
-        class="bg-coolgray-200 rounded-xl p-6 border border-coolgray-400 hover:border-coolgray-300 transition-colors"
-      >
-        <div class="text-3xl md:text-4xl font-bold text-white">
-          $<span id="open-collective">...</span>+
-        </div>
-        <div class="text-neutral-400 mt-2">Open Collective / month</div>
-      </a>
-    </div>
-    <div class="grid grid-cols-1 gap-4 mt-4">
-      <a
-        href="https://coolify.io/cloud"
-        target="_blank"
-        class="bg-coolgray-200 rounded-xl p-6 border border-coolgray-400 hover:border-coolgray-300 transition-colors"
-      >
-        <div class="text-3xl md:text-4xl font-bold text-white">
-          <span id="cloud-users">3,641</span>+
-        </div>
-        <div class="text-neutral-400 mt-2">Cloud Users</div>
-      </a>
-    </div>
-  </div>
-
-  <div class="pt-8 max-w-2xl mx-auto px-4">
-    <div class="text-left text-neutral-400">
-      This revenue allows us to work on these projects full-time, hire help, and
-      keep improving the software for everyone.
-    </div>
-  </div>
-
-  <div class="pt-16 max-w-2xl mx-auto px-4 pb-8">
-    <div class="text-left text-neutral-400">
-      This philosophy guides everything we do at
-      <a href="https://coollabs.io" class="text-white hover:underline font-bold"
-        >coolLabs</a
-      >. Whether it's Coolify or any other project we build, the principles
-      remain the same: free, open, and built for the community.
-      <br /><br />
-      Thank you to everyone who supports this vision - through donations, by using
-      our hosted services, or simply by using and sharing our software. You make this
-      possible.
-    </div>
-  </div>
+    <section class="mt-14 space-y-4 border-t border-hairline pt-10">
+      <p>
+        This philosophy guides everything we do at
+        <a href="https://coollabs.io" class="text-fg underline decoration-fg-faint underline-offset-2 hover:decoration-fg">coolLabs</a>. Whether it's Coolify or any other project we build, the principles
+        remain the same: free, open, and built for the community.
+      </p>
+      <p>
+        Thank you to everyone who supports this vision - through donations, by using
+        our hosted services, or simply by using and sharing our software. You make this
+        possible.
+      </p>
+    </section>
+  </article>
 
   <script>
     fetch("https://cdn.coollabs.io/business.json")

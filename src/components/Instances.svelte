@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   let url = "https://undead.coolify.io";
-  let instances = "loading.";
+  let instances = "…";
   onMount(async () => {
     const { count } = await (
       await fetch(`${url}/instances`)
@@ -10,8 +10,4 @@
   });
 </script>
 
-<span
-  class="text-neutral-400 sm:text-base text-xs sm:flex-row flex flex-col gap-1 pt-2 sm:justify-center"
-  ><span class="text-warning font-bold font-mono mt-[0.1rem]">{instances}</span>
-  self-hosted instances.
-</span>
+<span class="font-mono text-fg tabular-nums">{instances}</span>

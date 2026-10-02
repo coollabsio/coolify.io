@@ -1,4 +1,8 @@
 <script>
+  import Icon from "./Icon.svelte";
+  import Search from "reicon/icons/Search";
+  import ChevronDown from "reicon/icons/ChevronDown";
+
   export let services = [];
 
   let search = "";
@@ -73,33 +77,37 @@
 </script>
 
 <div class="w-full px-4">
-  <div
-    class="flex flex-col sm:flex-row gap-4 mb-8 max-w-3xl mx-auto items-stretch sm:items-center"
-  >
+  <div class="mx-auto mb-6 flex max-w-3xl flex-col items-stretch gap-3 sm:flex-row sm:items-center">
     <div class="relative flex-1">
-      <i class="ph-duotone ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500 text-xl" aria-hidden="true"></i>
+      <span class="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-fg-faint">
+        <Icon icon={Search} class="size-4" />
+      </span>
       <input
         type="text"
         bind:value={search}
         placeholder="Search services..."
-        class="h-14 w-full pl-10 pr-4 bg-coolgray-200 border border-coolgray-400 rounded-lg text-base text-white placeholder-neutral-500 focus:outline-none focus:border-coollabs transition-colors"
+        aria-label="Search services"
+        class="h-9 w-full rounded-md bg-white/[0.04] pr-3 pl-9 text-sm text-fg ring-1 ring-hairline outline-none transition-colors placeholder:text-fg-faint focus:ring-warning/60"
       />
     </div>
-    <div class="relative sm:min-w-72">
+    <div class="relative sm:min-w-60">
       <select
         bind:value={selectedCategory}
-        class="h-14 w-full appearance-none pl-4 pr-12 bg-coolgray-200 border border-coolgray-400 rounded-lg text-base text-white focus:outline-none focus:border-coollabs transition-colors cursor-pointer"
+        aria-label="Filter by category"
+        class="h-9 w-full cursor-pointer appearance-none rounded-md bg-white/[0.04] pr-9 pl-3 text-sm text-fg ring-1 ring-hairline outline-none transition-colors focus:ring-warning/60"
       >
-        <option value="all">All Categories</option>
+        <option value="all" class="bg-panel">All categories</option>
         {#each categories as category}
-          <option value={category}>{getCategoryLabel(category)}</option>
+          <option value={category} class="bg-panel">{getCategoryLabel(category)}</option>
         {/each}
       </select>
-      <i class="ph-duotone ph-caret-down pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-neutral-400 text-xl" aria-hidden="true"></i>
+      <span class="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-fg-faint">
+        <Icon icon={ChevronDown} class="size-4" />
+      </span>
     </div>
   </div>
 
-  <p class="text-neutral-400 mb-6 text-sm">
+  <p class="mb-6 text-xs text-fg-faint">
     Showing {filtered.length} of {services.length} services
     {#if selectedCategory !== "all"}
       in <span class="text-warning">{getCategoryLabel(selectedCategory)}</span>
@@ -107,64 +115,45 @@
   </p>
 
   {#if filtered.length > 0}
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-left">
+    <div class="grid grid-cols-2 gap-2 text-left sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5">
       {#each filtered as service (service.id)}
         <a
           href={service.documentation}
           target="_blank"
           rel="noopener noreferrer"
-          class="group flex items-start gap-4 p-4 bg-coolgray-200 border border-coolgray-400 rounded-xl hover:border-coollabs transition-colors"
+          class="card flex flex-col gap-2 p-3 transition-colors hover:bg-white/[0.07] hover:ring-white/15 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning"
         >
-          <div
-            class="w-12 h-12 flex-shrink-0 rounded-lg bg-coolgray-300 flex items-center justify-center overflow-hidden"
-          >
-            {#if service.logo}
-              <img
-                src={service.logo}
-                alt={service.name}
-                class="w-8 h-8 object-contain"
-                loading="lazy"
-                on:error={handleImgError}
-              />
-            {:else}
-              <span class="text-neutral-500 font-semibold text-lg">
-                {service.name.charAt(0)}
-              </span>
-            {/if}
+          <div class="flex items-center gap-2.5">
+            <div class="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-md bg-white/[0.06] ring-1 ring-hairline">
+              {#if service.logo}
+                <img
+                  src={service.logo}
+                  alt={service.name}
+                  class="size-6 object-contain"
+                  loading="lazy"
+                  on:error={handleImgError}
+                />
+              {:else}
+                <span class="text-sm font-semibold text-fg-faint">
+                  {service.name.charAt(0)}
+                </span>
+              {/if}
+            </div>
+            <div class="min-w-0 flex-1">
+              <h3 class="truncate text-sm font-medium text-fg">{service.name}</h3>
+              <p class="truncate text-[11px] text-fg-faint">{getCategoryLabel(service.category)}</p>
+            </div>
           </div>
-          <div class="min-w-0 flex-1">
-            <h3
-              class="text-white font-semibold text-sm transition-colors truncate"
-            >
-              {service.name}
-            </h3>
-            <p class="text-neutral-400 text-xs mt-1 line-clamp-2">
-              {service.slogan}
-            </p>
-            <span
-              class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full bg-coolgray-300 text-neutral-400"
-            >
-              {getCategoryLabel(service.category)}
-            </span>
-          </div>
+          {#if service.slogan}
+            <p class="line-clamp-2 text-xs text-fg-faint">{service.slogan}</p>
+          {/if}
         </a>
       {/each}
     </div>
   {:else}
-    <div class="py-20 text-center">
-      <p class="text-neutral-400 text-lg">No services found.</p>
-      <p class="text-neutral-500 text-sm mt-2">
-        Try a different search term or category.
-      </p>
+    <div class="card mx-auto max-w-md px-4 py-12 text-center">
+      <p class="text-sm font-medium text-fg">No services found.</p>
+      <p class="mt-1 text-xs text-fg-faint">Try a different search term or category.</p>
     </div>
   {/if}
 </div>
-
-<style>
-  .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-</style>

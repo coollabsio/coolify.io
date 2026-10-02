@@ -1,5 +1,66 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon.astro";
+import Bulb from "reicon/icons/Bulb";
+import Code from "reicon/icons/Code";
+import Coins from "reicon/icons/Coins";
+import Copy from "reicon/icons/Copy";
+import Check from "reicon/icons/Check";
+import Layers from "reicon/icons/Layers";
+import LockOpen from "reicon/icons/LockOpen";
+import Rocket from "reicon/icons/Rocket";
+import ShieldLock from "reicon/icons/ShieldLock";
+import Wallet from "reicon/icons/Wallet";
+import Window from "reicon/icons/Window";
+
+const link =
+  "text-fg underline decoration-fg-faint underline-offset-2 hover:decoration-fg";
+
+const general = [
+  {
+    icon: Wallet,
+    title: "No hidden costs",
+    html: `Cloud providers can become costly once you surpass the free tier. Once you go beyond the free tier, expenses can accumulate rapidly. There are plenty of <a class="${link}" href="https://serverlesshorrors.com/?utm_source=coolify.io" target="_blank">horror stories</a>.`,
+  },
+  {
+    icon: Coins,
+    title: "Cost efficient",
+    html: `You get way more resources for your money and you can save a lot (thousands of $) every month, like <a class="${link}" href="https://twitter.com/heyandras/status/1742078215986860460" target="_blank">this</a> and <a class="${link}" href="https://twitter.com/heyandras/status/1752209429276086688" target="_blank">this</a> and <a class="${link}" href="https://twitter.com/heyandras/status/1724510876256944244" target="_blank">this</a>.`,
+  },
+  {
+    icon: Bulb,
+    title: "Easier than you think",
+    html: `Servers (hardware + software) have changed a lot since cloud providers emerged. And with software (like <a class="${link}" href="/">Coolify</a>), you can start hosting in minutes without any maintenance work.`,
+  },
+  {
+    icon: ShieldLock,
+    title: "Data privacy",
+    html: "Currently, data privacy is a major issue. By self-hosting, you have complete control over your data and can guarantee that it is not being misused.",
+  },
+];
+
+const coolify = [
+  {
+    icon: LockOpen,
+    title: "No features behind paywall",
+    html: "Everything is included in the open-source software (OSS) version. And will always be.",
+  },
+  {
+    icon: Layers,
+    title: "No limitations",
+    html: "You have the freedom to host an unlimited number of websites on any quantity of servers without any restrictions.",
+  },
+  {
+    icon: Window,
+    title: "Nice UI",
+    html: "You get a simple and easy to use UI to manage your servers and applications.",
+  },
+  {
+    icon: Code,
+    title: "Open source",
+    html: "You can see the source code and contribute to it, if you want. You can shape the future of the software.",
+  },
+];
 ---
 
 <Layout
@@ -7,165 +68,118 @@ import Layout from "../layouts/Layout.astro";
   canonicalUrl="https://coolify.io/self-hosted/"
   description="Self-host with Coolify for full control, no hidden costs, and unlimited resources. Open-source with all features included."
 >
-  <h1
-    class="text-3xl font-bold tracking-tight text-white md:text-6xl px-4"
-  >
-    Why should you self-host<span class="text-warning">?</span>
-  </h1>
-  <h2 class="text-base pb-10 pt-2 text-neutral-400 px-4">You will be cool.</h2>
-  <div class="pb-2 flex justify-center text-center gap-8 px-4">
-    <a
-      href="https://coolify.io/docs/installation"
-      class="text-base font-bold rounded p-4 px-10 text-white bg-coolgray-300 hover:bg-coolgray-400 flex gap-2 w-64 justify-center"
-      ><i class="ph-duotone ph-rocket-launch text-warning text-xl" aria-hidden="true"></i>Get Started</a
-    >
-  </div>
-  <div class="space-y-2 pt-10">
-    <div
-      class="tracking-tight text-white font-mono bg-coolgray-300 px-4 py-2 rounded text-xs md:text-sm text-left w-fit space-y-1 mx-auto"
-    >
-      <div class="select-none text-neutral-400 fontfont-bold pr-2 pb-4">
-        # The self-hosted version is ready on your server in under a minute - <span
-          class="text-warning/90">always free, with all functionalities</span
-        >.
-      </div>
-      <div class="flex items-center justify-between gap-4">
-        <div>
-          <span class="select-none text-neutral-500 font-extrabold pr-2">></span
-          >curl -fsSL https://cdn.coollabs.io/coolify/install.sh | sudo bash
-        </div>
-        <button
-          id="copy-btn"
-          class="text-neutral-400 hover:text-white transition-colors flex-shrink-0"
-          aria-label="Copy command"
-        >
-          <i class="ph-duotone ph-clipboard text-xl" aria-hidden="true"></i>
-        </button>
-      </div>
+  <section>
+    <h1 class="px-4 text-4xl font-semibold tracking-tight text-balance text-fg md:text-5xl">
+      Why should you self-host<span class="text-warning">?</span>
+    </h1>
+    <p class="mx-auto mt-4 max-w-2xl px-4 text-base text-pretty text-fg-dim">
+      You will be cool.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3 px-4">
+      <a href="https://coolify.io/docs/installation" class="btn btn-primary btn-lg">
+        <Icon icon={Rocket} class="size-4" />
+        Get started
+      </a>
     </div>
-  </div>
-  <h3
-    class="text-xl font-bold tracking-tight text-white md:text-3xl pt-10 px-4"
-  >
-    Self-hosting in general<span class="text-warning">.</span>
-  </h3>
-  <h4 class="text-base pb-10 pt-2 text-neutral-400 px-4">
-    There are plenty of benefits.
-  </h4>
-  <div class="mt-10 max-w-2xl mx-auto px-2">
-    <ul role="list" class="mt-8 space-y-8 text-neutral-400 text-left">
-      <li class="flex gap-x-3">
-        <i class="ph-duotone ph-check-circle mt-0 flex-none text-warning text-2xl" aria-hidden="true"></i>
-        <span
-          ><strong class="font-semibold text-warning">No Hidden Costs.</strong> Cloud
-          providers can become costly once you surpass the free tier. Once you go
-          beyond the free tier, expenses can accumulate rapidly. There are plenty
-          of <a
-            class="underline text-white"
-            href="https://serverlesshorrors.com/?utm_source=coolify.io"
-            target="_blank">horror stories</a
-          >.
-        </span>
-      </li>
-      <li class="flex gap-x-3">
-        <i class="ph-duotone ph-check-circle mt-0 flex-none text-warning text-2xl" aria-hidden="true"></i>
-        <span
-          ><strong class="font-semibold text-warning">Cost Efficient.</strong> You
-          get way more resources for your money and you can save a lot (thousands
-          of $) every month, like <a
-            class="underline text-white"
-            href="https://twitter.com/heyandras/status/1742078215986860460"
-            target="_blank">this</a
-          > and <a
-            class="underline text-white"
-            href="https://twitter.com/heyandras/status/1752209429276086688"
-            target="_blank">this</a
-          > and <a
-            class="underline text-white"
-            href="https://twitter.com/heyandras/status/1724510876256944244"
-            target="_blank">this</a
-          >.
-        </span>
-      </li>
-      <li class="flex gap-x-3">
-        <i class="ph-duotone ph-check-circle mt-0 flex-none text-warning text-2xl" aria-hidden="true"></i>
-        <span
-          ><strong class="font-semibold text-warning"
-            >Easier Than You Think.</strong
-          > Servers (hardware + software) have changed a lot since cloud providers
-          emerged. And with software (like <a
-            href="/"
-            class="text-white underline">Coolify</a
-          >), you can start hosting in minutes without any maintenance work.
-        </span>
-      </li>
-      <li class="flex gap-x-3">
-        <i class="ph-duotone ph-check-circle mt-0 flex-none text-warning text-2xl" aria-hidden="true"></i>
-        <span
-          ><strong class="font-semibold text-warning">Data Privacy.</strong> Currently,
-          data privacy is a major issue. By self-hosting, you have complete control
-          over your data and can guarantee that it is not being misused.
-        </span>
-      </li>
-    </ul>
-  </div>
-  <h3
-    class="text-xl font-bold tracking-tight text-white md:text-3xl pt-10 px-4"
-  >
-    Self-hosting with Coolify<span class="text-warning">.</span>
-  </h3>
-  <h4 class="text-base pb-10 pt-2 text-neutral-400 px-4">
-    Even more benefits.
-  </h4>
-  <div class="mt-10 max-w-2xl mx-auto px-2">
-    <ul role="list" class="mt-8 space-y-8 text-neutral-400 text-left">
-      <li class="flex gap-x-3">
-        <i class="ph-duotone ph-check-circle mt-0 flex-none text-warning text-2xl" aria-hidden="true"></i>
-        <span
-          ><strong class="font-semibold text-warning"
-            >No Features Behind Paywall.</strong
-          > Everything is included in the open-source software (OSS) version. And
-          will always be.
-        </span>
-      </li>
-      <li class="flex gap-x-3">
-        <i class="ph-duotone ph-check-circle mt-0 flex-none text-warning text-2xl" aria-hidden="true"></i>
-        <span
-          ><strong class="font-semibold text-warning">No Limitations.</strong> You
-          have the freedom to host an unlimited number of websites on any quantity
-          of servers without any restrictions.
-        </span>
-      </li>
-      <li class="flex gap-x-3">
-        <i class="ph-duotone ph-check-circle mt-0 flex-none text-warning text-2xl" aria-hidden="true"></i>
-        <span
-          ><strong class="font-semibold text-warning">Nice UI.</strong> You get a
-          simple and easy to use UI to manage your servers and applications.
-        </span>
-      </li>
-      <li class="flex gap-x-3">
-        <i class="ph-duotone ph-check-circle mt-0 flex-none text-warning text-2xl" aria-hidden="true"></i>
-        <span
-          ><strong class="font-semibold text-warning">Open Source.</strong> You can
-          see the source code and contribute to it, if you want. You can shape the
-          future of the software.
-        </span>
-      </li>
-    </ul>
-  </div>
+  </section>
+
+  <section class="mx-auto mt-12 max-w-3xl px-4 text-left">
+    <p class="text-sm text-fg-faint sm:whitespace-nowrap">
+      The self-hosted version is ready on your server in under a minute,
+      <span class="text-warning">always free, with all functionalities</span>.
+    </p>
+    <div class="card mt-3 flex items-center gap-3 py-1.5 pr-1.5 pl-4">
+      <code class="min-w-0 flex-1 overflow-x-auto py-1.5 font-mono text-sm whitespace-nowrap text-fg">
+        <span class="pr-2 text-fg-faint select-none">$</span>curl -fsSL https://cdn.coollabs.io/coolify/install.sh | sudo bash
+      </code>
+      <button
+        id="copy-btn"
+        type="button"
+        class="flex size-8 flex-none items-center justify-center rounded-md text-fg-faint transition-colors hover:bg-white/[0.07] hover:text-fg focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning"
+        aria-label="Copy command"
+      >
+        <span data-copy-idle><Icon icon={Copy} class="size-4" /></span>
+        <span data-copy-done class="hidden text-success"><Icon icon={Check} class="size-4" /></span>
+      </button>
+    </div>
+  </section>
+
+  <section class="mt-20 px-4">
+    <p class="eyebrow">In general</p>
+    <h2 class="mt-2 text-2xl font-semibold tracking-tight text-fg md:text-3xl">
+      Self-hosting in general<span class="text-warning">.</span>
+    </h2>
+    <p class="mx-auto mt-3 max-w-xl text-sm text-fg-faint">There are plenty of benefits.</p>
+    <div class="mx-auto mt-10 grid max-w-4xl gap-3 text-left sm:grid-cols-2">
+      {
+        general.map((item) => (
+          <div class="card p-4">
+            <div class="flex size-8 items-center justify-center rounded-md bg-white/[0.06] ring-1 ring-hairline">
+              <Icon icon={item.icon} class="size-4 text-warning" />
+            </div>
+            <h3 class="mt-3 text-sm font-medium text-fg">{item.title}</h3>
+            <p class="mt-1 text-[13px] leading-5 text-fg-faint" set:html={item.html} />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mt-20 px-4">
+    <p class="eyebrow">With Coolify</p>
+    <h2 class="mt-2 text-2xl font-semibold tracking-tight text-fg md:text-3xl">
+      Self-hosting with Coolify<span class="text-warning">.</span>
+    </h2>
+    <p class="mx-auto mt-3 max-w-xl text-sm text-fg-faint">Even more benefits.</p>
+    <div class="mx-auto mt-10 grid max-w-4xl gap-3 text-left sm:grid-cols-2">
+      {
+        coolify.map((item) => (
+          <div class="card p-4">
+            <div class="flex size-8 items-center justify-center rounded-md bg-white/[0.06] ring-1 ring-hairline">
+              <Icon icon={item.icon} class="size-4 text-warning" />
+            </div>
+            <h3 class="mt-3 text-sm font-medium text-fg">{item.title}</h3>
+            <p class="mt-1 text-[13px] leading-5 text-fg-faint" set:html={item.html} />
+          </div>
+        ))
+      }
+    </div>
+  </section>
 </Layout>
 
 <script>
-  document.getElementById("copy-btn")?.addEventListener("click", () => {
-    navigator.clipboard.writeText(
-      "curl -fsSL https://cdn.coollabs.io/coolify/install.sh | sudo bash",
-    );
-    const btn = document.getElementById("copy-btn");
-    if (btn) {
-      btn.innerHTML = `<i class="ph-duotone ph-check text-xl" aria-hidden="true"></i>`;
-      setTimeout(() => {
-        btn.innerHTML = `<i class="ph-duotone ph-clipboard text-xl" aria-hidden="true"></i>`;
-      }, 2000);
+  const command = "curl -fsSL https://cdn.coollabs.io/coolify/install.sh | sudo bash";
+
+  // navigator.clipboard only exists on HTTPS/localhost; fall back to execCommand elsewhere.
+  async function copyText(text: string): Promise<boolean> {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      const area = document.createElement("textarea");
+      area.value = text;
+      area.style.position = "fixed";
+      area.style.opacity = "0";
+      document.body.appendChild(area);
+      area.select();
+      const ok = document.execCommand("copy");
+      area.remove();
+      return ok;
     }
+  }
+
+  const btn = document.getElementById("copy-btn");
+  btn?.addEventListener("click", async () => {
+    if (!(await copyText(command))) return;
+    const idle = btn.querySelector("[data-copy-idle]");
+    const done = btn.querySelector("[data-copy-done]");
+    idle?.classList.add("hidden");
+    done?.classList.remove("hidden");
+    btn.setAttribute("aria-label", "Copied");
+    setTimeout(() => {
+      done?.classList.add("hidden");
+      idle?.classList.remove("hidden");
+      btn.setAttribute("aria-label", "Copy command");
+    }, 2000);
   });
 </script>
