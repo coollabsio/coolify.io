@@ -66,7 +66,7 @@ const {
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@coolifyio" />
-    <meta name="twitter:title" content="Coolify" />
+    <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta
       name="twitter:image"
@@ -74,13 +74,17 @@ const {
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://coolify.io" />
-    <meta property="og:title" content="Coolify" />
+    <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content="Coolify" />
     <meta
       property="og:image"
       content="https://cdn.coollabs.io/og-images/coolify.png"
     />
+    <meta property="og:image:width" content="2400" />
+    <meta property="og:image:height" content="1260" />
+    <meta property="og:image:alt" content="Coolify: self-hosting with superpowers. Open-source alternative to Vercel, Heroku and Netlify." />
+    <meta name="twitter:image:alt" content="Coolify: self-hosting with superpowers. Open-source alternative to Vercel, Heroku and Netlify." />
     <title>{title}</title>
     {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
     <link rel="me" href="https://fosstodon.org/@andrasbacsai" />
