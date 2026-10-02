@@ -39,12 +39,12 @@
                 Huge sponsors
                 <span class="text-fg-faint">{huge.length}</span>
             </h3>
-            <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="grid gap-px overflow-hidden rounded-lg bg-hairline ring-1 ring-hairline sm:grid-cols-2 lg:grid-cols-3">
                 {#each huge as sponsor (sponsor.name)}
                     <a
                         href={sponsor.url}
                         aria-label={sponsor.name}
-                        class="card group flex flex-col overflow-hidden text-left transition-colors hover:bg-white/[0.07] hover:ring-white/15 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning plausible-event-name=big-sponsor-clicks"
+                        class="group flex flex-col bg-app text-left transition-colors hover:bg-surface focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-warning plausible-event-name=big-sponsor-clicks"
                     >
                         <div
                             class="flex h-36 items-center justify-center overflow-hidden px-8 py-6"
@@ -59,7 +59,7 @@
                             />
                         </div>
                         <div
-                            class="flex items-start justify-between gap-3 border-t border-hairline px-4 py-3"
+                            class="flex items-start justify-between gap-3 px-4 pb-4"
                         >
                             <div class="min-w-0">
                                 <div class="text-sm font-medium text-fg">
@@ -83,12 +83,12 @@
                 Big sponsors
                 <span class="text-fg-faint">{big.length}</span>
             </h3>
-            <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+            <div class="grid grid-cols-2 gap-x-3 gap-y-1 sm:grid-cols-3 lg:grid-cols-5">
                 {#each big as sponsor (sponsor.name)}
                     <a
                         href={sponsor.url}
                         aria-label={sponsor.name}
-                        class="card group relative flex h-24 items-center justify-center gap-2 px-5 transition-colors hover:bg-white/[0.07] hover:ring-white/15 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning plausible-event-name=big-sponsor-clicks"
+                        class="group relative flex h-20 items-center justify-center gap-2 rounded-lg px-5 opacity-75 transition-[opacity,background-color] hover:bg-white/[0.04] hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning plausible-event-name=big-sponsor-clicks"
                     >
                         <img
                             src={sponsor.image?.url}
@@ -119,18 +119,20 @@
                 Small sponsors
                 <span class="text-fg-faint">{small.length}</span>
             </h3>
-            <div class="flex flex-wrap justify-center gap-2">
+            <div class="flex flex-wrap justify-center gap-x-1 gap-y-1.5">
                 {#each small as sponsor (sponsor.name)}
                     <a
                         href={sponsor.url}
-                        class="group inline-flex h-9 items-center gap-2 rounded-full bg-white/[0.04] py-1 pr-3.5 pl-1 text-[13px] transition-colors hover:bg-white/[0.08] focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning plausible-event-name=small-sponsor-clicks {sponsor.isSpecial && sponsor.image?.url === 'question'
+                        class="group inline-flex h-9 items-center gap-2 rounded-full py-1 pr-3.5 pl-1 text-[13px] transition-colors hover:bg-white/[0.05] focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-warning plausible-event-name=small-sponsor-clicks {sponsor.isSpecial && sponsor.image?.url === 'question'
                             ? 'text-fg-dim border border-dashed border-white/20 hover:text-fg'
                             : sponsor.newest
-                              ? 'text-fg ring-1 ring-warning/60'
-                              : 'text-fg-dim ring-1 ring-hairline hover:text-fg hover:ring-white/15'}"
+                              ? 'text-fg'
+                              : 'text-fg-dim hover:text-fg'}"
                     >
                         <span
-                            class="flex size-7 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white/[0.06]"
+                            class="flex size-7 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white/[0.06] {sponsor.newest
+                                ? 'ring-2 ring-warning/70'
+                                : ''}"
                         >
                             {#if sponsor.isSpecial && sponsor.image?.url === "question"}
                                 <Icon icon={Plus} class="size-3.5" />

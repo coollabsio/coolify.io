@@ -79,11 +79,11 @@ Sponsors are not stored in this repo. `src/data/sponsors.js` loads
 `https://cdn.coollabs.io/sponsors.json` (maintained in `coollabsio/coollabs-cdn`).
 `src/components/Sponsors.svelte` renders all three tiers on the homepage:
 
-- `huge`: large cards with logo, name and description (`hugeImageStyle`, `hugeCardStyle` optional)
-- `big`: logo grid; `pinned` sponsors come first, `imageStyle` and `additionalContent` optional
-- `small`: static avatar + name pills; `newest` adds a yellow ring, `isPublicImage` uses `object-contain`
+- `huge`: one shared frame with hairline dividers; each cell has logo, name and description (`hugeImageStyle`, `hugeCardStyle` optional)
+- `big`: borderless logo wall, slightly dimmed until hover; `pinned` sponsors come first, `imageStyle` and `additionalContent` optional
+- `small`: avatar + name without outlines; `newest` adds a yellow ring on the avatar, `isPublicImage` uses `object-contain`
 
-Keep the section static: no carousels or entrance animations.
+Keep the section static and low on boxes: no carousels, entrance animations or per-item cards.
 
 ### Commit Standards
 - Follow conventional commits format: `type(scope): description`
