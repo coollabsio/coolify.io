@@ -39,7 +39,7 @@
                 Huge sponsors
                 <span class="text-fg-faint">{huge.length}</span>
             </h3>
-            <div class="grid gap-px overflow-hidden rounded-lg bg-hairline ring-1 ring-hairline sm:grid-cols-2 lg:grid-cols-3">
+            <div class="grid grid-cols-1 gap-px overflow-hidden rounded-lg bg-hairline ring-1 ring-hairline sm:grid-cols-2 lg:grid-cols-3">
                 {#each huge as sponsor (sponsor.name)}
                     <a
                         href={sponsor.url}
