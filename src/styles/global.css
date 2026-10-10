@@ -39,6 +39,8 @@
   --color-coollabs-100: oklch(52.34% 0.287 289.16);
   --color-coollabs-200: oklch(43.76% 0.2369 289.82);
   --color-coollabs-300: oklch(38.04% 0.2031 290.47);
+  /* Lighter brand purple for icons and text on dark surfaces. */
+  --color-coollabs-light: oklch(72% 0.16 289.33);
   --color-coolblack: oklch(14.48% 0 0);
   --color-coolgray-100: oklch(20.9% 0 0);
   --color-coolgray-200: oklch(24.35% 0 0);
