@@ -1,0 +1,330 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Prose from "../components/Prose.astro";
+import Faq from "../components/Faq.astro";
+import Icon from "../components/Icon.astro";
+import Cloud from "reicon/icons/Cloud";
+import Rocket from "reicon/icons/Rocket";
+
+const installCommand = "curl -fsSL https://cdn.coollabs.io/coolify/install.sh | bash";
+
+const faq = [
+  {
+    question: "Do I need to know Docker to use Coolify?",
+    answer:
+      "No. Nixpacks or Railpack can build most repositories without a Dockerfile, and Coolify creates and runs the containers for you. If you already use Dockerfiles or Compose files, Coolify supports those too.",
+  },
+  {
+    question: "What size VPS do I need for Coolify?",
+    answer:
+      "The documented minimum is 2 CPU cores, 2 GB RAM and 10 GB disk. Plan for more as you add apps, databases and builds.",
+  },
+  {
+    question: "Can Coolify run on a 1 GB VPS?",
+    answer:
+      "It can, but it's below the recommended minimum. The docs suggest starting with 1 core and 1 GB only if cost is a concern, watching resource use (especially during builds), and upgrading as you grow. If you'll always be on 1 GB or less, a lighter single-purpose tool may suit you better.",
+  },
+  {
+    question: "How long does the install take?",
+    answer:
+      'One command does the install. coolify.io says the self-hosted version is "ready on your server in under a minute". After that, you open port 8000 and create your admin account.',
+  },
+  {
+    question: "Can I use my own domain with free HTTPS?",
+    answer:
+      "Yes. Point DNS at your server, add the domain with `https://`, and Coolify's proxy gets and renews a Let's Encrypt certificate.",
+  },
+  {
+    question: "How do I back up my databases and files?",
+    answer:
+      "Set a backup schedule on the database, and optionally on the app's volumes or directory mounts. You can send copies to S3-compatible storage. Test a restore before you rely on it.",
+  },
+  {
+    question: "Is Coolify really free?",
+    answer:
+      "Yes. Self-hosted Coolify is free and open source with every feature included. Coolify Cloud is an optional paid service that runs the Coolify instance for you.",
+  },
+];
+---
+
+<Layout
+  title="Deploy Apps on Your VPS Without Managing Docker | Coolify"
+  canonicalUrl="https://coolify.io/deploy-apps-on-your-own-vps"
+  description="Install Coolify on your VPS with one command, push to Git, and let it handle Docker builds, HTTPS and backups. What a small VPS can run, and when to go lighter."
+>
+  <section class="px-4">
+    <p class="eyebrow">Guide</p>
+    <h1 class="mx-auto mt-2 max-w-3xl text-3xl font-semibold tracking-tight text-balance text-fg md:text-5xl">
+      How do I deploy apps on my own VPS without managing Docker by hand<span class="text-warning">?</span>
+    </h1>
+  </section>
+
+  <article class="mx-auto mt-12 max-w-3xl px-4 text-left">
+    <Prose>
+      <p class="text-base md:text-lg">
+        <strong>Short answer:</strong> Install a self-hosted PaaS on the VPS and let it manage Docker for you.
+        With Coolify, an open-source alternative to Heroku, Vercel and Netlify, that takes one command:
+      </p>
+    </Prose>
+
+    <div class="card mt-4 py-3 px-4">
+      <code class="block overflow-x-auto font-mono text-sm whitespace-nowrap text-fg select-all">
+        <span class="pr-2 text-fg-faint select-none">$</span>{installCommand}
+      </code>
+    </div>
+
+    <Prose class="mt-4">
+      <p>
+        Then open <code>http://&lt;your-server-ip&gt;:8000</code>, create your admin account, connect a Git
+        repository and push. Coolify builds your app into a container, routes traffic to it, and gets free
+        Let's Encrypt HTTPS for your domain. You don't need to write a Dockerfile or run <code>docker</code>
+        commands unless you want to.
+      </p>
+      <p>
+        Coolify runs on any Linux server you can reach over SSH: a VPS from any provider, a dedicated server, a VM
+        or a 64-bit Raspberry Pi. Your apps and data stay on your servers. If you stop using Coolify, your running
+        resources keep working.
+      </p>
+
+      <h2>Install: steps and time</h2>
+      <ol>
+        <li>
+          <strong>Get a fresh Linux server with SSH access.</strong> Debian, Ubuntu LTS, RHEL-family, SUSE, Arch and
+          Alpine are listed as
+          <a href="https://coolify.io/docs/start-with-self-hosted">supported</a>. A fresh server avoids conflicts
+          with existing apps.
+        </li>
+        <li>
+          <strong>Run the install script</strong> as root or a sudo user (the command above). It installs what Coolify
+          needs, including Docker if it's missing, and prints the next steps when it's done.
+        </li>
+        <li>
+          <strong>Open <code>http://&lt;your-server-ip&gt;:8000</code> and create the admin account right away.</strong>
+          Until you do, whoever reaches the registration page first becomes the admin.
+        </li>
+        <li>
+          <strong>Back up <code>/data/coolify/source/.env</code>.</strong> It holds the installation secrets you'd need
+          to restore Coolify from a backup.
+        </li>
+        <li>
+          <strong>Deploy something.</strong> The quickest check is the docs'
+          <a href="https://coolify.io/docs/deploy-your-first-app">first-app guide</a>. It deploys the
+          <code>nginx:alpine</code> image on port 80 and opens it on a generated sslip.io address, so you don't need a
+          Git repo, a build or your own domain for the first test.
+        </li>
+      </ol>
+      <p>
+        <strong>How long does it take?</strong>
+        <a href="/self-hosted">coolify.io</a> says the self-hosted version "is ready on your server in under a minute".
+        Your time depends on the server and on whether Docker has to be installed first. Don't want to run the dashboard
+        at all? <a href="/cloud">Coolify Cloud</a> hosts it for you, and you connect your servers.
+      </p>
+
+      <h2>What can a small VPS actually run?</h2>
+      <ul>
+        <li>
+          <strong>What Coolify itself runs.</strong> A standard self-hosted install runs
+          <a href="https://coolify.io/docs/core/how-coolify-works">three base containers</a>: the dashboard/API
+          (<code>coolify</code>), PostgreSQL for Coolify's own state (<code>coolify-db</code>) and Redis
+          (<code>coolify-redis</code>). Each server also runs a reverse proxy, and the <code>coolify-sentinel</code>
+          monitoring container is optional. Coolify talks to your servers over SSH, so there's no permanent agent to
+          install.
+        </li>
+        <li>
+          <strong>Documented minimum:</strong> 2 CPU cores, 2 GB RAM and 10 GB free disk (amd64 or arm64).
+        </li>
+        <li>
+          <strong>On a tight budget:</strong> the docs say you <em>can</em> start with 1 CPU core and 1 GB RAM and
+          upgrade as your workloads grow. Coolify can even start on 1 core / 512 MB / 4 GB, but that isn't recommended.
+          If builds and Coolify share one small server, keep an eye on resource usage: heavy builds can make the server
+          unresponsive.
+        </li>
+        <li>
+          <strong>A real example from the docs:</strong> one Coolify maintainer runs a mixed production workload on a
+          Hetzner CAX11 with 2 vCPU, 4 GB RAM and 40 GB disk. It hosts 16 static sites, 9 Rust API services, 5
+          full-stack Rust apps, 4 Rust Discord bots, 7 Rust workers, 2 Valkey databases and 1 PostgreSQL database, plus
+          Coolify itself and Beszel. Average use is about 2.6 GB RAM and 60–70% CPU. The apps are built elsewhere and
+          heavily optimized, so treat this as a rough reference, not a promise.
+        </li>
+        <li>
+          <strong>Builds are usually the heavy part.</strong> By default, Coolify builds on the server that runs the
+          app. To keep a small VPS for running apps only, add a
+          <a href="https://coolify.io/docs/core/infrastructure/servers/build-servers">separate build server</a> or
+          build in CI and deploy the image.
+        </li>
+        <li>
+          <strong>Start small, scale later.</strong> Coolify's own
+          <a href="https://coolify.io/docs/core/infrastructure/scaling/overview">guidance</a> is that one right-sized
+          server is easier to run than several. Add servers when load or availability needs justify it.
+        </li>
+      </ul>
+
+      <h2>How it works</h2>
+      <ol>
+        <li>
+          <strong>Connect your Git repository.</strong> GitHub, GitLab, Bitbucket, Gitea and others: a public repo, a
+          deploy key for a private repo, or a GitHub App with built-in webhooks.
+        </li>
+        <li>
+          <strong>Push to deploy.</strong> Turn on "Deploy on push" and every commit to your branch triggers a build and
+          deploy, with logs you can follow.
+        </li>
+        <li>
+          <strong>Get HTTPS automatically.</strong> Point your domain at the server and enter it with
+          <code>https://</code>. The built-in proxy (Traefik or Caddy) requests and renews the certificate.
+        </li>
+        <li>
+          <strong>Add more servers when you need them.</strong> Coolify connects over SSH and installs Docker Engine and
+          Compose for you.
+        </li>
+      </ol>
+
+      <h2>What Coolify handles so you don't touch Docker by hand</h2>
+      <ul>
+        <li>
+          <strong>Builds.</strong> Nixpacks or Railpack detect your language and framework. You can also bring a
+          Dockerfile, a Docker Compose file, a static site or a prebuilt image.
+        </li>
+        <li>
+          <strong>Containers and Compose files.</strong> Coolify
+          <a href="https://coolify.io/docs/core/docker-and-containers">generates the Compose configuration</a> for apps
+          and databases, so you don't write one per resource.
+        </li>
+        <li>
+          <strong>Free SSL.</strong> Let's Encrypt certificates for your custom domains are set up and renewed
+          automatically.
+        </li>
+        <li>
+          <strong>Databases with backups.</strong> One-click PostgreSQL, MySQL, MariaDB, MongoDB, Redis, KeyDB,
+          Dragonfly and ClickHouse. Scheduled database backups can upload to any S3-compatible storage.
+        </li>
+        <li>
+          <strong>Volume and directory backups.</strong> Since v4.3.0, you can schedule
+          <a href="https://coolify.io/docs/core/persistent-storage/storage-mounts/backups">backups of an app's volumes
+          and directory mounts</a>, stored locally or on S3-compatible storage with retention controls.
+        </li>
+        <li>
+          <strong>One-click services.</strong> <a href="/services">360+ ready-made services</a>.
+        </li>
+        <li>
+          <strong>Preview deployments.</strong> Pull and merge requests from GitHub, GitLab, Gitea and Bitbucket can get
+          their own <a href="https://coolify.io/docs/applications/deployments/preview-deployments">preview deployment</a>.
+        </li>
+        <li>
+          <strong>Rollbacks.</strong> Roll back to a previous image that's still on the server.
+        </li>
+        <li>
+          <strong>Webhooks, API, CLI and MCP.</strong> Trigger deploys from any CI. Script Coolify with the
+          <a href="https://coolify.io/docs/cli/what-is-the-coolify-cli">CLI</a> or API. Or connect an AI client through
+          Coolify's <a href="https://coolify.io/docs/mcp/overview">MCP server</a>, which uses your existing API tokens
+          and team permissions.
+        </li>
+        <li>
+          <strong>Notifications.</strong> Alerts for deployments, backups, scheduled tasks and server events via email,
+          Discord, Telegram, Slack/Mattermost, Pushover or a webhook.
+        </li>
+        <li>
+          <strong>Browser terminal.</strong> Open a shell on a server or a running container from the dashboard.
+        </li>
+      </ul>
+
+      <h2>Coolify vs lighter single-purpose tools</h2>
+      <p>Coolify isn't the smallest option, and sometimes a lighter tool is the better fit:</p>
+      <ul>
+        <li>
+          <strong>Your VPS has 1 GB of RAM or less and you'll stay there.</strong> Coolify documents 2 GB as its
+          minimum. Some tools are built to need less. <a href="https://pier.team/">Pier</a>, for example, ships as a
+          single binary and lists 512 MB / 1 vCPU as its minimum.
+          <a href="https://dokku.com/docs/getting-started/installation/">Dokku</a> documents 1 GB for its default
+          Docker scheduler.
+        </li>
+        <li>
+          <strong>You're happy with a terminal and a config file.</strong> Dokku gives you a Heroku-style
+          <code>git push</code> workflow on one host. <a href="https://kamal-deploy.org/docs/installation/">Kamal</a>
+          runs from your own machine over SSH, with no dashboard on the server at all.
+        </li>
+        <li>
+          <strong>You deploy one app and don't need the extras.</strong> If you don't need databases, backups, previews
+          or team access in a UI, a smaller tool means less to run and update.
+        </li>
+      </ul>
+      <p>What Coolify adds when you need more than "run my container":</p>
+      <ul>
+        <li>A web dashboard for apps, databases and 360+ one-click services in one place.</li>
+        <li>Database backups and volume/directory backups to S3-compatible storage.</li>
+        <li>Preview deployments across GitHub, GitLab, Bitbucket and Gitea.</li>
+        <li>
+          Teams with Owner, Admin and Member roles. Note that roles are team-wide, with no per-project
+          <a href="https://coolify.io/docs/core/team/roles-and-permissions">permissions</a>.
+        </li>
+        <li>Multiple servers and separate build servers from one dashboard.</li>
+        <li>An API, a CLI and a built-in MCP server for automation and AI agents.</li>
+        <li>
+          A managed option: Coolify Cloud runs the dashboard for you from $5/month for 2 servers, plus $3/month per
+          additional server.
+        </li>
+      </ul>
+      <p>
+        For a feature-by-feature look, see
+        <a href="/compare/coolify-vs-dokploy-vs-caprover-vs-dokku-vs-kamal">Coolify vs Dokploy vs CapRover vs Dokku vs Kamal</a>.
+      </p>
+
+      <h2>Requirements and honest limits</h2>
+      <ul>
+        <li>
+          <strong>Server size.</strong> The minimum for the server running Coolify is 2 cores, 2 GB RAM and 10 GB disk.
+          Smaller works but isn't recommended.
+        </li>
+        <li><strong>Linux only.</strong> On other systems you'd need a Linux VM.</li>
+        <li><strong>Use a fresh server</strong> to avoid conflicts with apps that are already running.</li>
+        <li><strong>Open ports 80 and 443</strong> and point DNS at the server for HTTPS.</li>
+        <li><strong>Builds use your server's CPU and RAM</strong> unless you add a build server.</li>
+        <li>
+          <strong>You still own the server.</strong> OS updates, firewall, SSH access and a tested backup-and-restore
+          plan are your job, whether you self-host or use Cloud. Rollbacks don't undo database migrations or restore
+          data.
+        </li>
+      </ul>
+
+      <h2>Coolify Cloud vs self-hosted</h2>
+      <p>
+        Both have the <a href="https://coolify.io/docs/core/selfhosted-cloud-comparison">same features</a>, and your
+        apps run on your own servers either way.
+      </p>
+      <ul>
+        <li>
+          <strong>Self-hosted:</strong> free and open source (Apache 2.0), with no feature limits. You install, update
+          and back up the Coolify instance.
+        </li>
+        <li>
+          <strong>Coolify Cloud:</strong> the Coolify team hosts, updates and backs up the dashboard at app.coolify.io.
+          It costs $5/month for 2 servers, plus $3/month for each additional server.
+        </li>
+      </ul>
+
+      <h2>FAQ</h2>
+    </Prose>
+
+    <div class="mt-4">
+      <Faq items={faq} />
+    </div>
+
+    <section class="card mt-14 p-6 text-center">
+      <h2 class="text-xl font-semibold tracking-tight text-fg">Get started<span class="text-warning">.</span></h2>
+      <p class="mx-auto mt-2 max-w-xl text-sm text-fg-dim">
+        Got a VPS? Run the one-line installer and deploy your first app. Rather not run the dashboard yourself? Try
+        Coolify Cloud.
+      </p>
+      <div class="mt-5 flex flex-wrap justify-center gap-3">
+        <a href="https://coolify.io/docs/start-with-self-hosted" class="btn btn-primary">
+          <Icon icon={Rocket} class="size-4" />
+          Start with self-hosted
+        </a>
+        <a href="/pricing" class="btn btn-neutral">
+          <Icon icon={Cloud} class="size-4" />
+          Try Coolify Cloud
+        </a>
+      </div>
+    </section>
+  </article>
+</Layout>

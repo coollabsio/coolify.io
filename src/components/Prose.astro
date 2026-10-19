@@ -1,0 +1,24 @@
+---
+export interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<div
+  class:list={[
+    `prose prose-invert max-w-none min-w-0 text-[15px] leading-7 text-fg-dim
+    prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-fg
+    prose-h2:mt-14 prose-h2:mb-4 prose-h2:text-xl md:prose-h2:text-2xl prose-h3:mt-8 prose-h3:mb-2 prose-h3:text-base
+    prose-p:my-3 prose-p:text-fg-dim
+    prose-a:font-normal prose-a:text-fg prose-a:underline prose-a:decoration-fg-faint prose-a:underline-offset-2 hover:prose-a:decoration-fg
+    prose-strong:text-fg
+    prose-ul:my-3 prose-ol:my-3 prose-li:my-1.5 prose-li:text-fg-dim prose-li:marker:text-fg-faint
+    prose-code:rounded prose-code:bg-white/[0.06] prose-code:px-1 prose-code:py-0.5 prose-code:font-mono prose-code:text-[13px] prose-code:font-normal prose-code:text-fg prose-code:before:content-none prose-code:after:content-none
+    prose-hr:border-hairline`,
+    className,
+  ]}
+>
+  <slot />
+</div>
