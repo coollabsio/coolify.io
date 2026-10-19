@@ -152,7 +152,7 @@
       </div>
       <div class="mt-8">
         <a
-          href="https://coolify.io/docs/get-started/installation"
+          href="https://coolify.io/docs/start-with-self-hosted"
           class="btn btn-neutral btn-lg w-full"
         >
           <Icon icon={HardDrive} class="size-4" />
@@ -241,7 +241,7 @@
               You need to bring your own servers from any cloud provider (such
               as
               <a
-                href="https://coolify.io/hetzner"
+                href="https://coolify.io/docs/offers#hetzner"
                 class="text-fg underline decoration-fg-faint underline-offset-2 hover:decoration-fg">Hetzner</a
               >, DigitalOcean, AWS, etc.).
               <br /><br />
@@ -251,7 +251,7 @@
               (You can connect your RPi, old laptop, or any other device that runs
               the
               <a
-                href="https://coolify.io/docs/get-started/installation#_2-supported-operating-systems"
+                href="https://coolify.io/docs/start-with-self-hosted#2-supported-operating-systems"
                 class="text-fg underline decoration-fg-faint underline-offset-2 hover:decoration-fg"
                 >supported operating systems</a
               >.)
