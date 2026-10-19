@@ -1,0 +1,33 @@
+# Coolify
+
+> Coolify is an open-source and self-hostable alternative to Vercel, Heroku and Netlify. Deploy apps, databases and 360+ one-click services to your own servers. Self-hosted Coolify is free with all features included; Coolify Cloud is an optional paid service that runs the Coolify dashboard for you.
+
+Coolify deploys to any server you can reach over SSH: your own servers, a VPS, a Raspberry Pi, EC2, DigitalOcean, Linode, Hetzner and more. It handles builds, free SSL certificates, databases with scheduled backups to S3-compatible storage, and preview deployments. All settings are saved on your own servers, so there is no vendor lock-in. Coolify Cloud and self-hosted share the same features; Cloud costs $5/month for 2 servers plus $3/month per additional server.
+
+## Product
+
+- [Home](https://coolify.io/): What Coolify is and what it can deploy
+- [Self-hosted](https://coolify.io/self-hosted): Free, open-source Coolify on your own server, with every feature included
+- [Coolify Cloud](https://coolify.io/cloud): The Coolify team hosts and manages the dashboard; your apps run on your servers
+- [Pricing](https://coolify.io/pricing): Cloud plans and FAQ; self-hosted is free
+- [Services](https://coolify.io/services): 360+ one-click services you can self-host with Coolify
+
+## Guides
+
+- [Deploy apps on your own VPS without managing Docker](https://coolify.io/deploy-apps-on-your-own-vps): Install Coolify with one command, push to Git, get HTTPS and backups; what a small VPS can run
+- [Coolify vs Dokploy vs CapRover vs Dokku vs Kamal](https://coolify.io/compare/coolify-vs-dokploy-vs-caprover-vs-dokku-vs-kamal): Feature comparison with notes and sources for every cell
+
+## Docs
+
+- [Documentation index](https://coolify.io/docs/llms.txt): Index of all documentation pages
+- [Full documentation](https://coolify.io/docs/llms-full.txt): Full documentation text
+- [Docs home](https://coolify.io/docs/): Welcome to Coolify documentation
+- [Start with self-hosted](https://coolify.io/docs/start-with-self-hosted): Install and run Coolify on your own server
+- [Start with Coolify Cloud](https://coolify.io/docs/start-with-cloud): Coolify hosts the dashboard; your apps run on your servers
+- [Deploy your first app](https://coolify.io/docs/deploy-your-first-app): Deploy an app from a Docker image
+- [Deploy your first database](https://coolify.io/docs/deploy-your-first-database): Deploy a database from the one-click list
+
+## Optional
+
+- [GitHub repository](https://github.com/coollabsio/coolify): Source code, issues and releases
+- [Changelog](https://coolify.io/changelog): Latest Coolify releases

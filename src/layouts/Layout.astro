@@ -7,12 +7,14 @@ export interface Props {
   title: string;
   canonicalUrl?: string;
   description?: string;
+  noindex?: boolean;
 }
 
 const {
   title,
   canonicalUrl,
   description = "Open-source alternative to Vercel, Heroku & Netlify. Self-host apps, databases & 360+ services on your own server.",
+  noindex = false,
 } = Astro.props;
 ---
 
@@ -87,6 +89,7 @@ const {
     <meta name="twitter:image:alt" content="Coolify: self-hosting with superpowers. Open-source alternative to Vercel, Heroku and Netlify." />
     <title>{title}</title>
     {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    {noindex && <meta name="robots" content="noindex" />}
     <link rel="me" href="https://fosstodon.org/@andrasbacsai" />
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
