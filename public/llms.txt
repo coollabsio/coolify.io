@@ -19,7 +19,13 @@ Coolify deploys to any server you can reach over SSH: your own servers, a VPS, a
 
 ## Docs
 
-- [Coolify documentation](https://coolify.io/docs): Installation, applications, databases, services, backups, API and CLI
+- [Documentation index](https://coolify.io/docs/llms.txt): Index of all documentation pages
+- [Full documentation](https://coolify.io/docs/llms-full.txt): Full documentation text
+- [Docs home](https://coolify.io/docs/): Welcome to Coolify documentation
+- [Start with self-hosted](https://coolify.io/docs/start-with-self-hosted): Install and run Coolify on your own server
+- [Start with Coolify Cloud](https://coolify.io/docs/start-with-cloud): Coolify hosts the dashboard; your apps run on your servers
+- [Deploy your first app](https://coolify.io/docs/deploy-your-first-app): Deploy an app from a Docker image
+- [Deploy your first database](https://coolify.io/docs/deploy-your-first-database): Deploy a database from the one-click list
 
 ## Optional
 
