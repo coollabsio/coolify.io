@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { marked } from "marked";
+import { stripDashes } from "../utils/stripDashes";
 
 marked.setOptions({
   gfm: true,
@@ -34,11 +35,11 @@ try {
 
 const parsedReleases = await Promise.all(
   releases.map(async (release: any) => ({
-    name: release.name || release.tag_name,
+    name: stripDashes(release.name || release.tag_name),
     tag: release.tag_name,
     date: release.published_at || release.created_at,
     url: release.html_url,
-    body: await marked.parse(release.body || ""),
+    body: await marked.parse(stripDashes(release.body || "")),
   })),
 );
 ---
