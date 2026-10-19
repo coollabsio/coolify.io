@@ -1,0 +1,467 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Prose from "../../components/Prose.astro";
+import Faq from "../../components/Faq.astro";
+
+const lastVerified = "2026-10-19";
+const correctionsUrl = "https://github.com/coollabsio/coolify.io/issues";
+
+const tools = [
+  { name: "Coolify", url: "https://coolify.io/" },
+  { name: "Dokploy", url: "https://dokploy.com/" },
+  { name: "CapRover", url: "https://caprover.com/" },
+  { name: "Dokku", url: "https://dokku.com/" },
+  { name: "Kamal", url: "https://kamal-deploy.org/" },
+];
+
+// Cell syntax: `code`, [^key] footnote reference, [SOURCE] source link (footnotes only).
+const rows = [
+  ["Web UI", "", "✅", "✅", "✅", "◐ paid Dokku Pro[^1]", "❌ CLI only[^2]"],
+  ["Docker Compose deployments", "", "✅", "✅", "◐ experimental subset[^3]", "not documented[^4]", "❌[^5]"],
+  ["API / CLI", "", "✅ API + CLI", "✅ API + CLI", "✅ CLI[^6]", "✅ CLI over SSH; HTTP API in Pro[^1]", "✅ CLI"],
+  ["Multi-node clustering", "one app across nodes", "◐[^7]", "✅ Docker Swarm", "✅ Docker Swarm", "◐ optional k3s scheduler[^8]", "✅ multiple hosts, you add the load balancer[^9]"],
+  ["Manage multiple separate servers", "from one place", "✅", "✅ remote servers", "◐ Swarm nodes only[^10]", "◐ via k3s cluster[^8]", "✅ hosts listed in `deploy.yml`"],
+  ["Reverse proxy", "", "Traefik or Caddy", "Traefik", "NGINX", "NGINX by default; Caddy, HAProxy, OpenResty or Traefik[^11]", "kamal-proxy"],
+  ["Automatic Let's Encrypt HTTPS", "", "✅", "✅", "✅", "◐ official plugin[^12]", "◐ single-server deploys[^13]"],
+  ["GitHub integration", "", "✅", "✅", "◐ webhook + repo credentials[^14]", "◐ generic Git[^15]", "❌ deploys from your checkout[^16]"],
+  ["GitLab integration", "", "✅", "✅", "◐ webhook[^14]", "◐ generic Git[^15]", "❌[^16]"],
+  ["Bitbucket integration", "", "✅", "✅", "◐ webhook[^14]", "◐ generic Git[^15]", "❌[^16]"],
+  ["Gitea integration", "", "✅", "✅", "◐ generic webhook[^14]", "◐ generic Git[^15]", "❌[^16]"],
+  ["Preview deployments", "per PR", "✅ GitHub, GitLab, Bitbucket, Gitea", "✅ GitHub[^17]", "not documented", "◐ via official GitHub Action[^18]", "not documented"],
+  ["Rollbacks", "", "✅ to retained images[^19]", "✅ Swarm auto-rollback + registry-based", "✅ one click from history[^20]", "◐ no rollback command; keep old images[^21]", "✅ `kamal rollback`"],
+  ["Databases", "", "✅ 8 engines, one click[^22]", "✅ 6 engines[^23]", "◐ via one-click apps", "◐ official datastore plugins[^24]", "◐ \"accessories\" you configure[^25]"],
+  ["Scheduled database backups to S3", "", "✅", "✅", "❌[^26]", "◐ plugin commands[^27]", "not documented"],
+  ["Volume backups", "", "✅ since v4.3.0[^28]", "✅ named volumes[^29]", "❌[^26]", "not documented", "not documented"],
+  ["One-click services / templates", "", "✅ 360+[^30]", "✅ (count not published)[^31]", "✅ \"dozens\"[^32]", "❌ no catalog (plugins instead)", "❌"],
+  ["Built-in monitoring", "", "✅ server + container metrics[^33]", "✅", "✅ via NetData[^34]", "not documented (community plugins)", "not documented"],
+  ["Notifications", "", "✅", "✅", "◐ paid Pro plan[^35]", "◐ community plugins[^36]", "◐ via hooks[^37]"],
+  ["Terminal access", "", "✅ browser terminal", "✅ browser terminal", "not documented", "◐ CLI `dokku enter`", "◐ CLI `kamal app exec`"],
+  ["Scheduled jobs (cron)", "", "✅", "✅", "not documented", "✅", "◐ cron in a dedicated container[^38]"],
+  ["Shared environment variables", "", "✅ team/project/environment/server", "✅ project/environment", "not documented", "◐ global config[^39]", "◐ in config files[^40]"],
+  ["Environments", "staging/production", "✅", "✅", "not documented", "not documented", "◐ \"destinations\"[^41]"],
+  ["Separate build server", "", "✅", "◐ apps only, not Compose[^42]", "◐ build in CI, deploy the image[^43]", "not documented", "✅ remote builder"],
+  ["Cloudflare Tunnels guide", "", "✅", "✅", "not documented", "not documented", "not documented"],
+  ["Teams / multiple users", "", "✅", "✅ organizations + users", "not documented", "◐ paid Dokku Pro", "❌ (CLI tool)"],
+  ["Role-based permissions", "", "◐ Owner/Admin/Member, team-wide[^44]", "✅ per-member permissions; custom roles in Enterprise[^45]", "not documented", "not documented", "❌"],
+  ["Audit log", "", "✅ (90 days)[^46]", "◐ Enterprise[^47]", "not documented", "not documented", "◐ `kamal audit` shows recent commands per server[^56]"],
+  ["Official MCP server", "AI agents", "✅ built in[^48]", "✅ official package[^49]", "❌ community only[^50]", "❌ community only[^50]", "❌ none found"],
+  ["Managed cloud option", "", "✅ Coolify Cloud[^51]", "✅ Dokploy Cloud[^52]", "❌ (paid Pro plan, self-hosted)[^35]", "❌ (Pro is a self-hosted lifetime license)[^53]", "❌ none found"],
+  ["License", "", "Apache-2.0", "Apache-2.0, except `/proprietary` (source-available)[^54]", "Apache-2.0", "MIT", "MIT"],
+  ["Documented minimum server", "", "2 cores, 2 GB RAM, 10 GB disk", "2 GB RAM, 30 GB disk", "1 GB RAM[^55]", "1 GB RAM (Docker scheduler); 2 GB per node (k3s)", "none stated (runs from your machine)"],
+];
+
+const footnotes = {
+  "1": "Dokku Pro is a paid add-on ($849 lifetime license at time of writing; 1 production + 2 pre-production servers). It adds a web UI, a JSON:API REST API, HTTP(S) git push and team management, and runs on your own server. It is not hosted. [DK14][DK15]",
+  "2": "Kamal is installed on your machine (Ruby gem or Docker) and drives servers over SSH. [KM2]",
+  "3": "CapRover deploys \"a supported subset of Docker Compose\" from the dashboard. The docs call it \"still experimental\". Fields like `build`, `networks`, `secrets` and `deploy` are ignored. [R3]",
+  "4": "Dokku's deployment methods are git push, `git:sync`, archives and images. We found no Compose deployment method in its docs. [DK6][DK17]",
+  "5": "Kamal deploys one app image per service. Supporting containers (databases, caches) are \"accessories\" defined in `deploy.yml`. [KM5]",
+  "6": "`caprover deploy` from your project directory, plus dashboard upload and webhooks. CapRover's docs also show its HTTP API being scripted for backups. [R5][R6]",
+  "7": "Coolify deploys the same image to several standalone servers. You put your own load balancer in front. Compose apps and apps with persistent storage can't use this yet. Docker Swarm support was experimental, is deprecated, and will be removed in Coolify v5 in favor of Compose replicas and Coolify's own scaling. [C6][C7][C8]",
+  "8": "Dokku's default scheduler runs on one host. The k3s scheduler adds worker and server nodes and needs 2 GB RAM on every node. [DK2][DK3]",
+  "9": "Kamal deploys to every host listed. With more than one server, \"you need to put a load balancer in front of them\". [KM2]",
+  "10": "CapRover scales by adding nodes to its Docker Swarm cluster, managed from the main CapRover instance. [R4]",
+  "11": "\"The default proxy shipped with Dokku is nginx\". It can be switched with `proxy:set`. [DK4]",
+  "12": "Certificates can be imported with the built-in ssl plugin. Automatic Let's Encrypt uses the optional `dokku-letsencrypt` plugin. [DK5]",
+  "13": "kamal-proxy's automatic HTTPS \"requires that we are deploying to one server\" with the `host` option set. [KM6]",
+  "14": "CapRover auto-deploys by storing repo credentials or an SSH key and giving you a webhook URL. Its docs show GitHub and Bitbucket, and say \"GitLab and Others\" work the same way if they send a POST webhook. There is no OAuth/app-style integration. [R5]",
+  "15": "Dokku accepts `git push` from anywhere and can pull from any repo with `git:sync` (plus `git:auth` for private servers). There is no provider-specific integration. [DK6]",
+  "16": "Kamal builds the version you have checked out and pushes it through a registry. It doesn't connect to Git hosts. Use your CI to run it on push. [KM2]",
+  "17": "Dokploy's docs describe previews as \"specifically designed for applications with GitHub integration\". [D8]",
+  "18": "Dokku's official GitHub Action has `review-apps:create` / `review-apps:destroy`. GitHub only. [DK12]",
+  "19": "A Coolify rollback redeploys an older image still retained on the server. It doesn't undo database migrations. [C13]",
+  "20": "CapRover's rollback rebuilds and deploys the selected version's image. It doesn't revert environment variables or other app config. [R5]",
+  "21": "We found no rollback command in Dokku's docs. They mention keeping prior images \"for manual rollback\" by disabling image cleanup. The k3s scheduler has a `rollback-on-failure` setting. [DK7][DK3]",
+  "22": "PostgreSQL, MySQL, MariaDB, MongoDB, Redis, KeyDB, Dragonfly, ClickHouse. [C1]",
+  "23": "MySQL, PostgreSQL, MongoDB, MariaDB, libsql, Redis. [D2]",
+  "24": "Official Dokku datastore plugins include Postgres, MySQL, MariaDB, Mongo, Redis and others. [DK10]",
+  "25": "Kamal accessories are containers you define (image, host, volumes). They aren't updated on deploy and get no zero-downtime deploys. [KM5]",
+  "26": "CapRover's backup covers the CapRover instance \"except images and volumes\". For volumes \"you have to use a custom solution\". The docs call the feature experimental. [R6]",
+  "27": "Done with plugin commands. For example, `postgres:backup-auth` sets up S3 credentials, `postgres:backup <service> <bucket>` uploads a backup, and `postgres:backup-schedule` schedules one. [DK11]",
+  "28": "Scheduled backups of volume and directory mounts, stored locally or on S3-compatible storage, with retention controls. Added in v4.3.0. [C15]",
+  "29": "Docker named volumes only, not bind mounts. Stored on S3 destinations. The Hobby Cloud plan allows 1 volume backup per application. [D10][D18]",
+  "30": "363 templates in Coolify's one-click service catalog (`templates/service-templates.json`) on 2026-10-19. Browse them on coolify.io/services. [C16]",
+  "31": "Dokploy offers \"open-source templates (Plausible, Pocketbase, Calcom, etc.) with a single click\". We couldn't find a published total. [D2]",
+  "32": "CapRover's homepage says \"dozens of popular services\". A community-maintained directory is also available. [R1][R7]",
+  "33": "Sentinel reports server and container health. Metrics add CPU and memory history. Threshold alerts and long-term retention need an external tool. [C17]",
+  "34": "\"You can enable NetData which is a server monitoring tool\". [R8]",
+  "35": "CapRover Pro (paid plans) adds \"build status notifications\", login alerts and two-factor auth. We found no managed hosting offering. [R9]",
+  "36": "The community plugin list includes Slack and Telegram notification plugins. [DK10]",
+  "37": "Kamal hooks (`pre-deploy`, `post-deploy` and others) run your own scripts, which you can use to send notifications. [KM9]",
+  "38": "Kamal's docs show cron running in a dedicated server role whose container runs `cron -f`. [KM8]",
+  "39": "`dokku config:set --global` sets variables for all apps. [DK9]",
+  "40": "Kamal sets `env` in `deploy.yml`. `.kamal/secrets-common` is shared across destinations. [KM3][KM11]",
+  "41": "`kamal deploy -d staging` merges `config/deploy.staging.yml` with the base config. [KM3]",
+  "42": "\"Build servers are currently only available for Applications. This feature is not supported for Docker Compose deployments.\" [D14]",
+  "43": "CapRover's docs recommend building images in CI (GitHub/GitLab) and deploying the built image to the server. [R10]",
+  "44": "Owner, Admin and Member (Member is read-only), applied per team. There are no project-level permissions. [C10]",
+  "45": "Free edition: Owner, Admin and Member, where Members get specific permissions (create/delete projects, services, environments, Docker/Traefik/API access and more). Enterprise adds custom roles. [D5][D6]",
+  "46": "Team audit log covering UI, API, MCP and webhooks. Events are pruned after 90 days. [C24]",
+  "47": "Audit logs are listed as an Enterprise feature. [D6][D18]",
+  "48": "Built-in MCP endpoint at `https://<your-coolify>/mcp`. It uses team-scoped API tokens. [C25][C1]",
+  "49": "`Dokploy/mcp`, \"The Official MCP package for Dokploy\". [D17]",
+  "50": "Community projects exist and are labeled unofficial or early-stage: `ivan-saorin/caprover-mcp` (\"Unofficial CapRover MCP Integration\") and `dokku-mcp/dokku-mcp` (\"not recommended for production use\"). We found no official MCP server on caprover.com, dokku.com or kamal-deploy.org. [X1][X2]",
+  "51": "$5/month for 2 servers, +$3/month per extra server. Same features as self-hosted. Apps run on your servers. [C26]",
+  "52": "Hobby plan: $4.50/month per server (1 user, 1 organization, 2 environments, some limits). Startup plan from $15/month. Enterprise on request. [D18]",
+  "53": "\"Dokku Pro isn't a hosted service.\" [DK14]",
+  "54": "Code outside `/proprietary` is Apache-2.0. Code under `/proprietary` is under the Dokploy Source Available License, which requires a commercial agreement for production use. [D19]",
+  "55": "CapRover: \"512MB RAM might not be enough\" because builds can use a lot of memory. Most providers offer 1 GB at the low end. CapRover's own comparison page states a 1 GB minimum. [R2][R13]",
+  "56": "`kamal audit` shows \"the latest commands that have been run on each server\". [KM13]",
+};
+
+const sources = {
+  C1: ["https://coolify.io/"],
+  C6: ["https://coolify.io/docs/core/infrastructure/scaling/overview"],
+  C7: ["https://coolify.io/docs/core/infrastructure/scaling/docker-swarm"],
+  C8: ["https://coolify.io/docs/core/infrastructure/scaling/multi-server-deployments"],
+  C10: ["https://coolify.io/docs/core/team/roles-and-permissions"],
+  C13: ["https://coolify.io/docs/applications/deployments/rollbacks"],
+  C15: ["https://coolify.io/docs/core/persistent-storage/storage-mounts/backups", "https://github.com/coollabsio/coolify/releases/tag/v4.3.0"],
+  C16: ["https://coolify.io/services", "https://github.com/coollabsio/coolify/blob/main/templates/service-templates.json"],
+  C17: ["https://coolify.io/docs/core/observability/monitoring/overview"],
+  C24: ["https://coolify.io/docs/core/team/audit-log"],
+  C25: ["https://coolify.io/docs/mcp/overview"],
+  C26: ["https://coolify.io/pricing"],
+  D2: ["https://github.com/dokploy/dokploy"],
+  D5: ["https://docs.dokploy.com/docs/core/permissions"],
+  D6: ["https://docs.dokploy.com/docs/core/enterprise", "https://docs.dokploy.com/docs/core/enterprise/custom-roles"],
+  D8: ["https://docs.dokploy.com/docs/core/applications/preview-deployments"],
+  D10: ["https://docs.dokploy.com/docs/core/volume-backups"],
+  D14: ["https://docs.dokploy.com/docs/core/remote-servers/build-server"],
+  D17: ["https://github.com/Dokploy/mcp"],
+  D18: ["https://dokploy.com/pricing"],
+  D19: ["https://github.com/Dokploy/dokploy/blob/canary/LICENSE.MD"],
+  R1: ["https://caprover.com/"],
+  R2: ["https://caprover.com/docs/get-started"],
+  R3: ["https://caprover.com/docs/docker-compose"],
+  R4: ["https://caprover.com/docs/app-scaling-and-cluster"],
+  R5: ["https://caprover.com/docs/deployment-methods"],
+  R6: ["https://caprover.com/docs/backup-and-restore"],
+  R7: ["https://caprover.com/docs/one-click-apps"],
+  R8: ["https://caprover.com/docs/resource-monitoring"],
+  R9: ["https://caprover.com/docs/troubleshooting-pro"],
+  R10: ["https://caprover.com/docs/ci-cd-integration"],
+  R13: ["https://caprover.com/compare/"],
+  DK2: ["https://dokku.com/docs/getting-started/installation/"],
+  DK3: ["https://dokku.com/docs/deployment/schedulers/k3s/"],
+  DK4: ["https://dokku.com/docs/networking/proxy-management/"],
+  DK5: ["https://dokku.com/docs/deployment/application-deployment/"],
+  DK6: ["https://dokku.com/docs/deployment/methods/git/"],
+  DK7: ["https://dokku.com/docs/deployment/builders/builder-management/"],
+  DK9: ["https://dokku.com/docs/configuration/environment-variables/"],
+  DK10: ["https://dokku.com/docs/community/plugins/"],
+  DK11: ["https://github.com/dokku/dokku-postgres"],
+  DK12: ["https://github.com/dokku/github-action"],
+  DK14: ["https://pro.dokku.com/"],
+  DK15: ["https://dokku.com/docs/enterprise/pro/"],
+  DK17: ["https://dokku.com/docs/deployment/methods/image/"],
+  KM2: ["https://kamal-deploy.org/docs/installation/"],
+  KM3: ["https://kamal-deploy.org/docs/configuration/overview/"],
+  KM5: ["https://kamal-deploy.org/docs/configuration/accessories/"],
+  KM6: ["https://kamal-deploy.org/docs/configuration/proxy/"],
+  KM8: ["https://kamal-deploy.org/docs/configuration/cron/"],
+  KM9: ["https://kamal-deploy.org/docs/hooks/overview/"],
+  KM11: ["https://kamal-deploy.org/docs/configuration/environment-variables/"],
+  KM13: ["https://kamal-deploy.org/docs/commands/audit/"],
+  X1: ["https://github.com/ivan-saorin/caprover-mcp"],
+  X2: ["https://github.com/dokku-mcp/dokku-mcp"],
+};
+
+const escapeHtml = (text) =>
+  text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+const sourceLabel = (url) => url.replace(/^https:\/\//, "").replace(/\/$/, "");
+
+// Footnotes are numbered in order of first reference, like Markdown footnotes.
+const footnoteNumbers = new Map();
+const refLink = (key) => {
+  if (!(key in footnotes)) throw new Error(`Missing footnote [^${key}]`);
+  const isFirst = !footnoteNumbers.has(key);
+  if (isFirst) footnoteNumbers.set(key, footnoteNumbers.size + 1);
+  const n = footnoteNumbers.get(key);
+  const id = isFirst ? ` id="fnref-${n}"` : "";
+  return `<sup><a href="#fn-${n}"${id} aria-label="Footnote ${n}" class="ml-0.5 font-mono text-[10px] text-warning hover:underline">${n}</a></sup>`;
+};
+
+const renderInline = (text) =>
+  escapeHtml(text)
+    .replace(/`([^`]+)`/g, '<code class="rounded bg-white/[0.06] px-1 py-0.5 font-mono text-[12px] text-fg">$1</code>')
+    .replace(/\[\^(\d+)\]/g, (_, key) => refLink(key));
+
+const renderFootnote = (text) =>
+  renderInline(text.replace(/\s*(\[[A-Z]+\d+\])+$/, "")) +
+  " " +
+  [...text.matchAll(/\[([A-Z]+\d+)\]/g)]
+    .flatMap(([, code]) => {
+      if (!sources[code]) throw new Error(`Missing source [${code}]`);
+      return sources[code];
+    })
+    .map((url) => `<a href="${url}" class="text-fg-faint underline decoration-fg-faint/50 underline-offset-2 hover:text-fg">${sourceLabel(url)}</a>`)
+    .join(", ");
+
+const renderedRows = rows.map(([feature, hint, ...cells]) => ({
+  feature,
+  hint,
+  cells: cells.map(renderInline),
+}));
+
+const unreferenced = Object.keys(footnotes).filter((key) => !footnoteNumbers.has(key));
+if (unreferenced.length) throw new Error(`Unreferenced footnotes: ${unreferenced.join(", ")}`);
+
+const renderedFootnotes = [...footnoteNumbers.entries()].map(([key, n]) => ({
+  n,
+  html: renderFootnote(footnotes[key]),
+}));
+
+const faq = [
+  {
+    question: "Is Coolify or Dokploy better?",
+    answer:
+      "It depends on what you need. Both are open-source dashboards with Compose support, backups, previews and a managed cloud. Coolify offers more one-click services, previews on four Git providers, a built-in MCP server and a CLI. Dokploy has Docker Swarm clustering built in and per-member permissions in its free edition.",
+  },
+  {
+    question: "Which of these runs on the smallest server?",
+    answer:
+      "Kamal adds no control plane, because it runs from your machine. Of the server-side tools, CapRover and Dokku document 1 GB RAM. Coolify and Dokploy document 2 GB.",
+  },
+  {
+    question: "Does Coolify support GitLab, Bitbucket and Gitea, and volume backups?",
+    answer:
+      "Yes. Coolify integrates with GitHub, GitLab, Bitbucket and Gitea for deploys and preview deployments. Scheduled volume and directory-mount backups (local or S3) were added in v4.3.0.",
+  },
+  {
+    question: "Which tools have a managed cloud version?",
+    answer:
+      "Coolify Cloud and Dokploy Cloud both host the dashboard while your apps run on your own servers. CapRover Pro and Dokku Pro are paid add-ons, not hosting, and Kamal has no paid offering.",
+  },
+  {
+    question: "Which ones support Docker Compose?",
+    answer:
+      "Coolify and Dokploy deploy Compose files natively. CapRover supports an experimental subset. Dokku and Kamal don't deploy Compose files.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Coolify vs Dokploy vs CapRover vs Dokku vs Kamal",
+  dateModified: lastVerified,
+  author: { "@type": "Organization", name: "coolLabs", url: "https://coollabs.io" },
+  publisher: { "@type": "Organization", name: "coolLabs", url: "https://coollabs.io" },
+  mainEntityOfPage: "https://coolify.io/compare/coolify-vs-dokploy-vs-caprover-vs-dokku-vs-kamal",
+};
+
+const th = "px-4 py-3 text-left text-xs font-medium whitespace-nowrap text-fg";
+const td = "px-4 py-3 align-top text-[13px] leading-5 text-fg-dim";
+---
+
+<Layout
+  title="Coolify vs Dokploy vs CapRover vs Dokku vs Kamal (2026)"
+  canonicalUrl="https://coolify.io/compare/coolify-vs-dokploy-vs-caprover-vs-dokku-vs-kamal"
+  description="An honest, sourced comparison of Coolify, Dokploy, CapRover, Dokku and Kamal: features, server minimums, licenses, cloud options, and when each is the better pick."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+  <section class="px-4">
+    <p class="eyebrow">Compare</p>
+    <h1 class="mx-auto mt-2 max-w-3xl text-3xl font-semibold tracking-tight text-balance text-fg md:text-5xl">
+      Coolify vs Dokploy vs CapRover vs Dokku vs Kamal<span class="text-warning">.</span>
+    </h1>
+    <p class="mx-auto mt-5 max-w-2xl text-sm text-pretty text-fg-faint italic">
+      Last verified: <time datetime={lastVerified}>{lastVerified}</time>. Written by the Coolify team, so we have a stake
+      in this. We've tried to be fair, every cell links to the tool's own documentation, and we list where the others
+      are better. Spot something wrong or out of date? Please tell us (see
+      <a href="#corrections" class="underline decoration-fg-faint underline-offset-2 hover:text-fg">"Corrections"</a>
+      below).
+    </p>
+  </section>
+
+  <article class="mx-auto mt-12 max-w-3xl px-4 text-left">
+    <Prose>
+      <p class="text-base md:text-lg">
+        <strong>Summary:</strong> Coolify, Dokploy and CapRover are self-hosted PaaS dashboards you install on your own
+        server. Dokku is a CLI-first, Heroku-style PaaS (its web UI is the paid Dokku Pro), and Kamal is a deploy tool
+        you run from your own machine, with no control plane on the server. Coolify has the broadest built-in feature
+        set: <a href="/services">360+ one-click services</a>, database and volume backups to S3, preview deployments for
+        four Git providers, an MCP server and a managed Cloud option. Dokploy is stronger for Docker Swarm clustering
+        and per-member permissions, and CapRover and Dokku document lower minimum RAM (1 GB vs 2 GB).
+      </p>
+
+      <h2>Which should you pick?</h2>
+      <ul>
+        <li>
+          <strong>You want one dashboard for apps, databases and ready-made services on one or a few servers → Coolify.</strong>
+          It also fits if you want backups, previews and team access built in, or would rather not host the dashboard
+          yourself (<a href="/pricing">Coolify Cloud</a>). New to this? See
+          <a href="/deploy-apps-on-your-own-vps">how to deploy apps on your own VPS</a>.
+        </li>
+        <li>
+          <strong>You want Docker Swarm clustering from a UI, or fine-grained permissions per member → Dokploy.</strong>
+          Its free edition lets you grant Members specific permissions. Custom roles are in Dokploy Enterprise.
+        </li>
+        <li>
+          <strong>You have a 1 GB server and want a simple UI with a single Swarm-based model → CapRover.</strong> It
+          documents a 1 GB minimum, deploys straight from your machine with <code>caprover deploy</code>, and lets you
+          edit the full NGINX config per app.
+        </li>
+        <li>
+          <strong>You like Heroku's <code>git push</code> workflow and are happy in a terminal → Dokku.</strong> It runs
+          on a single host by default and needs 1 GB. An optional k3s scheduler handles multiple nodes.
+        </li>
+        <li>
+          <strong>You want to deploy a containerized app from your laptop or CI to one or many servers, with nothing
+          extra running on them → Kamal.</strong> It uses zero-downtime deploys behind kamal-proxy, and was built for
+          Rails but works with any containerized web app.
+        </li>
+      </ul>
+
+      <h2 id="feature-comparison">Feature comparison</h2>
+      <p class="text-sm">
+        Legend: ✅ built in · ◐ partial, paid add-on, plugin, or needs a prerequisite (see footnote) · ❌ not available ·
+        "not documented" means we couldn't find it in that tool's official docs.
+      </p>
+    </Prose>
+  </article>
+
+  <section class="mt-6 px-4 text-left" aria-labelledby="feature-comparison">
+    <div class="overflow-x-auto rounded-lg ring-1 ring-hairline">
+      <table class="w-full min-w-[60rem] border-collapse">
+        <thead>
+          <tr class="border-b border-hairline bg-white/[0.03]">
+            <th scope="col" class={`${th} sticky left-0 z-10 bg-app`}>Feature</th>
+            {
+              tools.map((tool) => (
+                <th scope="col" class={th}>
+                  <a href={tool.url} class="hover:text-warning transition-colors">{tool.name}</a>
+                </th>
+              ))
+            }
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-hairline">
+          {
+            renderedRows.map((row) => (
+              <tr>
+                <th scope="row" class={`${td} sticky left-0 z-10 w-48 bg-app font-medium text-fg`}>
+                  {row.feature}
+                  {row.hint && <span class="block text-xs font-normal text-fg-faint">({row.hint})</span>}
+                </th>
+                {row.cells.map((cell) => (
+                  <td class={td} set:html={cell} />
+                ))}
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <article class="mx-auto mt-10 max-w-3xl px-4 text-left">
+    <section aria-labelledby="footnotes-heading">
+      <h2 id="footnotes-heading" class="eyebrow">Footnotes</h2>
+      <ol class="mt-4 space-y-2 text-[13px] leading-5 text-fg-dim">
+        {
+          renderedFootnotes.map((note) => (
+            <li id={`fn-${note.n}`} class="flex gap-3 scroll-mt-24 target:text-fg">
+              <a
+                href={`#fnref-${note.n}`}
+                aria-label={`Back to reference ${note.n}`}
+                class="w-6 flex-none text-right font-mono text-xs text-warning hover:underline"
+              >
+                {note.n}
+              </a>
+              <span class="min-w-0 wrap-anywhere" set:html={note.html} />
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <Prose>
+      <h2>Where the others are stronger</h2>
+      <ul>
+        <li>
+          <strong>Clustering:</strong> Dokploy and CapRover have Docker Swarm built in. Coolify's multi-server deploys
+          need your own load balancer and don't yet cover Compose apps or apps with persistent storage.
+        </li>
+        <li>
+          <strong>Permissions:</strong> Dokploy lets you grant Members specific permissions in its free edition.
+          Coolify's roles are team-wide.
+        </li>
+        <li>
+          <strong>Footprint:</strong> CapRover and Dokku document 1 GB minimums, and Kamal adds no control plane to your
+          servers. Coolify documents 2 GB.
+        </li>
+        <li>
+          <strong>Workflow fit:</strong> Dokku is the closest to Heroku's <code>git push</code>. Kamal is the most direct
+          path from a repo to servers if you don't want a dashboard. CapRover lets you edit the full NGINX template per
+          app.
+        </li>
+      </ul>
+
+      <h2>Coolify</h2>
+      <p>
+        An open-source (Apache-2.0), self-hostable alternative to Vercel, Heroku, Netlify and Railway. You get a web
+        dashboard for apps, databases and <a href="/services">360+ one-click services</a> on any server you can reach
+        over SSH. It has built-in database and volume backups to S3, preview deployments for GitHub, GitLab, Bitbucket
+        and Gitea, team roles, an audit log, an API, a CLI and an MCP server. You self-host it for free with every
+        feature, or use Coolify Cloud ($5/month for 2 servers + $3 per extra). Trade-offs: it needs
+        <a href="https://coolify.io/docs/start-with-self-hosted">2 GB RAM</a>, Swarm support is deprecated, and roles
+        are team-wide only.
+      </p>
+
+      <h2>Dokploy</h2>
+      <p>
+        A self-hostable PaaS with a web UI, Docker Compose support, Docker Swarm clustering, Traefik, database and volume
+        backups, previews (GitHub), scheduled jobs, monitoring and notifications. Its free edition has per-member
+        permissions, and Enterprise adds SSO, SCIM, custom roles and audit logs. There's a managed Dokploy Cloud from
+        $4.50/month per server. Most of the code is Apache-2.0, and a <code>/proprietary</code> folder is
+        source-available. It needs 2 GB RAM and 30 GB disk.
+        (<a href="https://docs.dokploy.com/docs/core/installation">Dokploy docs</a>)
+      </p>
+
+      <h2>CapRover</h2>
+      <p>
+        A free, Apache-2.0 PaaS built on Docker, NGINX, Let's Encrypt and Docker Swarm, with a dashboard, a CLI
+        (<code>caprover deploy</code>), one-click apps, one-click rollbacks and NetData monitoring. Compose support is an
+        experimental subset, and backups don't cover volumes. A paid Pro plan adds build notifications, login alerts and
+        2FA. It documents the lowest RAM minimum of the dashboard tools here (1 GB).
+        (<a href="https://caprover.com/docs/get-started">CapRover docs</a>)
+      </p>
+
+      <h2>Dokku</h2>
+      <p>
+        An MIT-licensed, Heroku-style PaaS: <code>git push</code> to your server, builds with buildpacks or Dockerfiles,
+        and features added through plugins (databases, Let's Encrypt). It's CLI-first. The web UI, REST API and team
+        management are in Dokku Pro, a paid self-hosted add-on. It runs on one host by default (1 GB RAM), and an
+        optional k3s scheduler spans several nodes.
+        (<a href="https://dokku.com/docs/getting-started/installation/">Dokku docs</a>)
+      </p>
+
+      <h2>Kamal</h2>
+      <p>
+        An MIT-licensed deploy tool from 37signals. You run it from your machine or CI. It connects to servers over SSH,
+        installs Docker if missing, and does zero-downtime deploys behind kamal-proxy. There's no dashboard and no
+        server-side control plane. Databases are "accessories" you configure, and multi-server setups need your own load
+        balancer. It was built for Rails but works with any containerized web app.
+        (<a href="https://kamal-deploy.org/docs/installation/">Kamal docs</a>)
+      </p>
+
+      <h2>FAQ</h2>
+    </Prose>
+
+    <div class="mt-4">
+      <Faq items={faq} />
+    </div>
+
+    <Prose>
+      <h2 id="corrections">Corrections</h2>
+      <p>
+        Tools change quickly. If a cell here is wrong or out of date, especially for Dokploy, CapRover, Dokku or Kamal,
+        please tell us at <a href={correctionsUrl}><strong>github.com/coollabsio/coolify.io/issues</strong></a> with a
+        link to the official docs, and we'll update the page and the "last verified" date.
+      </p>
+    </Prose>
+  </article>
+</Layout>
