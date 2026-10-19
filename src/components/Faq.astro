@@ -1,0 +1,44 @@
+---
+// Renders the visible FAQ and its FAQPage JSON-LD from the same strings,
+// so the schema always matches the page word for word.
+// Answers are plain text; `backticks` render as inline code.
+export interface Props {
+  items: { question: string; answer: string }[];
+}
+
+const { items } = Astro.props;
+
+const escapeHtml = (text: string) =>
+  text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+const toHtml = (text: string) =>
+  escapeHtml(text).replace(/`([^`]+)`/g, "<code>$1</code>");
+
+const toPlainText = (text: string) => text.replace(/`([^`]+)`/g, "$1");
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: items.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: toPlainText(item.answer) },
+  })),
+};
+---
+
+<div class="divide-y divide-hairline border-y border-hairline">
+  {
+    items.map((item) => (
+      <div class="py-5">
+        <h3 class="text-base font-medium text-fg">{item.question}</h3>
+        <p
+          class="mt-2 text-[15px] leading-7 text-fg-dim [&_code]:rounded [&_code]:bg-white/[0.06] [&_code]:px-1 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[13px] [&_code]:text-fg"
+          set:html={toHtml(item.answer)}
+        />
+      </div>
+    ))
+  }
+</div>
+
+<script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, "\\u003c")} />
