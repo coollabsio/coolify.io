@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Services from "../components/Services.svelte";
+import { stripDashes } from "../utils/stripDashes";
 
 export const prerender = true;
 
@@ -64,8 +65,8 @@ const services = Object.entries(templates)
 
     return {
       id,
-      name: template.name || formatName(id),
-      slogan: template.slogan || "",
+      name: stripDashes(template.name || formatName(id)),
+      slogan: stripDashes(template.slogan || ""),
       logo: buildLogoUrl(template.logo),
       category: normalizeCategory(template.category),
       tags,
