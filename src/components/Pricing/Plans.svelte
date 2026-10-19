@@ -58,7 +58,7 @@
     {
       question: "Why pay if I provide my own servers?",
       answer:
-        "The fee covers the Coolify hosted by us — we manage, monitor, and update it on our infrastructure, which has its own costs.",
+        "The fee covers the Coolify hosted by us. We manage, monitor, and update it on our infrastructure, which has its own costs.",
     },
     {
       question: "What happens if I exceed my server limit?",
