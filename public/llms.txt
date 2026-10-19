@@ -15,7 +15,11 @@ Coolify deploys to any server you can reach over SSH: your own servers, a VPS, a
 ## Guides
 
 - [Deploy apps on your own VPS without managing Docker](https://coolify.io/deploy-apps-on-your-own-vps): Install Coolify with one command, push to Git, get HTTPS and backups; what a small VPS can run
-- [Coolify vs Dokploy vs CapRover vs Dokku vs Kamal](https://coolify.io/compare/coolify-vs-dokploy-vs-caprover-vs-dokku-vs-kamal): Feature comparison with notes and sources for every cell
+- [Coolify vs Dokploy, CapRover, Dokku and Kamal](https://coolify.io/compare/coolify-vs-dokploy-vs-caprover-vs-dokku-vs-kamal): Feature comparison with notes and sources for every cell
+- [Coolify vs Dokploy](https://coolify.io/compare/coolify-vs-dokploy): Head-to-head on Compose, Swarm, permissions, backups and cloud pricing
+- [Coolify as a Vercel alternative](https://coolify.io/compare/vercel-alternative): Self-hosted dashboard compared with Vercel's hosted platform
+- [Coolify as a Heroku alternative](https://coolify.io/compare/heroku-alternative): Your server compared with Heroku dynos and managed data
+- [Coolify as a Netlify alternative](https://coolify.io/compare/netlify-alternative): Docker apps on your server compared with Netlify's CDN, functions and Postgres
 
 ## Docs
 

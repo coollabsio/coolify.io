@@ -1,0 +1,24 @@
+---
+import { comparePages } from "../data/compare-pages.js";
+
+export interface Props {
+  current: string;
+}
+
+const { current } = Astro.props;
+const others = comparePages.filter((page) => page.href !== current);
+---
+
+<section class="mt-14" aria-labelledby="related-comparisons">
+  <h2 id="related-comparisons">More comparisons</h2>
+  <ul>
+    {
+      others.map((page) => (
+        <li>
+          <a href={page.href}>{page.label}</a>
+          <span class="mt-0.5 block text-sm text-fg-faint">{page.blurb}</span>
+        </li>
+      ))
+    }
+  </ul>
+</section>

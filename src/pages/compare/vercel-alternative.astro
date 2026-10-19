@@ -1,0 +1,201 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Prose from "../../components/Prose.astro";
+import Faq from "../../components/Faq.astro";
+import TwoColTable from "../../components/TwoColTable.astro";
+import CompareCta from "../../components/CompareCta.astro";
+import CompareLinks from "../../components/CompareLinks.astro";
+import { correctionsUrl, lastVerified } from "../../data/paas-compare.js";
+
+const canonical = "https://coolify.io/compare/vercel-alternative";
+const title = "Coolify: open-source Vercel alternative";
+const description =
+  "Coolify is an open-source Vercel alternative you run on your own server. Compare hosting, Git deploys, previews, databases and pricing, and when each one fits.";
+
+const rows = [
+  {
+    feature: "Hosting model",
+    left: "Open-source software (Apache-2.0) you install. Self-host it, or use Coolify Cloud, which hosts the dashboard only.",
+    right:
+      "Hosted platform. Vercel says it does not have an on-premise product. Enterprise Bring Your Own Cloud runs Functions as AWS Lambda in your AWS account. Vercel still routes requests, terminates TLS and serves static assets.",
+  },
+  {
+    feature: "Where the app runs",
+    left: "On servers you connect over SSH: a VPS, a Raspberry Pi, or a cloud VM. Traffic is served from those servers.",
+    right:
+      "On Vercel's network. Vercel's own comparison with Kubernetes describes the platform as aimed at stateless HTTP services, frontends, APIs and scheduled jobs.",
+  },
+  {
+    feature: "Git deploys",
+    left: "GitHub, GitLab, Bitbucket and Gitea, including self-hosted instances of those.",
+    right:
+      "GitHub, GitLab, Bitbucket and Azure DevOps. The CLI can deploy other Git providers. Docs also cover GitHub Enterprise Server, self-managed GitLab and Bitbucket Data Center.",
+  },
+  {
+    feature: "Preview deployments",
+    left: "Preview deployments for GitHub, GitLab, Bitbucket and Gitea.",
+    right:
+      "A preview deployment when you push a branch other than production, open a pull request on GitHub, GitLab or Bitbucket, or run the CLI without the production flag.",
+  },
+  {
+    feature: "Databases and services",
+    left: "PostgreSQL, MySQL, MariaDB, MongoDB, Redis, KeyDB, Dragonfly and ClickHouse on your server, with scheduled backups to S3-compatible storage. 363 one-click service templates on 2026-10-19.",
+    right:
+      "The pricing page lists Blob object storage and marketplace integrations. Database hosting there is through those products and integrations.",
+  },
+  {
+    feature: "HTTPS",
+    left: "Automatic Let's Encrypt certificates for custom domains.",
+    right: "HTTPS certificates are included on Hobby, Pro and Enterprise. Custom domains are supported.",
+  },
+  {
+    feature: "Pricing",
+    hint: `checked ${lastVerified}`,
+    left: "Self-hosted is free and includes the same features as Cloud. Coolify Cloud is $5/month for 2 servers, plus $3/month per extra server. You also pay for the servers.",
+    right:
+      "Hobby is $0/month and includes 1 developer seat. Pro lists a developer seat at $20/month, with unlimited viewer seats. Bandwidth, functions and other products have separate usage prices. Enterprise is custom.",
+  },
+  {
+    feature: "What you operate",
+    left: "The server. Documented minimum for the machine running Coolify: 2 cores, 2 GB RAM, 10 GB disk.",
+    right: "No VPS for the platform. You manage the project, the Git connection and any usage past the included amounts.",
+  },
+];
+
+const faq = [
+  {
+    question: "Is Coolify a Vercel alternative?",
+    answer:
+      "Yes, for teams who want to deploy apps on hardware they control. Coolify is an open-source dashboard (Apache-2.0) that builds and runs apps, databases and other Docker services on your servers. Vercel is a hosted platform that builds and serves the project on its network. The operating model is the real difference.",
+  },
+  {
+    question: "Can I deploy a web app to Coolify the way I deploy to Vercel?",
+    answer:
+      "Coolify deploys from GitHub, GitLab, Bitbucket and Gitea, and it builds with Nixpacks, Railpack, a Dockerfile or Docker Compose, or from a prebuilt image. Vercel deploys from GitHub, GitLab, Bitbucket and Azure DevOps, with preview deployments for non-production branches and pull requests. Coolify also creates preview deployments on its four Git providers.",
+  },
+  {
+    question: "Does Coolify include a global CDN?",
+    answer:
+      "Coolify serves traffic from the servers you connect. Vercel includes a global delivery network and HTTPS certificates. Coolify issues Let's Encrypt certificates on your domains. A Cloudflare Tunnel guide is in the Coolify docs if you want to put Cloudflare in front of a server.",
+  },
+  {
+    question: "How does Coolify pricing compare with Vercel?",
+    answer:
+      "On 2026-10-19, Vercel Hobby was $0/month and a Pro developer seat was $20/month, with usage priced separately. Self-hosted Coolify was free. Coolify Cloud was $5/month for 2 servers plus $3/month per extra server, and you still pay the server provider. Check both pricing pages before you buy, because these numbers change.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Coolify, an open-source Vercel alternative",
+  dateModified: lastVerified,
+  author: { "@type": "Organization", name: "coolLabs", url: "https://coollabs.io" },
+  publisher: { "@type": "Organization", name: "coolLabs", url: "https://coollabs.io" },
+  mainEntityOfPage: canonical,
+};
+---
+
+<Layout title={title} canonicalUrl={canonical} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+  <section class="px-4">
+    <p class="eyebrow">Compare</p>
+    <h1 class="mx-auto mt-2 max-w-3xl text-3xl font-semibold tracking-tight text-balance text-fg md:text-5xl">
+      Coolify, an open-source Vercel alternative<span class="text-warning">.</span>
+    </h1>
+    <p class="mx-auto mt-5 max-w-2xl text-sm text-pretty text-fg-faint italic">
+      Last verified: <time datetime={lastVerified}>{lastVerified}</time>. Written by the Coolify team, so we have a stake
+      in this. Claims about Vercel link to Vercel's own pages. See
+      <a href="#corrections" class="underline decoration-fg-faint underline-offset-2 hover:text-fg">Corrections</a>
+      if we got one wrong.
+    </p>
+  </section>
+
+  <article class="mx-auto mt-12 max-w-3xl px-4 text-left">
+    <Prose>
+      <p class="text-base md:text-lg">
+        <strong>Summary:</strong> Vercel hosts your project on its platform: Git deploys, preview URLs, HTTPS and a global
+        network, with usage priced on top of the plan. Coolify is the dashboard you run yourself. Apps, databases and
+        other Docker services land on a server you connect over SSH. Self-hosting is free. Coolify Cloud hosts only the
+        dashboard.
+      </p>
+
+      <h2>Hosting model</h2>
+      <p>
+        Vercel is a managed platform. You connect a repository, and Vercel builds and serves the deployment. Their
+        knowledge base says Vercel does not have an on-premise product. Enterprise customers can use Bring Your Own
+        Cloud, which runs Vercel Functions as AWS Lambda functions in the customer's AWS account, while Vercel still
+        routes requests and serves static assets. That is a different setup from installing a PaaS on a VPS.
+      </p>
+      <p>
+        Coolify is Apache-2.0 software. Install it on a server that meets the documented minimum (2 cores, 2 GB RAM, 10
+        GB disk), then attach more servers over SSH. Coolify Cloud is optional: coolLabs runs the dashboard, and the
+        apps still run on your servers. The app is served from wherever those servers are.
+      </p>
+
+      <h2 id="feature-comparison">Feature and pricing comparison</h2>
+    </Prose>
+
+    <div class="mt-4">
+      <TwoColTable right="Vercel" rows={rows} />
+    </div>
+
+    <Prose>
+      <h2>When to choose which</h2>
+      <ul>
+        <li>
+          <strong>Choose Vercel</strong> when you want the platform to build, preview and serve the app on its network,
+          with HTTPS included, and you would rather not patch a Linux server. Budget for a developer seat on Pro and
+          for usage past the included amounts. This is a strong fit for frontends, APIs and scheduled jobs, which is
+          how Vercel describes the workloads it targets.
+        </li>
+        <li>
+          <strong>Choose Coolify</strong> when you want the app, the database and other Docker services on a machine you
+          control, with a free self-hosted edition and an Apache-2.0 license. You take on server updates, disk and
+          uptime. Coolify Cloud removes the dashboard from that list, and the server bill remains yours.
+        </li>
+      </ul>
+    </Prose>
+
+    <CompareCta />
+
+    <Prose>
+      <h2>FAQ</h2>
+    </Prose>
+    <div class="mt-4">
+      <Faq items={faq} />
+    </div>
+
+    <Prose>
+      <h2>Sources</h2>
+      <p>Checked {lastVerified}, from public pages:</p>
+      <ul>
+        <li><a href="https://vercel.com/pricing">vercel.com/pricing</a>: Hobby, Pro seats, HTTPS, Blob, marketplace integrations, usage prices.</li>
+        <li><a href="https://vercel.com/docs/git">vercel.com/docs/git</a>: Git providers, preview and production deploys.</li>
+        <li><a href="https://vercel.com/docs/deployments/environments">vercel.com/docs/deployments/environments</a>: preview environment rules.</li>
+        <li><a href="https://vercel.com/kb/guide/can-i-use-vercel-to-deploy-to-a-private-cloud">Vercel on private cloud</a>: no on-premise product.</li>
+        <li><a href="https://vercel.com/docs/networking/bring-your-own-cloud">Bring Your Own Cloud</a>: Enterprise, AWS Lambda in your account.</li>
+        <li><a href="https://vercel.com/kb/guide/vercel-vs-kubernetes">Vercel vs Kubernetes</a>: workload description.</li>
+        <li><a href="https://coolify.io/pricing">coolify.io/pricing</a>: Cloud price and self-hosted features.</li>
+        <li><a href="https://coolify.io/docs/start-with-self-hosted">Coolify server requirements</a>.</li>
+        <li><a href="https://coolify.io/docs/applications/deployments/preview-deployments">Coolify preview deployments</a>.</li>
+        <li><a href="https://coolify.io/docs/integrations/networking/cloudflare/tunnels">Coolify Cloudflare Tunnels</a>.</li>
+        <li><a href="https://github.com/coollabsio/coolify/blob/main/LICENSE">Coolify Apache-2.0 license</a>.</li>
+      </ul>
+      <p>
+        For a sourced matrix against other self-hosted tools, see
+        <a href="/compare/coolify-vs-dokploy">Coolify vs Dokploy</a> and the
+        <a href="/compare/coolify-vs-dokploy-vs-caprover-vs-dokku-vs-kamal">five-tool comparison</a>.
+      </p>
+
+      <h2 id="corrections">Corrections</h2>
+      <p>
+        Vercel's plans and usage prices change often. If a row here is wrong, tell us at
+        <a href={correctionsUrl}><strong>github.com/coollabsio/coolify.io/issues</strong></a>
+        with a link to the current page, and we'll update the "last verified" date.
+      </p>
+      <CompareLinks current="/compare/vercel-alternative" />
+    </Prose>
+  </article>
+</Layout>
