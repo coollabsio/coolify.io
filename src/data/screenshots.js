@@ -22,7 +22,7 @@ export default [
   {
     src: "/images/screenshots/new-resource.webp",
     title: "Deploy from anywhere",
-    text: "Git repositories, Dockerfiles, Docker Compose, Docker images and 280+ one-click services.",
+    text: "Git repositories, Dockerfiles, Docker Compose, Docker images and 360+ one-click services.",
     alt: "Coolify new resource picker with Git, Dockerfile, Docker Compose and Docker image options",
   },
   {
