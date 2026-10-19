@@ -16,7 +16,6 @@ Coolify deploys to any server you can reach over SSH: your own servers, a VPS, a
 
 - [Deploy apps on your own VPS without managing Docker](https://coolify.io/deploy-apps-on-your-own-vps): Install Coolify with one command, push to Git, get HTTPS and backups; what a small VPS can run
 - [Coolify vs Dokploy vs CapRover vs Dokku vs Kamal](https://coolify.io/compare/coolify-vs-dokploy-vs-caprover-vs-dokku-vs-kamal): Feature comparison with notes and sources for every cell
-- [Self-host PostgreSQL with backups](https://coolify.io/self-host-postgres-with-backups) (new): Run Postgres on your own server, schedule backups to S3, restore, and what you still own
 
 ## Docs
 
