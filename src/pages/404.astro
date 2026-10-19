@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Page not found | Coolify" description="This page doesn't exist." noindex>
+  <section class="px-4">
+    <p class="eyebrow">404</p>
+    <h1 class="mx-auto mt-2 max-w-3xl text-3xl font-semibold tracking-tight text-balance text-fg md:text-5xl">
+      Page not found<span class="text-warning">.</span>
+    </h1>
+    <p class="mx-auto mt-4 max-w-xl text-fg-dim">The page you're looking for doesn't exist or has moved.</p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href="/" class="btn btn-primary">Go to the homepage</a>
+      <a href="https://coolify.io/docs" class="btn btn-neutral">Read the docs</a>
+    </div>
+  </section>
+</Layout>
