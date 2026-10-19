@@ -16,6 +16,8 @@ const {
   description = "Open-source alternative to Vercel, Heroku & Netlify. Self-host apps, databases & 360+ services on your own server.",
   noindex = false,
 } = Astro.props;
+
+const pageUrl = canonicalUrl ?? "https://coolify.io";
 ---
 
 <!doctype html>
@@ -61,7 +63,6 @@ const {
       href="/android-launchericon-512-512.png"
     />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
     <meta name="msapplication-TileColor" content="#ffc40d" />
     <meta name="theme-color" content="#0a0a0a" />
     <meta name="Description" content={description} />
@@ -75,7 +76,7 @@ const {
       content="https://cdn.coollabs.io/og-images/coolify.png"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://coolify.io" />
+    <meta property="og:url" content={pageUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content="Coolify" />
