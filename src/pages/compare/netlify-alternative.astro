@@ -35,7 +35,7 @@ const rows = [
     feature: "Databases",
     left: "PostgreSQL, MySQL, MariaDB, MongoDB, Redis, KeyDB, Dragonfly and ClickHouse on your server, with scheduled backups to S3-compatible storage. You operate them.",
     right:
-      "Netlify Database is managed Postgres. Production uses the main database. Each deploy preview gets a database branch copied from production at creation. Docs say it is on credit-based plans, compute and bandwidth use credits, and storage space is free until July 1, 2026.",
+      "Netlify Database is managed Postgres. Production uses the main database. Each deploy preview gets a database branch copied from production at creation. Docs say it is on credit-based plans, and compute and bandwidth use credits.",
   },
   {
     feature: "HTTPS",
@@ -168,7 +168,7 @@ const articleSchema = {
         <li><a href="https://www.netlify.com/pricing/">netlify.com/pricing</a>: plans, credits, deploy previews, custom domains with SSL, database and blob.</li>
         <li><a href="https://docs.netlify.com/deploy/deploy-types/deploy-previews/">Deploy Previews</a>: GitHub, GitLab, Bitbucket, Azure DevOps, Cursor Origin.</li>
         <li><a href="https://docs.netlify.com/build/functions/overview/">Functions overview</a>.</li>
-        <li><a href="https://docs.netlify.com/build/data-and-storage/netlify-database/">Netlify Database</a>: managed Postgres, branching, storage free until July 1, 2026.</li>
+        <li><a href="https://docs.netlify.com/build/data-and-storage/netlify-database/">Netlify Database</a>: managed Postgres and a database branch per deploy preview.</li>
         <li><a href="https://coolify.io/pricing">coolify.io/pricing</a>.</li>
         <li><a href="https://coolify.io/docs/start-with-self-hosted">Coolify server requirements</a>.</li>
         <li><a href="https://coolify.io/services">Coolify one-click services</a>.</li>
@@ -178,7 +178,7 @@ const articleSchema = {
 
       <h2 id="corrections">Corrections</h2>
       <p>
-        Netlify's credit prices and the database storage waiver are dated. If they change, tell us at
+        Netlify's credit prices are dated. If they change, tell us at
         <a href={correctionsUrl}><strong>github.com/coollabsio/coolify.io/issues</strong></a>
         with a link to the current page.
       </p>
