@@ -1,0 +1,198 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Prose from "../../components/Prose.astro";
+import Faq from "../../components/Faq.astro";
+import TwoColTable from "../../components/TwoColTable.astro";
+import CompareCta from "../../components/CompareCta.astro";
+import CompareLinks from "../../components/CompareLinks.astro";
+import { correctionsUrl, lastVerified } from "../../data/paas-compare.js";
+
+const canonical = "https://coolify.io/compare/heroku-alternative";
+const title = "Coolify: open-source Heroku alternative";
+const description =
+  "Coolify is an open-source Heroku alternative that runs on your own server. Compare dynos, managed data, git deploys and pricing, and when each platform fits.";
+
+const rows = [
+  {
+    feature: "Hosting model",
+    left: "Open-source software (Apache-2.0) on a server you provide. Coolify Cloud hosts the dashboard only. Apps run on your servers.",
+    right:
+      "Managed platform. Dynos are the containers Heroku runs for your app. Postgres, Key-Value Store and Kafka are separate managed services on Heroku. The pricing page lists those Heroku resources.",
+  },
+  {
+    feature: "Deploys",
+    left: "GitHub, GitLab, Bitbucket and Gitea. Builds with Nixpacks, Railpack, a Dockerfile or Docker Compose, or a prebuilt image.",
+    right:
+      "`git push` to a Heroku Git remote, or the GitHub integration. Docker is supported on the container stack, via `heroku.yml` or the Container Registry. Heroku recommends buildpacks unless you need a custom image.",
+  },
+  {
+    feature: "Preview apps",
+    left: "Preview deployments for GitHub, GitLab, Bitbucket and Gitea.",
+    right:
+      "Review Apps deploy a GitHub pull request to a temporary app. The docs require Heroku Pipelines and the GitHub integration. Automatic creation skips fork PRs on public repos.",
+  },
+  {
+    feature: "Databases",
+    left: "PostgreSQL, MySQL, MariaDB, MongoDB, Redis, KeyDB, Dragonfly and ClickHouse on your server. Scheduled backups can go to S3-compatible storage. You operate the database.",
+    right:
+      "Heroku Postgres, Heroku Key-Value Store and Apache Kafka on Heroku, sold as managed plans. Essential-0 Postgres was listed at $5/month for 1 GB of disk.",
+  },
+  {
+    feature: "HTTPS",
+    left: "Automatic Let's Encrypt certificates for custom domains.",
+    right:
+      "Automated Certificate Management is included for free and uses Let's Encrypt. TLS is enabled on herokuapp.com for Common Runtime apps. Custom domains are supported.",
+  },
+  {
+    feature: "Always on",
+    left: "The app runs while the server you connected is running. Stopping it is a dashboard or server action.",
+    right:
+      "Eco dynos sleep after 30 minutes of inactivity and are limited to personal accounts. Basic and above are listed as always on.",
+  },
+  {
+    feature: "Pricing",
+    hint: `checked ${lastVerified}`,
+    left: "Self-hosted is free, with the same features as Cloud. Coolify Cloud is $5/month for 2 servers, plus $3/month per extra server. The VPS is a separate bill. Databases are not an add-on fee from Coolify.",
+    right:
+      "Eco dyno $5/month (0.5 GB). Basic $7/month, always on, 0.5 GB. Standard-1X $25/month. Data services are extra. Prices are per dyno or data plan, and larger sizes cost more.",
+  },
+  {
+    feature: "What you operate",
+    left: "The Linux server. Documented minimum: 2 cores, 2 GB RAM, 10 GB disk.",
+    right: "No server of your own. You manage the app, add-ons and the Heroku bill.",
+  },
+];
+
+const faq = [
+  {
+    question: "Is Coolify a Heroku alternative?",
+    answer:
+      "Yes, if you want a dashboard that deploys apps and databases and you are ready to run the server yourself. Heroku runs dynos and managed data services for you. Coolify is Apache-2.0 software you install, or Coolify Cloud, which hosts the dashboard while apps stay on your servers.",
+  },
+  {
+    question: "Does Coolify use git push the way Heroku does?",
+    answer:
+      "Heroku deploys with git push to a Heroku remote, and it has a GitHub integration. Coolify connects to GitHub, GitLab, Bitbucket and Gitea and deploys from those repositories, including preview deployments. It does not use a heroku Git remote.",
+  },
+  {
+    question: "Do Heroku Eco dynos sleep?",
+    answer:
+      "Heroku's pricing page says Eco dynos sleep after 30 minutes of inactivity, and that they are for personal accounts. Basic dynos are listed as always on, at $7/month on 2026-10-19. A Coolify app keeps running while its server is up.",
+  },
+  {
+    question: "Can both run PostgreSQL?",
+    answer:
+      "Yes. Heroku Postgres is a managed database with its own plan. Essential-0 was $5/month for 1 GB of disk on 2026-10-19. Coolify starts PostgreSQL on your server and can schedule backups to S3-compatible storage. You handle disk, upgrades and restores on that server.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Coolify, an open-source Heroku alternative",
+  dateModified: lastVerified,
+  author: { "@type": "Organization", name: "coolLabs", url: "https://coollabs.io" },
+  publisher: { "@type": "Organization", name: "coolLabs", url: "https://coollabs.io" },
+  mainEntityOfPage: canonical,
+};
+---
+
+<Layout title={title} canonicalUrl={canonical} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+  <section class="px-4">
+    <p class="eyebrow">Compare</p>
+    <h1 class="mx-auto mt-2 max-w-3xl text-3xl font-semibold tracking-tight text-balance text-fg md:text-5xl">
+      Coolify, an open-source Heroku alternative<span class="text-warning">.</span>
+    </h1>
+    <p class="mx-auto mt-5 max-w-2xl text-sm text-pretty text-fg-faint italic">
+      Last verified: <time datetime={lastVerified}>{lastVerified}</time>. Written by the Coolify team, so we have a stake
+      in this. Heroku facts link to Heroku's pricing page and Dev Center. See
+      <a href="#corrections" class="underline decoration-fg-faint underline-offset-2 hover:text-fg">Corrections</a>
+      if a price or feature has moved.
+    </p>
+  </section>
+
+  <article class="mx-auto mt-12 max-w-3xl px-4 text-left">
+    <Prose>
+      <p class="text-base md:text-lg">
+        <strong>Summary:</strong> Heroku is a managed platform: dynos run the app, and databases are add-on services with
+        their own prices. Coolify is a self-hosted dashboard in the same family of "push code, get a running app", with
+        the process and the database on a server you pay for directly. Self-hosted Coolify is free. You still operate
+        the machine.
+      </p>
+
+      <h2>Hosting model</h2>
+      <p>
+        On Heroku you create an app, push code, and Heroku builds and runs it on dynos. The Eco dyno is the smallest
+        listed size. It sleeps after 30 minutes of inactivity. Managed Postgres, Key-Value Store and Kafka are separate
+        products on the same pricing page. Heroku's Dev Center describes Automated Certificate Management as included,
+        using Let's Encrypt.
+      </p>
+      <p>
+        Coolify installs on your server (2 cores, 2 GB RAM and 10 GB disk documented). It deploys from Git or from
+        Docker, starts databases on that server, and issues Let's Encrypt certificates. Coolify Cloud moves the
+        dashboard to coolLabs. The apps stay on servers you connect. There is no dyno sleep timer in Coolify. If the
+        server is down, the app is down.
+      </p>
+
+      <h2 id="feature-comparison">Feature and pricing comparison</h2>
+      <p>Dollar amounts are from each pricing page on {lastVerified}.</p>
+    </Prose>
+
+    <div class="mt-4">
+      <TwoColTable right="Heroku" rows={rows} />
+    </div>
+
+    <Prose>
+      <h2>When to choose which</h2>
+      <ul>
+        <li>
+          <strong>Choose Heroku</strong> when you want dynos, managed Postgres and certificate management without a
+          Linux server to patch. Review Apps cover GitHub pull requests when Pipelines and the GitHub integration are
+          on. Add the dyno price and the database price together. Eco is the low end, and it sleeps.
+        </li>
+        <li>
+          <strong>Choose Coolify</strong> when you want that dashboard workflow on a VPS, including Docker Compose,
+          several database engines and one-click services, and you are ready to update the server. The Coolify license
+          is Apache-2.0. The software fee is zero if you self-host. The server invoice is not.
+        </li>
+      </ul>
+    </Prose>
+
+    <CompareCta />
+
+    <Prose>
+      <h2>FAQ</h2>
+    </Prose>
+    <div class="mt-4">
+      <Faq items={faq} />
+    </div>
+
+    <Prose>
+      <h2>Sources</h2>
+      <p>Checked {lastVerified}, from public pages:</p>
+      <ul>
+        <li><a href="https://www.heroku.com/pricing">heroku.com/pricing</a>: dyno and data-service prices, Eco sleep, custom domains.</li>
+        <li><a href="https://devcenter.heroku.com/articles/git">Deploying with Git</a>: `git push` to a Heroku remote, GitHub integration.</li>
+        <li><a href="https://devcenter.heroku.com/articles/github-integration-review-apps">Review Apps</a>: GitHub pull requests, Pipelines.</li>
+        <li><a href="https://devcenter.heroku.com/articles/github-integration">GitHub integration</a>.</li>
+        <li><a href="https://devcenter.heroku.com/articles/build-docker-images-heroku-yml">heroku.yml</a>: Docker builds, buildpack recommendation.</li>
+        <li><a href="https://devcenter.heroku.com/articles/container-registry-and-runtime">Container Registry</a>.</li>
+        <li><a href="https://devcenter.heroku.com/articles/automated-certificate-management">Automated Certificate Management</a>.</li>
+        <li><a href="https://coolify.io/pricing">coolify.io/pricing</a>.</li>
+        <li><a href="https://coolify.io/docs/start-with-self-hosted">Coolify server requirements</a>.</li>
+        <li><a href="https://coolify.io/docs/databases/backups">Coolify database backups</a>.</li>
+        <li><a href="https://coolify.io/docs/applications/deployments/preview-deployments">Coolify preview deployments</a>.</li>
+      </ul>
+
+      <h2 id="corrections">Corrections</h2>
+      <p>
+        Heroku's dyno types and prices change. If a figure here is stale, tell us at
+        <a href={correctionsUrl}><strong>github.com/coollabsio/coolify.io/issues</strong></a>
+        with a link to the current Dev Center or pricing page.
+      </p>
+      <CompareLinks current="/compare/heroku-alternative" />
+    </Prose>
+  </article>
+</Layout>

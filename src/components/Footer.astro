@@ -1,3 +1,7 @@
+---
+import { comparePages } from "../data/compare-pages.js";
+---
+
 <footer class="mt-32">
   <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-6">
     <div class="lg:col-span-2">
@@ -24,7 +28,15 @@
         <h3 class="eyebrow">Guides</h3>
         <ul class="mt-3 space-y-2 text-sm">
           <li><a href="/deploy-apps-on-your-own-vps" class="text-fg-dim hover:text-fg transition-colors">Deploy on your own VPS</a></li>
-          <li><a href="/compare/coolify-vs-dokploy-vs-caprover-vs-dokku-vs-kamal" class="text-fg-dim hover:text-fg transition-colors">Coolify vs alternatives</a></li>
+          {
+            comparePages.map((page) => (
+              <li>
+                <a href={page.href} class="text-fg-dim hover:text-fg transition-colors">
+                  {page.nav}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
       <div>
