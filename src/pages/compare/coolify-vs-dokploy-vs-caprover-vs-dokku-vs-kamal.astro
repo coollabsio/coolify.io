@@ -23,7 +23,7 @@ const status = {
   [YES]: { icon: "✅", word: "Built in" },
   [PARTIAL]: { icon: "◐", word: "Partial" },
   [NO]: { icon: "❌", word: "Not available" },
-  [UNDOCUMENTED]: { icon: "—", word: "Not documented" },
+  [UNDOCUMENTED]: { icon: "", word: "Not documented" },
 };
 
 // One cell per tool, in `tools` order. `short` is the drafted in-cell text (shown as a tooltip and in the notes),
@@ -478,8 +478,10 @@ const noteHtml = (c) => {
   const head =
     c.s === "value"
       ? renderInline(c.full)
-      : c.s === UNDOCUMENTED && c.short
-        ? `${status[c.s].icon} Not documented (${renderInline(c.short)})`
+      : c.s === UNDOCUMENTED
+        ? c.short
+          ? `Not documented (${renderInline(c.short)})`
+          : "Not documented"
         : `${status[c.s].icon} ${renderInline(c.short || status[c.s].word)}`;
   const note = c.note ? ` ${renderInline(c.note)}` : "";
   const links = c.src.length ? ` <span class="whitespace-normal">${sourceLinks(c.src)}</span>` : "";
@@ -556,12 +558,10 @@ const td = "px-4 py-2.5 align-middle text-[13px] leading-5 text-fg-dim";
   <article class="mx-auto mt-12 max-w-3xl px-4 text-left">
     <Prose>
       <p class="text-base md:text-lg">
-        <strong>Summary:</strong> Coolify, Dokploy and CapRover are self-hosted PaaS dashboards you install on your own
-        server. Dokku is a CLI-first, Heroku-style PaaS (its web UI is the paid Dokku Pro), and Kamal is a deploy tool
-        you run from your own machine, with no control plane on the server. Coolify has the broadest built-in feature
-        set: <a href="/services">360+ one-click services</a>, database and volume backups to S3, preview deployments for
-        four Git providers, an MCP server and a managed Cloud option. Dokploy is stronger for Docker Swarm clustering
-        and per-member permissions, and CapRover and Dokku document lower minimum RAM (1 GB vs 2 GB).
+        <strong>Summary:</strong> Coolify, Dokploy and CapRover are self-hosted PaaS dashboards; Dokku is a CLI-first,
+        Heroku-style PaaS, and Kamal deploys from your own machine with no control plane on the server. Coolify has the
+        broadest built-in feature set, Dokploy is stronger for Docker Swarm clustering and per-member permissions, and
+        CapRover and Dokku run on less RAM.
       </p>
 
       <h2>Which should you pick?</h2>
@@ -594,7 +594,7 @@ const td = "px-4 py-2.5 align-middle text-[13px] leading-5 text-fg-dim";
 
       <h2 id="feature-comparison">Feature comparison</h2>
       <p class="text-sm">
-        ✅ built in · ◐ partial or paid add-on · ❌ not available · — not documented. Details and sources are in the notes below the table.
+        ✅ built in · ◐ partial or paid add-on · ❌ not available. Details and sources are in the notes below the table.
       </p>
     </Prose>
   </article>
@@ -636,12 +636,16 @@ const td = "px-4 py-2.5 align-middle text-[13px] leading-5 text-fg-dim";
                     <td class={`${td} text-center`}>
                       {c.s === "value" ? (
                         <span title={c.full !== c.value ? plain(c.full) : undefined}>{c.value}</span>
+                      ) : c.s === UNDOCUMENTED ? (
+                        <span title={c.short ? plain(cellLabel(c)) : undefined} class="text-xs text-fg-faint">
+                          Not documented
+                        </span>
                       ) : (
                         <span
                           role="img"
                           aria-label={plain(cellLabel(c))}
                           title={c.short ? plain(cellLabel(c)) : undefined}
-                          class={c.s === "nd" ? "text-fg-faint" : c.short ? "cursor-help" : undefined}
+                          class={c.short ? "cursor-help" : undefined}
                         >
                           {status[c.s].icon}
                         </span>
