@@ -1,0 +1,191 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Prose from "../../components/Prose.astro";
+import Faq from "../../components/Faq.astro";
+import TwoColTable from "../../components/TwoColTable.astro";
+import CompareCta from "../../components/CompareCta.astro";
+import CompareLinks from "../../components/CompareLinks.astro";
+import { correctionsUrl, lastVerified, pairRows } from "../../data/paas-compare.js";
+
+const canonical = "https://coolify.io/compare/coolify-vs-dokploy";
+const title = "Coolify vs Dokploy: features and pricing";
+const description =
+  "Coolify vs Dokploy on hosting, Compose, Swarm, previews, backups, licenses and cloud pricing. Both are self-hosted dashboards. See when to choose each.";
+
+const rows = pairRows("Coolify", "Dokploy", [
+  "Docker Compose deployments",
+  "Git providers",
+  "Preview deployments",
+  "Rollbacks",
+  "One-click services / templates",
+  "Multi-node clustering",
+  "Reverse proxy",
+  "Databases",
+  "Scheduled database backups to S3",
+  "Volume backups",
+  "Role-based permissions",
+  "License",
+  "Documented minimum server",
+  "Managed cloud option",
+  "Official MCP server (AI agents)",
+]);
+
+const sourceUrls = [...new Set(rows.flatMap((row) => row.sources))].sort();
+
+const faq = [
+  {
+    question: "Is Coolify or Dokploy better?",
+    answer:
+      "It depends on the job. Both are self-hosted dashboards with Docker Compose, database backups, an API, a CLI and a managed cloud that hosts the dashboard while your apps run on your servers. Coolify has a larger published service catalog (363 templates on 2026-10-19), preview deployments on GitHub, GitLab, Bitbucket and Gitea, and a built-in MCP server. Dokploy has Docker Swarm clustering in the product, and its free edition can grant Members specific permissions.",
+  },
+  {
+    question: "Can I self-host Coolify and Dokploy for free?",
+    answer:
+      "Yes. Self-hosted Coolify is free and includes the same features as Coolify Cloud. Dokploy's free edition is self-hosted. Dokploy documents custom roles, SSO, SCIM and audit logs as Enterprise features. Coolify is Apache-2.0. Dokploy is Apache-2.0 except the /proprietary folder, which is source-available and requires a commercial agreement for production use.",
+  },
+  {
+    question: "Which one supports Docker Swarm?",
+    answer:
+      "Dokploy documents Docker Swarm clustering. Coolify can deploy the same image to several standalone servers, and you put your own load balancer in front. Compose apps and apps with persistent storage can't use that yet. Coolify's Docker Swarm support was experimental, is deprecated, and is planned to be removed in v5.",
+  },
+  {
+    question: "How do Coolify Cloud and Dokploy Cloud compare?",
+    answer:
+      "Both host the dashboard and leave your apps on servers you connect. On 2026-10-19, Coolify Cloud was $5/month for 2 servers, plus $3/month per extra server. Dokploy's cloud docs listed Hobby at $4.50/month per server (1 server included) and Startup at $15/month for 3 servers, with extra servers at $4.50/month. Those prices change. You still pay your server provider either way.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Coolify vs Dokploy",
+  dateModified: lastVerified,
+  author: { "@type": "Organization", name: "coolLabs", url: "https://coollabs.io" },
+  publisher: { "@type": "Organization", name: "coolLabs", url: "https://coollabs.io" },
+  mainEntityOfPage: canonical,
+};
+---
+
+<Layout title={title} canonicalUrl={canonical} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+  <section class="px-4">
+    <p class="eyebrow">Compare</p>
+    <h1 class="mx-auto mt-2 max-w-3xl text-3xl font-semibold tracking-tight text-balance text-fg md:text-5xl">
+      Coolify vs Dokploy<span class="text-warning">.</span>
+    </h1>
+    <p class="mx-auto mt-5 max-w-2xl text-sm text-pretty text-fg-faint italic">
+      Last verified: <time datetime={lastVerified}>{lastVerified}</time>. Written by the Coolify team, so we have a stake
+      in this. The table reuses the sourced cells from the
+      <a href="/compare/coolify-vs-dokploy-vs-caprover-vs-dokku-vs-kamal" class="underline decoration-fg-faint underline-offset-2 hover:text-fg">five-tool comparison</a>,
+      which also covers CapRover, Dokku and Kamal. Spot something wrong? See
+      <a href="#corrections" class="underline decoration-fg-faint underline-offset-2 hover:text-fg">Corrections</a>.
+    </p>
+  </section>
+
+  <article class="mx-auto mt-12 max-w-3xl px-4 text-left">
+    <Prose>
+      <p class="text-base md:text-lg">
+        <strong>Summary:</strong> Coolify and Dokploy are both self-hosted PaaS dashboards. You install the software, deploy
+        with Docker, and the apps run on servers you control. Coolify publishes a larger one-click catalog and previews on
+        four Git providers. Dokploy has Docker Swarm built in, and its free edition can grant Members specific permissions.
+      </p>
+
+      <h2>Hosting model</h2>
+      <p>
+        Self-hosted, each product runs the dashboard on your machine. Coolify Cloud and Dokploy Cloud both host that
+        dashboard for you and deploy to servers you connect over SSH. Your apps, databases and files stay on those
+        servers. Neither cloud plan replaces the server bill.
+      </p>
+      <p>
+        Coolify documents a minimum of 2 cores, 2 GB RAM and 10 GB disk. Dokploy documents 2 GB RAM and 30 GB disk.
+        Coolify's license is Apache-2.0. Dokploy is Apache-2.0 outside <code>/proprietary</code>. That folder is under
+        the Dokploy Source Available License, which requires a commercial agreement for production use.
+      </p>
+
+      <h2 id="feature-comparison">Feature comparison</h2>
+      <p>
+        Wording here is the same as the five-tool matrix. Both also include a web UI, an API and a CLI, and automatic
+        Let's Encrypt HTTPS. Those rows are on the
+        <a href="/compare/coolify-vs-dokploy-vs-caprover-vs-dokku-vs-kamal#feature-comparison">full comparison</a>.
+      </p>
+    </Prose>
+
+    <div class="mt-4">
+      <TwoColTable right="Dokploy" rows={rows} />
+    </div>
+
+    <Prose>
+      <h2>Pricing</h2>
+      <p>
+        Prices below were checked on {lastVerified}. They move, so confirm them before you decide.
+      </p>
+      <ul>
+        <li>
+          <strong>Coolify, self-hosted:</strong> free, with the same features as Coolify Cloud. You pay for the server.
+        </li>
+        <li>
+          <strong>Coolify Cloud:</strong> $5/month for 2 servers, plus $3/month per extra server. The dashboard is
+          hosted by coolLabs. Apps run on your servers.
+          (<a href="https://coolify.io/pricing">coolify.io/pricing</a>)
+        </li>
+        <li>
+          <strong>Dokploy, self-hosted:</strong> the free edition. Per-member permissions are in that edition. Custom
+          roles, SSO, SCIM and audit logs are documented as Enterprise.
+        </li>
+        <li>
+          <strong>Dokploy Cloud:</strong> the cloud docs list Hobby at $4.50/month per server (1 server included, extra
+          servers $4.50/month) and Startup at $15/month with 3 servers included, then $4.50/month per extra server.
+          Enterprise is custom. The pricing page lists Hobby limits of 1 user, 1 organization, 2 environments, 1 volume
+          backup per application, 1 database backup and 1 scheduled job per application. Annual billing is listed at a
+          20% discount.
+          (<a href="https://docs.dokploy.com/docs/core/cloud">Dokploy Cloud docs</a>,
+          <a href="https://dokploy.com/pricing">dokploy.com/pricing</a>)
+        </li>
+      </ul>
+
+      <h2>When to choose which</h2>
+      <ul>
+        <li>
+          <strong>Choose Coolify</strong> when you want one dashboard for apps, databases and the one-click catalog,
+          preview deployments on GitHub, GitLab, Bitbucket and Gitea, and a built-in MCP server. Plan on your own load
+          balancer if you spread one app across servers. Compose apps and apps with persistent storage can't use that
+          multi-server deploy yet. Roles are team-wide: Owner, Admin and Member.
+        </li>
+        <li>
+          <strong>Choose Dokploy</strong> when you want Docker Swarm from the UI, or member permissions you can set
+          individually in the free edition. Preview deployments are documented for GitHub. The template catalog doesn't
+          publish a count. Enterprise is where Dokploy documents custom roles, SSO, SCIM and audit logs.
+        </li>
+      </ul>
+    </Prose>
+
+    <CompareCta />
+
+    <Prose>
+      <h2>FAQ</h2>
+    </Prose>
+    <div class="mt-4">
+      <Faq items={faq} />
+    </div>
+
+    <Prose>
+      <h2>Sources</h2>
+      <p>
+        Table cells come from the five-tool comparison, last verified {lastVerified}. Each link is a public page from
+        Coolify or Dokploy.
+      </p>
+      <ul>
+        {sourceUrls.map((url) => <li><a href={url}>{url.replace(/^https:\/\//, "")}</a></li>)}
+      </ul>
+
+      <h2 id="corrections">Corrections</h2>
+      <p>
+        If a cell is wrong or out of date, tell us at
+        <a href={correctionsUrl}><strong>github.com/coollabsio/coolify.io/issues</strong></a>
+        with a link to the official docs. We'll update this page and the five-tool comparison together.
+      </p>
+      <CompareLinks current="/compare/coolify-vs-dokploy" />
+    </Prose>
+  </article>
+</Layout>

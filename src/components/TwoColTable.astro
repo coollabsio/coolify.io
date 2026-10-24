@@ -1,0 +1,60 @@
+---
+export interface Props {
+  left?: string;
+  right: string;
+  rows: {
+    feature: string;
+    hint?: string;
+    left: string;
+    right: string;
+    leftNote?: string;
+    rightNote?: string;
+  }[];
+}
+
+const { left = "Coolify", right, rows } = Astro.props;
+
+const th = "px-4 py-3 text-xs font-medium whitespace-nowrap text-fg";
+const td = "px-4 py-3 align-top text-[13px] leading-5 text-fg-dim";
+
+const escapeHtml = (text: string) =>
+  text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+const toHtml = (text: string) =>
+  escapeHtml(text).replace(
+    /`([^`]+)`/g,
+    '<code class="rounded bg-white/[0.06] px-1 py-0.5 font-mono text-[12px] text-fg">$1</code>',
+  );
+---
+
+<div class="overflow-x-auto rounded-lg ring-1 ring-hairline">
+  <table class="w-full min-w-[40rem] border-collapse text-left">
+    <thead>
+      <tr class="border-b border-hairline bg-white/[0.03]">
+        <th scope="col" class={`${th} w-[9.5rem] text-left`}>Feature</th>
+        <th scope="col" class={`${th} text-left`}>{left}</th>
+        <th scope="col" class={`${th} text-left`}>{right}</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-hairline">
+      {
+        rows.map((row) => (
+          <tr>
+            <th scope="row" class={`${td} font-medium text-fg`}>
+              {row.feature}
+              {row.hint && <span class="mt-0.5 block text-xs font-normal text-fg-faint">{row.hint}</span>}
+            </th>
+            <td class={td}>
+              <span set:html={toHtml(row.left)} />
+              {row.leftNote && <span class="mt-1 block text-fg-faint" set:html={toHtml(row.leftNote)} />}
+            </td>
+            <td class={td}>
+              <span set:html={toHtml(row.right)} />
+              {row.rightNote && <span class="mt-1 block text-fg-faint" set:html={toHtml(row.rightNote)} />}
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>

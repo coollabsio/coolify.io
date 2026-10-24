@@ -1,0 +1,188 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Prose from "../../components/Prose.astro";
+import Faq from "../../components/Faq.astro";
+import TwoColTable from "../../components/TwoColTable.astro";
+import CompareCta from "../../components/CompareCta.astro";
+import CompareLinks from "../../components/CompareLinks.astro";
+import { correctionsUrl, lastVerified } from "../../data/paas-compare.js";
+
+const canonical = "https://coolify.io/compare/netlify-alternative";
+const title = "Coolify: open-source Netlify alternative";
+const description =
+  "Coolify is an open-source Netlify alternative for apps on your own server. Compare CDN hosting, functions, previews, databases and pricing, and when each fits.";
+
+const rows = [
+  {
+    feature: "Hosting model",
+    left: "Open-source software (Apache-2.0) on your server, or Coolify Cloud for the dashboard only. Apps are served from the servers you connect.",
+    right:
+      "Hosted platform with a global CDN. Sites and functions run on Netlify.",
+  },
+  {
+    feature: "What you can run",
+    left: "Web apps, APIs, Docker Compose stacks, databases and 363 one-click service templates (count on 2026-10-19). Builds use Nixpacks, Railpack, a Dockerfile, Compose, or a prebuilt image.",
+    right:
+      "Sites and apps from Git, Netlify Functions, and Netlify Database (managed Postgres). Functions deploy with the site and are immutable per deploy. The docs describe this as full-stack, without a server to manage.",
+  },
+  {
+    feature: "Git and previews",
+    left: "GitHub, GitLab, Bitbucket and Gitea, with preview deployments on each.",
+    right:
+      "Deploy Previews for pull and merge requests from GitHub, GitLab, Bitbucket, Azure DevOps and Cursor Origin. The Free plan lists unlimited deploy previews.",
+  },
+  {
+    feature: "Databases",
+    left: "PostgreSQL, MySQL, MariaDB, MongoDB, Redis, KeyDB, Dragonfly and ClickHouse on your server, with scheduled backups to S3-compatible storage. You operate them.",
+    right:
+      "Netlify Database is managed Postgres. Production uses the main database. Each deploy preview gets a database branch copied from production at creation. Docs say it is on credit-based plans, and compute and bandwidth use credits.",
+  },
+  {
+    feature: "HTTPS",
+    left: "Automatic Let's Encrypt certificates for custom domains.",
+    right: "Custom domains with SSL are included on the Free plan.",
+  },
+  {
+    feature: "Pricing",
+    hint: `checked ${lastVerified}`,
+    left: "Self-hosted is free, with the same features as Cloud. Coolify Cloud is $5/month for 2 servers, plus $3/month per extra server. You pay the server provider separately. Deploys are included in that, with no credit meter.",
+    right:
+      "Free is $0 with 300 credits. Personal is $9/month with 1,000 credits. Pro is $20/month, unlimited members, 3,000 credits. Enterprise is custom. Production deploys are listed at 15 credits each, bandwidth at 20 credits per GB.",
+  },
+  {
+    feature: "What you operate",
+    left: "The Linux server. Documented minimum: 2 cores, 2 GB RAM, 10 GB disk.",
+    right: "The site, its environment and the credit balance. Netlify runs the CDN, functions and the managed database.",
+  },
+];
+
+const faq = [
+  {
+    question: "Is Coolify a Netlify alternative?",
+    answer:
+      "Yes, when you want sites and apps on a server you control. Netlify hosts the site on its CDN, with Functions and a managed Postgres. Coolify is open-source software that runs containers and databases on your server. They overlap on Git deploys, previews and custom domains, and they differ on who runs the machine.",
+  },
+  {
+    question: "Is Netlify only for static sites?",
+    answer:
+      "No. Netlify's docs describe Functions and Netlify Database, a managed Postgres with a database branch per deploy preview. Coolify runs long-lived containers, Docker Compose, several database engines and one-click services on your server.",
+  },
+  {
+    question: "Does Coolify have deploy previews?",
+    answer:
+      "Yes. Coolify preview deployments are documented for GitHub, GitLab, Bitbucket and Gitea. Netlify builds a Deploy Preview for pull and merge requests from GitHub, GitLab, Bitbucket, Azure DevOps and Cursor Origin, and its Free plan lists unlimited deploy previews.",
+  },
+  {
+    question: "How does pricing compare?",
+    answer:
+      "On 2026-10-19, Netlify Free included 300 credits, Personal was $9/month with 1,000 credits, and Pro was $20/month with 3,000 credits. Deploys and bandwidth spend credits. Self-hosted Coolify was free. Coolify Cloud was $5/month for 2 servers plus $3/month per extra server, and the server bill is separate. Confirm both pricing pages, because credits and plan prices change.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Coolify, an open-source Netlify alternative",
+  dateModified: lastVerified,
+  author: { "@type": "Organization", name: "coolLabs", url: "https://coollabs.io" },
+  publisher: { "@type": "Organization", name: "coolLabs", url: "https://coollabs.io" },
+  mainEntityOfPage: canonical,
+};
+---
+
+<Layout title={title} canonicalUrl={canonical} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+  <section class="px-4">
+    <p class="eyebrow">Compare</p>
+    <h1 class="mx-auto mt-2 max-w-3xl text-3xl font-semibold tracking-tight text-balance text-fg md:text-5xl">
+      Coolify, an open-source Netlify alternative<span class="text-warning">.</span>
+    </h1>
+    <p class="mx-auto mt-5 max-w-2xl text-sm text-pretty text-fg-faint italic">
+      Last verified: <time datetime={lastVerified}>{lastVerified}</time>. Written by the Coolify team, so we have a stake
+      in this. Netlify facts link to Netlify's pricing page and docs. See
+      <a href="#corrections" class="underline decoration-fg-faint underline-offset-2 hover:text-fg">Corrections</a>
+      if a credit or plan detail has changed.
+    </p>
+  </section>
+
+  <article class="mx-auto mt-12 max-w-3xl px-4 text-left">
+    <Prose>
+      <p class="text-base md:text-lg">
+        <strong>Summary:</strong> Netlify hosts the site on its CDN, builds deploy previews from Git, and offers Functions
+        plus a managed Postgres. Coolify runs the app on a server you administer, next to databases and other Docker
+        services. Use Netlify when you want them to run the network. Use Coolify when you want the machine.
+      </p>
+
+      <h2>Hosting model</h2>
+      <p>
+        Netlify connects a repository and publishes the site to its CDN. Deploy Previews get their own URL. Functions
+        ship with the deploy. Netlify Database is a managed Postgres with a separate database branch for each deploy
+        preview, so schema experiments stay off production. Plans are credit-based. The Free plan includes custom
+        domains with SSL.
+      </p>
+      <p>
+        Coolify is software you install (Apache-2.0). A documented server is 2 cores, 2 GB RAM and 10 GB disk. From the
+        dashboard you deploy static sites, APIs, Compose stacks and databases onto servers you can SSH to. Certificates
+        are Let's Encrypt. Traffic comes from your server, and deploys are not billed as credits.
+        Coolify Cloud hosts the dashboard for a monthly fee and still expects you to bring servers.
+      </p>
+
+      <h2 id="feature-comparison">Feature and pricing comparison</h2>
+      <p>Plan and credit figures are from Netlify's pricing page on {lastVerified}.</p>
+    </Prose>
+
+    <div class="mt-4">
+      <TwoColTable right="Netlify" rows={rows} />
+    </div>
+
+    <Prose>
+      <h2>When to choose which</h2>
+      <ul>
+        <li>
+          <strong>Choose Netlify</strong> when the project is a site or app that fits Git, a CDN, Functions and a
+          managed Postgres, and you want deploy previews (including a database branch per preview) without a server to
+          patch. Watch the credit balance. Production deploys and bandwidth draw from it.
+        </li>
+        <li>
+          <strong>Choose Coolify</strong> when you want long-running containers, more than one database engine, or a
+          set of self-hosted services on one machine. You pay the server provider and you maintain that server.
+          Self-hosted Coolify includes the same features as Coolify Cloud.
+        </li>
+      </ul>
+    </Prose>
+
+    <CompareCta />
+
+    <Prose>
+      <h2>FAQ</h2>
+    </Prose>
+    <div class="mt-4">
+      <Faq items={faq} />
+    </div>
+
+    <Prose>
+      <h2>Sources</h2>
+      <p>Checked {lastVerified}, from public pages:</p>
+      <ul>
+        <li><a href="https://www.netlify.com/pricing/">netlify.com/pricing</a>: plans, credits, deploy previews, custom domains with SSL, database and blob.</li>
+        <li><a href="https://docs.netlify.com/deploy/deploy-types/deploy-previews/">Deploy Previews</a>: GitHub, GitLab, Bitbucket, Azure DevOps, Cursor Origin.</li>
+        <li><a href="https://docs.netlify.com/build/functions/overview/">Functions overview</a>.</li>
+        <li><a href="https://docs.netlify.com/build/data-and-storage/netlify-database/">Netlify Database</a>: managed Postgres and a database branch per deploy preview.</li>
+        <li><a href="https://coolify.io/pricing">coolify.io/pricing</a>.</li>
+        <li><a href="https://coolify.io/docs/start-with-self-hosted">Coolify server requirements</a>.</li>
+        <li><a href="https://coolify.io/services">Coolify one-click services</a>.</li>
+        <li><a href="https://coolify.io/docs/applications/deployments/preview-deployments">Coolify preview deployments</a>.</li>
+        <li><a href="https://coolify.io/docs/databases/backups">Coolify database backups</a>.</li>
+      </ul>
+
+      <h2 id="corrections">Corrections</h2>
+      <p>
+        Netlify's credit prices are dated. If they change, tell us at
+        <a href={correctionsUrl}><strong>github.com/coollabsio/coolify.io/issues</strong></a>
+        with a link to the current page.
+      </p>
+      <CompareLinks current="/compare/netlify-alternative" />
+    </Prose>
+  </article>
+</Layout>
