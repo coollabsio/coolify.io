@@ -14,37 +14,22 @@ const faq = [
   {
     question: "Which PostgreSQL versions can I run with Coolify?",
     answer:
-      "The database selector offers PostgreSQL 18, 17 and 16, plus Supabase PostgreSQL, PostGIS and PGVector extension images. PostgreSQL 18 (`postgres:18-alpine`) is the default. The list follows the current Coolify release.",
+      "PostgreSQL 18, 17, and 16, plus Supabase PostgreSQL, PostGIS, and PGVector. The default is `postgres:18-alpine`.",
   },
   {
-    question: "How does Coolify back up PostgreSQL?",
+    question: "Can I send backups to S3, Cloudflare R2, or Backblaze B2?",
     answer:
-      "A backup schedule runs `pg_dump` in custom format for the databases you select, or `pg_dumpall` with gzip when you select all databases. The file is written on the database's server and can be uploaded to S3-compatible storage.",
-  },
-  {
-    question: "Can I send backups to S3, Cloudflare R2 or Backblaze B2?",
-    answer:
-      "Yes. Coolify works with S3-compatible storage. The docs have setup guides for Amazon S3, Cloudflare R2, Neon Object Storage and Supabase Storage, and also list DigitalOcean Spaces, MinIO, Backblaze B2, Scaleway Object Storage, Hetzner S3 Storage, Wasabi Hot Cloud Storage, Vultr, CloudPe Object Storage and IDrive e2.",
-  },
-  {
-    question: "How long are backups kept?",
-    answer:
-      "You decide. Local retention can limit the number of backups, the days to keep and the maximum storage in GB (0 means no limit). A backup is deleted when any limit is reached, and the most recent ones are kept first. S3 retention uses the same three limits and is set separately.",
-  },
-  {
-    question: "How do I restore a PostgreSQL backup?",
-    answer:
-      "Open Import Backup on the running database and pick a file from your computer, a path on the server or your S3 storage. Coolify detects the format, shows the exact `pg_restore` or `psql` command, and runs PostgreSQL restores in one transaction. Stop application writes and back up the target first.",
+      "Yes. Any S3-compatible storage works, including Amazon S3, Cloudflare R2, and Backblaze B2.",
   },
   {
     question: "Does Coolify support point-in-time recovery for Postgres?",
     answer:
-      "Coolify's scheduled backups are `pg_dump` and `pg_dumpall` dumps, so you restore to the moment a dump was taken. PostgreSQL documents point-in-time recovery as part of continuous WAL archiving, which is a separate setup.",
+      "No. Scheduled backups are dumps, so you restore to the time a dump ran. Point-in-time recovery is continuous WAL archiving, which is a separate setup.",
   },
   {
     question: "Is my database exposed to the internet?",
     answer:
-      "Not by default. A new database has no public endpoint. Apps on the same Coolify network use the internal URL. If an outside client needs access, you can turn on a public TCP proxy or a port mapping, restrict it with a firewall and use SSL.",
+      "Not by default. A new database has no public endpoint. Apps on the same network use the internal URL.",
   },
 ];
 ---
@@ -52,7 +37,7 @@ const faq = [
 <Layout
   title="Self-Host PostgreSQL with Automated Backups | Coolify"
   canonicalUrl="https://coolify.io/self-host-postgres-with-backups"
-  description="Run PostgreSQL on your own server with Coolify: one-click setup, scheduled backups to S3, retention and restore. What you still own, and when to go managed."
+  description="Run PostgreSQL on your own server with Coolify. One-click setup, scheduled backups to S3, retention, and restore."
 >
   <section class="px-4">
     <p class="eyebrow">Guide</p>
@@ -64,14 +49,14 @@ const faq = [
   <article class="mx-auto mt-12 max-w-3xl px-4 text-left">
     <Prose>
       <p class="text-base md:text-lg">
-        <strong>Short answer:</strong> Install Coolify on a server you control, add PostgreSQL as a one-click database,
-        and give it a backup schedule that uploads to S3-compatible storage. Coolify generates the credentials and
-        connection URL, keeps the data on a persistent volume, runs <code>pg_dump</code> on your schedule and can restore
-        a backup from the dashboard. You still own the server, its updates and regular restore tests.
+        <strong>Short answer:</strong> Install Coolify, add PostgreSQL as a one-click database, and set a backup
+        schedule that uploads to S3-compatible storage. Coolify generates the password and connection URL, keeps the
+        data on a volume, runs <code>pg_dump</code> on your schedule, and can restore a backup from the dashboard. You
+        still own the server, its updates, and regular restore tests.
       </p>
       <p>
-        Coolify is free and open source when you self-host it. If you don't have it yet, one command installs it on a
-        Linux server (see <a href="/deploy-apps-on-your-own-vps">deploying on your own VPS</a> for the full steps):
+        Self-hosted Coolify is free and open source. One command installs it on a Linux server. The
+        <a href="/deploy-apps-on-your-own-vps">VPS guide</a> has the full install steps.
       </p>
     </Prose>
 
@@ -82,33 +67,22 @@ const faq = [
     </div>
 
     <Prose class="mt-4">
-      <h2>Run PostgreSQL on your server</h2>
-      <ol>
+      <h2>Add PostgreSQL</h2>
+      <ul>
         <li>
-          <strong>Open New Resource</strong> in the project and environment where the database should live, then pick
-          <strong>PostgreSQL</strong> under Databases.
+          Open <strong>New Resource</strong> and pick <strong>PostgreSQL</strong>. Choose the server and Docker network.
+          Build servers cannot host databases.
         </li>
         <li>
-          <strong>Choose the server and network.</strong> Pick the server that should run Postgres and the Docker
-          network destination it should join. Build servers can't host databases.
+          Images: PostgreSQL 18, 17, and 16, plus Supabase PostgreSQL, PostGIS, and PGVector. The default is
+          <code>postgres:18-alpine</code>.
         </li>
         <li>
-          <strong>Pick an image.</strong> At the time of writing the selector offers PostgreSQL 18, 17 and 16, plus
-          Supabase PostgreSQL, PostGIS and PGVector extension images. PostgreSQL 18 (<code>postgres:18-alpine</code>) is
-          the default.
+          Coolify sets user <code>postgres</code>, database <code>postgres</code>, a generated password, a persistent
+          volume, and a health check. Start it, then copy the internal URL into your app.
         </li>
-        <li>
-          <strong>Review the generated settings.</strong> Coolify creates the username <code>postgres</code>, the initial
-          database <code>postgres</code>, a generated password and the connection URLs. Data lives on a named Docker
-          volume, so recreating the container doesn't remove it.
-        </li>
-        <li>
-          <strong>Start it</strong> and wait until it's running and healthy. A health check is attached by default.
-        </li>
-        <li>
-          <strong>Copy the internal URL</strong> into the environment variables of your app:
-        </li>
-      </ol>
+      </ul>
+      <p>Apps on the same network use this URL:</p>
     </Prose>
 
     <div class="card mt-2 py-3 px-4">
@@ -116,171 +90,100 @@ const faq = [
     </div>
 
     <Prose class="mt-4">
-      <p>
-        The internal URL uses the database container name and works for apps on the same Coolify network. You can also
-        add initialization scripts (they run only on an empty data directory) and your own <code>postgresql.conf</code>.
-        The <a href="https://coolify.io/docs/databases/postgresql">PostgreSQL docs page</a> covers every setting.
-      </p>
-
-      <h2>Private by default, public when you need it</h2>
       <ul>
+        <li>A new database has no public endpoint. Use <strong>Public through TCP proxy</strong> or a port mapping only for an outside client, and restrict it with a firewall.</li>
+        <li>Init scripts run only on an empty data directory. You can also supply <code>postgresql.conf</code>.</li>
         <li>
-          <strong>Private:</strong> a new database gets no public endpoint. Apps on the same network connect with the
-          internal URL.
-        </li>
-        <li>
-          <strong>Public:</strong> if a client outside the server must connect, choose <strong>Public through TCP
-          proxy</strong> and set a public port. Coolify then shows a public URL as well. A direct port mapping such as
-          <code>15432:5432</code> is the other option.
-        </li>
-        <li>
-          <strong>Lock it down:</strong> the docs advise keeping database ports private whenever possible. If you open
-          one, restrict it with your server or provider firewall and use SSL.
+          For SSL, stop the database, set <strong>SSL</strong> to Enabled, and restart. <code>require</code> is the
+          default. <code>verify-ca</code> and <code>verify-full</code> need the app to trust
+          <code>/data/coolify/ssl/coolify-ca.crt</code>.
+          <a href="https://coolify.io/docs/databases/ssl">Database SSL</a>.
         </li>
       </ul>
-
-      <h2>Encrypt connections with SSL</h2>
       <p>
-        Coolify can generate a server certificate for the database, signed by a CA for that server. Stop the database,
-        set <strong>SSL</strong> to Enabled, pick an SSL mode and restart. PostgreSQL supports <code>allow</code>,
-        <code>prefer</code>, <code>require</code> (the default), <code>verify-ca</code> and <code>verify-full</code>.
-        The two verify modes need the connecting app to trust the Coolify CA certificate, which you mount from
-        <code>/data/coolify/ssl/coolify-ca.crt</code>. Copy the updated URL into your app afterwards. See
-        <a href="https://coolify.io/docs/databases/ssl">Database SSL</a>.
+        The <a href="https://coolify.io/docs/databases/postgresql">PostgreSQL docs page</a> lists every setting.
       </p>
 
       <h2>Schedule backups</h2>
-      <ol>
-        <li>
-          <strong>Add a schedule.</strong> Open the database, select <strong>Backups</strong>, then <strong>+ Add</strong>.
-          Enter a five-field cron expression or a named schedule: <code>hourly</code>, <code>daily</code>,
-          <code>weekly</code>, <code>monthly</code> and others.
-        </li>
-        <li>
-          <strong>Choose what to back up.</strong> Pick specific databases or all of them. For specific databases Coolify
-          runs <code>{backupCommand}</code>. That archive keeps object owners and privileges. For all databases it runs
-          <code>pg_dumpall</code> and gzips the output.
-        </li>
-        <li>
-          <strong>Set retention.</strong> Local copies are written under <code>/data/coolify/backups</code> on the
-          database's server. You can limit backups to keep, days to keep and maximum storage in GB (0 means no limit).
-          A backup is deleted when any limit is reached, and the most recent ones are kept first.
-        </li>
-        <li>
-          <strong>Send a copy off the server.</strong> Add and validate an S3-compatible storage, then enable it on the
-          schedule. You can delete the local copy after a successful upload. S3 retention uses the same three limits
-          and is set separately from local retention.
-        </li>
-        <li>
-          <strong>Run it once by hand.</strong> Select <strong>Back up now</strong> and check the execution: status
-          Success, the right databases, a file size above zero and, if enabled, a successful S3 upload.
-        </li>
-      </ol>
-      <p>Good to know:</p>
       <ul>
         <li>
-          <strong>Storage providers.</strong> The docs have setup guides for Amazon S3, Cloudflare R2, Neon Object
-          Storage and Supabase Storage, and list DigitalOcean Spaces, MinIO, Backblaze B2, Scaleway Object Storage,
-          Hetzner S3 Storage, Wasabi Hot Cloud Storage, Vultr, CloudPe Object Storage and IDrive e2 as supported. The
-          bucket must exist before you validate it.
+          Open <strong>Backups</strong>, then <strong>+ Add</strong>. Use cron, or a named schedule such as
+          <code>hourly</code>, <code>daily</code>, <code>weekly</code>, or <code>monthly</code>.
         </li>
         <li>
-          <strong>Timing.</strong> A schedule runs in the server's timezone (or the Coolify instance timezone if the server
-          has none). A backup runs only while the database is running. If it's stopped when the schedule fires, that run
-          is skipped. The job timeout defaults to 3600 seconds.
+          Specific databases: <code>{backupCommand}</code>. All databases: <code>pg_dumpall</code>, gzipped.
         </li>
         <li>
-          <strong>Alerts.</strong> Coolify can send Backup Success and Backup Failure notifications by email, Discord,
-          Telegram, Slack, Pushover or webhook. A failed S3 upload after a good local backup is reported through Backup
-          Failure.
+          Local files go under <code>/data/coolify/backups</code>. You can limit the count, the days, and the GB.
+          <code>0</code> means no limit. When any limit is reached, Coolify deletes older backups and keeps the newest.
+          S3 retention uses the same three limits, set separately.
         </li>
         <li>
-          <strong>Postgres inside a one-click service</strong> can be backed up too. Coolify reads
-          <code>POSTGRES_PASSWORD</code>, <code>POSTGRES_USER</code> and <code>POSTGRES_DB</code> from the container.
+          Validate an S3-compatible bucket (it must already exist) and enable it on the schedule. You can delete the
+          local copy after a successful upload. Guides cover Amazon S3, Cloudflare R2, Neon Object Storage, and
+          Supabase Storage.
+          <a href="https://coolify.io/docs/core/s3-storage/overview">S3 storage</a> lists more providers, including
+          Backblaze B2.
         </li>
+        <li>
+          The schedule uses the server timezone, or the instance timezone if the server has none. A stopped database
+          skips that run. The job timeout defaults to 3600 seconds.
+        </li>
+        <li>
+          Postgres in a one-click service works too. Coolify reads <code>POSTGRES_PASSWORD</code>,
+          <code>POSTGRES_USER</code>, and <code>POSTGRES_DB</code> from the container.
+        </li>
+        <li>Run <strong>Back up now</strong> and check for Success, a file size above zero, and a successful upload.</li>
       </ul>
-      <p>Full reference: <a href="https://coolify.io/docs/databases/backups">Database backups</a>.</p>
+      <p>
+        The docs say: "A successful backup only proves that Coolify created a file." Full reference:
+        <a href="https://coolify.io/docs/databases/backups">Database backups</a>.
+      </p>
 
       <h2>Restore a backup</h2>
-      <ol>
-        <li>Stop application writes and take a separate backup of the target database.</li>
+      <ul>
+        <li>Stop application writes and take a separate backup of the target first.</li>
         <li>
-          Open <strong>Import Backup</strong> on the running database and choose a source: a file from your computer, an
-          absolute path on the server, or a file in your S3 storage.
+          Open <strong>Import Backup</strong> on the running database. The file can come from your computer, an absolute
+          path on the server, or S3.
         </li>
         <li>
-          Review the detected format and the read-only <strong>Import command</strong>. Coolify picks
-          <code>pg_restore</code> or <code>psql</code> to match the dump. It accepts SQL dumps, custom archives, tar
-          archives and all-database dumps, compressed with gzip, bz2, xz or zip.
+          Coolify picks <code>pg_restore</code> or <code>psql</code> and shows the command. It accepts SQL, custom, tar,
+          and all-database dumps, compressed with gzip, bz2, xz, or zip. The restore runs in one transaction. Replacing
+          existing objects, and keeping owners and privileges, are off by default.
         </li>
-        <li>
-          Start the restore and follow the output. PostgreSQL restores run in one transaction. Replacing existing
-          objects and keeping owners and privileges are both off by default.
-        </li>
-        <li>Check schemas and a few real records with a client, then turn writes back on and take a fresh backup.</li>
-      </ol>
+      </ul>
       <p>
-        Imports are also available through the API. See
+        You can also import through the API. See
         <a href="https://coolify.io/docs/databases/restore">Restore a database</a>.
       </p>
 
       <h2>What you still own</h2>
-      <p>Coolify automates the database and its backups. It doesn't take the operator job off your plate:</p>
       <ul>
-        <li>
-          <strong>Server security.</strong> OS updates, firewall rules and SSH access are yours, whether you self-host
-          Coolify or use Coolify Cloud. Coolify can notify you when a patch check finds OS updates.
-        </li>
-        <li>
-          <strong>Testing restores.</strong> In the docs' words: "A successful backup only proves that Coolify created a
-          file." Restore a copy into a disposable database and check that your app can read it.
-        </li>
-        <li>
-          <strong>Off-server copies.</strong> Local backups live on the same server as the database. Turn on S3 so a lost
-          server doesn't take the backups with it.
-        </li>
-        <li>
-          <strong>Monitoring.</strong> With Sentinel metrics enabled, Coolify shows CPU and memory history for the
-          standalone database container, and it can warn you when server disk usage crosses a threshold. Query
-          performance and slow queries are up to you.
-        </li>
-        <li>
-          <strong>Major version upgrades.</strong> Don't switch a production database image to a new major version
-          without following PostgreSQL's upgrade procedure and taking a verified backup first.
-        </li>
-        <li>
-          <strong>The Coolify instance itself.</strong> Coolify's instance backup saves projects and settings, not the
-          data in your databases. Database backups are a separate job.
-        </li>
+        <li>OS updates, the firewall, and SSH, on self-hosted Coolify and on Coolify Cloud.</li>
+        <li>Restore tests. A backup file does not prove your app can read the data.</li>
+        <li>An off-server copy. Local backups sit on the same server as the database.</li>
+        <li>Major upgrades. Follow PostgreSQL's upgrade steps, and take a verified backup first.</li>
+        <li>Database data itself. A Coolify instance backup saves settings, not your database contents.</li>
       </ul>
 
-      <h2>When to use something else</h2>
+      <h2>When a dump is the wrong tool</h2>
       <ul>
         <li>
-          <strong>You need point-in-time recovery.</strong> Coolify's scheduled backups are dumps, so you can restore to
-          the moment a dump ran. PostgreSQL documents point-in-time recovery as part of
-          <a href="https://www.postgresql.org/docs/current/continuous-archiving.html">continuous WAL archiving</a>,
-          which you'd set up separately.
+          You need point-in-time recovery. These backups are dumps, so you restore to the time a dump ran. PostgreSQL
+          documents point-in-time recovery as
+          <a href="https://www.postgresql.org/docs/current/continuous-archiving.html">continuous WAL archiving</a>, which
+          is a separate setup.
         </li>
+        <li>You need several database nodes. The one-click database is a single container.</li>
         <li>
-          <strong>You need a cluster or several database nodes.</strong> The one-click database is a single container.
-          For multiple nodes or a custom topology, Coolify's docs point to a Docker Compose service or an external
-          database provider.
-        </li>
-        <li>
-          <strong>You don't want to run a server at all.</strong> With both self-hosted Coolify and Coolify Cloud, your
-          databases run on your own servers. If you'd rather not own server updates, firewalls and restore tests, a
-          managed Postgres provider is the trade.
-        </li>
-        <li>
-          <strong>You only need one database and like the terminal.</strong> Plain <code>pg_dump</code> on a cron job
-          works. PostgreSQL's docs note that its dumps are internally consistent and don't block other operations while
-          they run. Coolify uses the same tool and adds the schedule UI, retention, S3 upload, alerts and a restore
-          screen.
+          You do not want to run a server. In both self-hosted Coolify and Coolify Cloud, the database runs on a server
+          you provide. A managed Postgres provider is the alternative.
         </li>
       </ul>
       <p>
-        Comparing self-hosted platforms? See
+        Deploying the app that uses this database:
+        <a href="/deploy-apps-on-your-own-vps">deploy apps on your own VPS</a>. Comparing platforms:
         <a href="/compare/coolify-vs-dokploy-vs-caprover-vs-dokku-vs-kamal">Coolify vs Dokploy vs CapRover vs Dokku vs Kamal</a>.
       </p>
 
@@ -294,8 +197,8 @@ const faq = [
     <section class="card mt-14 p-6 text-center">
       <h2 class="text-xl font-semibold tracking-tight text-fg">Get started<span class="text-warning">.</span></h2>
       <p class="mx-auto mt-2 max-w-xl text-sm text-fg-dim">
-        Install Coolify on your server and deploy your first database. Rather not run the dashboard yourself? Coolify
-        Cloud hosts it, and your databases stay on your servers.
+        Install Coolify and deploy your first database. If you would rather not run the dashboard, Coolify Cloud hosts
+        it. Your databases stay on your servers.
       </p>
       <div class="mt-5 flex flex-wrap justify-center gap-3">
         <a href="https://coolify.io/docs/deploy-your-first-database" class="btn btn-primary">
