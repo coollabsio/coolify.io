@@ -1,0 +1,233 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const link =
+    "text-fg underline decoration-fg-faint underline-offset-2 transition-colors hover:decoration-fg";
+---
+
+<Layout
+    title="Data Processing Agreement | Coolify Cloud"
+    canonicalUrl="https://coolify.io/dpa"
+    description="Data Processing Agreement (GDPR Article 28) for Coolify Cloud, with the list of sub-processors and technical and organisational measures."
+>
+    <h1
+        class="px-4 text-4xl font-semibold tracking-tight text-balance text-fg md:text-5xl"
+    >
+        Data processing agreement<span class="text-warning">.</span>
+    </h1>
+    <p class="mx-auto mt-4 max-w-2xl px-4 text-base text-pretty text-fg-dim">
+        How coolLabs processes personal data for Coolify Cloud customers under
+        Article 28 GDPR.
+    </p>
+
+    <article
+        class="mx-auto mt-16 max-w-3xl px-4 pb-16 text-left text-[15px] leading-7 text-fg-dim
+        [&_section]:scroll-mt-24 [&_h2]:mt-12 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:tracking-tight [&_h2]:text-fg
+        [&_h3]:mt-8 [&_h3]:scroll-mt-24 [&_h3]:text-base [&_h3]:font-semibold [&_h3]:text-fg
+        [&_p]:mt-3 [&_strong]:font-medium [&_strong]:text-fg
+        [&_ul]:mt-3 [&_ul]:list-disc [&_ul]:space-y-1.5 [&_ul]:pl-5 [&_li]:marker:text-fg-faint
+        [&_ol]:mt-3 [&_ol]:list-decimal [&_ol]:space-y-1.5 [&_ol]:pl-5
+        [&_table]:w-full [&_table]:min-w-[40rem] [&_table]:text-left [&_table]:text-sm [&_table]:leading-6
+        [&_th]:border-b [&_th]:border-hairline [&_th]:px-3 [&_th]:py-2 [&_th]:align-bottom [&_th]:font-medium [&_th]:text-fg
+        [&_td]:border-b [&_td]:border-hairline [&_td]:px-3 [&_td]:py-3 [&_td]:align-top"
+    >
+        <p class="!mt-0 border-b border-hairline pb-6 text-xs text-fg-faint">
+            Version 1.0 · Last updated: <time datetime="2026-10-19">October 19, 2026</time>
+        </p>
+
+        <section id="parties">
+        <p>This Data Processing Agreement (“<strong>DPA</strong>”) is part of the agreement between:</p>
+        <p><strong>The Customer</strong>: the person or legal entity that holds the Coolify Cloud subscription for one or more teams, as identified in its Coolify Cloud account (“<strong>Customer</strong>” or “<strong>Controller</strong>”);</p>
+        <p>and</p>
+        <p><strong>coolLabs Solutions Kft.</strong>, Budai út 14. Fsz. 1. ajtó, 8000 Székesfehérvár, Hungary, company registration number 07-09-036594, tax number 32801453-2-07 (“<strong>coolLabs</strong>” or “<strong>Processor</strong>”).</p>
+        <p>Customer and coolLabs are each a “<strong>Party</strong>” and together the “<strong>Parties</strong>”.</p>
+        <p>This DPA supplements the Coolify Cloud Terms of Service or other agreement under which coolLabs provides Coolify Cloud to the Customer (the “<strong>Service Agreement</strong>”). It sets out the Parties’ obligations under Article 28 of the GDPR.</p>
+        <section id="1-definitions">
+        <h2>1. Definitions</h2>
+        <p>Capitalised terms not defined here have the meaning given in the Service Agreement or in Applicable Data Protection Law.</p>
+        <ul>
+        <li><strong>“Applicable Data Protection Law”</strong> means all data protection laws that apply to the processing of Personal Data under this DPA. This includes the GDPR, the Hungarian Act CXII of 2011 on the Right of Informational Self-Determination and on Freedom of Information, and any other EU or EU Member State law that applies.</li>
+        <li><strong>“GDPR”</strong> means Regulation (EU) 2016/679 (General Data Protection Regulation).</li>
+        <li><strong>“Controller”</strong>, <strong>“Processor”</strong>, <strong>“Data Subject”</strong>, <strong>“Personal Data Breach”</strong>, <strong>“processing”</strong> and <strong>“Supervisory Authority”</strong> have the meanings given in the GDPR.</li>
+        <li><strong>“Customer Personal Data”</strong> means Personal Data that coolLabs processes on behalf of the Customer when it provides the Services, as described in Annex I.</li>
+        <li><strong>“Personal Data”</strong> means any information relating to an identified or identifiable natural person, as defined in Article 4(1) GDPR.</li>
+        <li><strong>“Services”</strong> or <strong>“Coolify Cloud”</strong> means the managed Coolify control plane that coolLabs operates for the Customer: the dashboard and API at app.coolify.io, the control-plane database, the orchestration functions, and related support. The coolify.io website and documentation are not part of the Services.</li>
+        <li><strong>“Customer Servers”</strong> means the servers, virtual machines and other infrastructure that the Customer connects to Coolify Cloud and manages itself, including all applications, databases, services, domains and data running or stored on them.</li>
+        <li><strong>“Team Owners”</strong> means the users who have the owner role in the Customer’s Coolify Cloud teams. Notices under this DPA go to the email addresses of all Team Owners.</li><li><strong>“Sub-processor”</strong> means any third party that coolLabs engages to process Customer Personal Data on coolLabs’ behalf.</li>
+        <li><strong>“SCCs”</strong> means the standard contractual clauses for the transfer of personal data to third countries adopted by the European Commission in Implementing Decision (EU) 2021/914, or any successor clauses.</li>
+        </ul>
+        </section>
+        <section id="2-scope-and-roles-of-the-parties">
+        <h2>2. Scope and roles of the Parties</h2>
+        <p>2.1 <strong>Roles.</strong> For Customer Personal Data, the Customer is the Controller (or acts as a processor on behalf of its own controller), and coolLabs is the Processor (or a sub-processor, where that applies).</p>
+        <p>2.2 <strong>Control plane only.</strong> Coolify Cloud operates <strong>only</strong> the Coolify control plane. The Customer’s applications, databases, services, domains and workload data stay on the Customer Servers. Credentials that Coolify needs to manage them are stored encrypted in the control plane (see Section 2.3). coolLabs does not host the Customer’s workloads, and Coolify Cloud provides no compute capacity for them.</p><p>Some workload data passes through the control plane when the Customer uses these features: web terminal sessions, live container logs, server and container metrics, traffic analytics of the Customer’s applications (such as visitor IP address, user agent, country and referrer, cached for up to 60 seconds), and database backup downloads. The control plane forwards this data and does not store it. The control plane stores only the workload-related data that the Customer configures or that the features need: deployment logs, the contents of file mounts (stored encrypted), and database dump files that the Customer uploads for an import, until the import is done or for at most 24 hours.</p>
+        <p>2.3 <strong>What is in scope.</strong> This DPA covers Personal Data that coolLabs processes in the control plane to provide the Services. This includes:</p>
+        <ul><li>team memberships, roles and invitations;</li><li>deployment, configuration and server metadata;</li><li>encrypted credentials needed to manage the Customer Servers, such as SSH private keys, environment variable values, provider and API tokens, and database passwords for resources that Coolify manages;</li><li>deployment logs, the contents of file mounts and uploaded database dumps (see Section 2.2);</li><li>logs about control-plane operations, including the team audit log; and</li><li>support communications about the Customer’s teams and resources.</li></ul>
+        <p>2.4 <strong>What is not in scope.</strong> The Customer remains solely responsible, as Controller, for Personal Data processed in its own applications, databases and on the Customer Servers. That processing is outside this DPA, except where Personal Data is contained in control-plane data that the Customer chooses to store in Coolify Cloud (for example, in environment variables, labels or configuration fields).</p>
+        <p>2.5 <strong>Customer responsibilities.</strong> The Customer is responsible for:</p>
+        <ul><li>having a lawful basis for the Customer Personal Data and for giving any notices it needs to give to Data Subjects;</li><li>deciding what data it stores in control-plane fields. The Customer should avoid storing end-user Personal Data in Coolify Cloud unless this is necessary;</li><li>the security of the Customer Servers and of the third-party services it connects (see Annex III, Part B); and</li><li>configuring the account securely, for example by enabling two-factor authentication, managing team roles and rotating API tokens.</li></ul>
+        <p>2.6 <strong>coolLabs as an independent controller.</strong> Each user creates their own Coolify Cloud account. coolLabs is therefore an independent controller, not a processor, for: (a) user account and sign-in data, such as name, email address, password hash, two-factor and OAuth settings, and sessions; (b) billing and subscription data; and (c) usage and security data that coolLabs uses to manage the customer relationship, to invoice, to meet tax and accounting obligations, to prevent fraud and abuse, to keep the Services secure, and to improve the Services. That processing is governed by the <a href="https://coollabs.io/privacy-policy/" class={link}>coolLabs Privacy Policy</a>, not by this DPA. Stripe also acts as an independent controller for payment processing and fraud prevention (see Annex III).</p><p>2.7 <strong>Self-hosted Coolify.</strong> This DPA applies only to Coolify Cloud. Self-hosted Coolify runs on infrastructure that the user operates. coolLabs does not process Personal Data from a self-hosted instance as a processor, so this DPA does not apply to it. Version checks and downloads from coolLabs servers by self-hosted instances are covered by the coolLabs Privacy Policy.</p>
+        </section>
+        <section id="3-subject-matter-duration-nature-and-purpose">
+        <h2>3. Subject matter, duration, nature and purpose</h2>
+        <p>3.1 <strong>Subject matter:</strong> processing of Customer Personal Data to provide Coolify Cloud.</p>
+        <p>3.2 <strong>Duration:</strong> the term of the Customer’s Coolify Cloud subscription, plus the post-termination period in Section 12.</p>
+        <p>3.3 <strong>Nature:</strong> hosting, storing, encrypting, transmitting, backing up, retrieving and deleting control-plane data, and using that data to orchestrate deployments on the Customer Servers at the Customer’s request.</p>
+        <p>3.4 <strong>Purpose:</strong> to provide, secure, maintain, support and bill Coolify Cloud.</p>
+        <p>Further details are set out in <strong>Annex I</strong>.</p>
+        </section>
+        <section id="4-processing-on-documented-instructions">
+        <h2>4. Processing on documented instructions</h2>
+        <p>4.1 coolLabs processes Customer Personal Data only on the Customer’s documented instructions, including for transfers to third countries. The only exception is where EU or Member State law requires processing. In that case, coolLabs will tell the Customer about that legal requirement before processing, unless the law prohibits this on important grounds of public interest.</p>
+        <p>4.2 The Service Agreement, this DPA, and the Customer’s use and configuration of Coolify Cloud (including through the dashboard and API) together form the Customer’s complete documented instructions. Further instructions must be agreed in writing and must be consistent with the Services.</p>
+        <p>4.3 coolLabs will tell the Customer without delay if, in its opinion, an instruction infringes Applicable Data Protection Law. coolLabs may suspend carrying out that instruction until the Customer confirms or changes it.</p>
+        </section>
+        <section id="5-confidentiality">
+        <h2>5. Confidentiality</h2>
+        <p>coolLabs ensures that everyone it authorises to process Customer Personal Data:</p>
+        <ul><li>has committed to confidentiality or is under an appropriate statutory duty of confidentiality;</li><li>accesses Customer Personal Data only as needed to provide, secure or support the Services; and</li><li>has received appropriate instruction on data protection and security.</li></ul>
+        <p><strong>Customer credentials.</strong> coolLabs personnel never use the SSH keys, tokens, passwords or other credentials that the Customer stores in Coolify Cloud to access the Customer Servers or the services the Customer connects, unless the Customer asks for this in a support case and only for that case. Coolify Cloud itself uses them only to carry out the actions that the Customer starts or configures. coolLabs support staff can sign in to the Coolify Cloud dashboard as a user only to handle a support case that the user started.</p>
+        </section>
+        <section id="6-security-of-processing-article-32-gdpr">
+        <h2>6. Security of processing (Article 32 GDPR)</h2>
+        <p>6.1 coolLabs implements and maintains appropriate technical and organisational measures to protect Customer Personal Data. These measures take into account the state of the art, the costs of implementation, and the nature, scope, context and purposes of the processing. They are described in <strong>Annex II</strong> and include in particular:</p>
+        <ul><li>encryption at rest of supported credentials and secrets in the control-plane database;</li><li>access controls for both Customer users and coolLabs personnel;</li><li>hosting of the control plane in the EU (Hetzner, Falkenstein, Germany); and</li><li>daily backups of the control plane, stored with Hetzner in Germany.</li></ul>
+        <p>6.2 coolLabs may update the measures in Annex II over time, provided the overall level of security does not decrease.</p>
+        <p>6.3 The Customer is responsible for the security of the Customer Servers and for using the security features available in Coolify Cloud.</p>
+        </section>
+        <section id="7-sub-processors">
+        <h2>7. Sub-processors</h2>
+        <p>7.1 <strong>General authorisation.</strong> The Customer gives coolLabs general authorisation to engage Sub-processors. The Sub-processors in use on the effective date are listed in <strong>Annex III</strong>, and the Customer approves them.</p>
+        <p>7.2 <strong>Changes.</strong> coolLabs will tell the Customer about any intended addition or replacement of a Sub-processor at least <strong>30 days</strong> before the change. It will do this by email to all Team Owners and by updating the list in Annex III on this page, with the date of the change.</p>
+        <p>7.3 <strong>Objection.</strong> The Customer may object to a change on reasonable data protection grounds by writing to <a href="mailto:hi@coollabs.io" class={link}>hi@coollabs.io</a> within the notice period. The Parties will discuss the objection in good faith. If they cannot resolve it, the Customer may terminate the affected Services before the change takes effect. coolLabs will refund any prepaid fees for the period after termination. If the Customer does not object within the notice period, the Customer is deemed to have accepted the new Sub-processor.</p>
+        <p>7.4 <strong>Sub-processor obligations.</strong> coolLabs will impose data protection obligations on each Sub-processor by written contract. These obligations will be in substance no less protective than those in this DPA. coolLabs remains liable to the Customer for each Sub-processor’s performance, as required by Article 28(4) GDPR.</p>
+        </section>
+        <section id="8-international-transfers">
+        <h2>8. International transfers</h2>
+        <p>8.1 coolLabs stores and processes Customer Personal Data in the European Economic Area (EEA) wherever possible. The Coolify Cloud control plane is hosted in Germany.</p>
+        <p>8.2 coolLabs will only transfer Customer Personal Data outside the EEA (directly or through a Sub-processor) if one of the following applies:</p>
+        <ul><li>the destination benefits from an adequacy decision under Article 45 GDPR (including, where applicable, the EU–U.S. Data Privacy Framework for certified recipients);</li><li>appropriate safeguards are in place under Article 46 GDPR, in particular the SCCs, together with any supplementary measures that are needed; or</li><li>another transfer mechanism permitted by Applicable Data Protection Law applies.</li></ul>
+        <p>See <strong>Annex IV</strong>.</p>
+        </section>
+        <section id="9-assistance-to-the-customer">
+        <h2>9. Assistance to the Customer</h2>
+        <p>9.1 <strong>Data Subject requests.</strong> Taking into account the nature of the processing, coolLabs will help the Customer respond to requests from Data Subjects exercising their rights under Chapter III GDPR. coolLabs will do this through appropriate technical and organisational measures, mainly self-service features in the dashboard and API. If coolLabs receives a request directly that relates to Customer Personal Data, it will forward the request to the Customer without undue delay and will not respond itself unless the Customer authorises it.</p>
+        <p>9.2 <strong>DPIAs and prior consultation.</strong> coolLabs will give the Customer reasonable assistance with data protection impact assessments and prior consultations with Supervisory Authorities (Articles 35 and 36 GDPR) that relate to the Services, using the information available to coolLabs.</p>
+        <p>9.3 <strong>Personal Data Breaches.</strong> coolLabs will notify the Customer <strong>without undue delay, and in any event within 48 hours,</strong> after becoming aware of a Personal Data Breach affecting Customer Personal Data. The notification will be sent to the email addresses of all Team Owners and will include, as far as the information is available:</p>
+        <ul><li>the nature of the breach, including the categories and approximate number of Data Subjects and records concerned;</li><li>the likely consequences;</li><li>the measures taken or proposed to address the breach and limit its effects; and</li><li>a contact point for more information.</li></ul>
+        <p>coolLabs may provide information in stages as it becomes available. coolLabs will take reasonable steps to contain and investigate the breach. Notifying a breach does not mean coolLabs accepts fault or liability.</p>
+        <p>9.4 <strong>Costs.</strong> coolLabs provides assistance under this Section 9 free of charge where it is reasonable. If assistance is substantial, or goes beyond what is required by Article 28 GDPR, coolLabs may charge reasonable costs after agreeing them with the Customer in advance.</p>
+        </section>
+        <section id="10-audits-and-information">
+        <h2>10. Audits and information</h2>
+        <p>10.1 <strong>Information first.</strong> On written request, coolLabs will make available to the Customer the information needed to demonstrate compliance with Article 28 GDPR. This information may include this DPA, Annex II, written answers to security questionnaires, relevant policies, and the certifications and audit reports of Sub-processors (for example, the ISO/IEC 27001 certificate of Hetzner).</p>
+        <p>10.2 <strong>Audits.</strong> If the information under Section 10.1 is not sufficient to demonstrate compliance under Applicable Data Protection Law, or if a Supervisory Authority requires it, the Customer may audit coolLabs, by itself or through an independent auditor bound by confidentiality. These conditions apply:</p>
+        <ul><li>the Customer gives at least 30 days’ prior written notice;</li><li>audits are carried out remotely, by document review, written questions and remote sessions with coolLabs personnel during normal business hours;</li><li>audits are limited to once per 12 months, unless a Personal Data Breach or a Supervisory Authority requires otherwise;</li><li>audits are limited to the Customer’s own data and the systems that process it, and must not compromise the security or confidentiality of other customers’ data; and</li><li>information obtained in an audit is the confidential information of coolLabs, but the Customer may share it with a Supervisory Authority or where the law requires it.</li></ul>
+        <p>10.3 <strong>Physical infrastructure.</strong> coolLabs does not operate its own data centres, and it does not store Customer Personal Data on its own premises. Audits of physical infrastructure are covered by the certifications and audit reports of the relevant Sub-processors under Section 10.1.</p>
+        <p>10.4 <strong>Costs.</strong> The Customer bears the costs of its audit, including the costs of its auditor. If an audit request is excessive or repeated, coolLabs may also charge its reasonable costs, agreed in advance.</p>
+        </section>
+        <section id="11-customer-obligations">
+        <h2>11. Customer obligations</h2>
+        <p>The Customer confirms that its instructions and its use of the Services comply with Applicable Data Protection Law. The Customer will not instruct coolLabs to process special categories of Personal Data (Article 9 GDPR) or data relating to criminal convictions (Article 10 GDPR), unless the Parties have agreed this in writing.</p>
+        </section>
+        <section id="12-deletion-and-return-of-data">
+        <h2>12. Deletion and return of data</h2>
+        <p>12.1 Before termination, the Customer can retrieve its control-plane data, such as configuration and environment variables, through the API. Within 30 days after termination, the Customer can ask coolLabs at <a href="mailto:hi@coollabs.io" class={link}>hi@coollabs.io</a> to return a copy of its control-plane data in a machine-readable format, before the data is deleted under Section 12.2. All data on the Customer Servers stays under the Customer’s control at all times.</p>
+        <p>12.2 When the Customer deletes its account, coolLabs deletes the Customer Personal Data of the teams that the Customer deletes with it from the active control-plane systems at once. When the Service Agreement ends without account deletion, coolLabs keeps the data for a grace period of <strong>30 days</strong>, so that the Customer can subscribe again or ask for a copy under Section 12.1, and deletes it after that period. If a user of a deleted team is also a member of another team, coolLabs keeps that user’s empty personal team (its name and membership) as part of the user account (see Section 2.6). All other data of that team is deleted.</p>
+        <p>12.3 Control-plane backups are stored with Hetzner in Germany and kept for up to <strong>30 days</strong>, after which they are overwritten as backups rotate. Customer Personal Data deleted from the active systems is therefore fully purged from backups within a further 30 days after their deletion from the active systems. Until then, backup copies remain protected under this DPA and are not actively processed.</p>
+        <p>12.4 This Section 12 does not apply where EU or Member State law requires coolLabs to keep data, for example invoicing and accounting records under Hungarian tax and accounting law. coolLabs will keep such data only for the required period and only for that purpose.</p>
+        <p>12.5 On written request, coolLabs will confirm in writing that the deletion has taken place.</p>
+        <p>12.6 <strong>Sub-processor copies.</strong> Copies of Customer Personal Data that Sub-processors hold, such as email delivery logs and support emails, are deleted under the retention terms of each Sub-processor’s data processing agreement. Stripe keeps payment records as an independent controller to meet its own legal obligations.</p><p>12.7 <strong>Log retention.</strong> Some control-plane logs are kept for a fixed period, also during the subscription, and are then deleted automatically: deployment logs, control-plane activity logs and sessions for 60 days, and team audit log entries for 90 days. Entries that remain after the team is deleted are deleted at the end of the same period.</p>
+        </section>
+        <section id="13-liability-and-order-of-precedence">
+        <h2>13. Liability and order of precedence</h2>
+        <p>13.1 <strong>Precedence.</strong> If there is a conflict between the documents below, this order applies: (a) the SCCs, where they apply; (b) this DPA; (c) the Service Agreement. The Service Agreement applies to all matters that this DPA does not cover.</p>
+        <p>13.2 <strong>Liability.</strong> Each Party’s liability arising out of or in connection with this DPA is subject to the limitations and exclusions of liability in the Service Agreement, to the extent permitted by Applicable Data Protection Law. Nothing in this DPA limits either Party’s liability to Data Subjects under Article 82 GDPR, or any liability that cannot be limited under applicable law.</p>
+        </section>
+        <section id="14-term-amendments-governing-law-and-execution">
+        <h2>14. Term, amendments, governing law and execution</h2>
+        <p>14.1 <strong>Term.</strong> This DPA takes effect on the earlier of (a) the Customer’s acceptance of it (electronic acceptance included) and (b) the start of the Service Agreement. It remains in force for as long as coolLabs processes Customer Personal Data.</p>
+        <p>14.2 <strong>Amendments.</strong> coolLabs may update this DPA where needed to reflect changes in Applicable Data Protection Law, in guidance from Supervisory Authorities, or in the Services, provided the update does not materially reduce the protection of Customer Personal Data. coolLabs will notify material changes in advance. Any other amendment must be agreed in writing.</p>
+        <p>14.3 <strong>Severability.</strong> If any provision of this DPA is found invalid, the remaining provisions stay in effect.</p>
+        <p>14.4 <strong>Governing law and venue.</strong> This DPA is governed by the laws of Hungary. The courts competent for the registered seat of coolLabs in Hungary have exclusive jurisdiction, subject to any mandatory rights of Data Subjects. The lead Supervisory Authority for coolLabs is the <strong>Hungarian National Authority for Data Protection and Freedom of Information (NAIH)</strong>, Falk Miksa utca 9–11, 1055 Budapest, Hungary · www.naih.hu.</p>
+        <p>14.5 <strong>Contact.</strong> All data protection questions and notices under this DPA go to <strong><a href="mailto:hi@coollabs.io" class={link}>hi@coollabs.io</a></strong>. coolLabs has not appointed a data protection officer (DPO), because it is not required to do so under Article 37 GDPR. The data protection contact is <a href="mailto:hi@coollabs.io" class={link}>hi@coollabs.io</a>.</p>
+        <p>14.6 <strong>Execution.</strong> The Customer accepts this DPA when it accepts the Coolify Cloud Terms of Service, including by electronic acceptance. A Customer that needs a signed copy can ask for a countersigned PDF at <a href="mailto:hi@coollabs.io" class={link}>hi@coollabs.io</a>. Each method is equally binding.</p>
+        </section>
+        <section id="annex-i">
+        <h2>Annex I – Details of processing</h2>
+        <p><strong>A. List of parties</strong></p>
+        <ul><li><strong>Controller:</strong> the Customer, as identified above or in its Coolify Cloud account.</li><li><strong>Processor:</strong> coolLabs Solutions Kft., Budai út 14. Fsz. 1. ajtó, 8000 Székesfehérvár, Hungary. Contact: <a href="mailto:hi@coollabs.io" class={link}>hi@coollabs.io</a>.</li></ul>
+        <p><strong>B. Categories of Data Subjects</strong></p>
+        <ul><li>The Customer’s account users and team members, such as owners, administrators and members invited to the Customer’s teams.</li><li>Other individuals, <strong>only to the extent</strong> the Customer chooses to store their Personal Data in control-plane fields (for example environment variables, labels or notification settings). The Customer decides whether this happens.</li></ul>
+        <p><strong>C. Types of Personal Data</strong></p>
+        <ul><li>Names and email addresses of team members and invited users, with their team memberships and roles.</li><li>API token metadata, such as token names, permissions and last use.</li><li>Server hostnames, IP addresses and connection details of the Customer Servers.</li><li>Deployment and configuration metadata, such as Git repository references, commit information, build and deployment logs, and control-plane operation logs.</li><li>Credentials and secrets that the Customer stores in Coolify Cloud (stored encrypted where supported), such as SSH private keys, environment variable values, provider/API tokens and database passwords for resources Coolify manages.</li><li>The contents of file mounts that the Customer configures (stored encrypted), and database dumps uploaded for an import (at most 24 hours).</li><li>Workload data in transit only: web terminal sessions, live container logs, server and container metrics, traffic analytics and database backup downloads (see Section 2.2).</li><li>Notification contact details configured by the Customer, such as email addresses and webhook targets.</li><li>Team audit log entries, including the user’s name and email address, action, time, IP address and user agent.</li><li>Support communications.</li></ul><p>User account and sign-in data, billing data and control-plane access logs are processed by coolLabs as an independent controller (see Section 2.6). They are not Customer Personal Data under this DPA.</p>
+        <p><strong>D. Special categories of data</strong> Not intended. The Customer must not instruct processing of special categories of Personal Data or criminal offence data unless the Parties agree this in writing.</p>
+        <p><strong>E. Frequency of processing</strong> Continuous, for the duration of the subscription.</p>
+        <p><strong>F. Nature of processing</strong> Hosting, storing, encrypting, backing up, transmitting, retrieving and deleting control-plane data. Using credentials and configuration to orchestrate deployments and management actions on the Customer Servers at the Customer’s request. Providing support, and invoicing.</p>
+        <p><strong>G. Purpose of processing</strong> To provide, secure, maintain, support and bill Coolify Cloud.</p>
+        <p><strong>H. Retention</strong> For the term of the Coolify Cloud subscription. After that, the data is deleted as set out in Section 12: from active systems at account deletion, or after the 30-day grace period when the subscription ends, and from backups (kept for up to 30 days, stored with Hetzner in Germany) within a further 30 days. Deployment logs, control-plane activity logs and sessions are deleted after 60 days, and team audit log entries after 90 days, also during the subscription (see Section 12.7). Legally required records, such as invoices, are retained for the statutory period. Copies held by Sub-processors are deleted under their own retention terms (see Section 12.6).</p>
+        <p><strong>I. Sub-processor processing</strong> As described in Annex III.</p>
+        </section>
+        <section id="annex-ii">
+        <h2>Annex II – Technical and organisational measures (TOMs)</h2>
+        <p>The measures below describe the current state of Coolify Cloud. coolLabs does not currently hold third-party security certifications. Where coolLabs relies on Sub-processor certifications, this applies only to the Sub-processor’s own infrastructure. The application-level measures in Sections 2 and 3 reflect the version of Coolify (github.com/coollabsio/coolify) that runs on Coolify Cloud as of the “Last updated” date.</p>
+        <p><strong>1. Hosting and physical security</strong></p>
+        <ul><li>The control plane is hosted with Hetzner Online GmbH in Falkenstein, Germany (EU).</li><li>Physical and environmental security of the data centre is provided by Hetzner under its own security programme.</li><li>Traffic to the dashboard and API goes through Cloudflare, which provides DDoS protection, a web application firewall and TLS termination.</li></ul>
+        <p><strong>2. Customer access control (dashboard and API)</strong></p>
+        <ul><li>Authentication to the dashboard with email and password. Passwords are stored as salted hashes (bcrypt by default).</li><li>Optional two-factor authentication using time-based one-time passwords (TOTP) with recovery codes (Laravel Fortify). The two-factor secret and recovery codes are stored encrypted. Sign-in through OAuth providers is also supported, and 2FA is still enforced on OAuth sign-in where the user has enabled it.</li><li>Team-based access with three roles: <strong>owner</strong>, <strong>admin</strong> and <strong>member</strong>. Members cannot use write, deploy or sensitive-data API permissions and are limited to read-only API access. Write, deploy and sensitive-data permissions require the admin or owner role.</li><li>API tokens are scoped to a team and carry explicit permissions: read, read:sensitive, write, write:sensitive, deploy and root. New tokens default to read only. Sensitive fields (such as secrets and logs) are returned through the API only to tokens with the read:sensitive or root permission. Tokens can expire after 7, 30, 60, 90 or 365 days (30 days by default) or have no expiry, and can be revoked at any time.</li></ul>
+        <p><strong>3. Encryption</strong></p>
+        <ul><li>Sensitive values stored in the control-plane database, such as credentials, secrets, tokens, private keys and keys for connected services, are encrypted at the application level (AES-256) before storage. Examples include SSH private keys, environment variable values, provider and integration tokens, and passwords for managed databases. coolLabs applies the same protection to new sensitive values as features are added.</li><li>Traffic to the dashboard and API is encrypted in transit with TLS from the browser to Cloudflare, and from Cloudflare to the control plane.</li><li>Connections from the control plane to the Customer Servers use SSH.</li></ul>
+        <p><strong>4. Internal access control (coolLabs personnel)</strong></p>
+        <ul><li>Production access is limited to a small number of authorised coolLabs personnel on a need-to-know basis.</li><li>Administrative access to infrastructure is protected with strong authentication, such as SSH keys and 2FA on provider accounts.</li><li>Personnel are bound by confidentiality obligations.</li><li>coolLabs personnel do not access Customer Personal Data except as needed to operate, secure or support the Services, or where the Customer requests it in a support case.</li><li>Personnel never use stored Customer credentials to access the Customer Servers or connected services, except at the Customer’s request in a support case (see Section 5).</li><li>Personnel with production access work from the EEA.</li></ul>
+        <p><strong>5. Availability and resilience</strong></p>
+        <ul><li>The control plane (database and configuration) is backed up daily.</li><li>Backups are stored with Hetzner in Germany and kept for up to 30 days, after which they are overwritten (see Section 12.3).</li><li>Restore procedures are maintained.</li><li>Because Customer workloads run on the Customer Servers, an outage of the control plane does not stop Customer applications that are already running.</li></ul>
+        <p><strong>6. Logging and monitoring</strong></p>
+        <ul><li>Control-plane operations, such as deployments and server actions, are logged. The application records an audit log of security-relevant account, team and resource actions, such as enabling or disabling 2FA, creating API tokens, and deleting servers or resources.</li><li>Infrastructure and application health is monitored, with alerts going to coolLabs personnel.</li></ul>
+        <p><strong>7. Secure development and change management</strong></p>
+        <ul><li>Coolify is open source. Changes are reviewed through version control before release.</li><li>Security issues can be reported responsibly to <a href="mailto:hi@coollabs.io" class={link}>hi@coollabs.io</a>.</li><li>Dependencies and the control plane are updated regularly, including security patches.</li></ul>
+        <p><strong>8. Incident response</strong></p>
+        <ul><li>coolLabs has a documented process for identifying, containing, investigating and notifying Personal Data Breaches (see Section 9.3).</li><li>Contact: <a href="mailto:hi@coollabs.io" class={link}>hi@coollabs.io</a>.</li></ul>
+        <p><strong>9. Data minimisation and deletion</strong></p>
+        <ul><li>coolLabs collects only the data needed to operate the control plane. Workload data stays on the Customer Servers, except the data described in Section 2.2.</li><li>Account data is deleted after account deletion or termination as set out in Section 12.</li></ul>
+        <p><strong>10. Sub-processor management</strong></p>
+        <ul><li>Sub-processors are selected for their security and data protection standards and are bound by written data processing terms (see Annex III).</li></ul>
+        </section>
+        <section id="annex-iii">
+        <h2>Annex III – Sub-processors</h2>
+        <h3 id="sub-processors">Part A – Authorised Sub-processors of coolLabs</h3>
+        <div class="mt-4 overflow-x-auto"><table>
+        <thead><tr><th>#</th><th>Sub-processor</th><th>Purpose</th><th>Location of processing</th><th>Personal Data concerned</th></tr></thead><tbody>
+        <tr><td>1</td><td><strong>Hetzner Online GmbH</strong>, Industriestr. 25, 91710 Gunzenhausen, Germany</td><td>Infrastructure hosting of the Coolify Cloud control plane (servers, storage) and storage of control-plane backups</td><td>Germany (EU)</td><td>All control-plane data in Annex I</td></tr>
+        <tr><td>2</td><td><strong>Stripe Payments Europe, Ltd.</strong> (Ireland), with Stripe, Inc. (USA) as its sub-processor for certain processing</td><td>Subscription billing and invoicing. Stripe acts as an independent controller for payment processing and fraud prevention, and as a processor for billing services</td><td>EU/EEA; possible transfers to the USA by Stripe, under Stripe’s DPA and the EU–U.S. Data Privacy Framework or Standard Contractual Clauses (SCCs), as applicable</td><td>Billing contact name and email, billing address, subscription/customer IDs, payment metadata</td></tr>
+        <tr><td>3</td><td><strong>Plus Five Five, Inc.</strong> (d/b/a Resend), 2261 Market Street #5039, San Francisco, CA 94114, USA</td><td>Delivery of transactional emails and notifications (account, deployment and billing notifications)</td><td>Sending region: EU (eu-west-1, Ireland). Resend states that account data, email metadata and logs are stored in the USA whatever sending region is chosen. Transfers to the USA are covered by Resend’s EU-US Data Privacy Framework certification and the EU SCCs (Module Two/Three) included in Resend’s DPA</td><td>Recipient email address, name, notification content, email metadata</td></tr>
+        <tr><td>4</td><td><strong>Cloudflare, Inc.</strong>, 101 Townsend Street, San Francisco, CA 94107, USA</td><td>Content delivery, DDoS protection, web application firewall and TLS termination for the dashboard and API</td><td>Global edge network, including the USA. Transfers are covered by Cloudflare’s EU–U.S. Data Privacy Framework certification and, as a fallback, the EU SCCs (Module Three) in Cloudflare’s DPA</td><td>All dashboard and API traffic in transit, including data that users submit; IP addresses, user agent and request metadata</td></tr>
+        <tr><td>5</td><td><strong>Fastmail Pty Ltd</strong> (ABN 31 142 646 580), Melbourne, Australia</td><td>Email hosting for <a href="mailto:hi@coollabs.io" class={link}>hi@coollabs.io</a> (support and data protection communications)</td><td>USA. Transfers are covered by the EU SCCs (Module Three) in Fastmail’s DPA</td><td>Names, email addresses and content of support emails, including any Personal Data the Customer sends</td></tr>
+        </tbody></table></div>
+        <p>This list is current as of the “Last updated” date of this DPA. Changes are notified as set out in Section 7.2.</p>
+        <h3 id="customer-services">Part B – Services the Customer chooses (not coolLabs Sub-processors)</h3>
+        <p>The Customer may connect its own third-party services to Coolify Cloud. These services are engaged and controlled by the Customer. They act as the Customer’s own processors or as independent controllers. They are <strong>not</strong> Sub-processors of coolLabs, and the Customer is responsible for having appropriate agreements with them. Examples:</p>
+        <ul>
+        <li>the Customer’s own servers and hosting/cloud providers (Customer Servers);</li>
+        <li>Git providers (for example GitHub, GitLab, Bitbucket, Gitea);</li>
+        <li>OAuth / identity providers used for sign-in;</li>
+        <li>the Customer’s own Cloudflare account (for example Cloudflare Tunnels) and DNS providers;</li>
+        <li>S3-compatible storage for backups configured by the Customer;</li>
+        <li>notification targets such as Discord, Telegram, Slack, Pushover, webhooks or the Customer’s own SMTP or email provider;</li>
+        <li>container registries and any other integrations the Customer configures.</li>
+        </ul>
+        <p>Coolify Cloud sends data to these services only when the Customer configures it to do so.</p>
+        </section>
+        <section id="annex-iv">
+        <h2>Annex IV – International transfers (SCCs)</h2>
+        <ol>
+        <li><strong>No transfer to coolLabs.</strong> coolLabs is established in Hungary and hosts the control plane in Germany. coolLabs personnel with production access work from the EEA. A Customer in the EEA therefore makes no restricted transfer when it uses Coolify Cloud.</li>
+        <li><strong>Onward transfers to Sub-processors.</strong> Some Sub-processors process Customer Personal Data outside the EEA (see Annex III). For each such transfer, coolLabs relies on the transfer mechanism in that Sub-processor’s data processing agreement: the EU–U.S. Data Privacy Framework where the Sub-processor is certified, and otherwise the SCCs (Module Three, Processor to Processor). The clause options of those SCCs, including governing law and courts, are set in the Sub-processor’s agreement.</li>
+        <li><strong>Customers outside the EEA.</strong> If the Customer is established outside the EEA and Applicable Data Protection Law requires a transfer tool for Customer Personal Data that coolLabs sends to the Customer, the SCCs (Module Four, Processor to Controller) apply between coolLabs as data exporter and the Customer as data importer, with these options:<ul><li>Clause 7 (docking clause) does not apply;</li><li>Clause 11 optional language does not apply;</li><li>Clauses 17 and 18: Hungarian law and the courts of Hungary;</li><li>Annexes I and II of the SCCs are completed by Annexes I and II of this DPA.</li></ul></li>
+        <li><strong>Requests from public authorities.</strong> If a public authority asks coolLabs for Customer Personal Data, coolLabs will: (a) examine whether the request is lawful and challenge it where there are reasonable grounds; (b) ask the authority to send the request to the Customer where possible; (c) tell the Customer about the request without undue delay, unless the law prohibits this; and (d) disclose only the minimum data that the request legally requires.</li>
+        <li><strong>Transfer reviews.</strong> coolLabs reviews the transfer mechanisms of its Sub-processors when it adds a Sub-processor and when the law changes. Where needed, it carries out a transfer impact assessment and puts supplementary measures in place.</li>
+        <li>The full text of the SCCs is not reproduced in this DPA.</li>
+        </ol>
+        <p class="!mt-12 border-t border-hairline pt-6 text-fg-faint">coolLabs Solutions Kft. · Budai út 14. Fsz. 1. ajtó, 8000 Székesfehérvár, Hungary · Reg. no. 07-09-036594 · Tax no. 32801453-2-07 · <a href="mailto:hi@coollabs.io" class={link}>hi@coollabs.io</a></p>
+        </section>
+    </article>
+</Layout>

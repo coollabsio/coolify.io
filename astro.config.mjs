@@ -25,7 +25,8 @@ export default defineConfig({
     "/compare": "/compare/coolify-vs-dokploy-vs-caprover-vs-dokku-vs-kamal",
   },
   server: {
-    host: '0.0.0.0'
+    host: '0.0.0.0',
+    allowedHosts: ['.ts.net'],
   },
   integrations: [
     svelte({ preprocess: vitePreprocess() }),
