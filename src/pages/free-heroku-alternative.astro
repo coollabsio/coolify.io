@@ -1,0 +1,146 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Prose from "../components/Prose.astro";
+import Faq from "../components/Faq.astro";
+import Icon from "../components/Icon.astro";
+import Cloud from "reicon/icons/Cloud";
+import Rocket from "reicon/icons/Rocket";
+
+const installCommand = "curl -fsSL https://cdn.coollabs.io/coolify/install.sh | sudo bash";
+
+const faq = [
+  {
+    question: "Is Coolify a free Heroku alternative?",
+    answer:
+      "Self-hosted Coolify has no license fee. It is open source under the Apache-2.0 license. You pay for the Linux server. Coolify Cloud is optional and paid. It runs the dashboard, and your apps still run on servers you connect.",
+  },
+  {
+    question: "Does Coolify deploy when I push to GitHub?",
+    answer:
+      "Yes. A GitHub App, GitHub Actions, or a repository webhook can start a deployment when you push. GitLab, Bitbucket, and Gitea are supported sources too. Coolify does not use a Heroku Git remote.",
+  },
+  {
+    question: "Can I run databases and backups?",
+    answer:
+      "Yes. Coolify can run PostgreSQL, MySQL, MariaDB, MongoDB, Redis, Dragonfly, KeyDB, ClickHouse, or SQLite on your server, with scheduled backups where the engine supports them. You operate the database.",
+  },
+  {
+    question: "Does Coolify issue HTTPS certificates?",
+    answer:
+      "Add the domain with `https://`. Traefik or Caddy requests and renews the certificate. Ports 80 and 443 must be open on the server.",
+  },
+];
+---
+
+<Layout
+  title="What Are the Best Free Heroku Alternatives? | Coolify"
+  canonicalUrl="https://coolify.io/free-heroku-alternative"
+  description="Coolify is a free, open-source Heroku alternative (Apache-2.0). You pay for the server, not a license. Git deploys, databases, backups, and HTTPS."
+>
+  <section class="px-4">
+    <p class="eyebrow">Guide</p>
+    <h1 class="mx-auto mt-2 max-w-3xl text-3xl font-semibold tracking-tight text-balance text-fg md:text-5xl">
+      What are the best free Heroku alternatives<span class="text-warning">?</span>
+    </h1>
+  </section>
+
+  <article class="mx-auto mt-12 max-w-3xl px-4 text-left">
+    <Prose>
+      <p class="text-base md:text-lg">
+        <strong>Short answer:</strong> Coolify is free, open-source software under the Apache-2.0 license, and you
+        install it on a server you provide. There is no Coolify license fee. You still pay for that server, and
+        <a href="/cloud">Coolify Cloud</a> is the paid option only when you want the Coolify team to run the dashboard.
+      </p>
+    </Prose>
+
+    <div class="card mt-4 py-3 px-4">
+      <code class="block overflow-x-auto font-mono text-sm whitespace-nowrap text-fg select-all">
+        <span class="pr-2 text-fg-faint select-none">$</span>{installCommand}
+      </code>
+    </div>
+
+    <Prose class="mt-4">
+      <h2>What free means</h2>
+      <p>
+        Self-hosted Coolify has no license fee. The
+        <a href="https://coolify.io/docs/core/selfhosted-cloud-comparison">self-hosted and Cloud comparison</a>
+        says all current and upcoming features are included. You pay your server provider for the machine that runs
+        Coolify and your apps. Server size and the install steps are in the
+        <a href="/deploy-apps-on-your-own-vps">VPS guide</a>.
+      </p>
+      <p>
+        Coolify Cloud is optional. The same docs list it at $5 per month for up to two connected servers, plus $3 per
+        month for each server after that. Pricing can change. See
+        <a href="/pricing">pricing</a>. In both cases your apps, databases, and services run on servers you connect.
+        Cloud does not host those workloads.
+      </p>
+
+      <h2>What you get</h2>
+      <ul>
+        <li>
+          Deploys from Git. On GitHub, a GitHub App, GitHub Actions, or a repository webhook can
+          <a href="https://coolify.io/docs/applications/sources/github/auto-deploy">deploy when you push</a>.
+          <a href="https://coolify.io/docs/applications/sources/gitlab">GitLab</a>,
+          <a href="https://coolify.io/docs/applications/sources/bitbucket">Bitbucket</a>, and
+          <a href="https://coolify.io/docs/applications/sources/gitea">Gitea</a> are supported sources too.
+          <a href="https://coolify.io/docs/applications/sources/overview">Sources</a>.
+        </li>
+        <li>
+          Databases on your server, including PostgreSQL, MySQL, MariaDB, MongoDB, Redis, Dragonfly, KeyDB, ClickHouse,
+          and SQLite, with scheduled backups where the engine supports them.
+          <a href="https://coolify.io/docs/databases">Databases</a>.
+          <a href="/self-host-postgres-with-backups">Postgres with backups</a>.
+        </li>
+        <li>
+          Automatic HTTPS. Add the domain with <code>https://</code>. Traefik or Caddy requests and renews the
+          certificate. Open ports 80 and 443.
+          <a href="https://coolify.io/docs/core/networking/domains">Domains</a>.
+        </li>
+        <li>
+          Builds with <a href="https://coolify.io/docs/applications/builds/nixpacks/overview">Nixpacks</a>,
+          <a href="https://coolify.io/docs/applications/builds/railpack">Railpack</a>, a Dockerfile, Compose, or a
+          <a href="https://coolify.io/docs/applications/builds/static">static site</a>.
+        </li>
+        <li>
+          <a href="https://coolify.io/docs/applications/deployments/preview-deployments">Preview deployments</a>
+          for pull requests on GitHub, GitLab, Bitbucket, and Gitea.
+        </li>
+        <li>
+          <a href="/services">One-click services</a> on a server you connect.
+        </li>
+      </ul>
+      <p>
+        The license is <a href="https://github.com/coollabsio/coolify/blob/main/LICENSE">Apache-2.0</a>. For a sourced
+        comparison with other self-hosted tools, see
+        <a href="/compare/coolify-vs-dokploy-vs-caprover-vs-dokku-vs-kamal">Coolify vs Dokploy vs CapRover vs Dokku vs Kamal</a>.
+        Heroku's own pages are the source for Heroku facts on the
+        <a href="/compare/heroku-alternative">Heroku comparison</a>. Static sites and previews are on the
+        <a href="/netlify-alternative">Netlify alternatives</a> page.
+      </p>
+
+      <h2>FAQ</h2>
+    </Prose>
+
+    <div class="mt-4">
+      <Faq items={faq} />
+    </div>
+
+    <section class="card mt-14 p-6 text-center">
+      <h2 class="text-xl font-semibold tracking-tight text-fg">Get started<span class="text-warning">.</span></h2>
+      <p class="mx-auto mt-2 max-w-xl text-sm text-fg-dim">
+        Install Coolify on a server you already have. If you would rather not run the dashboard, Coolify Cloud hosts
+        it. Your apps stay on your servers.
+      </p>
+      <div class="mt-5 flex flex-wrap justify-center gap-3">
+        <a href="https://coolify.io/docs/start-with-self-hosted" class="btn btn-primary">
+          <Icon icon={Rocket} class="size-4" />
+          Start with self-hosted
+        </a>
+        <a href="/pricing" class="btn btn-neutral">
+          <Icon icon={Cloud} class="size-4" />
+          Try Coolify Cloud
+        </a>
+      </div>
+    </section>
+  </article>
+</Layout>

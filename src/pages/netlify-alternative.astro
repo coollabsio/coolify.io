@@ -1,0 +1,151 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Prose from "../components/Prose.astro";
+import Faq from "../components/Faq.astro";
+import Icon from "../components/Icon.astro";
+import Cloud from "reicon/icons/Cloud";
+import Rocket from "reicon/icons/Rocket";
+
+const installCommand = "curl -fsSL https://cdn.coollabs.io/coolify/install.sh | sudo bash";
+
+const faq = [
+  {
+    question: "Can Coolify host a static site?",
+    answer:
+      "Yes. If the repository already contains the HTML, CSS, and JavaScript, the Static build pack serves them with Nginx. If the site needs a build command, use Nixpacks or Railpack, set the site type to static, and set the publish directory.",
+  },
+  {
+    question: "Does Coolify create a preview for a pull request?",
+    answer:
+      "Yes. A preview deployment runs that pull request or merge request separately, with its own domain and environment variables. GitHub, GitLab, Bitbucket, and Gitea are documented. Coolify removes an automatically created preview after the request is closed or merged.",
+  },
+  {
+    question: "Can I use my own domain with automatic HTTPS?",
+    answer:
+      "Yes. Point DNS at your server and add the hostname with `https://`. Traefik or Caddy requests and renews the certificate. Ports 80 and 443 must reach the proxy.",
+  },
+  {
+    question: "Can the same server run an app and a database?",
+    answer:
+      "Yes. You can deploy a server-side app with Nixpacks, Railpack, a Dockerfile, or Compose, and run a database on a server you connect. Apps on the same network use the internal database URL. Build servers cannot host databases.",
+  },
+];
+---
+
+<Layout
+  title="What Are the Best Netlify Alternatives? | Coolify"
+  canonicalUrl="https://coolify.io/netlify-alternative"
+  description="Coolify is an open-source Netlify alternative on your server. Static sites, git deploys, pull request previews, custom domains with HTTPS, plus apps and databases."
+>
+  <section class="px-4">
+    <p class="eyebrow">Guide</p>
+    <h1 class="mx-auto mt-2 max-w-3xl text-3xl font-semibold tracking-tight text-balance text-fg md:text-5xl">
+      What are the best Netlify alternatives<span class="text-warning">?</span>
+    </h1>
+  </section>
+
+  <article class="mx-auto mt-12 max-w-3xl px-4 text-left">
+    <Prose>
+      <p class="text-base md:text-lg">
+        <strong>Short answer:</strong> Coolify is an open-source Netlify alternative you run on your own server. It
+        deploys static sites from GitHub, GitLab, Bitbucket, or Gitea, creates a preview deployment for a pull request,
+        and serves your domain with automatic HTTPS. The same server can also run a server-side app and a database.
+      </p>
+    </Prose>
+
+    <div class="card mt-4 py-3 px-4">
+      <code class="block overflow-x-auto font-mono text-sm whitespace-nowrap text-fg select-all">
+        <span class="pr-2 text-fg-faint select-none">$</span>{installCommand}
+      </code>
+    </div>
+
+    <Prose class="mt-4">
+      <h2>Static sites from Git</h2>
+      <p>
+        The <a href="https://coolify.io/docs/applications/builds/static">Static build pack</a> serves HTML, CSS, and
+        JavaScript that are already in the repository, using Nginx. Set the base directory to <code>/</code> or to a
+        folder such as <code>/dist</code>.
+      </p>
+      <p>
+        If the site needs a compile step, use
+        <a href="https://coolify.io/docs/applications/builds/nixpacks/overview">Nixpacks</a> or
+        <a href="https://coolify.io/docs/applications/builds/railpack">Railpack</a>, choose static as the site type, and
+        set the publish directory to the build output.
+      </p>
+      <p>
+        Connect a public repository, a deploy key, or a Git app.
+        <a href="https://coolify.io/docs/applications/sources/overview">Sources</a>.
+        On GitHub, a GitHub App, GitHub Actions, or a webhook can
+        <a href="https://coolify.io/docs/applications/sources/github/auto-deploy">deploy when you push</a>.
+        <a href="https://coolify.io/docs/applications/sources/gitlab">GitLab</a>,
+        <a href="https://coolify.io/docs/applications/sources/bitbucket">Bitbucket</a>, and
+        <a href="https://coolify.io/docs/applications/sources/gitea">Gitea</a> are documented sources too. Install steps
+        are in the <a href="/deploy-apps-on-your-own-vps">VPS guide</a>.
+      </p>
+
+      <h2>Preview deployments</h2>
+      <p>
+        A <a href="https://coolify.io/docs/applications/deployments/preview-deployments">preview deployment</a> runs the
+        pull request or merge request apart from production. It can have its own domain and its own environment
+        variables. Coolify deletes an automatically created preview after the request is closed or merged. GitHub,
+        GitLab, Bitbucket, and Gitea are documented.
+      </p>
+      <p>
+        The default preview hostname template is <code>{"{{pr_id}}.{{domain}}"}</code>. A name such as
+        <code>123.preview.example.com</code> needs a wildcard DNS record that points at the server.
+      </p>
+
+      <h2>Custom domains and HTTPS</h2>
+      <p>
+        Point DNS at the server. Add the hostname with <code>https://</code>. Traefik or Caddy requests and renews the
+        certificate. Ports 80 and 443 must reach the proxy.
+        <a href="https://coolify.io/docs/core/networking/domains">Domains</a>.
+      </p>
+      <p>
+        Generated sslip.io test URLs stay on HTTP. Use a domain you control when you want HTTPS.
+      </p>
+
+      <h2>Apps and databases on the same server</h2>
+      <p>
+        Nixpacks, Railpack, a Dockerfile, or Compose can run a server-side app on the server you connect. You can also
+        add PostgreSQL, MySQL, MariaDB, MongoDB, Redis, Dragonfly, KeyDB, ClickHouse, or SQLite.
+        <a href="https://coolify.io/docs/databases">Databases</a>.
+        Apps on the same Docker network use the internal database URL. A new database stays on the private network
+        unless you publish it. Build servers cannot host databases.
+        <a href="https://coolify.io/docs/databases/postgresql">PostgreSQL</a>.
+        <a href="/self-host-postgres-with-backups">Postgres with backups</a>.
+      </p>
+      <p>
+        Self-hosted Coolify has no license fee (Apache-2.0). You pay for the server.
+        <a href="/cloud">Coolify Cloud</a> hosts the dashboard only, and your sites still run on your servers. See
+        <a href="/pricing">pricing</a>. Netlify's own pages are the source for Netlify facts on the
+        <a href="/compare/netlify-alternative">Netlify comparison</a>. The cost model is also on the
+        <a href="/free-heroku-alternative">free Heroku alternatives</a> page.
+      </p>
+
+      <h2>FAQ</h2>
+    </Prose>
+
+    <div class="mt-4">
+      <Faq items={faq} />
+    </div>
+
+    <section class="card mt-14 p-6 text-center">
+      <h2 class="text-xl font-semibold tracking-tight text-fg">Get started<span class="text-warning">.</span></h2>
+      <p class="mx-auto mt-2 max-w-xl text-sm text-fg-dim">
+        Install Coolify and deploy a site from Git. If you would rather not run the dashboard, Coolify Cloud hosts it.
+        Your sites stay on your servers.
+      </p>
+      <div class="mt-5 flex flex-wrap justify-center gap-3">
+        <a href="https://coolify.io/docs/applications/builds/static" class="btn btn-primary">
+          <Icon icon={Rocket} class="size-4" />
+          Deploy a static site
+        </a>
+        <a href="/pricing" class="btn btn-neutral">
+          <Icon icon={Cloud} class="size-4" />
+          Try Coolify Cloud
+        </a>
+      </div>
+    </section>
+  </article>
+</Layout>
