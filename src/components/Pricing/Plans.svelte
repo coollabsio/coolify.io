@@ -20,11 +20,12 @@
     {
       question: "Does Coolify Cloud back up my application data?",
       answer:
-        "No, only Coolify’s dashboard database is backed up. You’re responsible for backing up your app databases and storage.",
+        "No, only Coolify’s dashboard database is backed up. You’re responsible for backing up your app databases and storage. You set this up once, and the backups then run automatically.",
     },
     {
-      question: "Can I import self‑hosted configs into Coolify Cloud?",
-      answer: "No, you can’t migrate Coolify settings.",
+      question: "Can I migrate servers between Coolify instances?",
+      answer:
+        "Yes. You can migrate servers from self‑hosted Coolify to Coolify Cloud, from Coolify Cloud to self‑hosted, or between two self‑hosted instances.",
     },
     {
       question: "How often is Coolify Cloud backed up?",
@@ -111,7 +112,7 @@
   ];
 
   const segment =
-    "cursor-pointer rounded px-3 py-1 text-xs font-medium transition-colors sm:text-sm has-[:focus-visible]:outline-1 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-warning";
+    "cursor-pointer rounded px-2 py-1 transition-colors has-[:focus-visible]:outline-1 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-warning";
   const td = "px-4 py-3";
   const tdDim = "px-4 py-3 text-fg-dim";
   const tip =
@@ -172,12 +173,12 @@
             <h2 class="text-lg font-semibold tracking-tight text-fg">Cloud</h2>
           </div>
           <fieldset
-            class="inline-flex gap-0.5 rounded-md bg-white/[0.04] p-0.5 whitespace-nowrap ring-1 ring-hairline"
+            class="flex rounded-md bg-white/[0.04] p-0.5 text-xs whitespace-nowrap ring-1 ring-hairline"
           >
             <legend class="sr-only">Billing period</legend>
             <label
               class="{segment} {freq === 'monthly'
-                ? 'bg-selected text-fg'
+                ? 'bg-white/[0.09] text-fg'
                 : 'text-fg-faint hover:text-fg'}"
             >
               <input
@@ -191,7 +192,7 @@
             </label>
             <label
               class="{segment} {freq === 'yearly'
-                ? 'bg-selected text-fg'
+                ? 'bg-white/[0.09] text-fg'
                 : 'text-fg-faint hover:text-fg'}"
             >
               <input
@@ -201,7 +202,7 @@
                 value="yearly"
                 class="sr-only"
               />
-              Annually <span class="text-xs text-warning">(save 20%)</span>
+              Annually <span class="text-warning">-20%</span>
             </label>
           </fieldset>
         </div>
