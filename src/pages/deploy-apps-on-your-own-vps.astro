@@ -69,24 +69,20 @@ const faq = [
       <h2>Install</h2>
       <ol>
         <li>
-          Start with a fresh Linux server you can reach over SSH. Supported distributions are listed in the
-          <a href="https://coolify.io/docs/start-with-self-hosted">self-hosted install guide</a>.
+          Get a Linux VPS you can reach over SSH.
         </li>
         <li>
-          Run the command above as root, or with sudo. The installer adds Docker Engine when your distribution supports
-          it.
+          Run the command above as root, or with sudo
+          (<a href="https://coolify.io/docs/start-with-self-hosted">install docs</a>).
         </li>
         <li>
-          Open <code>http://&lt;your-server-ip&gt;:8000</code> and create the admin account immediately. The first
-          person to register becomes the admin.
+          Open <code>http://&lt;your-server-ip&gt;:8000</code> and create the admin account.
         </li>
         <li>
-          Back up <code>/data/coolify/source/.env</code>. You need that file to restore Coolify.
+          Connect a Git repository in the dashboard.
         </li>
         <li>
-          The <a href="https://coolify.io/docs/deploy-your-first-app">first-app guide</a> deploys
-          <code>nginx:alpine</code> on port 80, on a generated sslip.io address. You do not need a Git repo for that
-          test.
+          Deploy. Coolify builds and runs the containers and handles HTTPS.
         </li>
       </ol>
       <p>
@@ -119,10 +115,6 @@ const faq = [
 
       <h2>Push to deploy</h2>
       <ul>
-        <li>
-          Connect a public repository, a deploy key, or a GitHub App. GitLab, Bitbucket, and Gitea work too.
-          <a href="https://coolify.io/docs/applications/sources/overview">Sources</a>.
-        </li>
         <li>
           Point DNS at the server and enter the domain with <code>https://</code>. Traefik or Caddy requests and renews
           the certificate. Open ports 80 and 443.
